@@ -1,0 +1,1041 @@
+@charset "utf-8";
+
+@import './parts/variables';
+
+// 전달인자 설징이 없는 믹스인
+@mixin reset-box-model {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+@mixin reset-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// 전달인자가 설정된 믹스인
+@mixin pos($type:relative, $t:null, $l:null, $b:null, $r:null) {
+    position: $type;
+    top: $t;
+    left: $l;
+    bottom: $b;
+    right: $r;
+}
+
+@mixin size($w:null, $h:null) {
+    width: $w;
+    height: $h;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    transition: $args;
+}
+
+@mixin margin($t:null, $l:null) {
+    margin-top: $t;
+    margin-left: $l;
+}
+
+// 마이크로 클리어픽스(Micro Clearfix)
+@mixin clearfix {
+
+    &::before,
+    &::after {
+        content: '';
+        display: table;
+    }
+
+    &::after {
+        clear: both;
+    }
+
+    .lt-ie8 & {
+        zoom: 1;
+    }
+}
+
+@mixin cf {
+    position: relative;
+
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .lt-ie8 & {
+        zoom: 1;
+    }
+}
+
+// 커스텀 믹스인
+@mixin center-ab($w: null) {
+    position: absolute;
+    width: $w;
+    left: 50%;
+    margin-left: -$w/2;
+}
+
+@mixin center($w: null, $h: null) {
+    position: relative;
+    width: $w;
+    height: $h;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin center-block($w: null, $h: null) {
+    position: relative;
+    display: block;
+    width: $w;
+    height: $h;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin sizes($w: null) {
+    width: $w;
+    height: $w;
+}
+
+@mixin dp($type: inline-block) {
+    position: relative;
+    display: $type;
+}
+
+@mixin to {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin bdr($color: transparent, $wd: 1px, $type: solid) {
+    border: $wd $type $color;
+}
+
+@mixin bdr-r($tl: 4px, $tr: 4px, $bl: 4px, $br: 4px) {
+    border-radius: $tl $tr $bl $br;
+}
+
+@mixin bdr-rs($n: 4px) {
+    border-radius: $n;
+}
+
+@mixin va($type: middle) {
+    position: relative;
+    display: inline-block;
+    vertical-align: $type;
+}
+
+@mixin centerMiddle($wd: null) {
+    position: absolute;
+    width: $wd;
+    height: $wd;
+    top: 50%;
+    left: 50%;
+    margin-top: -$wd/2;
+    margin-left: -$wd/2;
+}
+
+@mixin va-box($type: middle) {
+    position: relative;
+
+    >* {
+        position: relative;
+        display: inline-block;
+        vertical-align: $type;
+    }
+}
+
+@mixin va-bef($ht: null, $fz: 16px) {
+    position: relative;
+    height: $ht;
+    font-size: 0;
+
+    >* {
+        font-size: $fz;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: $ht;
+    }
+
+}
+
+@mixin va-icon($ht: null) {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    height: $ht;
+
+    >* {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: '';
+        height: 100%;
+    }
+}
+
+@mixin flt($type: left) {
+    position: relative;
+    float: $type;
+}
+
+@mixin ht($h: null, $lh: null) {
+    height: $h;
+    line-height: $lh;
+}
+
+@mixin ap-no {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+@mixin ap-reset($bg: transparent, $bd: none) {
+    margin: 0;
+    padding: 0;
+    background-color: $bg;
+    border: $bd;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+@mixin ft($s: 13px, $c: null, $w: null, $fm: null, $lh: null) {
+    font-size: $s;
+    color: $c;
+    font-weight: $w;
+    font-family: $fm;
+    line-height: $lh;
+}
+
+@mixin ft-lh($s: 13px, $lh: 1.43) {
+    font-size: $s;
+    line-height: $lh;
+}
+
+@mixin zidx($z: 1, $type: relative) {
+    z-index: $z;
+    position: $type;
+}
+
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+@mixin fst-pt0 {
+    &:first-child {
+        padding-top: 0;
+    }
+}
+
+@mixin fst-pl0 {
+    &:first-child {
+        padding-left: 0;
+    }
+}
+
+@mixin fst-mt0 {
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+@mixin fst-ml0 {
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+@mixin linear-gradient($start, $end, $direction: bottom) {
+    background: $start;
+    /* Old browsers */
+    // background: -moz-linear-gradient(top, $top 0%, $bottom 100%);
+    /* FF3.6+ */
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $top), color-stop(100%, $bottom));
+    /* Chrome,Safari4+ */
+    // background: -webkit-linear-gradient(top, $top 0%, $bottom 100%);
+    /* Chrome10+,Safari5.1+ */
+    // background: -o-linear-gradient(top, $top 0%, $bottom 100%);
+    /* Opera 11.10+ */
+    // background: -ms-linear-gradient(top, $top 0%, $bottom 100%);
+    /* IE10+ */
+    background: linear-gradient(to $direction, $start 0%, $end 100%);
+    /* W3C */
+    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', GradientType=0);
+    /* IE6-9 */
+}
+
+@mixin custom-radio($wd: 30px, $wd2: 16px, $pd: 5px, $fz: 14px) {
+    // @include sizes($wd);
+    // height: $wd;
+    padding-left: $wd + $pd;
+    font-size: $fz;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+        height: $wd;
+        width: $wd;
+        margin-top: - ($wd / 2);
+        border: 1px solid $primary-color;
+        border-radius: 50%;
+        box-sizing: border-box;
+        background-color: #fff;
+
+        // .mdi {
+        //     color: $primary-color;
+        //     font-size: 30px;
+        //     font-weight: 300;
+        // }
+
+        // .mdi-radiobox-blank {
+        //     display: block;
+        // }
+
+        // .mdi-radiobox-marked {
+        //     display: none;
+        // }
+    }
+
+    // &:hover input~.checkmark {
+    //     background-color: #ccc;
+    // }
+
+    & input:checked~.checkmark {
+        // display: block;
+
+        // .mdi-radiobox-blank {
+        //     display: none;
+        // }
+
+        // .mdi-radiobox-marked {
+        //     display: block;
+        // }
+
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        @include centerMiddle($wd2);
+        background-color: $primary-color;
+        border-radius: 50%;
+    }
+
+    & input:checked~.checkmark:after {
+        display: block;
+    }
+
+    // & .checkmark:after {
+    //     content: '/F43E';
+    // }
+
+}
+
+@mixin custom-radio-toggle($wd: 30px, $wd2: 16px, $pd: 5px, $fz: 14px) {
+    // @include sizes($wd);
+    // height: $wd;
+    padding-left: $wd + $pd;
+    font-size: $fz;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+        height: $wd;
+        width: $wd;
+        margin-top: - ($wd / 2);
+        border: 1px solid $btn-black;
+        border-radius: 50%;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+    & input:checked~.checkmark {
+        border: 1px solid $primary-color;
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        @include centerMiddle($wd2);
+        background-color: $primary-color;
+        border-radius: 50%;
+    }
+
+    & input:checked~.checkmark:after {
+        display: block;
+    }
+
+}
+
+@mixin custom-checkbox($wd: 20px, $pd: 5px, $fz: 14px) {
+    // @include sizes($wd);
+    // height: $wd;
+    padding-left: $wd + $pd;
+    font-size: $fz;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        height: $wd;
+        width: $wd;
+        border: 1px solid $primary-color;
+        box-sizing: border-box;
+        background-color: #fff;
+        text-align: center;
+
+
+        .mdi {
+            display: none;
+            @include pos(relative, 1px);
+            font-size: 14px;
+            color: $primary-color;
+            line-height: 1;
+        }
+
+    }
+
+    // &:hover input~.checkmark {
+    //     background-color: #ccc;
+    // }
+
+    & input:checked+.checkmark {
+        .mdi {
+            display: block;
+        }
+
+        // .mdi-radiobox-blank {
+        //     display: none;
+        // }
+
+        // .mdi-radiobox-marked {
+        //     display: block;
+        // }
+
+    }
+
+}
+
+@mixin custom-select($w: 100%, $h: 40px) {
+    position: relative;
+    width: $w;
+    height: $h;
+    background-color: #fff;
+
+    &:before {
+        content: '\F140';
+        font-family: "Material Design Icons";
+        display: inline-block;
+        position: absolute;
+        right: 15px;
+        height: 100%;
+        font-size: 22px;
+        line-height: $h;
+        pointer-events: none;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        @include sizes(100%);
+        @include pos(absolute, 0, 0);
+        border: 1px solid #bfbfbf;
+        box-sizing: border-box;
+        pointer-events: none;
+    }
+
+    select {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-size: 14px;
+        appearance: button;
+        outline: none;
+        background: none;
+        padding-left: 20px;
+
+        &::-ms-expand {
+            display: none;
+        }
+
+    }
+}
+
+@mixin tbl-base-xs {
+    width: 100%;
+    font-size: 12.5px;
+
+    th,
+    td {
+        border: 1px solid #4c4c4c;
+        text-align: center;
+        height: 30px;
+        vertical-align: middle;
+
+        .cell {
+            padding: 3px 7px;
+        }
+    }
+
+    th {
+        background-color: #ebebeb;
+    }
+
+    td {
+        background-color: #fff;
+    }
+}
+
+@mixin tbl-base {
+    width: 100%;
+
+    th,
+    td {
+        border: 1px solid #4c4c4c;
+        text-align: center;
+        height: 36px;
+        vertical-align: middle;
+
+        .cell {
+            padding: 3px 7px;
+        }
+    }
+
+    th {
+        background-color: #ebebeb;
+    }
+
+    td {
+        background-color: #fff;
+    }
+}
+
+@mixin form-base($wd: 100%, $ht: 46px, $pd: 6px 12px) {
+    position: relative;
+    display: inline-block;
+    width: $wd;
+    height: $ht;
+    padding: $pd;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.42857143;
+    // color: #555;
+    color: $font-color;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    // -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    // box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    // -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    // -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    // transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+    &::placeholder {
+        color: #bfbfbf;
+        font-weight: 300;
+    }
+
+    &[disabled],
+    &[readonly] {
+        background: #f9f8f8;
+        color: #676767;
+    }
+}
+
+@mixin slt-base($wd: 100%, $ht: 46px, $pd: 6px 12px) {
+    display: block;
+    width: $wd;
+    height: $ht;
+    padding: $pd;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    // -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    // box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    // -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    // -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    // transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+    &[disabled],
+    &[readonly] {
+        background: #d2d2d2;
+        color: #808080;
+    }
+}
+
+@mixin btn-base($wd: auto, $ht: auto, $pd: 6px 12px, $bdr-c: transparent) {
+    display: inline-block;
+    font-family: $font-stack;
+    width: $wd;
+    height: $ht;
+    padding: $pd;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid $bdr-c;
+    border-radius: 4px;
+
+    &[disabled],
+    &[disabled]:hover {
+        background: #aaa;
+        border-color: #ccc;
+        color: #fff;
+        cursor: default;
+    }
+}
+
+// button 
+@mixin btn-outline-color($c: null) {
+    background-color: #fff;
+    border-color: $c;
+    color: $c;
+
+    &:hover {
+        background-color: darken(#fff, 5%);
+        border-color: darken($c, 15%);
+    }
+
+    & .badge {
+        background-color: $c;
+        color: #fff;
+    }
+}
+
+@mixin btn-color($c: null) {
+    background-color: $c;
+    border-color: darken($c, 10%);
+
+    &:not(.outline):hover {
+        background-color: darken($c, 5%);
+        border-color: darken($c, 5%);
+        // border-color: darken($c, 15%);
+    }
+
+    &:not(.btn-default):not(.outline) .badge {
+        background-color: #fff;
+        color: $c;
+    }
+
+    &.btn-default .badge {
+        background-color: darken($c, 50%);
+        color: #fff;
+    }
+
+    &.outline-no {
+        border-color: $c;
+    }
+
+    &.outline {
+        background-color: #fff;
+        border-color: $c;
+        color: $c;
+
+        &:hover {
+            background-color: darken(#fff, 5%);
+            border-color: darken($c, 15%);
+        }
+
+        .badge {
+            background-color: $c;
+            color: #fff;
+        }
+    }
+
+    &.outline-bgno {
+        background-color: transparent;
+        border-color: $c;
+        color: $c;
+
+        &:hover {
+            background-color: inherit;
+            border-color: inherit;
+        }
+    }
+}
+
+@mixin btn-size($pd: null, $fz: null) {
+    padding: $pd;
+    font-size: $fz;
+}
+
+@mixin btn-xs {
+    padding: $btn-xs-pd;
+    font-size: $btn-xs-fz;
+    line-height: $btn-xs-lh;
+}
+
+@mixin btn-sm {
+    padding: $btn-sm-pd;
+    font-size: $btn-sm-fz;
+    line-height: $btn-sm-lh;
+}
+
+@mixin btn-md {
+    padding: $btn-md-pd;
+    font-size: $btn-md-fz;
+}
+
+@mixin btn-lg {
+    padding: $btn-lg-pd;
+    font-size: $btn-lg-fz;
+}
+
+@mixin contrast-bg($c) {
+    color: #fff;
+    background-color: $c;
+}
+
+@mixin contrast-color($c) {
+    color: $c;
+    background-color: #fff;
+}
+
+@mixin simple-btn($ht: 30px, $pd: null, $fz: null) {
+    display: inline-block;
+    height: $ht;
+    line-height: $ht;
+    padding: $pd;
+    font-size: $fz;
+}
+
+@mixin simple-badge($ht: 30px) {
+    display: inline-block;
+    width: $ht;
+    height: $ht;
+    line-height: $ht;
+}
+
+@mixin p0-w100($type: absolute) {
+    position: $type;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// $screen-lg-width		: 1200px;
+// $screen-md-width		: 992px;
+// $screen-sm-width		: 768px;
+// $screen-xxs-width		: 320px;
+
+// mobile & tablet sm-and-down
+@mixin screen-sm-and-down {
+    @media (max-width: #{$screen-md-width - 1}) {
+        @content;
+    }
+}
+
+// mobile xs
+@mixin screen-xs {
+    @media (max-width: #{$screen-sm-width - 1}) {
+        @content;
+    }
+}
+
+// mobile xxs
+@mixin screen-xxs {
+    @media (max-width: #{$screen-xxs-width}) {
+        @content;
+    }
+}
+
+// table sm
+@mixin screen-sm {
+    @media (min-width: #{$screen-sm-width}) and (max-width: #{$screen-md-width - 1}) {
+        @content;
+    }
+}
+
+// pc md & lg md-and-up
+@mixin screen-md-and-up {
+    @media (min-width: #{$screen-md-width}) {
+        @content;
+    }
+}
+
+// pc md
+@mixin screen-md {
+    @media (min-width: #{$screen-md-width}) and (max-width: #{$screen-lg-width - 1}) {
+        @content;
+    }
+}
+
+// pc lg
+@mixin screen-lg {
+    @media (min-width: #{$screen-lg-width}) {
+        @content;
+    }
+}
+
+// max-width
+@mixin screen-max($w: null) {
+    @media (max-width: #{$w}) {
+        @content;
+    }
+}
+
+// min-width
+@mixin screen-min($w: null) {
+    @media (min-width: #{$w}) {
+        @content;
+    }
+}
+
+// min-max
+@mixin screen-min-max($w: null, $w2: null) {
+    @media (min-width: #{$w}) and (max-width: #{$w2}) {
+        @content;
+    }
+}
+
+@mixin media($queryString) {
+    @media #{$queryString} {
+        @content;
+    }
+}
+
+@mixin line($w: 50%, $h: 100%) {
+    position: relative;
+    display: block;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: $w;
+        height: $h;
+    }
+
+    &:before {
+        left: 0;
+        background-color: #74b02f;
+    }
+
+    &:after {
+        right: 0;
+        background-color: #f4c720;
+    }
+}
+
+@mixin won-middle($wd: 40px, $bg: #fff) {
+    @include sizes($wd);
+    @include pos(absolute, 50%);
+    margin-top: -$wd/2;
+    background-color: $bg;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+@mixin arr($wd: 8px, $deg: -45deg, $bdc: #000) {
+    @include dp;
+    @include sizes($wd);
+    border: 2px solid $bdc;
+    transform: rotate($deg);
+    border-left: none;
+    border-bottom: none;
+}
+
+// custom ui
+@mixin comm-title-xs {
+    .sm {
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .line {
+        @include size(54px, 3px);
+        @include line;
+        margin: 7px 0 8px;
+    }
+
+    .big {
+        @include ft(22px, null);
+        letter-spacing: -2px;
+    }
+}
+
+@mixin comm-text-xs {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.8;
+    word-break: keep-all;
+    letter-spacing: -0.7px;
+}
+
+@mixin comm-title {
+    .sm {
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    .line {
+        @include size(94px, 4px);
+        @include line;
+        margin: 15px 0;
+    }
+
+    .big {
+        @include ft(46px, null);
+        letter-spacing: -4px;
+    }
+}
+
+@mixin comm-text {
+    margin-top: 15px;
+    line-height: 1.8;
+    word-break: keep-all;
+    letter-spacing: -1px;
+}
+
+@mixin dot-square-xs($lh: 1.5, $t: 5px) {
+    position: relative;
+    line-height: $lh;
+    padding-left: 10px;
+
+    &:before {
+        content: '';
+        @include pos(absolute, $t, 0);
+        display: inline-block;
+        @include sizes(7px);
+        background-color: #474747;
+    }
+}
+
+@mixin dot-square($pl: 15px, $s: 10px, $lh: 1.3, $t: 4px, $mt: 5px, $bgc: #474747) {
+    position: relative;
+    margin-top: $mt;
+    line-height: $lh;
+    padding-left: $pl;
+
+    &:before {
+        content: '';
+        @include pos(absolute, $t, 0);
+        display: inline-block;
+        @include sizes($s);
+        background-color: $bgc;
+    }
+}
+
+@mixin dot-custom($pl: 15px, $lh: 1.3, $t: 4px, $mt: 5px) {
+    position: relative;
+    margin-top: $mt;
+    line-height: $lh;
+    padding-left: $pl;
+
+    &:before {
+        content: '';
+        @include pos(absolute, $t, 0);
+        display: inline-block;
+    }
+}
+
+
+@mixin num-row($p: 26px) {
+    position: relative;
+    margin-top: 5px;
+    line-height: 1.3;
+    padding-left: $p;
+
+    .dot-num {
+        @include pos(absolute, null, 0);
+        display: inline-block;
+    }
+}
+
+@mixin dot-type-1() {
+    position: relative;
+    margin-top: 8px;
+    padding-left: 12px;
+    word-break: break-all;
+    letter-spacing: -0.3px;
+    line-height: 1.5;
+
+    .dot {
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        left: -5px;
+        line-height: 1;
+        font-size: 20px;
+        font-weight: 700;
+        vertical-align: middle;
+    }
+}

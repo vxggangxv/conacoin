@@ -1,0 +1,88 @@
+/*-bxSlider 재정의-*/
+.bx-wrapper,
+.bx-wrapper .bx-viewport {
+    position: relative;
+    margin: 0 auto;
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+
+// .bx-controls {
+//     display: none;
+// }
+
+/*
+.bx-wrapper .bx-controls-direction {position: absolute; width: 100%; width: 100%; left: 0; top: 50%; margin-top: -22.5px;}
+.bx-wrapper .bx-controls-direction a {display: block;}
+.bx-wrapper .bx-controls-direction a {background: none; width: 45px; height: 45px; top: 0; margin-top: 0; z-index: 1;}
+.bx-wrapper .bx-prev {left: 20px;}
+.bx-wrapper .bx-next {right: 20px;}
+.bx-wrapper .bx-controls-direction,
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto,
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {display: none;}
+*/
+
+// .bx-wrapper .bx-prev {left: -50px;}
+// .bx-wrapper .bx-next {right: -50px;}
+
+/* 메인 슬라이더 */
+.visual-container .bx-wrapper .bx-controls-direction {
+    display: none;
+}
+
+.visual-container .bx-wrapper .bx-controls-auto,
+.visual-container .bx-wrapper .bx-pager {
+    width: 100%;
+    bottom: 70px;
+    text-align: center;
+}
+
+.visual-container .bx-wrapper .bx-pager.bx-default-pager a {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #313131;
+    box-sizing: border-box;
+    margin: 0 2px;
+    // width: 16px; height: 16px; background: #fff; border-radius: 8px;
+    // transition: width 0.3s; -webkit-transition: width 0.3s;
+}
+
+.visual-container .bx-wrapper .bx-pager.bx-default-pager .bx-pager-item:first-child a {}
+
+.visual-container .bx-wrapper .bx-pager.bx-default-pager a:hover,
+.visual-container .bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: #f4c720;
+}
+
+// .visual-container .bx-wrapper .bx-pager.bx-default-pager a.active {width: 50px;}
+
+@media (max-width: 991px) {
+    .visual-container .bx-wrapper .bx-pager {
+        bottom: 15px;
+    }
+
+    .visual-container .bx-wrapper .bx-pager.bx-default-pager a {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* .bx-wrapper .bx-controls-direction a {width: 12px; height: auto; top: 114px;}
+    .bx-wrapper .bx-controls-direction a img {width: 100%;}
+    .bx-wrapper .bx-prev {left: -10px;}
+    .bx-wrapper .bx-next {right: -10px;} */
+}
+
+@media (min-width: 992px) and (max-width: 1099px) {
+    // .visual-container .bx-wrapper .bx-pager, 
+    // .visual-container .bx-wrapper .bx-controls-auto {left: auto; margin-left: auto;}
+}
+
+/* swiper 재정의 */
+.swiper-container {
+    z-index: auto !important;
+}
