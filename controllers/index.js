@@ -1,9 +1,10 @@
 const {
-  Router
+    Router
 } = require('express');
 const router = Router()
 
 router.use('/', require('./home'));
+router.use('/', require('./inquiry'));
 // router.use('/admin', require('./admin'));
 // router.use('/auth', require('./auth'));
 // router.use('/chat', require('./chat'));
