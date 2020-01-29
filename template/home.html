@@ -3,294 +3,92 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    메인
+    <section class="sec main-visual-sec">
+        <h1 class="sr-only">코나코인 소개</h1>
+        <div class="visual-wrapper">
+            <div class="visual-content">
+                <div class="visual-list">
+                    <div class="visual-item">
+                        <div class="visual-title">
+                            <div class="title-wrapper">
+                                {# <img src="/assets/img/common/sbt_yellow.png" alt="SBT" class="logo"> #}
+                                <div class="wayp-item">
+                                    {# <img src="/assets/img/main/visual_title.png" alt="sun block terminal" class="title hidden-sm-and-down">
+                                    <img src="/assets/img/m/main/visual_title.png" alt="sun block terminal" class="title hidden-md-and-up"> #}
+                                    <p class="title ff-jfss">“ World's first ”</p>
+                                    <p class="st" data-langtarget="visualSubtitle">
+                                        <span class="big">펀드레이징 커뮤니티 플랫폼</span>
+                                        <span class="small">Cryptocurrency Offering New Alternative</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-actions cf hidden-sm-and-down">
+                            <button type="button" class="btn lg sign-up-btn" data-toggle="modal" data-target="sign-up-modal" data-langtarget="visualJoin">문의하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.sec.main-visual-sec -->
+
     {# <section class="sec main-visual-sec">
         <div class="visual-wrapper">
-            <div class="visual-content-wrapper">
-                <div class="visual-title-wrapper">
-                    <h1 id="visualTitle" class="visual-title blind">
-                        <span class="big">든든한 오피스 파트너<br class="hidden-md-and-up">
-                            <span class="c-white tt-up">bizberry office</span></span>
-                        <span class="sm">성공을 위한 기본적인 서비스를 지원해 드리고 있는<br class="hidden-md-and-up">
-                            비즈베리 오피스에 오신것을 환영합니다.</span>
+            <div class="visual-content">
+                <div class="visual-title">
+                    <h1 class="title-wrapper">
+                        <img src="/assets/img/common/sbt_yellow.png" alt="SBT" class="logo">
+                        <div class="wayp-item">
+                            <img src="/assets/img/main/visual_title.png" alt="sun block terminal" class="title hidden-sm-and-down">
+                            <img src="/assets/img/m/main/visual_title.png" alt="sun block terminal" class="title hidden-md-and-up">
+                            <p class="st" data-langtarget="visualSubtitle">SBT is building up a cryptocurrency that<br>can be used anywhere in the world.</p>
+                        </div>
                     </h1>
                 </div>
-
-                <div id="visualActions" class="visual-actions cf">
-                    <div class="action-wrapper">
-                        <div class="action-content non-res-office">
-                            <button type="button" class="ap-reset unfold-btn">
-                                <span class="sic-arr-up"></span></button>
-                            <div class="action-title-wrapper">
-                                <span class="st tt-up">non-resident office</span>
-                                <h3 class="title">비상주 오피스</h3>
-                            </div>
-                            <div class="action-text-wrapper">
-                                <ul class="text-list">
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        사업자 주소를 강남에 두고 영업하실 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        전자상거래 업무가 많은 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        오프라인 보다 온라인 활동이 많은 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        대외적으로 외부 업무가 많은 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        국내 사업자등록이 필요하시는 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        투잡/프리랜서 사업자등록이 필요하신 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        회의실/업무공간/카페테리아/OA실
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        유, 무선인터넷 무료제공
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">&middot;</span>
-                                        우편물/택배수화물/퀵서비스 수신,발신
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="action-link-wrapper">
-                                <a href="" class="action-link cf">
-                                    <span class="lbl">바로 신청하기</span>
-                                    <span class="ico-wrapper"><img src="/assets/img/common/icon/icon_pen.png" alt="작성하기" class="ico"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="action-wrapper">
-                        <div class="action-content public-office">
-                            <button type="button" class="ap-reset unfold-btn">
-                                <span class="sic-arr-up"></span></button>
-                            <div class="action-title-wrapper">
-                                <span class="st tt-up">public office</span>
-                                <h3 class="title">코워킹 스페이스</h3>
-                            </div>
-                            <div class="action-text-wrapper">
-                                <ul class="text-list">
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        업무 효율을 올리는 공간이 필요한 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        자신만의 영역을 구축해 나가는 프리랜서
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        소자본 창업을 준비하는 예비 창업자
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        사람들과 지식과 정보를 공유하자고 하는 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        자신의 꿈을 펼칠 장소가 필요한 경우
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        자유롭게 자리 선택 후 이용 가능
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        카페테리아/와이파이/유선 GIGA 인터넷
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        OA실/팩스/프린터/스캐너/복합기
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        지문인식 및 출입카드
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        회의실 월 10시간 무료제공-예약필수
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        비상주오피스 계약시 임대료 할인 혜택 제공
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        단기 및 장기주차 서비스제공(유료)
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        복사 및 프린터 월 30장 무료제공(흑백)
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="action-link-wrapper">
-                                <a href="" class="action-link cf">
-                                    <span class="lbl">바로 신청하기</span>
-                                    <span class="ico-wrapper"><img src="/assets/img/common/icon/icon_pen.png" alt="작성하기" class="ico"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="action-wrapper">
-                        <div class="action-content res-office">
-                            <button type="button" class="ap-reset unfold-btn">
-                                <span class="sic-arr-up"></span></button>
-                            <div class="action-title-wrapper">
-                                <span class="st tt-up">resident office</span>
-                                <h3 class="title">상주 오피스</h3>
-                            </div>
-                            <div class="action-text-wrapper">
-                                <ul class="text-list">
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        24시간 365일 자유롭게 출입가능
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        1인실/다인실등 다양한 독립된 사무실
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        최신시설의 풀옵션 사무집기 제공
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        커피/음료/전기/수도/관리비 전액무료
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        유/무선 GIGA급 빠른 인터넷 서비스
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        우편물/택배수화물/퀵서비스 수신,발신
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        OA실 사용(팩스,프린터,스케너,복합기)
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        독립방 개별 지문인식 자동 도어락 시스템
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        모든 시설의 이용 및 주차서비스(유료)
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        최고급 시설에 쾌적한 냉난방 독립적 운영
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        Beam Project/PC 스마트TV화면
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        복사 및 프린터 월 50장 무료제공(흑백)
-                                    </li>
-                                    <li class="dot-type-1">
-                                        <span class="dot">·</span>
-                                        회의실 월 10시간 무료제공-사전예약
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="action-link-wrapper">
-                                <a href="" class="action-link cf">
-                                    <span class="lbl">바로 신청하기</span>
-                                    <span class="ico-wrapper"><img src="/assets/img/common/icon/icon_pen.png" alt="작성하기" class="ico"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="visual-actions cf hidden-sm-and-down">
+                    <button type="button" class="btn lg sign-up-btn" data-toggle="modal" data-target="sign-up-modal" data-langtarget="visualJoin">가입하기
+                        <span class="sic">
+                            <span class="arr arr-rt"></span></span></button>
                 </div>
             </div>
         </div>
     </section> #}
     <!-- /.sec.main-visual-sec -->
 
-    {# <section id="scroll_about" class="sec main-about-sec">
-        <h1 class="sr-only">비즈베리 소개</h1>
+    {# <section id="about" class="sec main-about-sec">
         <div class="about-wrapper">
-            <div class="kind-content-wrapper group">
-                <a href="/order/cowork.html" class="kind-content coworking">
-                    <div class="kind-title-wrapper">
-                        <span class="lbl">코워킹 스페이스</span>
-                        <span class="ico"><img src="/assets/img/common/icon/icon_post.png" alt="더보기"></span>
+            <div class="about-content group-f">
+                <div class="col about-desc-wrapper wayp-item-left">
+                    <div class="about-title comm-title">
+                        <h1 class="title">WE ARE SBT</h1>
+                        <p class="st" data-langtarget="aboutSubtitle">" 우리는 신뢰를 통해 서비스를 제공합니다. "</p>
                     </div>
-                </a>
-                <a href="/order/custom.html" class="kind-content office">
-                    <div class="kind-title-wrapper">
-                        <span class="lbl">커스텀 오피스</span>
-                        <span class="ico"><img src="/assets/img/common/icon/icon_post.png" alt="더보기"></span>
-                    </div>
-                </a>
-                <a href="/order/office.html" class="kind-content oneday">
-                    <div class="kind-title-wrapper">
-                        <span class="lbl">원데이 패스</span>
-                        <span class="ico"><img src="/assets/img/common/icon/icon_post.png" alt="더보기"></span>
-                    </div>
-                </a>
-                <a href="/order/office.html" class="kind-content meeting">
-                    <div class="kind-title-wrapper">
-                        <span class="lbl">회의실</span>
-                        <span class="ico"><img src="/assets/img/common/icon/icon_post.png" alt="더보기"></span>
-                    </div>
-                </a>
-            </div>
-            <div class="about-content-wrapper group">
-                <div class="col about-content wayp-item">
-                    <h2 class="about-title">비즈베리오피스는 당신의
-                        <span class="c-primary fw-b">든든한 파트너</span>입니다.</h2>
-                    <div class="about-text">
-                        <p class="text">
-                            <span class="c-primary fw-b">"비즈베리오피스"</span>
-                            에 방문해주신 여러분을 환영합니다.
+                    <div class="about-text comm-text">
+                        <p class="text" data-langtarget="aboutText1">
+                            SBT 플랫폼과 Sunblockpay cryptocurrency의 주요 목표는<br class="hidden-sm-and-down">
+                            블록 체인을 기반으로하는 인센티브, 분산 플랫폼을 만들어<br class="hidden-sm-and-down">
+                            온라인 결제 산업의 확장에 따른<br class="hidden-sm-and-down">
+                            수많은 고유 문제를 해결하는 것입니다.<br class="hidden-sm-and-down">
+                            우리의 목표는 사용자의 위험과 비용을 줄이면서<br class="hidden-sm-and-down">
+                            온라인 결제 프로세스를보다 쉽게 ​​만드는 것입니다.
                         </p>
-                        <p class="text">
-                            창업을 원하는 소호인들에게는 아직도 공간과 정보 인프라는 미흡한게 현실입니다. 4차 산업과 5차 산업혁명의 5G 시대에 접어들면서 소규모 스타트업 기업들을 중심으로 공유오피스가 빠르게 성장하고 있습니다.
-                        </p>
-                        <p class="text">
-                            <span class="c-primary fw-b">"비즈베리오피스"</span>는 최소의 비용과 최적의 공간과 최고의 입지여건으로 강남구 테헤란로 중심인 선릉역 4번축구 바로앞(10초)에 위치하고 있으며 지하철 2호선, 분당선이 환승하는 복합역사로써 입주 회원사들이 반드시 성공할 수 있도록 최고의 파트너가 되도록 노력하겠습니다.
-                        </p>
-                        <p class="text">
-                            <em>영업시간</em><br>
-                            입주 고객과 회원사는 24시간 265일 연중 이용이 가능합니다.<br>
-                            안내 데스크 및 상주인원은 매주 월 ~ 금요일 09:00 ~ 18:00까지 운영하고 있으며 주휴일과 공휴일에는 안내 데스크를 운영하지 않습니다.<br>
-                            (점심시간 12:30 ~ 13:30)
-                        </p>
-                        <p class="text">
-                            <em>주휴일과 공휴일</em><br>
-                            주휴일 및 공휴일은 정문 지문인식 출입과 개별호실(독립사무실)은 지문인식 또는 디지털 자동도어락으로 관리하고 있어 연중 출입하여 편하게 업무를 보실 수 있습니다.
-                        </p>
-                        <p class="text">
-                            <em>문의사항</em><br>
-                            이메일, 전화등을 통하여 관련 문의를 하실 수 있습니다.<br>
-                            Email. info@bizberry.co.kr<br>
-                            Tel. 02-557-5088<br>
+                        <p class="text" data-langtarget="aboutText2">
+                            Sunblockpay (SBP)는 블록 체인 기술을 사용하는 탈 중앙화<br class="hidden-sm-and-down">
+                            암호 화폐이며 타사 기관이나 중앙 당국에 의해 통제되지 않습니다.<br class="hidden-sm-and-down">
+                            Sunblockpay는 호텔 숙박, 항공편, 교통편, 영화관, 여행 투어<br class="hidden-sm-and-down">
+                            휴대 전화의 안락함에서 이루어질 수 있는 추가 여행 서비스를<br class="hidden-sm-and-down">
+                            포함한 모든 온라인 예약 서비스에서 사용할 수 있습니다.
                         </p>
                     </div>
                 </div>
-                <div class="col about-picture wayp-item hidden-sm-and-down">
-                    <img src="/assets/img/main/desk_human.jpg" alt="작업사진">
+                <div class="col about-picture-wrapper">
+                    <div class="about-picture">
+                        <img src="/assets/img/main/about_bg.png" alt="작업공간">
+                    </div>
                 </div>
             </div>
         </div>
     </section> #}
-    <!-- /.sec main-about-sec -->
+    <!-- /.main-about-sec -->
 {% endblock %}

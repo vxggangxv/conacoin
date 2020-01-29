@@ -1,13 +1,15 @@
+@charset "utf-8";
+
+@import './parts/variables';
+@import './parts/mixins';
+
 .show-sm-and-down,
 .show-xs,
 .show-xxs,
 .show-sm,
 .show-md-and-up,
 .show-md,
-.show-lg-and-up,
-.show-lg,
-.show-xl,
-.show-xl-and-down {
+.show-lg {
     display: none !important;
 }
 
@@ -71,42 +73,12 @@
     }
 }
 
-@media (min-width: 1000px) {
-    .hidden-lg-and-up {
-        display: none !important;
-    }
-
-    .show-lg-and-up {
-        display: block !important;
-    }
-}
-
-@media (min-width: 1000px) and (max-width: 1419px) {
+@media (min-width: $screen-lg-width) {
     .hidden-lg {
         display: none !important;
     }
 
     .show-lg {
-        display: block !important;
-    }
-}
-
-@media (max-width: 1419px) {
-    .hidden-xl-and-down {
-        display: none !important;
-    }
-
-    .show-xl-and-down {
-        display: block !important;
-    }
-}
-
-@media (min-width: 1360px) {
-    .hidden-xl {
-        display: none !important;
-    }
-
-    .show-xl {
         display: block !important;
     }
 }

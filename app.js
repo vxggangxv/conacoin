@@ -20,21 +20,24 @@ const db = require("./models");
 // const client = require('./config/redis');
 // const RedisStore = require('connect-redis')(session);
 
-db.sequelize.authenticate()
-    .then(() => {
-        console.log('Connection has been established successfully.');
-        // TODO 서버가 뜰 때, DB 테이블 자동으로 생성해줌
-        // return db.sequelize.sync();
-        // return db.sequelize.drop();
-    })
-    .then(() => {
-        console.log('DB Sync complete.');
-        // 더미 데이터가 필요하면 아래 설정
-        // require('./config/insertDummyData')();
-    })
-    .catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
+function dbConnection() {
+    db.sequelize.authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully.');
+            // TODO 서버가 뜰 때, DB 테이블 자동으로 생성해줌
+            // return db.sequelize.sync();
+            // return db.sequelize.drop();
+        })
+        .then(() => {
+            console.log('DB Sync complete.');
+            // 더미 데이터가 필요하면 아래 설정
+            // require('./config/insertDummyData')();
+        })
+        .catch(err => {
+            console.error('Unable to connect to the database:', err);
+        });
+}
+// dbConnection();
 
 var app = express();
 
@@ -65,7 +68,8 @@ app.use('/stylesheets',
         dest: path.join(__dirname, "public/stylesheets"),
         indentedSyntax: false, // true = .sass and false = .scss
         sourceMap: true,
-        outputStyle: 'compact'
+        outputStyle: 'compact',
+        debug: false
     })
 );
 app.use(express.static(path.join(__dirname, "public")));
@@ -81,9 +85,9 @@ const sessionMiddleWare = session({
         maxAge: 2000 * 60 * 60 //지속시간 2시간
     },
     // store: new RedisStore({client}),
-    store: new SequelizeStore({
-        db: db.sequelize
-    })
+    // store: new SequelizeStore({
+    //     db: db.sequelize
+    // })
 });
 app.use(sessionMiddleWare);
 //passport 적용

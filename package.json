@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
-    "dev": "set NODE_ENV=development && nodemon -e js,html app.js",
+    "dev": "set NODE_ENV=development && nodemon -e scss,js,html app.js",
     "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.scss, **/*.html, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
   },
   "dependencies": {

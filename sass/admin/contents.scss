@@ -1,0 +1,288 @@
+@charset "utf-8";
+
+@import '../parts/variables';
+@import '../parts/mixins';
+
+@import url('/assets/fonts/notosanskr/notosanskr.css');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600&display=swap');
+
+a,
+a:hover,
+a:focus {
+    // color: $font-color !important;
+    // color: inherit !important;
+}
+
+body {
+    font-family: $font-stack;
+    font-display: swap;
+    // letter-spacing: -0.3px;
+    color: $font-color;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.ft-ntss {
+    font-family: $font-ntss;
+}
+
+.ft-jfss {
+    font-family: $font-jfss;
+}
+
+.admin-toolbar,
+.header,
+.container,
+.footer {
+    position: relative;
+}
+
+.container[role=main] {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container {
+    max-width: 100%;
+}
+
+#adminPage {
+    // min-width: 1780px;
+}
+
+$header-ht: 50px;
+// $sidebar-wd: 280px;
+$sidebar-wd: 10%;
+
+body:not(#loginPage) main {
+    // padding-top: $header-ht;
+    // padding-left: $sidebar-wd;
+
+}
+
+$zindex-fixed: 1030;
+$zindex-sticky: 1020;
+$positions: (relative, absolute, fixed, sticky);
+
+// Common values
+@each $position in $positions {
+    .position-#{$position} {
+        position: $position !important;
+    }
+}
+
+// Shorthand
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+}
+
+.fixed-bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+}
+
+.sticky-top {
+    @supports (position: sticky) {
+        position: sticky;
+        top: 0;
+        z-index: $zindex-sticky;
+    }
+}
+
+#signinPage {
+    background-color: #f9f9f9;
+
+}
+
+.signin-sec {
+    @include pos(absolute, 0, 0);
+    @include sizes(100%);
+
+
+    .container,
+    .container-fluid {
+        height: 100%;
+
+        .align-items-center {
+            height: 100%;
+        }
+    }
+
+    .signin-wrapper {
+        height: 100%;
+
+        .signin-content {
+            .signin-title {
+                margin-top: -44px;
+                font-family: $font-jfss;
+                font-weight: 700;
+            }
+
+            .signin-form-wrapper {
+                @include center;
+                max-width: 320px;
+                padding: 20px;
+                background-color: #fff;
+                border: 1px solid #d8dee2;
+                border-radius: 4px;
+
+                .form-group {
+                    .form-label {
+                        font-size: 14px;
+                    }
+
+                    .form-control {
+                        font-size: 14px;
+
+                        &::placeholder {
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+$admin-min-width: 1550px;
+
+#adminPage {
+    // background-color: #fafafa;
+    background-color: #FAFBFE;
+    min-width: $admin-min-width;
+}
+
+.admin-toolbar .navbar-brand,
+.admin-sidebar {
+    // min-width: calc(#{$admin-min-width} / 10);
+    min-width: $admin-min-width / 10;
+}
+
+.admin-toolbar {
+    z-index: 10;
+    height: $header-ht;
+    background-color: #fff;
+    color: #98a6ad;
+
+    .navbar-brand {
+        width: 10%;
+        // padding-left: 16px;
+
+        // &,
+        // &:hover
+        // &:hover {
+        //     color: #98a6ad;
+        // }
+    }
+
+    .app-title {
+        display: flex;
+        width: 80%;
+        padding: 0 15px;
+
+        .app-search {
+            // margin-left: 10px;
+
+            span {
+                position: absolute;
+                z-index: 10;
+                font-size: 20px;
+                line-height: 38px;
+                left: 10px;
+            }
+
+            .form-control {
+                border: none;
+                height: 38px;
+                padding-left: 40px;
+                padding-right: 20px;
+                background-color: #f1f3fa;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .navbar-nav {
+        width: 10%;
+
+        .nav-item {
+            .nav-link {
+                color: #98a6ad;
+            }
+        }
+    }
+}
+
+.admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $sidebar-wd;
+    height: 100%;
+    z-index: 9;
+    padding: $header-ht 0 0;
+    // background-color: #fff;
+    background-color: #313A46;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+
+    .sidebar-sticky {
+        position: relative;
+        top: 0;
+        // height: calc(100vh - $header-ht);
+        padding-top: 1rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        .nav {
+            .nav-item {
+                .nav-link {
+                    color: #fff;
+                    @include va-bef(30px);
+
+                    .mdi {
+                        font-size: 24px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-container {
+    position: relative;
+    padding-top: $header-ht;
+    margin-left: $sidebar-wd;
+    width: calc(100% - #{$sidebar-wd});
+    min-height: 100%;
+    box-sizing: border-box;
+    // padding-left: 16px;
+    background-color: #FAFBFE;
+}
+
+.user-sec {
+    .user-tbl-wrapper {
+        padding: 30px 15px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, .1);
+
+        .table {
+
+            th,
+            td {}
+        }
+    }
+}

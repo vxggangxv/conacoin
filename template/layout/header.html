@@ -1,10 +1,9 @@
 <header id="header" class="header">
     <div id="gnb" class="gnb">
-        <div class="gnb-area">
-            <h1 id="logo-cover" class="logo-cover">
+        <div class="group-f gnb-area">
+            <h1 id="logo-cover" class="logo-cover hidden-sm-and-down">
                 <a href="/" class="logo">
-                    <img src="/assets/img/common/logo_img.png" alt="랜비즈오피스" class="logo-img hidden-sm-and-down">
-                    <img src="/assets/img/common/logo_text.png" alt="랜비즈오피스" class="logo-text">
+                    <img src="/images/common/logo.png" alt="선블럭터미널" class="logo-img">
                 </a>
             </h1>
 
@@ -13,13 +12,11 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <div class="group-f">
-                {# nav #}
-            </div>
-        </div>
-        <div class="counsel-wrapper hidden-md-and-up">
-            <button type="button" class="ap-reset counsel-btn" onclick="$('#counselFormMask').toggleClass('on')"><img src="/assets/img/common/picto/counselor.png" alt="상담하기"></button>
+
+            {{ include("layout/nav.html") }}
         </div>
     </div>
 </header>
 <!-- /.header -->
+
+{{- include("inc/sign.html") -}}

@@ -1,0 +1,533 @@
+// mobile & tablet xs & sm
+@media (max-width: 991px) {
+    .sign-layer {
+        .comm-sign-modal {
+            // opacity: 1;
+            // visibility: visible;
+
+            .sign-wrapper {
+                .sign-container {
+                    width: 90%;
+
+                    @include screen-max(320px) {
+                        width: 310px;
+                    }
+
+                    max-width: 360px;
+                    margin: 0px auto;
+                    padding: 0px 30px;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+                    background-color: #fff;
+
+                    .sign-header {
+                        padding-top: 30px;
+
+                        .unfold-btn {
+                            @include pos(absolute, 10px, null, null, 10px);
+                            color: #717171;
+                            line-height: 1;
+                        }
+
+                        .sign-header-title {
+                            text-align: center;
+
+                            .title {
+                                font-size: 25px;
+                                font-family: $font-jfss;
+                                font-weight: 700;
+                            }
+
+                            .st {
+                                margin-top: 5px;
+                                font-size: 18px;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+
+                    .sign-body {
+                        padding-top: 20px;
+
+                        .form-group {
+                            &:not(:first-child) {
+                                margin-top: 8px;
+                            }
+
+                            &+.form-group {
+                                margin-top: 8px;
+
+                            }
+
+                            .col:not(:first-child) {
+                                margin-top: 8px;
+                            }
+
+                            .form-input {
+                                height: 36px;
+                                padding: 12px 0;
+                                padding-left: 10px;
+                                border-color: #fff;
+                                background-color: transparent;
+                                border-color: #bbb;
+                                box-shadow: none;
+                                font-size: 13px;
+                                // color: #fff;
+                                color: $font-color;
+                                font-weight: 300;
+
+                                &::placeholder {
+                                    color: #9c9c9c;
+                                }
+                            }
+                        }
+                    }
+
+                    .sign-footer {
+                        margin-top: 15px;
+                        padding-bottom: 25px;
+
+                        .sign-footer-actions {
+                            text-align: center;
+
+                            .apply-btn {
+                                width: 100%;
+                                @include btn-size(10px 0px);
+                                border-radius: 30px;
+                                @include ft(15px, #fff, 400);
+                                @include btn-size(12px 70px);
+                                background: rgb(84, 228, 252);
+                                background: linear-gradient(135deg, rgba(84, 228, 252, 1) 0%, rgba(0, 150, 231, 1) 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#54e4fc', endColorstr='#0096e7', GradientType=1);
+                            }
+                        }
+
+                        .sign-footer-text {
+                            text-align: center;
+                            margin-top: 20px;
+
+                            .st {
+                                font-size: 13px;
+                                color: #9c9c9c;
+
+                                button {
+                                    margin-left: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sign-up-modal {
+            .sign-wrapper {
+                .sign-container {
+                    .sign-body {
+                        .form-group {
+
+                            &+.form-group {
+                                margin-top: 5px;
+
+                            }
+
+                            .col:not(:first-child) {
+                                margin-top: 5px;
+                            }
+                        }
+                    }
+
+                    .sign-footer {
+                        .sign-footer-actions {
+                            .apply-btn {
+                                background: rgb(89, 97, 232);
+                                background: linear-gradient(135deg, rgba(89, 97, 232, 1) 0%, rgba(145, 111, 231, 1) 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5961e8', endColorstr='#916fe7', GradientType=1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sign-in-modal {
+            .sign-wrapper {
+                .sign-container {
+                    .sign-header {
+
+                        .logo {
+                            width: 45px;
+                        }
+
+                        .sign-header-title {
+                            text-align: center;
+
+                            .title {
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+
+                    .sign-footer {
+
+                        .sign-footer-text {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sign-email-modal {
+            // opacity: 1;
+            // visibility: visible;
+
+            .sign-wrapper {
+                .sign-container {
+                    .sign-header {
+
+                        .sign-header-title {
+                            text-align: center;
+
+                            .st {
+                                font-size: 12.5px;
+                            }
+                        }
+                    }
+
+                    .sign-body {
+                        padding-top: 30px;
+
+                        .form-group {
+                            .col {}
+
+                        }
+                    }
+
+                    .sign-footer {
+                        .sign-footer-actions {
+                            .apply-btn {}
+
+                        }
+
+                        .sign-footer-text {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// pc md and up
+@media (min-width: 992px) {
+    .sign-layer {
+        .comm-sign-modal {
+            // opacity: 1;
+            // visibility: visible;
+
+            .sign-wrapper {
+                .sign-container {
+                    width: 500px;
+                    margin: 0px auto;
+                    padding: 0px 30px;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+                    background-color: #fff;
+
+                    .sign-header {
+                        padding-top: 55px;
+
+                        .unfold-btn {
+                            @include pos(absolute, 10px, null, null, 10px);
+                            color: #717171;
+                            line-height: 1;
+                        }
+
+                        .sign-header-title {
+                            text-align: center;
+
+                            .title {
+                                font-size: 40px;
+                                font-family: $font-jfss;
+                            }
+
+                            .st {
+                                font-size: 30px;
+                                font-weight: 200;
+                            }
+                        }
+                    }
+
+                    .sign-body {
+                        padding-top: 30px;
+
+                        .form-group {
+                            &:not(:first-child) {
+                                margin-top: 10px;
+                            }
+
+                            &+.form-group {
+                                margin-top: 10px;
+
+                            }
+
+                            .col:not(:first-child) {
+                                margin-top: 10px;
+                            }
+
+                            .form-input {
+                                // height: 60px;
+                                padding: 26px 0;
+                                padding-left: 15px;
+                                border-color: #fff;
+                                background-color: transparent;
+                                border-color: #bbb;
+                                box-shadow: none;
+                                font-size: 16px;
+                                // color: #fff;
+                                color: $font-color;
+                                font-weight: 300;
+
+                                &::placeholder {
+                                    color: #9c9c9c;
+                                }
+                            }
+                        }
+                    }
+
+                    .sign-footer {
+                        margin-top: 20px;
+                        padding-bottom: 50px;
+
+                        .sign-footer-actions {
+                            text-align: center;
+
+                            .apply-btn {
+                                @include btn-size(12px 70px);
+                                border-radius: 30px;
+                                @include ft(20px, #fff, 500);
+                                background: rgb(84, 228, 252);
+                                background: linear-gradient(135deg, rgba(84, 228, 252, 1) 0%, rgba(0, 150, 231, 1) 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#54e4fc', endColorstr='#0096e7', GradientType=1);
+                            }
+                        }
+
+                        .sign-footer-text {
+                            text-align: center;
+                            margin-top: 30px;
+
+                            .st {
+                                color: #9c9c9c;
+
+                                button {
+                                    margin-left: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sign-up-modal {
+            .sign-wrapper {
+                .sign-container {
+                    width: 800px;
+
+                    .sign-header {
+                        padding-top: 70px;
+                    }
+
+                    .sign-body {
+                        padding-top: 55px;
+
+                        .form-group {
+                            .col {
+                                float: left;
+                                width: 50%;
+                                box-sizing: border-box;
+                                margin-top: 0px !important;
+
+
+                                &:nth-child(1) {
+                                    padding-right: 10px;
+                                }
+
+                                &:nth-child(2) {
+                                    padding-left: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .sign-footer {
+                        .sign-footer-actions {
+                            .apply-btn {
+                                @include btn-size(12px 160px);
+                                background: rgb(89, 97, 232);
+                                background: linear-gradient(135deg, rgba(89, 97, 232, 1) 0%, rgba(145, 111, 231, 1) 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5961e8', endColorstr='#916fe7', GradientType=1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sign-in-modal {
+            .sign-wrapper {
+                .sign-container {
+                    .sign-header {
+                        padding-top: 40px;
+
+                        .sign-header-title {
+                            text-align: center;
+
+                            .title {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+
+                    .sign-body {
+
+                        .form-group {
+                            .col {
+                                width: 100%;
+                                padding: 0 !important;
+
+                                &:nth-child(2) {
+                                    margin-top: 10px;
+                                }
+                            }
+
+                        }
+                    }
+
+                    .sign-footer {
+                        .sign-footer-actions {}
+
+                        .sign-footer-text {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sign-email-modal {
+            // opacity: 1;
+            // visibility: visible;
+
+            .sign-wrapper {
+                .sign-container {
+
+                    .sign-header {
+
+
+                        .sign-header-title {
+                            text-align: center;
+
+                            .st {
+                                margin-top: 5px;
+                                font-size: 20px;
+                            }
+                        }
+                    }
+
+                    .sign-body {
+
+
+                        .form-group {
+                            .col {
+                                @include center(400px);
+
+                                &:nth-child(2) {
+                                    margin-top: 10px;
+                                }
+                            }
+
+                        }
+                    }
+
+                    .sign-footer {
+                        text-align: center;
+
+                        .sign-footer-actions {
+                            .apply-btn {
+                                @include btn-size(12px 70px);
+                                background: rgb(84, 228, 252);
+                                background: linear-gradient(135deg, rgba(84, 228, 252, 1) 0%, rgba(0, 150, 231, 1) 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#54e4fc', endColorstr='#0096e7', GradientType=1);
+
+                            }
+
+                        }
+
+                        .sign-footer-text {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+
+        // .password-modal {
+        //     // opacity: 1;
+        //     // visibility: visible;
+
+        //     .sign-wrapper {
+        //         .sign-container {
+        //             width: 500px;
+
+        //             .sign-header {
+        //                 padding-top: 55px;
+
+        //                 .sign-header-title {
+        //                     text-align: center;
+
+        //                     .st {
+        //                         margin-top: 5px;
+        //                         font-size: 20px;
+        //                     }
+        //                 }
+        //             }
+
+        //             .sign-body {
+        //                 padding-top: 30px;
+
+        //                 .form-group {
+        //                     .col {
+        //                         @include center(400px);
+
+        //                         &:nth-child(2) {
+        //                             margin-top: 10px;
+        //                         }
+        //                     }
+
+        //                 }
+        //             }
+
+        //             .sign-footer {
+        //                 text-align: center;
+
+        //                 .sign-footer-actions {
+        //                     .apply-btn {
+        //                         @include btn-size(12px 70px);
+        //                         background: rgb(84, 228, 252);
+        //                         background: linear-gradient(135deg, rgba(84, 228, 252, 1) 0%, rgba(0, 150, 231, 1) 100%);
+        //                         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#54e4fc', endColorstr='#0096e7', GradientType=1);
+
+        //                     }
+
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}

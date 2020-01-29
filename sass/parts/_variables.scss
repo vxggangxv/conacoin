@@ -3,30 +3,19 @@
 $screen-xxs-width: 320px;
 $screen-sm-width: 768px;
 $screen-md-width: 992px;
-$screen-lg-width: 1017px;
+$screen-lg-width: 1080px;
 
 $font-stack: ('Noto Sans KR', sans-serif);
 $font-nnGothic: ("Nanum Gothic", Sans-serif);
 $font-nnSquareR: ("NanumSquareRound", Sans-serif);
 $font-ntss: ("Noto Sans KR", Sans-serif);
-$font-jfss: ('Josefin Sans', sans-serif);
 $font-dt: (Dotum, Sans-serif);
-$font-color: #3d3d3d;
+$font-jfss: ('Josefin Sans', sans-serif);
+$font-color: #2a2a2a;
 
-$primary-color: #ffba36;
-$primary-color-dark: #ff952e;
+$primary-color: #003f7c;
+$primary-color-dark: #183d62;
 $primary-color-deepdark: #ff732e;
-
-$btn-xs-pd: 1px 15px;
-$btn-xs-fz: 12px;
-$btn-xs-lh: 1.5;
-$btn-sm-pd: 5px 10px;
-$btn-sm-fz: 12px;
-$btn-sm-lh: 1.5;
-$btn-md-pd: 6px 12px;
-$btn-md-fz: 14px;
-$btn-lg-pd: 10px 16px;
-$btn-lg-fz: 18px;
 
 // pc
 $gnb-hover-color: #5ca904;
@@ -51,16 +40,13 @@ $btn-orange-dark: #eea236;
 $btn-red: #d9534f;
 $btn-red-dark: #d43f3a;
 $btn-gray: gray;
-$btn-black: #2c2c2c;
 
 $fg-gray: #828282;
 
 $c-white: #fff;
 $c-green: #74b02f;
 $c-yellow: #fff588;
-// $c-red: #d52d00;
-$c-red: #ef2c06;
-$c-red2: #ff5435;
+$c-red: #d52d00;
 $c-lightbrown: #d35e00;
-$c-blue: #2b77d5;
-$c-gray-dark: #656565;
+$c-blue: #5961e8;
+$c-darkblue: #315b84;

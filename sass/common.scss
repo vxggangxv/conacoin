@@ -26,6 +26,7 @@ body {
 }
 
 .container[role=main] {
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
@@ -33,7 +34,512 @@ body {
 }
 
 // --------------------
-// subpage 영역
+// header 영역
+// --------------------
+// tablet and down
+@media (max-width: 991px) {
+    .header {
+        $line-ht: 6px;
+        $hd-ht: 50px;
+        z-index: 10;
+        @include pos(absolute, 0, 0);
+        width: 100%;
+
+        .group-f {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .gnb {
+            width: 100%;
+            height: $hd-ht;
+            @include pos(fixed, 0, 0);
+
+            &.affix {
+
+                .gnb-area .nav-tab {
+                    top: 5px;
+                    right: 5px;
+                    @include sizes(40px);
+                    background-color: rgba(255, 255, 255, .85);
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                    border-radius: 50%;
+                }
+
+                .gnb-area .nav-tab .bar {
+                    background-color: $primary-color;
+                }
+            }
+
+            .gnb-area {
+                height: 100%;
+
+                .logo-cover {
+                    z-index: 11;
+                    position: relative;
+                    height: 100%;
+                    text-align: center;
+                    // box-shadow: 0 3px 6px rgba(0, 0, 0, .12);
+
+                    &:after {
+                        content: '';
+                        display: inline-block;
+                        height: $hd-ht;
+                        vertical-align: middle;
+                    }
+
+                }
+
+                .nav-tab {
+                    // z-index: 12;
+                    @include pos(absolute, 0px, null, null, 0px);
+                    @include ap-reset;
+                    @include sizes($hd-ht);
+
+                    .bar {
+                        @include center-block;
+                        width: 20px;
+                        height: 2px;
+                        // background: #fff;
+                        background-color: #fff;
+
+                        &:not(:first-child) {
+                            margin-top: 5px;
+                        }
+                    }
+                }
+
+                .nav-bar {
+                    z-index: 10;
+                    @include pos(fixed, 0);
+                    @include sizes(100%);
+                    background-color: rgba(0, 0, 0, .5);
+                    right: -100%;
+                    transition: right .3s ease;
+                    // display: none;
+                    // opacity: 0;
+                    // visibility: hidden;
+                    // transition: opacity .3s ease;
+
+                    &.active {
+                        right: 0;
+                        // display: block;
+                        // opacity: 1;
+                        // visibility: visible;
+
+                        .main-nav {
+                            // right: 0px;
+                        }
+                    }
+
+                    .main-nav {
+                        // @include pos(absolute, 0, null, null, -180px);
+                        @include pos(absolute, 0);
+                        @include size(55%, 100%);
+                        width: 100%;
+                        padding: 90px 20px 0;
+                        box-sizing: border-box;
+                        background-color: #fff;
+                        // transition: all .13s ease;
+
+                        .close-btn {
+                            z-index: 1;
+                            @include pos(absolute, 10px, null, null, 15px);
+                            font-size: 25px;
+                            line-height: 1;
+                        }
+
+                        .menu {
+                            >li {
+                                &:not(:first-child) {
+                                    margin-top: 25px;
+                                }
+
+                                text-align: center;
+
+                                >a {
+                                    position: relative;
+                                    display: inline-block;
+                                    padding-bottom: 5px;
+                                    font-size: 13px;
+                                    border-bottom: 1px solid #2a2a2a;
+
+                                }
+                            }
+                        }
+
+                        .menu-sign {
+                            // width: calc(100% - 50px);
+                            width: 100%;
+                            @include pos(absolute, 10px, 15px);
+
+                            .sign-btn,
+                            .signup-btn {
+                                @include btn-size(4px 15px, 12px);
+                            }
+
+                            .sign-btn,
+                            .signout-btn {
+                                color: #315b84;
+                                border-color: #315b84;
+                            }
+
+                            .signup-btn {
+                                margin-left: 5px;
+                                background: #ff8d41;
+                                background: linear-gradient(to right, #ff8d41 0%, #f7a2a4 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8d41', endColorstr='#f7a2a4', GradientType=1);
+                                box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, .1);
+                            }
+                        }
+
+                        .menu-lang {
+                            margin-top: 30px;
+
+                            .lang-list {
+                                text-align: center;
+
+                                .lang {
+                                    display: inline-block;
+                                }
+                            }
+
+                            .lang-btn {
+                                padding-left: 5px;
+                                padding-right: 5px;
+                                border-radius: 0;
+                                background-color: transparent;
+                                color: $font-color;
+
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .counsel-wrapper {
+                z-index: 1;
+                @include pos(fixed, 100px, null, null, 15px);
+
+                .counsel-btn {
+                    $wd: 45px;
+                    @include sizes($wd);
+                    box-shadow: 0 0px 5px 5px rgba(0, 0, 0, .12);
+                    border-radius: 50%;
+
+                    >img {
+                        border-radius: 50%;
+                        width: $wd;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// mobile
+@media (max-width: 768px) {}
+
+// tablet
+@media (min-width: 768px) and (max-width: 991px) {}
+
+// pc md and up
+@media (min-width: 992px) {
+    .header {
+        $line-ht: 6px;
+        $hd-ht: 80px;
+        $hd-ht-down: $hd-ht - 20;
+        z-index: 10;
+        width: 100%;
+        // height: $hd-ht;
+        // margin-bottom: $line-ht;
+
+        .gnb {
+            @include pos(fixed, 0, 0);
+            // background-color: $c-blue;
+            z-index: 10;
+            width: 100%;
+            height: $hd-ht;
+            transition: height .3s;
+            box-sizing: border-box;
+            border-bottom: 1px solid #fff;
+
+            .logo-cover {
+                z-index: 1;
+                position: absolute;
+                top: 0;
+                // left: 40px;
+                left: 0px;
+                display: inline-block;
+                height: 100%;
+
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    height: $hd-ht;
+                    vertical-align: middle;
+                }
+
+                .logo {
+                    @include va;
+                }
+            }
+
+            .gnb-area {
+                height: 100%;
+
+                .nav-bar {
+                    // @include flt(right);
+                    // right: 20px;
+                    position: relative;
+                    // margin-right: 40px;
+
+                    .main-nav {
+                        text-align: right;
+
+                        .menu {
+                            display: inline-block;
+                            vertical-align: top;
+
+                            >li {
+                                display: inline-block;
+                                text-align: center;
+                                font-size: 0;
+
+                                &:after {
+                                    content: '';
+                                    display: inline-block;
+                                    height: $hd-ht;
+                                    vertical-align: middle;
+                                }
+
+                                >a {
+                                    @include va;
+                                    padding: 0 20px;
+                                    margin: 0 5px;
+                                    @include ft(18px, #fff);
+                                }
+                            }
+                        }
+
+                        .menu-sign {
+                            display: inline-block;
+
+                            &:after {
+                                content: '';
+                                display: inline-block;
+                                height: $hd-ht;
+                                vertical-align: middle;
+                            }
+
+                            .sign-btn,
+                            .signup-btn {
+                                margin-left: 15px;
+                                padding: 10px 35px;
+                                border-radius: 8px;
+                                font-size: 18px;
+                                font-weight: 700;
+                            }
+
+                            .sign-btn,
+                            .signout-btn {
+                                border-width: 2px;
+                            }
+
+                            .signup-btn {
+                                // margin-left: 15px;
+                                background: #ff8d41;
+                                background: linear-gradient(to right, #ff8d41 0%, #f7a2a4 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8d41', endColorstr='#f7a2a4', GradientType=1);
+                                box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, .13);
+                            }
+                        }
+
+                        .menu-lang {
+                            @include pos(absolute, 0);
+                            right: 0;
+
+                            .lang-list {
+                                .lang {
+                                    float: left;
+                                }
+                            }
+
+                            .lang-btn {
+                                padding-left: 5px;
+                                padding-right: 5px;
+                                border-radius: 0;
+                                background-color: transparent;
+
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+            &.affix {
+                background-color: rgba(0, 0, 0, .15);
+                height: $hd-ht-down;
+
+                // box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+                .menu-sign,
+                .logo-cover,
+                .gnb-area .nav-bar .main-nav .menu>li {
+                    &:after {
+                        height: $hd-ht-down !important;
+                    }
+                }
+
+                .gnb-area .nav-bar .main-nav .menu-lang {
+                    top: -2px;
+                }
+            }
+        }
+
+        .line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 50%;
+                height: $line-ht;
+            }
+
+            // &:before {
+            //     left: 0;
+            //     background-color: #74b02f;
+            // }
+
+            // &:after {
+            //     right: 0;
+            //     background-color: #f4c720;
+            // }
+        }
+    }
+}
+
+// pc md and up ~ xl and down
+@media (min-width: 992px) and (max-width: 1180px) {
+    .header {
+        .gnb {
+            .logo-cover {
+                left: 15px;
+
+                .logo {
+                    .logo-img {
+                        width: 60px;
+                    }
+                }
+            }
+
+            .gnb-area {
+
+                .nav-bar {
+                    position: relative;
+                    margin-right: 15px;
+
+                    .main-nav {
+
+                        .menu {
+                            >li>a {
+                                margin: 0 9px;
+                                font-size: 13.5px;
+                            }
+                        }
+
+                        .menu-sign {
+
+                            .sign-btn,
+                            .signup-btn {
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                font-size: 13.5px;
+                            }
+
+                            button {
+                                margin-left: 5px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// --------------------
+// footer 영역
+// --------------------
+// mobile & tablet
+@media (max-width: 991px) {
+    .footer {
+        padding: 30px 0 60px;
+        color: #fff;
+        background-color: #183d62;
+
+        .footer-container {
+            .footer-area {
+                .address {
+                    text-align: center;
+                    font-weight: 200;
+
+                    .sitename {
+                        font-size: 15px;
+                    }
+
+                    .copyright {
+                        margin-top: 15px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// mobile
+@media (max-width: 768px) {}
+
+// tablet
+@media (min-width: 768px) and (max-width: 991px) {}
+
+// pc md & lg
+@media (min-width: 992px) {
+    .footer {
+        padding: 50px 0 100px;
+        color: #fff;
+        background-color: #183d62;
+
+        .footer-container {
+            .footer-area {
+                .address {
+                    text-align: center;
+                    font-weight: 200;
+
+                    .sitename {
+                        font-size: 25px;
+                    }
+
+                    .copyright {
+                        margin-top: 25px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// --------------------
+// subvisual 영역
 // --------------------
 // mobile tablet xs & sm 
 @media (max-width: 991px) {
@@ -100,74 +606,6 @@ body {
 
         }
     }
-
-    .pathbar-wrapper {
-        padding-top: 45px;
-
-        .pathbar-content {
-            padding: 0 15px;
-            border-bottom: 1px solid #bfbfbf;
-
-            .pathbar-container {
-                position: relative;
-                padding-bottom: 5px;
-
-                .pathbar-title {
-                    // @include pos(absolute, 10px);
-                    // right: 0;
-                    @include ft(20px, null, 700);
-                }
-
-                .pathbar-nav {
-                    .pathbar-list {
-                        margin-top: 20px;
-
-                        .pathbar-item {
-                            // @include dp;
-                            padding-bottom: 10px;
-
-                            >* {
-                                @include va;
-                            }
-
-                            .num-wrapper {
-                                display: inline-block;
-                                $wd: 20px;
-                                @include va-bef($wd);
-                                width: $wd;
-                                top: 1px;
-                                margin-right: 3px;
-                                border: 1px solid $font-color;
-                                border-radius: 50%;
-                                text-align: center;
-
-                                .num {
-                                    font-size: 12px;
-                                }
-                            }
-
-                            &.arr {
-                                display: none;
-                                top: 4px;
-                                margin: 0 10px;
-                                font-size: 25px;
-                                color: #bfbfbf;
-                            }
-
-                            &.active {
-                                color: $primary-color;
-
-                                .num-wrapper {
-                                    border: 1px solid $primary-color;
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-    }
 }
 
 // pd md & lg
@@ -226,69 +664,6 @@ body {
                 }
             }
 
-        }
-    }
-
-    .pathbar-wrapper {
-        padding-top: 55px;
-
-        .pathbar-content {
-            .pathbar-container {
-                position: relative;
-                padding-bottom: 5px;
-                border-bottom: 1px solid #bfbfbf;
-
-                .pathbar-title {
-                    @include pos(absolute, 10px);
-                    right: 0;
-                    @include ft(20px, null, 700);
-                }
-
-                .pathbar-nav {
-                    .pathbar-list {
-                        .pathbar-item {
-                            @include dp;
-                            padding-bottom: 5px;
-
-                            >* {
-                                @include va;
-                            }
-
-                            .num-wrapper {
-                                display: inline-block;
-                                $wd: 20px;
-                                @include va-bef($wd);
-                                width: $wd;
-                                top: 1px;
-                                margin-right: 3px;
-                                border: 1px solid $font-color;
-                                border-radius: 50%;
-                                text-align: center;
-
-                                .num {
-                                    font-size: 12px;
-                                }
-                            }
-
-                            &.arr {
-                                top: 4px;
-                                margin: 0 10px;
-                                font-size: 25px;
-                                color: #bfbfbf;
-                            }
-
-                            &.active {
-                                color: $primary-color;
-
-                                .num-wrapper {
-                                    border: 1px solid $primary-color;
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
         }
     }
 }
