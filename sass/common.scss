@@ -40,7 +40,7 @@ body {
 @media (max-width: 991px) {
     .header {
         $line-ht: 6px;
-        $hd-ht: 50px;
+        // $hd-ht-m: 40px;
         z-index: 10;
         @include pos(absolute, 0, 0);
         width: 100%;
@@ -52,30 +52,45 @@ body {
 
         .gnb {
             width: 100%;
-            height: $hd-ht;
+            height: $hd-ht-m;
             @include pos(fixed, 0, 0);
+            border-bottom: 1px solid #fff;
+            box-sizing: border-box;
 
             &.affix {
+                background-color: #fff;
 
-                .gnb-area .nav-tab {
-                    top: 5px;
-                    right: 5px;
-                    @include sizes(40px);
-                    background-color: rgba(255, 255, 255, .85);
-                    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-                    border-radius: 50%;
+                .gnb-area {
+                    .logo-cover .logo .logo-img {
+                        display: none !important;
+                    }
+
+                    .logo-cover .logo .logo-img-2 {
+                        display: inline-block !important;
+                        visibility: visible !important;
+                    }
+
+                    .nav-tab .bar {
+                        background-color: $font-color;
+                    }
                 }
 
-                .gnb-area .nav-tab .bar {
-                    background-color: $primary-color;
-                }
+                // .gnb-area .nav-tab {
+                //     top: 5px;
+                //     right: 5px;
+                //     @include sizes(40px);
+                //     background-color: rgba(255, 255, 255, .85);
+                //     box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                //     border-radius: 50%;
+                // }
+
             }
 
             .gnb-area {
                 height: 100%;
 
                 .logo-cover {
-                    z-index: 11;
+                    // z-index: 11;
                     position: relative;
                     height: 100%;
                     text-align: center;
@@ -84,17 +99,31 @@ body {
                     &:after {
                         content: '';
                         display: inline-block;
-                        height: $hd-ht;
+                        height: $hd-ht-m;
                         vertical-align: middle;
                     }
 
+                    .logo {
+                        .logo-img {
+                            height: 22px;
+                        }
+                    }
+
+                }
+
+                .tel-cover {
+                    @include pos(absolute, 8px, 10px);
+
+                    img {
+                        width: 19px;
+                    }
                 }
 
                 .nav-tab {
                     // z-index: 12;
                     @include pos(absolute, 0px, null, null, 0px);
                     @include ap-reset;
-                    @include sizes($hd-ht);
+                    @include sizes($hd-ht-m);
 
                     .bar {
                         @include center-block;
@@ -113,7 +142,7 @@ body {
                     z-index: 10;
                     @include pos(fixed, 0);
                     @include sizes(100%);
-                    background-color: rgba(0, 0, 0, .5);
+                    // background-color: rgba(0, 0, 0, .5);
                     right: -100%;
                     transition: right .3s ease;
                     // display: none;
@@ -121,11 +150,23 @@ body {
                     // visibility: hidden;
                     // transition: opacity .3s ease;
 
+                    &:before {
+                        content: '';
+                        display: none;
+                        @include pos(fixed, 0, 0);
+                        @include sizes(100%);
+                        background-color: rgba(0, 0, 0, .5);
+                    }
+
                     &.active {
                         right: 0;
                         // display: block;
                         // opacity: 1;
                         // visibility: visible;
+
+                        &:before {
+                            display: block;
+                        }
 
                         .main-nav {
                             // right: 0px;
@@ -135,9 +176,11 @@ body {
                     .main-nav {
                         // @include pos(absolute, 0, null, null, -180px);
                         @include pos(absolute, 0);
+                        right: 0;
                         @include size(55%, 100%);
-                        width: 100%;
-                        padding: 90px 20px 0;
+                        // width: 100%;
+                        // padding: 90px 20px 0;
+                        padding: 30px 20px 0;
                         box-sizing: border-box;
                         background-color: #fff;
                         // transition: all .13s ease;
@@ -145,14 +188,20 @@ body {
                         .close-btn {
                             z-index: 1;
                             @include pos(absolute, 10px, null, null, 15px);
-                            font-size: 25px;
+                            // font-size: 25px;
+                            font-size: 18px;
                             line-height: 1;
+                            font-weight: 800;
                         }
 
                         .menu {
                             >li {
-                                &:not(:first-child) {
+                                &:first-child {
                                     margin-top: 25px;
+                                }
+
+                                &:not(:first-child) {
+                                    margin-top: 10px;
                                 }
 
                                 text-align: center;
@@ -162,8 +211,18 @@ body {
                                     display: inline-block;
                                     padding-bottom: 5px;
                                     font-size: 13px;
-                                    border-bottom: 1px solid #2a2a2a;
+                                    // border-bottom: 1px solid #2a2a2a;
 
+                                }
+                            }
+                        }
+
+                        .nav-logo {
+                            text-align: center;
+
+                            .logo {
+                                .logo-img {
+                                    height: 25px;
                                 }
                             }
                         }
@@ -248,8 +307,8 @@ body {
 @media (min-width: 992px) {
     .header {
         $line-ht: 6px;
-        $hd-ht: 80px;
-        $hd-ht-down: $hd-ht - 20;
+        // $hd-ht-pc: 80px;
+        $hd-ht-down: $hd-ht-pc - 20;
         z-index: 10;
         width: 100%;
         // height: $hd-ht;
@@ -260,7 +319,7 @@ body {
             // background-color: $c-blue;
             z-index: 10;
             width: 100%;
-            height: $hd-ht;
+            height: $hd-ht-pc;
             transition: height .3s;
             box-sizing: border-box;
             border-bottom: 1px solid #fff;
@@ -277,7 +336,7 @@ body {
                 &:after {
                     content: '';
                     display: inline-block;
-                    height: $hd-ht;
+                    height: $hd-ht-pc;
                     vertical-align: middle;
                 }
 
@@ -310,7 +369,7 @@ body {
                                 &:after {
                                     content: '';
                                     display: inline-block;
-                                    height: $hd-ht;
+                                    height: $hd-ht-pc;
                                     vertical-align: middle;
                                 }
 
@@ -329,7 +388,7 @@ body {
                             &:after {
                                 content: '';
                                 display: inline-block;
-                                height: $hd-ht;
+                                height: $hd-ht-pc;
                                 vertical-align: middle;
                             }
 
@@ -433,44 +492,44 @@ body {
             .logo-cover {
                 left: 15px;
 
-                .logo {
-                    .logo-img {
-                        width: 60px;
-                    }
-                }
+                // .logo {
+                //     .logo-img {
+                //         width: 60px;
+                //     }
+                // }
             }
 
-            .gnb-area {
+            // .gnb-area {
 
-                .nav-bar {
-                    position: relative;
-                    margin-right: 15px;
+            //     .nav-bar {
+            //         position: relative;
+            //         margin-right: 15px;
 
-                    .main-nav {
+            //         .main-nav {
 
-                        .menu {
-                            >li>a {
-                                margin: 0 9px;
-                                font-size: 13.5px;
-                            }
-                        }
+            //             .menu {
+            //                 >li>a {
+            //                     margin: 0 9px;
+            //                     font-size: 13.5px;
+            //                 }
+            //             }
 
-                        .menu-sign {
+            //             .menu-sign {
 
-                            .sign-btn,
-                            .signup-btn {
-                                padding-left: 10px;
-                                padding-right: 10px;
-                                font-size: 13.5px;
-                            }
+            //                 .sign-btn,
+            //                 .signup-btn {
+            //                     padding-left: 10px;
+            //                     padding-right: 10px;
+            //                     font-size: 13.5px;
+            //                 }
 
-                            button {
-                                margin-left: 5px !important;
-                            }
-                        }
-                    }
-                }
-            }
+            //                 button {
+            //                     margin-left: 5px !important;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
         }
     }
 }
@@ -483,21 +542,44 @@ body {
     .footer {
         padding: 30px 0 60px;
         color: #fff;
-        background-color: #183d62;
+        background-color: #373737;
 
-        .footer-container {
-            .footer-area {
-                .address {
-                    text-align: center;
-                    font-weight: 200;
+        .footer-area {
+            text-align: center;
 
-                    .sitename {
-                        font-size: 15px;
+            .logo-cover {
+                .logo {
+                    img {
+                        height: 25px;
                     }
+                }
+            }
 
-                    .copyright {
-                        margin-top: 15px;
-                        font-size: 12px;
+            .address {
+                text-align: center;
+                font-weight: 200;
+
+                .sitename {
+                    font-size: 15px;
+                }
+
+                .copyright {
+                    margin-top: 15px;
+                    font-size: 11px;
+                }
+            }
+
+            .sns-list {
+                margin-top: 25px;
+
+                // >a:not(:first-child) {
+                //     margin-left: 6px;
+                // }
+                >a {
+                    margin: 0 2px;
+
+                    img {
+                        width: 28px;
                     }
                 }
             }
@@ -514,24 +596,35 @@ body {
 // pc md & lg
 @media (min-width: 992px) {
     .footer {
-        padding: 50px 0 100px;
+        padding: 60px 0 70px;
         color: #fff;
-        background-color: #183d62;
+        background-color: #373737;
 
-        .footer-container {
-            .footer-area {
-                .address {
-                    text-align: center;
-                    font-weight: 200;
+        .footer-area {
+            text-align: center;
 
-                    .sitename {
-                        font-size: 25px;
-                    }
+            .address {
+                text-align: center;
+                font-weight: 200;
 
-                    .copyright {
-                        margin-top: 25px;
-                        font-size: 16px;
-                    }
+                .sitename {
+                    font-size: 25px;
+                }
+
+                .copyright {
+                    margin-top: 25px;
+                    font-size: 16px;
+                }
+            }
+
+            .sns-list {
+                margin-top: 40px;
+
+                // >a:not(:first-child) {
+                //     margin-left: 6px;
+                // }
+                >a {
+                    margin: 0 3px;
                 }
             }
         }

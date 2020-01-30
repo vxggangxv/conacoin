@@ -124,6 +124,15 @@ img.bor {
     }
 }
 
+// tablet
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .group-f,
+    .group {
+        width: 768px;
+    }
+}
+
 // pc md
 @media (min-width: 992px) and (max-width: 999px) {
 
