@@ -39,7 +39,7 @@
     .main-visual-sec {
         position: relative;
         @include size(100%, 300px);
-        background: url('/images/home/visual_bg.jpg') no-repeat 60% 50% / cover;
+        background: url('/images/main/visual_bg.jpg') no-repeat 60% 50% / cover;
         // background-position-x: center;
 
         .visual-wrapper {
@@ -219,7 +219,7 @@
     .main-visual-sec {
         position: relative;
         @include size(100%, 600px);
-        background: url('/images/home/visual_bg.jpg') no-repeat center / cover;
+        background: url('/images/main/visual_bg.jpg') no-repeat center / cover;
 
         .visual-wrapper {
             .visual-content {
@@ -439,7 +439,7 @@
 
                                     @for $i from 1 through 4 {
                                         &.ic-alternative-#{$i} {
-                                            background-image: url(/images/home/icon_alternative_#{$i}.png);
+                                            background-image: url(/images/main/icon_alternative_#{$i}.png);
                                         }
                                     }
                                 }
