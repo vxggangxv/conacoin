@@ -1,9 +1,11 @@
 @charset 'utf-8';
 
+$vertical-scroll: 17px;
 $screen-xxs-width: 320px;
 $screen-sm-width: 768px;
 $screen-md-width: 992px;
-$screen-lg-width: 1080px;
+$screen-lg-pd: 20px;
+$screen-lg-width: 1180px;
 
 $hd-ht-m: 40px;
 $hd-ht-pc: 80px;
@@ -14,9 +16,16 @@ $font-nnSquareR: ("NanumSquareRound", Sans-serif);
 $font-ntss: ("Noto Sans KR", Sans-serif);
 $font-dt: (Dotum, Sans-serif);
 $font-jfss: ('Josefin Sans', sans-serif);
-$font-color: #2a2a2a;
 
-$primary-color: #003f7c;
+$font-color: #141414;
+$font-gray: #858585;
+$font-gray-2: #ababab;
+
+$bor-gray: #c9c9c9;
+$bor-gray-2: #bababa;
+
+// $primary-color: #003f7c;
+$primary-color: #7954ff;
 $primary-color-dark: #183d62;
 $primary-color-deepdark: #ff732e;
 
@@ -53,3 +62,4 @@ $c-red: #d52d00;
 $c-lightbrown: #d35e00;
 $c-blue: #5961e8;
 $c-darkblue: #315b84;
+$c-purple: #7954ff;

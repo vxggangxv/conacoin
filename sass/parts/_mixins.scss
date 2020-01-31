@@ -76,6 +76,13 @@
     margin-left: -$w/2;
 }
 
+@mixin middle-ab($h: null) {
+    position: absolute;
+    height: $h;
+    top: 50%;
+    margin-top: -$h/2;
+}
+
 @mixin center($w: null) {
     position: relative;
     width: $w;
@@ -119,12 +126,6 @@
     border-radius: $n;
 }
 
-@mixin va($type: middle) {
-    position: relative;
-    display: inline-block;
-    vertical-align: $type;
-}
-
 @mixin centerMiddle($wd: null) {
     position: absolute;
     width: $wd;
@@ -134,6 +135,13 @@
     margin-top: -$wd/2;
     margin-left: -$wd/2;
 }
+
+@mixin va($type: middle) {
+    position: relative;
+    display: inline-block;
+    vertical-align: $type;
+}
+
 
 @mixin va-box($type: middle) {
     position: relative;
@@ -221,6 +229,11 @@
     color: $c;
     font-weight: $w;
     font-family: $fm;
+}
+
+@mixin ft-w($s: 13px, $w: null) {
+    font-size: $s;
+    font-weight: $w;
 }
 
 @mixin ft-lh($s: 13px, $lh: 1.43) {
@@ -428,10 +441,10 @@
     border-color: $c;
     color: $c;
 
-    &:hover {
-        background-color: darken(#fff, 5%);
-        border-color: darken($c, 15%);
-    }
+    // &:hover {
+    //     background-color: darken(#fff, 5%);
+    //     border-color: darken($c, 15%);
+    // }
 
     & .badge {
         background-color: $c;
@@ -441,11 +454,11 @@
 
 @mixin btn-color($c: null) {
     background-color: $c;
-    border-color: darken($c, 10%);
+    // border-color: darken($c, 10%);
 
     &:not(.outline):hover {
         background-color: darken($c, 5%);
-        border-color: darken($c, 15%);
+        // border-color: darken($c, 15%);
     }
 
     &:not(.btn-default):not(.outline) .badge {
@@ -465,7 +478,7 @@
 
         &:hover {
             background-color: darken(#fff, 5%);
-            border-color: darken($c, 15%);
+            // border-color: darken($c, 15%);
         }
 
         .badge {

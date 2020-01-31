@@ -99,15 +99,17 @@ img.bor {
     clear: both;
 }
 
+[class*=wrapper],
+[class*=content],
 .sec {
     position: relative;
 }
 
 .group-f,
 .group {
-    position: relative;
     @include center;
     box-sizing: border-box;
+    // overflow: hidden;
 
     &:after {
         content: "";
@@ -134,7 +136,8 @@ img.bor {
 }
 
 // pc md
-@media (min-width: 992px) and (max-width: 999px) {
+// @media (min-width: 992px) and (max-width: 999px) {
+@media (min-width: 992px) and (max-width: $screen-lg-width+$vertical-scroll - 1px) {
 
     .group-f,
     .group {
@@ -145,7 +148,7 @@ img.bor {
 }
 
 // pc lg
-@media (min-width: $screen-lg-width) {
+@media (min-width: $screen-lg-width+$vertical-scroll) {
 
     .group-f,
     .group {
@@ -153,8 +156,8 @@ img.bor {
     }
 
     .group {
-        // padding-left: 40px;
-        // padding-right: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 

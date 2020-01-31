@@ -3,8 +3,10 @@
     "liveSassCompile.settings.formats": [
         // This is Default.
         {
-            "format": "compact", // nested, expanded, compact, compressed
-            "extensionName": ".css",
+            // "format": "compact", // nested, expanded, compact, compressed
+            "format": "compressed", // nested, expanded, compact, compressed
+            // "extensionName": ".css",
+            "extensionName": ".min.css",
             // "savePath": "~/../public/stylesheets/"
             "savePath": "/public/stylesheets/"
             //   "savePath": "~/"
@@ -12,4 +14,8 @@
         }
     ],
     "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+    // "minify.minifyExistingOnSave": true,
+    // "minify.css": {
+    //     "root": "${workspaceRoot}/public/stylesheets",
+    // }
 }

@@ -57,35 +57,6 @@ body {
             border-bottom: 1px solid #fff;
             box-sizing: border-box;
 
-            &.affix {
-                background-color: #fff;
-
-                .gnb-area {
-                    .logo-cover .logo .logo-img {
-                        display: none !important;
-                    }
-
-                    .logo-cover .logo .logo-img-2 {
-                        display: inline-block !important;
-                        visibility: visible !important;
-                    }
-
-                    .nav-tab .bar {
-                        background-color: $font-color;
-                    }
-                }
-
-                // .gnb-area .nav-tab {
-                //     top: 5px;
-                //     right: 5px;
-                //     @include sizes(40px);
-                //     background-color: rgba(255, 255, 255, .85);
-                //     box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-                //     border-radius: 50%;
-                // }
-
-            }
-
             .gnb-area {
                 height: 100%;
 
@@ -112,10 +83,10 @@ body {
                 }
 
                 .tel-cover {
-                    @include pos(absolute, 8px, 10px);
+                    @include pos(absolute, 9.5px, 10px);
 
-                    img {
-                        width: 19px;
+                    .tel-img {
+                        width: 20px;
                     }
                 }
 
@@ -227,31 +198,6 @@ body {
                             }
                         }
 
-                        .menu-sign {
-                            // width: calc(100% - 50px);
-                            width: 100%;
-                            @include pos(absolute, 10px, 15px);
-
-                            .sign-btn,
-                            .signup-btn {
-                                @include btn-size(4px 15px, 12px);
-                            }
-
-                            .sign-btn,
-                            .signout-btn {
-                                color: #315b84;
-                                border-color: #315b84;
-                            }
-
-                            .signup-btn {
-                                margin-left: 5px;
-                                background: #ff8d41;
-                                background: linear-gradient(to right, #ff8d41 0%, #f7a2a4 100%);
-                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8d41', endColorstr='#f7a2a4', GradientType=1);
-                                box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, .1);
-                            }
-                        }
-
                         .menu-lang {
                             margin-top: 30px;
 
@@ -275,6 +221,38 @@ body {
                     }
 
                 }
+            }
+
+            &.affix {
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+
+                .gnb-area {
+
+                    .tel-cover .tel-img-white,
+                    .logo-cover .logo .logo-img-1 {
+                        display: none !important;
+                    }
+
+                    .tel-cover .tel-img-black,
+                    .logo-cover .logo .logo-img-2 {
+                        display: inline-block !important;
+                    }
+
+                    .nav-tab .bar {
+                        background-color: $font-color;
+                    }
+                }
+
+                // .gnb-area .nav-tab {
+                //     top: 5px;
+                //     right: 5px;
+                //     @include sizes(40px);
+                //     background-color: rgba(255, 255, 255, .85);
+                //     box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                //     border-radius: 50%;
+                // }
+
             }
 
             .counsel-wrapper {
@@ -382,39 +360,6 @@ body {
                             }
                         }
 
-                        .menu-sign {
-                            display: inline-block;
-
-                            &:after {
-                                content: '';
-                                display: inline-block;
-                                height: $hd-ht-pc;
-                                vertical-align: middle;
-                            }
-
-                            .sign-btn,
-                            .signup-btn {
-                                margin-left: 15px;
-                                padding: 10px 35px;
-                                border-radius: 8px;
-                                font-size: 18px;
-                                font-weight: 700;
-                            }
-
-                            .sign-btn,
-                            .signout-btn {
-                                border-width: 2px;
-                            }
-
-                            .signup-btn {
-                                // margin-left: 15px;
-                                background: #ff8d41;
-                                background: linear-gradient(to right, #ff8d41 0%, #f7a2a4 100%);
-                                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8d41', endColorstr='#f7a2a4', GradientType=1);
-                                box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, .13);
-                            }
-                        }
-
                         .menu-lang {
                             @include pos(absolute, 0);
                             right: 0;
@@ -440,11 +385,10 @@ body {
             }
 
             &.affix {
-                background-color: rgba(0, 0, 0, .15);
                 height: $hd-ht-down;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
 
-                // box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
-                .menu-sign,
                 .logo-cover,
                 .gnb-area .nav-bar .main-nav .menu>li {
                     &:after {
@@ -452,10 +396,41 @@ body {
                     }
                 }
 
-                .gnb-area .nav-bar .main-nav .menu-lang {
-                    top: -2px;
+                .gnb-area {
+
+                    .tel-cover .tel-img-white,
+                    .logo-cover .logo .logo-img-1 {
+                        display: none !important;
+                    }
+
+                    .tel-cover .tel-img-black,
+                    .logo-cover .logo .logo-img-2 {
+                        display: inline-block !important;
+                    }
+
+                    .nav-bar .main-nav .menu>li>a {
+                        color: $font-color;
+                    }
                 }
             }
+
+            // &.affix {
+            //     background-color: rgba(0, 0, 0, .15);
+            //     height: $hd-ht-down;
+
+            //     // box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+            //     .menu-sign,
+            //     .logo-cover,
+            //     .gnb-area .nav-bar .main-nav .menu>li {
+            //         &:after {
+            //             height: $hd-ht-down !important;
+            //         }
+            //     }
+
+            //     .gnb-area .nav-bar .main-nav .menu-lang {
+            //         top: -2px;
+            //     }
+            // }
         }
 
         .line {
