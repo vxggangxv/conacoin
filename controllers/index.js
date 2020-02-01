@@ -1,11 +1,9 @@
-const {
-    Router
-} = require('express');
-const router = Router()
+const express = require('express');
+const router = express.Router();
 
 router.use('/', require('./home'));
-router.use('/', require('./inquiry'));
-// router.use('/admin', require('./admin'));
+router.use('/inquiry', require('./inquiry'));
+router.use('/admin', require('./admin'));
 // router.use('/auth', require('./auth'));
 // router.use('/chat', require('./chat'));
 // router.use('/accounts', require('./accounts'));
