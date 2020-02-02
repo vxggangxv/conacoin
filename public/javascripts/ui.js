@@ -93,6 +93,121 @@ var common = {
 
 // mainUI
 var main = {
+    init: function () {
+        this.wayPoint();
+        this.visualBannerList()
+        this.newsbarNewsList()
+        this.guideVideoList()
+        this.roadmapList()
+        this.newsList()
+        // main.load();
+        // main.visualActions();
+        // main.facilityPictureList();
+        // main.lookCardList();
+    },
+    visualBannerList: function () {
+        $('#visualBannerList').slick({
+            autoplay: true,
+            // autoplaySpeed: 2000,
+            appendArrows: '#bannerArrow',
+            prevArrow: '<button type="button" class="slick-prev"><img src="/images/icon/btn_prev.png" alt="이전"></button>',
+            nextArrow: '<button type="button" class="slick-next"><img src="/images/icon/btn_next.png" alt="다음"></button>',
+            // infinite: false,
+        });
+    },
+    newsbarNewsList: function () {
+        $('#newsbarNewsList').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            vertical: true,
+            prevArrow: '',
+            nextArrow: ''
+            // infinite: false,
+        });
+    },
+    guideVideoList: function () {
+        $('#guideVideoList').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            slidesToShow: 4,
+            prevArrow: '',
+            nextArrow: '',
+            // infinite: false,
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    dots: true
+                }
+            }],
+        });
+    },
+    roadmapList: function () {
+        $('#roadmapList').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            infinite: false,
+            pauseOnHover: false,
+            prevArrow: '',
+            nextArrow: '',
+            responsive: [{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 750,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ],
+        });
+    },
+    newsList: function () {
+        $('[id*=newsList-]').slick({
+            // autoplay: true,
+            autoplaySpeed: 2000,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            vertical: true,
+            prevArrow: '',
+            nextArrow: ''
+            // infinite: false,
+        });
+    },
+    // lookCardList: function () {
+    //     $('#lookCardList').slick({
+    //         autoplay: true,
+    //         autoplaySpeed: 2000,
+    //         centerMode: true,
+    //         centerPadding: '100px',
+    //         slidesToShow: 3,
+    //         // slidesToShow: 'auto',
+    //         infinite: true,
+    //         // infinite: false,
+    //         responsive: [{
+    //                 breakpoint: 1360,
+    //                 settings: {
+    //                     centerMode: true,
+    //                     centerPadding: '100px',
+    //                     slidesToShow: 2,
+    //                 }
+    //             },
+    //             {
+    //                 breakpoint: 992,
+    //                 settings: {
+    //                     centerMode: true,
+    //                     centerPadding: '60px',
+    //                     slidesToShow: 1,
+    //                 }
+    //             },
+    //         ],
+    //     });
+    // },
     wayPoint: function () {
         $('#container .wayp-item').each(function (index, item) {
             $(item).addClass('blind');
@@ -124,13 +239,6 @@ var main = {
                 }
             );
         });
-    },
-    init: function () {
-        main.wayPoint();
-        // main.load();
-        // main.visualActions();
-        // main.facilityPictureList();
-        // main.lookCardList();
     },
 };
 
@@ -218,29 +326,6 @@ function dataFn() {
         }
     }
 }
-
-// slider 영역
-// function mainVisualSlider() {
-//     var slider = $('#mainVisualSlider');
-//     slider.bxSlider({
-//         // adaptiveHeight: true,
-//         // autoControls: true,
-//         auto: true,
-//         speed: 800,
-//         pause: 5000,
-//         // duration: 8000,
-//         onSliderLoad: function (currentIndex) {
-//             slider.children('.slide-1').addClass('active');
-//             // slider.children().eq(currentIndex).addClass("active");
-//         },
-//         onSlideAfter: function ($slideElement, oldIndex, newIndex) {
-//             $slideElement
-//                 .addClass('active')
-//                 .siblings()
-//                 .removeClass('active');
-//         },
-//     });
-// }
 
 // lazyload
 // $("#wrapperr .slide").lazyload({

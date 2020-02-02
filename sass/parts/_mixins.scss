@@ -436,8 +436,8 @@
 }
 
 // button
-@mixin btn-outline-color($c: null) {
-    background-color: #fff;
+@mixin btn-transparent($c: null) {
+    background-color: transparent;
     border-color: $c;
     color: $c;
 
@@ -445,11 +445,6 @@
     //     background-color: darken(#fff, 5%);
     //     border-color: darken($c, 15%);
     // }
-
-    & .badge {
-        background-color: $c;
-        color: #fff;
-    }
 }
 
 @mixin btn-color($c: null) {

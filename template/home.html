@@ -7,22 +7,43 @@
     <h1 class="sr-only">코나코인 소개</h1>
     <div class="visual-wrapper">
         <div class="visual-content">
-            <div class="banner-list">
-                <div class="banner-item">
-                    <div class="banner-title">
-                        <div class="title-wrapper">
-                            <div class="wayp-item">
-                                <p class="title ff-jfss">“ World's first ”</p>
-                                <p class="st" data-langtarget="visualSubtitle">
-                                    <span class="big">펀드레이징 커뮤니티 플랫폼</span>
-                                    <span class="small">Cryptocurrency Offering New Alternative</span>
-                                </p>
+            <div class="banner-list-wrapper">
+                <div id="visualBannerList" class="banner-list">
+                    <div class="banner-item item-1">
+                        <div class="banner-title">
+                            <div class="title-wrapper">
+                                <div class="wayp-item">
+                                    <p class="title ff-jfss">“ World's first ”</p>
+                                    <p class="st" data-langtarget="visualSubtitle">
+                                        <span class="big">펀드레이징 커뮤니티 플랫폼</span>
+                                        <span class="small">Cryptocurrency Offering New Alternative</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        <div class="banner-actions cf">
+                            <button type="button" class="btn lg inquiry-btn" data-langtarget="visualJoin">문의하기</button>
+                        </div>
                     </div>
-                    <div class="banner-actions cf">
-                        <button type="button" class="btn lg inquiry-btn" data-langtarget="visualJoin">문의하기</button>
+                    <div class="banner-item item-2">
+                        <div class="banner-title">
+                            <div class="title-wrapper">
+                                <div class="wayp-item">
+                                    <p class="title ff-jfss">“ World's first ”</p>
+                                    <p class="st" data-langtarget="visualSubtitle">
+                                        <span class="big">펀드레이징 커뮤니티 플랫폼</span>
+                                        <span class="small">Cryptocurrency Offering New Alternative</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-actions cf">
+                            <button type="button" class="btn lg inquiry-btn" data-langtarget="visualJoin">문의하기</button>
+                        </div>
                     </div>
+                </div>
+
+                <div id="bannerArrow" class="banner-arrow group-f">
                 </div>
             </div>
         </div>
@@ -34,10 +55,24 @@
     <div class="newsbar-wrapper">
         <div class="newsbar-content group">
             <h1 class="newsbar-title">코나뉴스</h1>
-            <div class="news-list">
-                <div class="news-item">
-                    [NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'
-                    <span class="date">(2019-12-08)</span>
+            <div class="news-list-wrapper">
+                <div id="newsbarNewsList" class="news-list">
+                    <div class="news-item">
+                        [NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'
+                        <span class="date">(2019-12-08)</span>
+                    </div>
+                    <div class="news-item">
+                        list-2
+                        <span class="date">(2019-12-08)</span>
+                    </div>
+                    <div class="news-item">
+                        list-3
+                        <span class="date">(2019-12-08)</span>
+                    </div>
+                    <div class="news-item">
+                        list-4
+                        <span class="date">(2019-12-08)</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,11 +83,11 @@
 <section id="guide" class="sec main-guide-sec comm-pd">
     <div class="guide-wrapper">
         <div class="guide-content group-f">
-            <div class="guide-title comm-title">
+            <div class="guide-title comm-title hidden-sm-and-down">
                 <h1 class="title">동영상 가이드</h1>
             </div>
             <div class="guide-card">
-                <ul class="cf card-list">
+                <ul id="guideVideoList" class="cf card-list">
                     <li class="card-item">
                         <a href="javascript:;">
                             <figure>
@@ -176,24 +211,74 @@
                 <div class="st">Road Map of Cryptocurrency Offering New Alternative</div>
             </div>
             <div class="roadmap-bar">
-                <ul class="roadmap-list cf wayp-item">
-                    <li class="roadmap-item">
-                        <div class="info">
-                            <span class="text">Began CONA Beta Testing</span>
-                        </div>
-                        <div class="date">
-                            2019 4Q
-                        </div>
-                    </li>
-                    <li class="roadmap-item">
-                        <div class="info">
-                            <span class="text">Enhanced P2P Communication</span>
-                        </div>
-                        <div class="date">
-                            2019 4Q
-                        </div>
-                    </li>
-                </ul>
+                <div class="roadmap-list-wrapper">
+                    <ul id="roadmapList" class="roadmap-list cf wayp-item">
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Began CONA Beta Testing</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q-1
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Enhanced P2P Communication</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q-2
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Began CONA Beta Testing</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q-3
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Enhanced P2P Communication</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q-4
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Began CONA Beta Testing</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q-5
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Enhanced P2P Communication</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q-6
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Began CONA Beta Testing</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q-7
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Enhanced P2P Communication</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q-8
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -210,23 +295,41 @@
                 <div class="st">항상 빠르게 응답하는 코나코인 고객센터</div>
             </div>
             <div class="meet-actions">
-                <button type="button" class="counsel-btn outline-bgno">1:1 전화상담</button>
+                <button type="button" class="counsel-btn">1:1 전화상담</button>
                 <button type="button" class="kakao-btn">카카오톡 플러스친구</button>
             </div>
         </div>
     </div>
 </section>
 
-<div class="sec main-news-sec comm-pd">
+<section class="sec main-news-sec comm-pd">
     <div class="news-wrapper">
         <div class="news-content group">
             <h1 class="sr-only">코나 고객센터 및 뉴스</h1>
             <div class="news-card">
                 <ul class="card-list">
                     <li class="card-item counsel-item">
-                        <h2 class="card-title"><span class="in">실시간 고객센터 운영현황</span> <a href="" class="plus"></a></h2>
+                        <h2 class="card-title">
+                            <span class="in">실시간 고객센터 운영현황</span>
+                            <a href="" class="plus"></a>
+                        </h2>
                         <div class="card-text">
-                            <ul class="list cf">
+                            <ul id="newsList-counsel" class="list cf">
+                                <li class="list-item">
+                                    <div class="name">h*****</div>
+                                    <div class="title">가이드 영상대로 진행했는데 잘 안되네요..ㅠㅠ</div>
+                                    <div class="state active">답변완료</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="name">h*****</div>
+                                    <div class="title">가이드 영상대로 진행했는데 잘 안되네요..ㅠㅠ</div>
+                                    <div class="state active">답변완료</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="name">h*****</div>
+                                    <div class="title">가이드 영상대로 진행했는데 잘 안되네요..ㅠㅠ</div>
+                                    <div class="state active">답변완료</div>
+                                </li>
                                 <li class="list-item">
                                     <div class="name">h*****</div>
                                     <div class="title">가이드 영상대로 진행했는데 잘 안되네요..ㅠㅠ</div>
@@ -261,42 +364,54 @@
                         </div>
                     </li>
                     <li class="card-item news-item">
-                        <h2 class="card-title"><span class="in">코나뉴스</span></h2>
+                        <h2 class="card-title">
+                            <span class="in">코나뉴스</span></h2>
                         <div class="card-text">
-                            <div class="list-wrapper">
-                                <ul class="list cf">
-                                    <li class="list-item">
-                                        <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
-                                        <div class="date">2019-12-08</div>
-                                    </li>
-                                    <li class="list-item">
-                                        <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
-                                        <div class="date">2019-12-08</div>
-                                    </li>
-                                    <li class="list-item">
-                                        <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
-                                        <div class="date">2019-12-08</div>
-                                    </li>
-                                    <li class="list-item">
-                                        <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
-                                        <div class="date">2019-12-08</div>
-                                    </li>
-                                    <li class="list-item">
-                                        <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
-                                        <div class="date">2019-12-08</div>
-                                    </li>
-                                    <li class="list-item">
-                                        <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
-                                        <div class="date">2019-12-08</div>
-                                    </li>
-                                </ul>
-                            </div>
+                            <ul id="newsList-news" class="list cf">
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="title">[NEWS] 2월 서 공개 앞둔 코나코인 '거래 상한가 기대 충족시킬 것'</div>
+                                    <div class="date">2019-12-08</div>
+                                </li>
+                            </ul>
+
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-</div>
+</section>
 <!-- /.sec main-news-sec comm-pd -->
 {% endblock %}

@@ -121,8 +121,17 @@ img.bor {
 // mobile & tablet
 @media (max-width: 991px) {
     .group {
-        // padding-left: 15px;
-        // padding-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+// mobile
+@media (min-width: 576px) and (max-width: 767px) {
+
+    .group-f,
+    .group {
+        width: 540px;
     }
 }
 
@@ -131,7 +140,7 @@ img.bor {
 
     .group-f,
     .group {
-        width: 768px;
+        width: 720px;
     }
 }
 
@@ -141,7 +150,7 @@ img.bor {
 
     .group-f,
     .group {
-        width: 940px;
+        width: 960px;
     }
 
 

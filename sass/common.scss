@@ -62,17 +62,9 @@ body {
 
                 .logo-cover {
                     // z-index: 11;
-                    position: relative;
-                    height: 100%;
+                    @include va-bef(100%);
                     text-align: center;
                     // box-shadow: 0 3px 6px rgba(0, 0, 0, .12);
-
-                    &:after {
-                        content: '';
-                        display: inline-block;
-                        height: $hd-ht-m;
-                        vertical-align: middle;
-                    }
 
                     .logo {
                         .logo-img {
@@ -83,7 +75,8 @@ body {
                 }
 
                 .tel-cover {
-                    @include pos(absolute, 9.5px, 10px);
+                    @include va-bef(100%);
+                    @include pos(absolute, 0px, 15px);
 
                     .tel-img {
                         width: 20px;
@@ -94,7 +87,7 @@ body {
                     // z-index: 12;
                     @include pos(absolute, 0px, null, null, 0px);
                     @include ap-reset;
-                    @include sizes($hd-ht-m);
+                    @include size(50px, 100%);
 
                     .bar {
                         @include center-block;
@@ -465,7 +458,7 @@ body {
     .header {
         .gnb {
             .logo-cover {
-                left: 15px;
+                // left: 15px;
 
                 // .logo {
                 //     .logo-img {
