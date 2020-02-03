@@ -68,9 +68,9 @@ var common = {
             var hdHt = 0;
             if (winWd < smBrowserPoint) {
                 navBar.removeClass('active');
-                hdHt = 50;
+                hdHt = 45;
             } else {
-                hdHt = 80;
+                hdHt = 60;
             }
             $('html, body').stop().animate({
                 scrollTop: $($(this).attr('href')).offset().top - hdHt
@@ -153,7 +153,7 @@ var main = {
             prevArrow: '',
             nextArrow: '',
             responsive: [{
-                    breakpoint: 992,
+                    breakpoint: 1200,
                     settings: {
                         slidesToShow: 3,
                     }
@@ -169,7 +169,7 @@ var main = {
     },
     newsList: function () {
         $('[id*=newsList-]').slick({
-            // autoplay: true,
+            autoplay: true,
             autoplaySpeed: 2000,
             slidesToShow: 6,
             slidesToScroll: 1,

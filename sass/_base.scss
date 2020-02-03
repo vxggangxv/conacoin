@@ -5,19 +5,22 @@
 
 // --------------------
 // // mobile & tablet
-// @media (max-width: 991px) {}
+// @media (max-width: $screen-md-width - 1px) {}
 
 // // mobile
-// @media (max-width: 768px) {}
+// @media (max-width: $screen-sm-width - 1px) {}
 
 // // tablet
-// @media (min-width: 768px) and (max-width: 991px) {}
+// @media (min-width: $screen-sm-width) and (max-width: $screen-md-width - 1px) {}
 
 // // pc md & lg
-// @media (min-width: 992px) {}
+// @media (min-width: $screen-md-width) {}
 
 // // pd md
-// @media (min-width: 992px) and (max-width: 1019px) {}
+// @media (min-width: $screen-md-width) and (max-width: $screen-lg-width - 1px) {}
+
+// // pd lg
+// @media (min-width: $screen-lg-width) {}
 
 // @mixin avatar($size, $circle: false) {
 //     width: $size;
@@ -119,7 +122,8 @@ img.bor {
 }
 
 // mobile & tablet
-@media (max-width: 991px) {
+// @media (max-width: 991px) {
+@media (max-width: $screen-md-width - 1px) {
     .group {
         padding-left: 10px;
         padding-right: 10px;
@@ -127,7 +131,7 @@ img.bor {
 }
 
 // mobile
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: $screen-xs-width) and (max-width: $screen-sm-width - 1px) {
 
     .group-f,
     .group {
@@ -136,7 +140,7 @@ img.bor {
 }
 
 // tablet
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: $screen-sm-width) and (max-width: $screen-md-width - 1px) {
 
     .group-f,
     .group {
@@ -146,7 +150,7 @@ img.bor {
 
 // pc md
 // @media (min-width: 992px) and (max-width: 999px) {
-@media (min-width: 992px) and (max-width: $screen-lg-width+$vertical-scroll - 1px) {
+@media (min-width: $screen-md-width) and (max-width: $screen-lg-width+$vertical-scroll - 1px) {
 
     .group-f,
     .group {

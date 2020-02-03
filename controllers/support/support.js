@@ -2,11 +2,11 @@ const models = require('../../models');
 
 
 exports.index = async (req, res) => {
-    res.render('inquiry/list.html', {});
+    res.render('support/list.html', {});
 }
 exports.detail = async (req, res) => {
-    res.render('inquiry/detail.html', {});
+    res.render('support/detail.html', {});
 }
 exports.edit = async (req, res) => {
-    res.render('inquiry/edit.html', {});
+    res.render('support/edit.html', {});
 }

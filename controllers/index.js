@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.use('/', require('./home'));
-router.use('/inquiry', require('./inquiry'));
+router.use('/support', require('./support'));
 router.use('/admin', require('./admin'));
 // router.use('/auth', require('./auth'));
 // router.use('/chat', require('./chat'));

@@ -1,0 +1,11 @@
+// mobile & tablet
+@media (max-width: $screen-md-width - 1px) {}
+
+// // mobile
+// @media (max-width: $screen-sm-width - 1px) {}
+
+// // tablet
+// @media (min-width: $screen-sm-width) and (max-width: $screen-md-width - 1px) {}
+
+// pc md & lg
+@media (min-width: $screen-md-width) {}
