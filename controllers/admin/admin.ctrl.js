@@ -1,7 +1,7 @@
 const models = require('../../models');
 
 exports.get_join = async (req, res) => {
-    res.render('admin/join.html', {});
+    res.render('admin/join.html');
 }
 exports.post_join = async (req, res) => {
     res.render('admin/join.html', {});
