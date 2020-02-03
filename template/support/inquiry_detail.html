@@ -1,0 +1,30 @@
+{% set title = "Conacoin.io | 실시간 고객센터" %}
+{% set pageName = "supportPage" %}
+{% extends "layout/base.html" %}
+
+{% block content %}
+    {% include("layout/subvisual.html") %}
+
+    <section class="sec support-inquiry-isec comm-pd">
+        <div class="inquiry-wrapper">
+            <div class="inquiry-content group">
+                <div class="inquiry-title comm-title">
+                    <h1 class="title">
+                        실시간 문의하기
+                    </h1>
+                </div>
+                <div class="tbl-comm-st">※ 답변이 완료된 문의는 이메일로 답변이 전송되오니 확인 부탁드립니다.</div>
+                <!-- to do... -->
+
+                <!-- / -->
+                <div class="inquiry-actions">
+                    <a href="javascript:;" onlcick="history.back(-1)" class="comm-btn outline back-btn">이전</a>
+                    <a href="javascript:;" class="comm-btn outline delete-btn">삭제</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.sec support-inquiry-sec -->
+
+    {% include("inc/bn-meet.html") %}
+{% endblock %}

@@ -1,5 +1,132 @@
 // mobile & tablet
-@media (max-width: $screen-md-width - 1px) {}
+@media (max-width: $screen-md-width - 1px) {
+    .sec.comm-pd[class*='support-'] {
+        padding: 30px 0;
+    }
+
+    .sec[class*='support-'] .comm-title {
+        text-align: center;
+        margin-bottom: 30px;
+
+        .title {
+            font-size: 18px;
+            line-height: 1.2;
+        }
+    }
+
+    .support-inquiry-isec {
+        .inquiry-wrapper {
+            .inquiry-content {
+                .inquiry-tbl-st {
+                    margin-bottom: 10px;
+                    font-size: 12px;
+                    line-height: 1.235;
+                    letter-spacing: -0.7px;
+                }
+
+                .postlist-tbl {
+                    width: 100%;
+                    table-layout: fixed;
+                    letter-spacing: -0.7px;
+
+                    col {
+                        &:nth-child(1) {
+                            width: 20%;
+                        }
+
+                        &:nth-child(2) {
+                            width: 13%;
+                        }
+
+                        &:nth-child(3) {
+                            width: 50%;
+                        }
+
+                        &:nth-child(4) {
+                            width: 17%;
+                        }
+                    }
+
+                    th,
+                    td {
+                        text-align: center;
+                        height: 40px;
+                        vertical-align: middle;
+                        font-size: 12px;
+                    }
+
+                    td {
+                        &.title {
+                            text-align: left;
+                            padding-left: 5px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+
+                        .state {
+                            font-weight: 700;
+
+                            &.active {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+
+                    tr {
+                        border-bottom: 1px solid $bor-gray-2;
+                    }
+
+                    thead {
+                        border-top: 2px solid $primary-color;
+                    }
+
+                    tbody {}
+                }
+
+                .inquiry-actions {
+                    margin-top: 20px;
+                    text-align: center;
+
+                    .comm-btn {
+                        @include btn-base;
+                        border-radius: 0;
+                        @include btn-size(10px 0px, 13px);
+                        width: 35%;
+                        max-width: 200px;
+                        margin: 0 3px;
+
+                        &.outline {
+                            @include btn-transparent(#141414);
+                        }
+
+                        &.primary {
+                            background-color: $primary-color;
+                            color: #fff;
+                        }
+                    }
+
+                    &.count-3 {
+                        text-align: left;
+
+                        .comm-btn {
+                            width: 25%;
+
+                            &.inquiry-btn {
+                                width: 30%;
+                                margin: 0;
+                                position: absolute;
+                                bottom: 0;
+                                right: 10px;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
 
 // // mobile
 // @media (max-width: $screen-sm-width - 1px) {}
@@ -8,4 +135,120 @@
 // @media (min-width: $screen-sm-width) and (max-width: $screen-md-width - 1px) {}
 
 // pc md & lg
-@media (min-width: $screen-md-width) {}
+@media (min-width: $screen-md-width) {
+    .sec.comm-pd[class*='support-'] {
+        padding: 70px 0;
+    }
+
+    .sec[class*='support-'] .comm-title {
+        text-align: center;
+        margin-bottom: 30px;
+
+        .title {
+            font-size: 30px;
+            line-height: 1.2;
+        }
+    }
+
+    .support-inquiry-isec {
+        .inquiry-wrapper {
+            .inquiry-content {
+                .inquiry-tbl-st {
+                    margin-bottom: 10px;
+                    font-size: 14px;
+                }
+
+                .postlist-tbl {
+                    width: 100%;
+                    table-layout: fixed;
+
+                    col {
+                        &:nth-child(1) {
+                            width: 12%;
+                        }
+
+                        &:nth-child(2) {
+                            width: 15%;
+                        }
+
+                        &:nth-child(3) {
+                            width: 61%;
+                        }
+
+                        &:nth-child(4) {
+                            width: 12%;
+                        }
+                    }
+
+                    th,
+                    td {
+                        text-align: center;
+                        height: 50px;
+                        vertical-align: middle;
+                    }
+
+                    td {
+                        font-size: 14px;
+
+                        &.title {
+                            text-align: left;
+                            padding-left: 10px;
+                        }
+
+                        .state {
+                            font-weight: 700;
+
+                            &.active {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+
+                    tr {
+                        border-bottom: 1px solid $bor-gray-2;
+                    }
+
+                    thead {
+                        border-top: 2px solid $primary-color;
+                    }
+
+                    tbody {}
+                }
+
+                .inquiry-actions {
+                    margin-top: 50px;
+                    text-align: center;
+
+                    .comm-btn {
+                        @include btn-base;
+                        border-radius: 0;
+                        @include btn-size(15px 0px, 18px);
+                        width: 18%;
+                        max-width: 200px;
+                        margin: 0 10px;
+
+                        &.outline {
+                            @include btn-transparent(#141414);
+                        }
+
+                        &.primary {
+                            background-color: $primary-color;
+                            color: #fff;
+                        }
+
+                        &.inquiry-btn {
+                            margin: 0;
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+
+                            @include screen-lg {
+                                right: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

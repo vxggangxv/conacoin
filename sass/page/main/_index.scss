@@ -669,7 +669,7 @@
     // visual 영역
     .main-visual-sec {
         position: relative;
-        @include size(100%, 600px);
+        // @include size(100%, 600px);
 
         .visual-wrapper {
             .visual-content {

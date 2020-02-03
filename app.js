@@ -98,7 +98,7 @@ app.use(passport.session())
 app.use(flash())
 
 //로그인 정보 뷰에서만 변수로 셋팅, 전체 미들웨어는 router위에 두어야 에러가 안난다
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     // app.locals.myname = "nodejs";
     app.locals.isLogin = req.isAuthenticated()
     app.locals.req_path = req.path
@@ -112,12 +112,12 @@ app.use(function(req, res, next) {
 app.use(controller)
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     next(createError(404))
 })
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message
     res.locals.error = req.app.get('env') === 'development' ? err : {}
@@ -127,38 +127,23 @@ app.use(function(err, req, res, next) {
     res.render('error')
 })
 
-// http
-// var port = normalizePort(process.env.PORT || '3000');
-var port = normalizePort(process.env.PORT || '8000')
-app.set('port', port)
+// // http
+// // var port = normalizePort(process.env.PORT || '3000');
+// const app = require('./app.js')
+// var port = process.env.PORT || '8000'
+// app.set('port', port)
 
-var server = http.createServer(app)
+// // var server = http.createServer(app)
 
-server.listen(port, function() {
-    console.log(`Listening to requests on http://localhost:${port}`)
-})
+// const server = app.listen(port, function () {
+//     console.log(`Listening to requests on http://localhost:${port}`)
+// })
 
-// const listen = require("socket.io");
-// const io = listen(server);
-// io.use((socket, next) => {
-//     sessionMiddleWare(socket.request, socket.request.res, next);
-// });
-// require("./helpers/socketConnection")(io);
-
-function normalizePort(val) {
-    var port = parseInt(val, 10)
-
-    if (isNaN(port)) {
-        // named pipe
-        return val
-    }
-
-    if (port >= 0) {
-        // port number
-        return port
-    }
-
-    return false
-}
+// // const listen = require("socket.io");
+// // const io = listen(server);
+// // io.use((socket, next) => {
+// //     sessionMiddleWare(socket.request, socket.request.res, next);
+// // });
+// // require("./helpers/socketConnection")(io);
 
 module.exports = app
