@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+@import '../base';
+@import '../override';
+@import '../grid';
+
+@import url('/static/fonts/notosanskr/notosanskr.css');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600&display=swap');
+
+body {
+    font-family: $font-stack;
+    font-display: swap;
+    // letter-spacing: -0.3px;
+    color: $font-color;
+}
+
+.admin-toolbar,
+.header,
+.container,
+.footer {
+    position: relative;
+}
+
+.container[role=main] {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+$header-ht: 50px;
+// $sidebar-wd: 280px;
+$sidebar-wd: 10%;

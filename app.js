@@ -26,8 +26,8 @@ function dbConnection() {
         .then(() => {
             console.log('Connection has been established successfully.')
             // TODO 서버가 뜰 때, DB 테이블 자동으로 생성해줌
-            // return db.sequelize.sync();
-            // return db.sequelize.drop();
+            // return db.sequelize.drop()
+            return db.sequelize.sync()
         })
         .then(() => {
             console.log('DB Sync complete.')
@@ -38,7 +38,7 @@ function dbConnection() {
             console.error('Unable to connect to the database:', err)
         })
 }
-// dbConnection();
+dbConnection();
 
 var app = express()
 
@@ -86,9 +86,9 @@ const sessionMiddleWare = session({
         maxAge: 2000 * 60 * 60, //지속시간 2시간
     },
     // store: new RedisStore({client}),
-    // store: new SequelizeStore({
-    //     db: db.sequelize
-    // })
+    store: new SequelizeStore({
+        db: db.sequelize
+    })
 })
 app.use(sessionMiddleWare)
 //passport 적용

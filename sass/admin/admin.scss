@@ -1,136 +1,44 @@
 @charset "utf-8";
 
-@import '../parts/variables';
-@import '../parts/mixins';
+@import './common';
 
-@import url('/static/fonts/notosanskr/notosanskr.css');
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600&display=swap');
-
-a,
-a:hover,
-a:focus {
-    // color: $font-color !important;
-    // color: inherit !important;
-}
-
-body {
-    font-family: $font-stack;
-    font-display: swap;
-    // letter-spacing: -0.3px;
-    color: $font-color;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.ft-ntss {
-    font-family: $font-ntss;
-}
-
-.ft-jfss {
-    font-family: $font-jfss;
-}
-
-.admin-toolbar,
-.header,
-.container,
-.footer {
-    position: relative;
-}
-
-.container[role=main] {
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.container {
-    max-width: 100%;
-}
-
-#adminPage {
-    // min-width: 1780px;
-}
-
-$header-ht: 50px;
-// $sidebar-wd: 280px;
-$sidebar-wd: 10%;
-
-body:not(#loginPage) main {
-    // padding-top: $header-ht;
-    // padding-left: $sidebar-wd;
-
-}
-
-$zindex-fixed: 1030;
-$zindex-sticky: 1020;
-$positions: (relative, absolute, fixed, sticky);
-
-// Common values
-@each $position in $positions {
-    .position-#{$position} {
-        position: $position !important;
-    }
-}
-
-// Shorthand
-
-.fixed-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: $zindex-fixed;
-}
-
-.fixed-bottom {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: $zindex-fixed;
-}
-
-.sticky-top {
-    @supports (position: sticky) {
-        position: sticky;
-        top: 0;
-        z-index: $zindex-sticky;
-    }
-}
-
-#signinPage {
+#adminSigninPage {
     background-color: #f9f9f9;
 
 }
 
-.signin-sec {
+.admin-sign-page {
+    @include sizes(100%);
+}
+
+.admin-sign-sec {
     @include pos(absolute, 0, 0);
     @include sizes(100%);
 
-
-    .container,
-    .container-fluid {
+    .sign-wrapper {
+        display: flex;
         height: 100%;
+        justify-content: center;
+        align-items: center;
 
-        .align-items-center {
-            height: 100%;
-        }
-    }
+        .sign-content {
+            width: 320px;
 
-    .signin-wrapper {
-        height: 100%;
-
-        .signin-content {
-            .signin-title {
-                margin-top: -44px;
-                font-family: $font-jfss;
-                font-weight: 700;
+            @include screen-xxs {
+                width: 300px;
             }
 
-            .signin-form-wrapper {
+            .sign-title {
+                margin-top: -40px;
+                padding-bottom: 15px;
+                font-size: 25px;
+                font-family: $font-jfss;
+                font-weight: 700;
+                text-align: center;
+                letter-spacing: -1px;
+            }
+
+            .sign-form-wrapper {
                 @include center;
                 max-width: 320px;
                 padding: 20px;
@@ -139,17 +47,18 @@ $positions: (relative, absolute, fixed, sticky);
                 border-radius: 4px;
 
                 .form-group {
+                    &:not(:first-child) {
+                        margin-top: 15px;
+                    }
+
                     .form-label {
                         font-size: 14px;
+                        margin-bottom: 10px;
                     }
+                }
 
-                    .form-control {
-                        font-size: 14px;
-
-                        &::placeholder {
-                            font-weight: 300;
-                        }
-                    }
+                .btn-group {
+                    margin-top: 15px;
                 }
             }
         }

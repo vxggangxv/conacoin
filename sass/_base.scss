@@ -252,6 +252,11 @@ img.bor {
 
 }
 
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
 a.btn>* {
     @include va;
 }
