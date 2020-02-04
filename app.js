@@ -15,7 +15,7 @@ const passport = require('passport')
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
-const db = require('./models')
+const db = require('./database/models')
 // redis
 // const client = require('./config/redis');
 // const RedisStore = require('connect-redis')(session);
@@ -27,7 +27,10 @@ function dbConnection() {
             console.log('Connection has been established successfully.')
             // TODO 서버가 뜰 때, DB 테이블 자동으로 생성해줌
             // return db.sequelize.drop()
-            return db.sequelize.sync()
+            // return db.sequelize.sync()
+            // return db.sequelize.sync({
+            //     force: true
+            // })
         })
         .then(() => {
             console.log('DB Sync complete.')
@@ -38,7 +41,7 @@ function dbConnection() {
             console.error('Unable to connect to the database:', err)
         })
 }
-dbConnection();
+dbConnection()
 
 var app = express()
 
@@ -87,8 +90,8 @@ const sessionMiddleWare = session({
     },
     // store: new RedisStore({client}),
     store: new SequelizeStore({
-        db: db.sequelize
-    })
+        db: db.sequelize,
+    }),
 })
 app.use(sessionMiddleWare)
 //passport 적용

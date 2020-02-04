@@ -1,4 +1,4 @@
-const models = require('../../models');
+const models = require('../../database/models');
 
 
 exports.index = async (req, res) => {

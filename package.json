@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon -e js,html server.js",
-    "dev": "set NODE_ENV=development && nodemon -e js,html server.js",
+    "dev": "set NODE_ENV=development&&nodemon -e js,html server.js",
     "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.html, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
   },
   "dependencies": {
@@ -35,8 +35,7 @@
     "request-promise": "^4.2.5",
     "sequelize": "4.42.0",
     "socket.io": "^2.3.0",
-    "uuid": "^3.3.3",
-    "nodemon": "^2.0.2"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",

@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin</title>
+    <title>Admin | 관리자</title>
 
     <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/stylesheets/admin.min.css">
@@ -18,7 +18,6 @@
 </head>
 
 <body id="adminSignupPage" class="admin-sign-page admin-signup-page">
-
     <h1 class="sr-only">로그인 페이지</h1>
 
     <section class="sec admin-sign-sec">
@@ -26,19 +25,19 @@
             <div class="sign-content">
                 <h1 class="sign-title">Sign up to Admin</h1>
                 <div class="sign-form-wrapper">
-                    <form actions="" method="post" id="signupForm">
+                    <form action="" method="post" id="signupForm">
                         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
                         <div class="form-group">
-                            <label for="userid" class="form-label">User ID</label>
-                            <input type="text" class="form-input" placeholder="ID" required="required">
+                            <label class="form-label">User ID</label>
+                            <input type="text" class="form-input" placeholder="ID" name="username" required="required" autocomplete="username">
                         </div>
                         <div class="form-group">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-input" placeholder="Password" required="required">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-input" placeholder="Password" name="password" required="required" autocomplete="new-password">
                         </div>
                         <div class="form-group">
-                            <label for="password" class="form-label">Password Check</label>
-                            <input type="password" class="form-input" placeholder="Password2" required="required">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" class="form-input" placeholder="Confirm Password" name="password2" required="required" autocomplete="new-password">
                         </div>
                         <div class="btn-group">
                             <button type="submit" class="btn btn-primary lg btn-block">Sign up</button>
@@ -53,8 +52,16 @@
         $(document).ready(function () {
             $('#signupForm').submit(function () {
 
+                // var $usernameInput = $('#signupForm input[name=username]');
                 var $passwordInput = $('#signupForm input[name=password]');
                 var $passwordInput2 = $('#signupForm input[name=password2]');
+
+                // if ($usernameInput.val().trim().length == 0) {
+                //     alert("아이디가 입력되지 않았습니다.");
+                //     $usernameInput.value = '';
+                //     $usernameInput.focus();
+                //     return false;
+                // }
 
                 if ($passwordInput.val().length < 4) {
                     alert("4글자 이상 작성해주세요");
@@ -70,9 +77,7 @@
             });
         });
     </script>
-
-
-    <!-- /#wrapper -->
+    <!-- /.sec.admin-sign-sec -->
 
     {% include("layout/admin/bottom.html") %}
 </body>

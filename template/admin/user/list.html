@@ -1,0 +1,10 @@
+{% set pageName = 'adminUserPage' %}
+{% extends "layout/admin/base.html" %}
+
+{% block content %}
+    <section class="sec user-sec">
+        {% if isLogin %}
+            {{ req_user.username }}
+        {% endif %}
+    </section>
+{% endblock %}

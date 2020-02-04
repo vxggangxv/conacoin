@@ -1,4 +1,4 @@
-const passwordHash = require('../helpers/passwordHash');
+const passwordHash = require('../../helpers/passwordHash');
 
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define('User', {
@@ -31,10 +31,21 @@ module.exports = function (sequelize, DataTypes) {
         },
 
     }, {
-        tableName: 'User'
+        tableName: 'User',
+        // hooks: {
+        //     beforeCreate: (user, _) => {
+        //         user.password = passwordHash(user.password);
+        //     },
+        //     beforeUpdate: (user, _) => {
+        //         user.password = passwordHash(user.password);
+        //     }
+        // }
     });
 
     User.beforeCreate((user, _) => {
+        user.password = passwordHash(user.password);
+    });
+    User.beforeUpdate((user, _) => {
         user.password = passwordHash(user.password);
     });
 

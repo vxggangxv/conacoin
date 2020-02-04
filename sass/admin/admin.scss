@@ -63,6 +63,16 @@
             }
         }
     }
+
+    .alert-msg {
+        position: absolute;
+        left: 0;
+        bottom: -25px;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: $c-red;
+    }
 }
 
 $admin-min-width: 1550px;

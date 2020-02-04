@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const models = require('../../models')
+const models = require('../../database/models')
 const ctrl = require('./admin.ctrl')
 
 const adminRequired = require('../../middleware/adminRequired');
@@ -55,7 +55,19 @@ passport.deserializeUser((user, done) => {
 // router.use(adminRequired);
 
 router.get('/', ctrl.index);
-router.get('/signup', csrfProtection, ctrl.get_join);
-router.get('/signin', ctrl.get_login);
+router.get('/join', csrfProtection, ctrl.get_join);
+router.post('/join', ctrl.post_join);
+router.get('/login', csrfProtection, ctrl.get_login);
+router.post(
+    '/login',
+    passport.authenticate('local', {
+        failureRedirect: '/admin/login',
+        failureFlash: true,
+    }),
+    ctrl.post_login,
+);
+router.get('/logout', ctrl.logout);
+router.get('/password', csrfProtection, ctrl.get_password);
+router.post('/password', ctrl.post_password);
 
 module.exports = router;
