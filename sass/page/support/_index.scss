@@ -125,6 +125,99 @@
                 }
 
                 // to do...
+                .tbl-table {
+                    position: relative;
+                    margin-top: 10px;
+                    width: 100%;
+                    border-top: solid 2px #7954ff;
+                    input {
+                        display: inline-block;
+                        margin: 10px 0;
+                        width: 60%;
+                        min-width: 180px;
+                        height: 38px;
+                        border: solid 1px #bdbdbd;
+                        border-radius: 5px;
+                    }
+                    textarea {
+                        display: inline-block;
+                        margin: 10px 0;
+                        border: solid 1px #bdbdbd;
+                        border-radius: 5px;
+                    }
+                    .tbl-table-body {
+                        .tbl-table-tr02 {
+                            text-align: center;
+                        }
+                        .tbl-table-tr03 {
+                            text-align: center;
+                        }
+                        .tbl-table-tr {
+                            line-height: 60px;
+                            vertical-align: middle;
+                            border-bottom: solid 1px #cacaca;
+                            .tbl-table-td {
+                                .tbl-name {
+                                    display: block;
+                                    width: 100%;
+                                    line-height: 40px;
+                                    .tbl-name-tit {
+                                        display: inline-block;
+                                        margin: 0 20px;
+                                        font-weight: 500;
+                                        width: 65px;
+                                    }
+                                
+                                }
+                                .tbl-email {
+                                    display: block;
+                                    width: 100%;
+                                    line-height: 40px;
+                                    .tbl-email-tit {
+                                        display: inline-block;
+                                        margin: 0 20px;
+                                        font-weight: 500;
+                                        width: 65px;
+                                    }
+                                    
+                                }
+                                .tbl-password {
+                                    display: block;
+                                    width: 100%;
+                                    line-height: 40px;
+                                    .tbl-password-tit {
+                                        display: inline-block;
+                                        margin: 0 20px;
+                                        font-weight: 500;
+                                        width: 65px;
+                                    }
+                                }
+                            }
+
+                            .tbl-title-tit {
+                                display: block;
+                                margin-top: 20px;
+                                line-height: 20px;
+                                font-weight: 500;
+                            }
+                            .tbl-title-input {
+                                width: 100%;
+                            }
+
+                            .tbl-copy-tit {
+                                display: block;
+                                margin-top: 20px;
+                                line-height: 20px;
+                                font-weight: 500;
+                            }
+                            .tbl-copy-input {
+                                width: 100%;
+                                font-size: 14px;
+                                height: 200px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -252,6 +345,100 @@
                 }
 
                 // to do...
+                .tbl-table {
+                    position: relative;
+                    margin-top: 10px;
+                    width: 100%;
+                    border-top: solid 2px #7954ff;
+                    input {
+                        display: inline-block;
+                        margin: 10px 0;
+                        width: 60%;
+                        min-width: 180px;
+                        height: 38px;
+                        border: solid 1px #bdbdbd;
+                        border-radius: 5px;
+                    }
+                    textarea {
+                        display: inline-block;
+                        margin: 10px 0;
+                        border: solid 1px #bdbdbd;
+                        border-radius: 5px;
+                    }
+                    .tbl-table-body {
+                        .tbl-table-tr02 {
+                            text-align: left;
+                        }
+                        .tbl-table-tr03 {
+                            text-align: center;
+                        }
+                        .tbl-table-tr {
+                            line-height: 60px;
+                            vertical-align: middle;
+                            border-bottom: solid 1px #cacaca;
+                            .tbl-table-td {
+                                .tbl-name {
+                                    display: inline-block;
+                                    width: 30%;
+                                    line-height: 40px;
+                                    .tbl-name-tit {
+                                        display: inline-block;
+                                        margin: 0 20px;
+                                        font-weight: 500;
+                                        width: 65px;
+                                    }
+                                
+                                }
+                                .tbl-email {
+                                    display: inline-block;
+                                    width: 30%;
+                                    line-height: 40px;
+                                    .tbl-email-tit {
+                                        display: inline-block;
+                                        margin: 0 20px;
+                                        font-weight: 500;
+                                        width: 65px;
+                                    }
+                                    
+                                }
+                                .tbl-password {
+                                    display: inline-block;
+                                    width: 30%;
+                                    line-height: 40px;
+                                    .tbl-password-tit {
+                                        display: inline-block;
+                                        margin: 0 20px;
+                                        font-weight: 500;
+                                        width: 65px;
+                                    }
+                                }
+                            }
+
+                            .tbl-title-tit {
+                                display: inline-block;
+                                line-height: 20px;
+                                font-weight: 500;
+                                margin: 0 20px;
+                                width: 65px;
+                            }
+                            .tbl-title-input {
+                                width: 85%;
+                            }
+
+                            .tbl-copy-tit {
+                                display: block;
+                                margin-top: 20px;
+                                line-height: 20px;
+                                font-weight: 500;
+                            }
+                            .tbl-copy-input {
+                                width: 100%;
+                                font-size: 14px;
+                                height: 300px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
