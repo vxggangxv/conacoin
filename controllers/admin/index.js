@@ -52,9 +52,6 @@ passport.deserializeUser((user, done) => {
     done(null, result)
 })
 
-// router.use(adminRequired);
-
-router.get('/', ctrl.index);
 router.get('/join', csrfProtection, ctrl.get_join);
 router.post('/join', ctrl.post_join);
 router.get('/login', csrfProtection, ctrl.get_login);
@@ -66,8 +63,13 @@ router.post(
     }),
     ctrl.post_login,
 );
+
+router.use(adminRequired);
+
 router.get('/logout', ctrl.logout);
 router.get('/password', csrfProtection, ctrl.get_password);
 router.post('/password', ctrl.post_password);
+
+router.get('/', ctrl.index);
 
 module.exports = router;

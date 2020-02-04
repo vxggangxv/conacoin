@@ -1,3 +1,49 @@
+<nav class="admin-sidebar">
+    <h1 class="sr-only">메뉴</h1>
+    <h1 class="sidebar-logo">
+        <a href="/" class="logo-cover">
+            <img src="/images/icon/cona.png" alt="코나코인" class="logo-img">
+            <span>Admin</span>
+        </a>
+    </h1>
+
+    <div class="sidebar-actions cf">
+
+        <a href="" class="logout-btn">
+            <i class="mdi mdi-logout"></i>
+            <span>로그아웃</span>
+        </a>
+
+        <a href="" class="home-btn">
+            <i class="mdi mdi-home-outline"></i>
+            <span>홈으로</span>
+        </a>
+
+    </div>
+
+    <ul class="sidebar-menu cf">
+        <li class="in-link">
+            <a href="#guide">GUIDE</a>
+        </li>
+        <li class="in-link">
+            <a href="#cona">CONA</a>
+        </li>
+        <li class="in-link">
+            <a href="#roadmap">ROADMAP</a>
+        </li>
+        <li class="in-link">
+            <a href="#support">SUPPORT</a>
+        </li>
+        <li class="in-link">
+            <a href="#news">NEWS</a>
+        </li>
+    </ul>
+
+    {% if isLogin %}
+        {{ req_user.username }}
+    {% endif %}
+</nav>
+
 {# <nav class="sidebar admin-sidebar">
     <h1 class="sr-only">메뉴</h1>
     <div class="sidebar-sticky">
