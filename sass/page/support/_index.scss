@@ -130,6 +130,94 @@
                     margin-top: 10px;
                     width: 100%;
                     border-top: solid 2px #7954ff;
+                    .tbl-table-body {
+                        .tbl-table-tr {
+                            line-height: 60px;
+                            vertical-align: middle;
+                            border-bottom: solid 1px #cacaca;
+                            .tbl-table-td {
+                                .tbl-name {
+                                    display: block;
+                                    width: 100%;
+                                    line-height: 40px;
+                                    .tbl-name-tit {
+                                        margin-left: 20px;
+                                        font-weight: 500;
+                                    }
+                                    .tbl-name-text {
+                                        font-size: 14px;
+                                        color: #525252;
+                                        margin-left: 20px;
+                                    }
+                                }
+                                .tbl-email {
+                                    display: block;
+                                    width: 100%;
+                                    line-height: 40px;
+                                    .tbl-email-tit {
+                                        margin-left: 20px;
+                                        font-weight: 500;
+                                    }
+                                    .tbl-email-text {
+                                        font-size: 14px;
+                                        color: #525252;
+                                        margin-left: 20px;
+                                    }
+                                }
+                                .tbl-result {
+                                    display: block;
+                                    width: 100%;
+                                    line-height: 40px;
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    text-align: right;
+                                    .tbl-result-status {
+                                        display: block;
+                                        margin-right: 20px;
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                        color: #ababab;
+                                    }
+                                }
+                            }
+
+                            .tbl-title {
+                                margin: 20px 20px;
+                                line-height: 20px;
+                                font-size: 14px;
+                                color: #525252;
+                            }
+
+                            .tbl-copy {
+                                margin: 20px 20px;
+                                line-height: 20px;
+                                font-size: 14px;
+                                color: #525252;
+                            }
+
+                            .tbl-retitle {
+                                color: #7954ff;
+                                font-weight: 500;
+                                margin: 20px 20px;
+                                line-height: 20px;
+                            }
+
+                            .tbl-retext {
+                                margin: 20px 20px;
+                                line-height: 20px;
+                                font-size: 14px;
+                                color: #525252;
+                            }
+                        }
+                    }
+                }
+
+                .edit-table {
+                    position: relative;
+                    margin-top: 10px;
+                    width: 100%;
+                    border-top: solid 2px #7954ff;
                     input {
                         display: inline-block;
                         margin: 10px 0;
@@ -145,23 +233,23 @@
                         border: solid 1px #bdbdbd;
                         border-radius: 5px;
                     }
-                    .tbl-table-body {
-                        .tbl-table-tr02 {
+                    .edit-table-body {
+                        .edit-table-tr02 {
                             text-align: center;
                         }
-                        .tbl-table-tr03 {
+                        .edit-table-tr03 {
                             text-align: center;
                         }
-                        .tbl-table-tr {
+                        .edit-table-tr {
                             line-height: 60px;
                             vertical-align: middle;
                             border-bottom: solid 1px #cacaca;
-                            .tbl-table-td {
-                                .tbl-name {
+                            .edit-table-td {
+                                .edit-name {
                                     display: block;
                                     width: 100%;
                                     line-height: 40px;
-                                    .tbl-name-tit {
+                                    .edit-name-tit {
                                         display: inline-block;
                                         margin: 0 20px;
                                         font-weight: 500;
@@ -169,11 +257,11 @@
                                     }
                                 
                                 }
-                                .tbl-email {
+                                .edit-email {
                                     display: block;
                                     width: 100%;
                                     line-height: 40px;
-                                    .tbl-email-tit {
+                                    .edit-email-tit {
                                         display: inline-block;
                                         margin: 0 20px;
                                         font-weight: 500;
@@ -181,11 +269,11 @@
                                     }
                                     
                                 }
-                                .tbl-password {
+                                .edit-password {
                                     display: block;
                                     width: 100%;
                                     line-height: 40px;
-                                    .tbl-password-tit {
+                                    .edit-password-tit {
                                         display: inline-block;
                                         margin: 0 20px;
                                         font-weight: 500;
@@ -194,23 +282,23 @@
                                 }
                             }
 
-                            .tbl-title-tit {
+                            .edit-title-tit {
                                 display: block;
                                 margin-top: 20px;
                                 line-height: 20px;
                                 font-weight: 500;
                             }
-                            .tbl-title-input {
+                            .edit-title-input {
                                 width: 100%;
                             }
 
-                            .tbl-copy-tit {
+                            .edit-copy-tit {
                                 display: block;
                                 margin-top: 20px;
                                 line-height: 20px;
                                 font-weight: 500;
                             }
-                            .tbl-copy-input {
+                            .edit-copy-input {
                                 width: 100%;
                                 font-size: 14px;
                                 height: 200px;
@@ -345,7 +433,87 @@
                 }
 
                 // to do...
+
                 .tbl-table {
+                    margin-top: 10px;
+                    width: 100%;
+                    border-top: solid 2px #7954ff;
+                    .tbl-table-body {
+                        .tbl-table-tr {
+                            line-height: 60px;
+                            vertical-align: middle;
+                            border-bottom: solid 1px #cacaca;
+                            .tbl-table-td {
+                                .tbl-name {
+                                    display: inline-block;
+                                    width: 30%;
+                                    .tbl-name-tit {
+                                        margin-left: 40px;
+                                        font-weight: 500;
+                                    }
+                                    .tbl-name-text {
+                                        font-size: 14px;
+                                        color: #525252;
+                                        margin-left: 20px;
+                                    }
+                                }
+                                .tbl-email {
+                                    display: inline-block;
+                                    width: 50%;
+                                    .tbl-email-tit {
+                                        margin-left: 40px;
+                                        font-weight: 500;
+                                    }
+                                    .tbl-email-text {
+                                        font-size: 14px;
+                                        color: #525252;
+                                        margin-left: 20px;
+                                    }
+                                }
+                                .tbl-result {
+                                    display: inline-block;
+                                    width: 10%;
+                                    text-align: right;
+                                    .tbl-result-status {
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                        color: #ababab;
+                                    }
+                                }
+                            }
+
+                            .tbl-title {
+                                margin: 20px 40px;
+                                line-height: 20px;
+                                font-size: 14px;
+                                color: #525252;
+                            }
+
+                            .tbl-copy {
+                                margin: 20px 40px;
+                                line-height: 20px;
+                                font-size: 14px;
+                                color: #525252;
+                            }
+
+                            .tbl-retitle {
+                                color: #7954ff;
+                                font-weight: 500;
+                                margin: 20px 40px;
+                                line-height: 20px;
+                            }
+
+                            .tbl-retext {
+                                margin: 20px 40px;
+                                line-height: 20px;
+                                font-size: 14px;
+                                color: #525252;
+                            }
+                        }
+                    }
+                }
+
+                .edit-table {
                     position: relative;
                     margin-top: 10px;
                     width: 100%;
@@ -365,23 +533,23 @@
                         border: solid 1px #bdbdbd;
                         border-radius: 5px;
                     }
-                    .tbl-table-body {
-                        .tbl-table-tr02 {
+                    .edit-table-body {
+                        .edit-table-tr02 {
                             text-align: left;
                         }
-                        .tbl-table-tr03 {
+                        .edit-table-tr03 {
                             text-align: center;
                         }
-                        .tbl-table-tr {
+                        .edit-table-tr {
                             line-height: 60px;
                             vertical-align: middle;
                             border-bottom: solid 1px #cacaca;
-                            .tbl-table-td {
-                                .tbl-name {
+                            .edit-table-td {
+                                .edit-name {
                                     display: inline-block;
                                     width: 30%;
                                     line-height: 40px;
-                                    .tbl-name-tit {
+                                    .edit-name-tit {
                                         display: inline-block;
                                         margin: 0 20px;
                                         font-weight: 500;
@@ -389,11 +557,11 @@
                                     }
                                 
                                 }
-                                .tbl-email {
+                                .edit-email {
                                     display: inline-block;
                                     width: 30%;
                                     line-height: 40px;
-                                    .tbl-email-tit {
+                                    .edit-email-tit {
                                         display: inline-block;
                                         margin: 0 20px;
                                         font-weight: 500;
@@ -401,11 +569,11 @@
                                     }
                                     
                                 }
-                                .tbl-password {
+                                .edit-password {
                                     display: inline-block;
                                     width: 30%;
                                     line-height: 40px;
-                                    .tbl-password-tit {
+                                    .edit-password-tit {
                                         display: inline-block;
                                         margin: 0 20px;
                                         font-weight: 500;
@@ -414,24 +582,24 @@
                                 }
                             }
 
-                            .tbl-title-tit {
+                            .edit-title-tit {
                                 display: inline-block;
                                 line-height: 20px;
                                 font-weight: 500;
                                 margin: 0 20px;
                                 width: 65px;
                             }
-                            .tbl-title-input {
+                            .edit-title-input {
                                 width: 85%;
                             }
 
-                            .tbl-copy-tit {
+                            .edit-copy-tit {
                                 display: block;
                                 margin-top: 20px;
                                 line-height: 20px;
                                 font-weight: 500;
                             }
-                            .tbl-copy-input {
+                            .edit-copy-input {
                                 width: 100%;
                                 font-size: 14px;
                                 height: 300px;
