@@ -64,3 +64,4 @@ typings/
 _draft/
 uploads/*.png
 public/stylesheets/
+yarn.lock
