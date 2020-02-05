@@ -12,6 +12,7 @@ body {
     font-display: swap;
     // letter-spacing: -0.3px;
     // color: $font-color;
+    background-color: $admin-body-bg;
     color: $admin-body-c;
 }
 
@@ -22,24 +23,29 @@ body {
     position: relative;
 }
 
+$sidebar-wd: 260px;
+$toolbar-ht: 75px;
+
 .container[role=main] {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
-    background-color: $admin-body-bg;
+    // background-color: $admin-body-bg;
+    width: calc(100% - #{$sidebar-wd});
+    top: $toolbar-ht;
+    left: $sidebar-wd;
+    padding: 25px;
+    box-sizing: border-box;
 }
 
 // $header-ht: 50px;
 // $sidebar-wd: 280px;
 // $sidebar-wd: 10%;
 
-$sidebar-wd: 260px;
-$toolbar-ht: 75px;
-
 .admin-sidebar {
-    z-index: 9;
+    z-index: 11;
     position: fixed;
     top: 0;
     left: 0;
@@ -92,57 +98,39 @@ $toolbar-ht: 75px;
         }
     }
 
-    .sidebar-actions {
-        padding: 5px 0;
-        padding-bottom: 10px;
-        // border-top: 1px solid #141414;
-        border-bottom: 1px solid #141414;
-        text-align: center;
-        font-size: 0;
-
-        a {
-            display: inline-block;
-            width: calc(50% - 20px);
-            background-color: #141414;
-            box-sizing: border-box;
-            @include va-bef(32px, 14px);
-
-            .mdi {
-                top: 1px;
-                font-size: 16px;
-                margin-right: 2px;
-            }
-
-            &:first-child {
-                margin-right: 10px;
-            }
-        }
-    }
-
     .sidebar-menu {
         margin-top: 20px;
         // font-size: 14px;
 
         // font-weight: 300;
         .menu-item {
+            .mdi {
+                margin-right: 10px;
+                top: 1px;
+                font-size: 21px;
+                color: $admin-sb-icon;
+            }
+
             >a {
                 display: block;
-                @include va-bef(50px, 16px);
+                @include va-bef(50px, 13px);
                 padding: 0 25px;
+                color: $admin-sb-text;
+            }
 
-                &:hover {
+            &:hover,
+            &.active {
+                >a {
+                    background-color: $admin-sb-bg-active;
                     color: $admin-sb-text-active;
                 }
             }
 
-            .mdi {
-                font-size: 22px;
-                margin-right: 10px;
-            }
-
-            &.active {
+            &:hover {
                 >a {
-                    background-color: $admin-sb-bg-active;
+                    .mdi {
+                        color: $admin-primary;
+                    }
                 }
             }
         }
@@ -187,11 +175,39 @@ $toolbar-ht: 75px;
             // margin-bottom: 5px;
         }
     }
+
+    // .sidebar-actions {
+    //     padding: 5px 0;
+    //     padding-bottom: 10px;
+    //     // border-top: 1px solid #141414;
+    //     border-bottom: 1px solid #141414;
+    //     text-align: center;
+    //     font-size: 0;
+
+    //     a {
+    //         display: inline-block;
+    //         width: calc(50% - 20px);
+    //         background-color: #141414;
+    //         box-sizing: border-box;
+    //         @include va-bef(32px, 14px);
+
+    //         .mdi {
+    //             top: 1px;
+    //             font-size: 16px;
+    //             margin-right: 2px;
+    //         }
+
+    //         &:first-child {
+    //             margin-right: 10px;
+    //         }
+    //     }
+    // }
 }
 
 .admin-toolbar {
+    z-index: 10;
     position: fixed;
-    // padding-left: $sidebar-wd;
+    top: 0;
     left: $sidebar-wd;
     width: calc(100% - #{$sidebar-wd});
     height: $toolbar-ht;
@@ -222,16 +238,26 @@ $toolbar-ht: 75px;
             @include va-bef($toolbar-ht, 14px);
 
             .mdi {
-                font-size: 28px !important;
+                font-size: 24px !important;
+                color: $admin-mn-icon;
+                transition: all .3s;
+
+                &.mdi-logout-variant {}
+
+                &.mdi-home-outline {
+                    top: 1px;
+                    font-size: 25px !important;
+                }
             }
 
             >a {
                 &.icon-btn {
                     // display: inline-block;
-                    @include va-bef (50px, 14px);
+                    @include va-bef (50px, 0px);
                     width: 50px;
                     text-align: center;
                     border-radius: 50%;
+                    transition: all .3s;
                 }
 
                 &.icon-btn:hover {
@@ -240,8 +266,14 @@ $toolbar-ht: 75px;
                 }
             }
 
+            &:hover {
+                .mdi {
+                    color: $admin-primary;
+                }
+            }
+
             &.icon {
-                color: $admin-mn-icon;
+                // color: $admin-mn-icon;
             }
 
             &.btn-mg {
@@ -250,14 +282,20 @@ $toolbar-ht: 75px;
 
             &.hello {
                 margin: 0 15px;
+                color: $admin-c-black5;
 
                 .in {
                     margin-right: 5px;
-                    color: $admin-c-black3;
+                    font-size: 12px;
+
+                    .name {
+                        color: $admin-c-black3;
+                    }
                 }
 
                 .mdi {
                     font-size: 38px !important;
+                    color: $admin-primary;
                 }
             }
         }

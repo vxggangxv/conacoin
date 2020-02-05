@@ -25,9 +25,8 @@
     <div id="adminWrapper" class="admin-wrapper">
         {% include("layout/admin/header.html") %}
 
+        {% include("layout/admin/sidebar.html") %}
         <main id="container" class="container" role="main">
-            {% include("layout/admin/sidebar.html") %}
-
             {%- block content %}{% endblock -%}
         </main>
     </div>
