@@ -63,3 +63,4 @@ typings/
 # etc
 _draft/
 uploads/*.png
+public/stylesheets/
