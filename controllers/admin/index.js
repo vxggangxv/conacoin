@@ -64,7 +64,7 @@ router.post(
     ctrl.post_login,
 );
 
-router.use(adminRequired);
+// router.use(adminRequired);
 
 router.get('/logout', ctrl.logout);
 router.get('/password', csrfProtection, ctrl.get_password);

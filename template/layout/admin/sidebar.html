@@ -6,54 +6,35 @@
             <span>Admin</span>
         </a>
     </h1>
-
-    <div class="sidebar-actions cf">
-
-        <a href="" class="logout-btn">
-            <i class="mdi mdi-logout"></i>
-            <span>로그아웃</span>
-        </a>
-
-        <a href="" class="home-btn">
-            <i class="mdi mdi-home-outline"></i>
-            <span>홈으로</span>
-        </a>
-
-    </div>
-
-    <ul class="sidebar-menu cf">
-        <li class="in-link">
-            <a href="#guide">GUIDE</a>
-        </li>
-        <li class="in-link">
-            <a href="#cona">CONA</a>
-        </li>
-        <li class="in-link">
-            <a href="#roadmap">ROADMAP</a>
-        </li>
-        <li class="in-link">
-            <a href="#support">SUPPORT</a>
-        </li>
-        <li class="in-link">
-            <a href="#news">NEWS</a>
-        </li>
-    </ul>
-
     {% if isLogin %}
         {{ req_user.username }}
     {% endif %}
-</nav>
 
-{# <nav class="sidebar admin-sidebar">
-    <h1 class="sr-only">메뉴</h1>
-    <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/user/">
-                    <i class="mdi mdi-account-group"></i>
-                    <span class="item-name">Users</span>
-                </a>
-            </li>
-        </ul>
+    <ul class="sidebar-menu cf">
+        <li class="menu-item active">
+            <a href="">
+                <i class="mdi mdi-comment-quote-outline"></i>
+                {# <i class="mdi mdi-comment-text-outline"></i> #}
+                {# <i class="mdi mdi-comment-text-multiple-outline"></i> #}
+                {# <i class="mdi mdi-comment-question-outline"></i> #}
+                <span>실시간 문의</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="">
+                <i class="mdi mdi-newspaper-variant-multiple-outline"></i>
+                {# <i class="mdi mdi-newspaper-variant-outline"></i> #}
+                <span>뉴스 업로드</span>
+            </a>
+        </li>
+    </ul>
+    <div class="cs-wrapper">
+        <p class="title">고객지원</p>
+        <p class="text">
+            WEB PRODUCER
+            <span class="number">+82) 010-5691-2604</span>
+            {# 사이트 이상 증상이나<br>
+            접속장애 및 유지보수 문의 #}
+        </p>
     </div>
-</nav> #}
+</nav>

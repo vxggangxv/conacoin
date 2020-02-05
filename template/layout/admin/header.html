@@ -1,20 +1,25 @@
-{# <nav class="navbar navbar-dark fixed-top flex-nowrap p-0 shadow admin-toolbar">
-    <a class="navbar-brand px-3 mr-0 text-dark" href="#">Admin 관리자</a>
-    <div class="app-title align-items-center">
-        <h1 class="title text-left h5 mb-0 font-weight-normal sr-only">
-            Users
-        </h1>
-        <div class="app-search">
-            <form>
-                <div class="input-group"><input type="text" class="form-control" placeholder="Search..."><span class="mdi mdi-magnify"></span>
-                    <div class="input-group-append"><button class="btn btn-secondary" type="submit">Search</button></div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <ul class="navbar-nav px-3 text-right">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+<div class="admin-toolbar">
+    <ul class="toolbar-menu">
+        <li class="menu-item icon btn-mg">
+            <a href="" class="icon-btn logout-btn">
+                {# <i class="mdi mdi-logout"></i> #}
+                <i class="mdi mdi-logout-variant"></i>
+                <span class="sr-only">로그아웃</span>
+            </a>
+        </li>
+        <li class="menu-item icon btn-mg">
+            <a href="" class="icon-btn home-btn">
+                <i class="mdi mdi-home-outline"></i>
+                {# <i class="mdi mdi-home-variant-outline"></i> #}
+                <span class="sr-only">홈으로</span>
+            </a>
+        </li>
+        <li class="menu-item icon hello">
+            <span class="in">
+                Hi,
+                <em>master</em>
+            </span>
+            <i class="mdi mdi-account-circle"></i>
         </li>
     </ul>
-</nav> #}
+</div>

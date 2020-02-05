@@ -35,13 +35,13 @@ function dbConnection() {
         .then(() => {
             console.log('DB Sync complete.')
             // 더미 데이터가 필요하면 아래 설정
-            // require('./config/insertDummyData')();
+            // require('./config/insertInquirysDummyData')();
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err)
         })
 }
-// dbConnection()
+dbConnection()
 
 var app = express()
 
@@ -89,9 +89,9 @@ const sessionMiddleWare = session({
         maxAge: 2000 * 60 * 60, //지속시간 2시간
     },
     // store: new RedisStore({client}),
-    // store: new SequelizeStore({
-    //     db: db.sequelize,
-    // }),
+    store: new SequelizeStore({
+        db: db.sequelize,
+    }),
 })
 app.use(sessionMiddleWare)
 //passport 적용

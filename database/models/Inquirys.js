@@ -1,8 +1,8 @@
 const moment = require('moment');
 
 module.exports = (sequelize, DataTypes) => {
-    const Inquiry = sequelize.define(
-        'Inquiry', // 테이블 이름
+    const Inquirys = sequelize.define(
+        'Inquirys', // 테이블 이름
         {
             id: {
                 type: DataTypes.BIGINT.UNSIGNED,
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
                     len: [0, 20],
                 },
             },
-            description: {
+            content: {
                 type: DataTypes.TEXT,
                 validate: {
                     len: [0, 500],
@@ -35,20 +35,20 @@ module.exports = (sequelize, DataTypes) => {
                 // defaultValue: sequelize.literal('NOW()')
             }
         }, {
-            tableName: 'Inquiry',
+            tableName: 'Inquirys',
         },
     );
 
-    Inquiry.prototype.dateFormat = date => moment(date).format('YYYY-MM-DD');
+    Inquirys.prototype.dateFormat = date => moment(date).format('YYYY-MM-DD');
     // 제품 모델 관계도
-    Inquiry.associate = models => {
+    Inquirys.associate = models => {
         // 댓글 모델에 외부키를 건다
-        Inquiry.hasMany(models.InquiryReply, {
+        Inquirys.hasMany(models.InquirysReply, {
             as: 'Reply',
-            foreignKey: 'product_id',
+            foreignKey: 'inquiry_id',
             sourceKey: 'id',
         });
     }
 
-    return Inquiry;
+    return Inquirys;
 };

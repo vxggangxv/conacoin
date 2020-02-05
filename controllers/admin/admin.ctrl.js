@@ -45,7 +45,7 @@ exports.post_login = async (req, res) => {
     location.href="/admin";</script>');
 }
 exports.index = (req, res) => {
-    res.render('admin/user/list.html', {});
+    res.render('admin/users/list.html', {});
 }
 exports.logout = (req, res) => {
     req.logout();
