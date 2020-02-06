@@ -10,6 +10,9 @@ module.exports = function (sequelize, DataTypes) {
             },
             name: {
                 type: DataTypes.STRING,
+                validate: {
+                    len: [0, 50]
+                },
             },
             content: {
                 type: DataTypes.TEXT,

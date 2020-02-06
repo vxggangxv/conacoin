@@ -42,19 +42,60 @@
                         <tr class="content">
                             <td>
                                 <p class="text content">{{ inquiry.content }}</p>
+                                <div class="reply-register-wrapper">
+                                    <ul class="tablist">
+                                        {% if inquiry.Reply.length %}
+                                            <li class="tab">
+                                                <a href="javascript:;" class="tab-btn" id="register_edit">댓글 수정</a>
+                                            </li>
+                                            <li class="tab">
+                                                <a href="/support/inquiry/reply/delete/{{ inquiry.id }}" class="tab-btn" id="register_delete">댓글 삭제</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="tab">
+                                                <a href="javascript:;" class="tab-btn" id="register_write">
+                                                    댓글 쓰기
+                                                    <span class="arr down"></span>
+                                                    <span class="arr up"></span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                    {% if inquiry.Reply.length %}
+                                        <form action="/support//inquiry/reply/edit/{{ inquiry.id }}" method="post">
+                                            <div class="reply-form cf" id="reply_form">
+                                                <textarea class="form-textarea register-content" name="content" required="required"></textarea>
+                                                <button type="submit" id="register_btn" class="register-btn">수정</button>
+                                            </div>
+                                        </form>
+                                    {% else %}
+                                        <form action="" method="post">
+                                            <div class="reply-form cf" id="reply_form">
+                                                <textarea class="form-textarea register-content" name="content" required="required"></textarea>
+                                                <button type="submit" id="register_btn" class="register-btn">등록</button>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+
+                                </div>
                             </td>
                         </tr>
-                        <tr class="reply">
-                            <td>
-                                <p class="label reply-name">고객센터</p>
-                                <p class="text reply-content">접수된 문의내용을 이메일로 답변 드렸습니다~^^<br>이메일을 확인해주세요~</p>
-                            </td>
-                        </tr>
+
+                        {% for reply in inquiry.Reply %}
+                            <tr class="reply" id="reply_wrapper">
+                                <td>
+                                    <div>
+                                        <p class="label reply-name">고객센터</p>
+                                        <p class="text reply-content">{{ reply.content }}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
                 <div class="inquiry-actions">
                     <a href="javascript: history.back(-1)" class="comm-btn outline back-btn">이전</a>
-                    <a href="/support/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
+                    <a href="/support/inquiry/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
                 </div>
             </div>
         </div>
@@ -98,6 +139,15 @@
                     console.log(result);
                     alert('비밀번호 오류');
                 })
+        });
+        $('#register_write').on('click', function () {
+            $(this).toggleClass('active');
+            $('#reply_form').toggleClass('active');
+        });
+        $('#register_edit').on('click', function () {
+            $(this).toggleClass('active');
+            $('#reply_wrapper').toggle();
+            $('#reply_form').toggle();
         });
     </script>
 {% endblock %}

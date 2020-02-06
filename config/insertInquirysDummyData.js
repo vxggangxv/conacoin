@@ -80,10 +80,11 @@ module.exports = async () => {
         ]);
 
         // 임시 문의 글 답변
-        // await models.InquirysReply.bulkCreate([{
-        //     content: "첫번째 메모1",
-        //     inquiry_id: 1
-        // }]);
+        await models.InquirysReply.bulkCreate([{
+            name: 'master',
+            content: "첫번째 메모1",
+            inquiry_id: 1
+        }]);
 
 
     } catch (err) {

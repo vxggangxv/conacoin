@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
             },
             name: {
                 type: DataTypes.STRING,
+                validate: {
+                    len: [0, 50]
+                },
             },
             password: {
                 type: DataTypes.STRING,
@@ -25,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
             title: {
                 type: DataTypes.TEXT,
                 validate: {
-                    len: [0, 20],
+                    len: [0, 50],
                 },
             },
             content: {
