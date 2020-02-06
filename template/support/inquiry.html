@@ -13,6 +13,25 @@
                         실시간 문의하기
                     </h1>
                 </div>
+                <!-- password popup start -->
+                <div id="pw-popup" class="inquiry-pw">
+                    <div class="pw-pop">
+                        <p class="pw-pop-tit">PASSWORD</p>
+                        <input class="pw-pop-input" type="password">
+                        <div class="pw-pop-btn">
+                            <a href="javascript:;" class="comm-btn outline prev-btn" onclick="popClose();">이전</a>
+                            <a href="" class="comm-btn outline next-btn">확인</a>
+                        </div>
+                    </div>
+                    <div class="pw-black"></div>
+                </div>
+                <script>
+                    function popClose(){
+                        var pwPop = document.getElementById('pw-popup');
+                        pwPop.style.display = 'none';
+                    };
+                </script>
+                <!-- password popup end -->
                 <div class="inquiry-tbl-st">※ 답변이 완료된 문의는 이메일로 답변이 전송되오니 확인 부탁드립니다.</div>
                 <table class="postlist-tbl">
                     <colgroup>
