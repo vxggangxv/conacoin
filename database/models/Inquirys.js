@@ -12,6 +12,13 @@ module.exports = (sequelize, DataTypes) => {
             name: {
                 type: DataTypes.STRING,
             },
+            password: {
+                type: DataTypes.STRING,
+                validate: {
+                    len: [3, 100]
+                },
+                allowNull: false
+            },
             email: {
                 type: DataTypes.STRING
             },
@@ -26,6 +33,9 @@ module.exports = (sequelize, DataTypes) => {
                 validate: {
                     len: [0, 500],
                 },
+            },
+            reply_cnt: {
+                type: DataTypes.BIGINT.UNSIGNED,
             },
             createdAt: {
                 type: DataTypes.DATE,
@@ -47,6 +57,7 @@ module.exports = (sequelize, DataTypes) => {
             as: 'Reply',
             foreignKey: 'inquiry_id',
             sourceKey: 'id',
+            onDelete: 'CASCADE'
         });
     }
 

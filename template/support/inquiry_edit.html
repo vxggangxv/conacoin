@@ -14,37 +14,42 @@
                     </h1>
                 </div>
                 <div class="tbl-comm-st">※ 답변이 완료된 문의는 이메일로 답변이 전송되오니 확인 부탁드립니다.</div>
-                <!-- to do... -->
-                <table class="edit-table">
-                    <tbody class="edit-table-body">
-                        <tr class="edit-table-tr">
-                            <td class="edit-table-td">
-                                <p class="edit-name"><span class="edit-name-tit">NAME</span><input class="edit-name-input" type="text"></p>
-                                <p class="edit-email"><span class="edit-email-tit">E-mail</span><input class="edit-email-input" type="text"></p>
-                                <p class="edit-password"><span class="edit-password-tit">Password</span><input class="edit-password-input" type="password"></p>
-                            </td>
-                        </tr>
-                        <tr class="edit-table-tr edit-table-tr02">
-                            <td class="edit-table-td">
-                                <span class="edit-title-tit">제목</span><input class="edit-title-input" type="text">
-                            </td>
-                        </tr>
-                        <tr class="edit-table-tr edit-table-tr03">
-                            <td class="edit-table-td">
-                                <span class="edit-copy-tit">문의내용</span><textarea class="edit-copy-input"></textarea>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- / -->
-                <div class="inquiry-actions">
-                    <a href="javascript:;" onlcick="history.back(-1)" class="comm-btn outline back-btn">이전</a>
-                    <a href="" class="comm-btn primary complete-btn">작성완료</a>
-                </div>
+                <form action="" method="post" id="inquiry_form">
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
+                    <table class="edit-tbl">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p class="row">
+                                        <span class="label name">이름</span><input class="form-input name" name="name" type="text"></p>
+                                    <p class="row">
+                                        <span class="label email">이메일</span><input class="form-input email" name="email" type="text"></p>
+                                    <p class="row">
+                                        <span class="label password">비밀번호</span><input class="form-input password" name="password" type="password"></p>
+                                </td>
+                            </tr>
+                            <tr class="title">
+                                <td>
+                                    <span class="label title">제목</span><input class="form-input title" name="title" type="text">
+                                </td>
+                            </tr>
+                            <tr class="content">
+                                <td>
+                                    <span class="label content">문의내용</span>
+                                    <textarea class="form-textarea content" name="content"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="inquiry-actions">
+                        <a href="javascript: history.back(-1)" class="comm-btn outline back-btn">이전</a>
+                        <button type="submit" class="comm-btn primary complete-btn">작성완료</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
     <!-- /.sec support-inquiry-sec -->
 
-    {% include("inc/bn-meet.html") %}
+    {% include("inc/bn_meet.html") %}
 {% endblock %}

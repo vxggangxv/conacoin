@@ -14,43 +14,90 @@
                     </h1>
                 </div>
                 <div class="tbl-comm-st">※ 답변이 완료된 문의는 이메일로 답변이 전송되오니 확인 부탁드립니다.</div>
-                <!-- to do... -->
-                <table class="tbl-table">
-                    <tbody class="tbl-table-body">
-                        <tr class="tbl-table-tr">
-                            <td class="tbl-table-td">
-                                <p class="tbl-name"><span class="tbl-name-tit">NAME</span><span class="tbl-name-text">nong-eo</span></p>
-                                <p class="tbl-email"><span class="tbl-email-tit">E-mail</span><span class="tbl-email-text">kbsowo14@gmail.com</span></p>
-                                <p class="tbl-result"><span class="tbl-result-status">답변대기</span></p>
+                <table class="detail-tbl">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p class="row">
+                                    <span class="label name">이름</span><span class="text name">{{ inquiry.name }}</span></p>
+                                <p class="row">
+                                    <span class="label">이메일</span><span class="text email">{{ inquiry.email }}</span></p>
+                                {% if inquiry.reply_cnt %}
+                                    <span class="status active">
+                                        답변완료
+                                    </span>
+                                {% else %}
+                                    <span class="status">
+                                        답변대기
+                                    </span>
+                                {% endif %}
                             </td>
                         </tr>
-                        <tr class="tbl-table-tr">
-                            <td class="tbl-table-td">
-                                <p class="tbl-title">문의 하고 싶습니다!</p>
+                        <tr class="title">
+                            <td>
+                                <p class="row">
+                                    <span class="label title">제목</span><span class="text title">{{ inquiry.title }}</span></p>
                             </td>
                         </tr>
-                        <tr class="tbl-table-tr">
-                            <td class="tbl-table-td">
-                                <p class="tbl-copy">나는 궁금한게 많아요~<br>호호호</p>
+                        <tr class="content">
+                            <td>
+                                <p class="text content">{{ inquiry.content }}</p>
                             </td>
                         </tr>
-                        <tr class="tbl-table-tr">
-                            <td class="tbl-table-td">
-                                <p class="tbl-retitle">고객센터</p>
-                                <p class="tbl-retext">접수된 문의내용을 이메일로 답변 드렸습니다~^^<br>이메일을 확인해주세요~</p>
+                        <tr class="reply">
+                            <td>
+                                <p class="label reply-name">고객센터</p>
+                                <p class="text reply-content">접수된 문의내용을 이메일로 답변 드렸습니다~^^<br>이메일을 확인해주세요~</p>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <!-- / -->
                 <div class="inquiry-actions">
-                    <a href="javascript:;" onlcick="history.back(-1)" class="comm-btn outline back-btn">이전</a>
-                    <a href="javascript:;" class="comm-btn outline delete-btn">삭제</a>
+                    <a href="javascript: history.back(-1)" class="comm-btn outline back-btn">이전</a>
+                    <a href="/support/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- /.sec support-inquiry-sec -->
 
-    {% include("inc/bn-meet.html") %}
+    {% include("inc/bn_meet.html") %}
+    {% include("inc/support_pw_pop.html") %}
+
+    <script>
+        $('#sp_submit').on('click', function () {
+            var data_id = {{ inquiry.content }};
+            var $sp_pw_input = $('#sp_pw_input');
+            if (!$sp_pw_input.val()) {
+                alert('비밀번호를 입력하세요.');
+                $sp_pw_input.focus();
+                return false;
+            }
+            if ($sp_pw_input.val().length < 4) {
+                alert('네글자 이상 입력하세요.');
+                $sp_pw_input.focus();
+                return false;
+            }
+            $
+                .ajax({
+                    url: '/support/password',
+                    type: 'post',
+                    data: {
+                        inquiry_id: data_id,
+                        sp_password: $sp_pw_input
+                            .val()
+                            .trim()
+                    }
+                })
+                .done(function (result) {
+                    if (result.status.length) {
+                        location.href = "/support/";
+                    }
+                })
+                .fail(function (result) {
+                    console.log(result);
+                    alert('비밀번호 오류');
+                })
+        });
+    </script>
 {% endblock %}

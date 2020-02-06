@@ -1,3 +1,50 @@
+// 비밀번호 확인 팝업 영역
+.support-inquiry-pw {
+    .pw-pop {
+        width: 90%;
+        max-width: 360px;
+        background: #fff;
+        border-radius: 10px;
+        text-align: center;
+
+        .pw-pop-tit {
+            font-weight: 500;
+            padding: 40px 0 20px 0;
+        }
+
+        .pw-pop-input {
+            text-align: center;
+            width: 70%;
+            border-color: #bdbdbd;
+            border-radius: 5px;
+        }
+
+        .pw-pop-btn {
+            text-align: center;
+            padding: 30px 0 40px;
+
+            .comm-btn {
+                margin: 0 5px;
+                @include btn-base(35%, 40px, 0);
+                @include btn-transparent(#141414);
+                border-radius: 0;
+                font-size: 14px;
+                line-height: 40px;
+            }
+        }
+
+    }
+
+    .pw-black {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1000px;
+        background: rgba($color: #000000, $alpha: 0.5);
+    }
+}
+
 // mobile & tablet
 @media (max-width: $screen-md-width - 1px) {
     .sec.comm-pd[class*='support-'] {
@@ -17,7 +64,7 @@
     .support-inquiry-isec {
         .inquiry-wrapper {
             .inquiry-content {
-                .inquiry-tbl-st {
+                .tbl-comm-st {
                     margin-bottom: 10px;
                     font-size: 12px;
                     line-height: 1.235;
@@ -64,8 +111,9 @@
                             white-space: nowrap;
                         }
 
-                        .state {
+                        .status {
                             font-weight: 700;
+                            color: $font-gray-2;
 
                             &.active {
                                 color: $primary-color;
@@ -125,254 +173,159 @@
                 }
 
                 // to do...
-
-                .inquiry-pw {
-                    display: block;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
+                .detail-tbl {
+                    position: relative;
+                    margin-top: 10px;
                     width: 100%;
-                    height: 100%;
-                    .pw-pop{
-                        text-align: center;
-                        position: fixed;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        z-index: 9999;
-                        width: 90%;
-                        height: 300px;
-                        background: #fff;
-                        border-radius: 10px;
-                        .pw-pop-tit{
-                            font-weight: 500;
-                            padding: 40px 0 20px 0;
-                        }
-                        .pw-pop-input{
-                            text-align: center;
-                            width: 70%;
-                            height: 40px;
-                            border: solid 1px #bdbdbd;
-                            border-radius: 5px;
-                        }
-                        .pw-pop-btn{
-                            text-align: center;
-                            padding-top: 60px;
-                            .comm-btn {
-                                margin: 0 2%;
+                    border-top: solid 2px $primary-color;
+                    line-height: 1.423;
+                    font-size: 13px;
+
+                    tbody {
+                        tr {
+                            vertical-align: middle;
+                            border-bottom: solid 1px $bor-gray;
+
+                            td {
+                                padding: 10px 0;
+                            }
+
+                            .row {
+                                display: block;
+                                width: 100%;
+
+                                &+.row {
+                                    margin-top: 10px;
+                                }
+                            }
+
+                            .label,
+                            .status {
+                                font-size: 13.5px;
+                                font-weight: 500;
+                            }
+
+                            .label {
                                 display: inline-block;
-                                box-sizing: border-box;
-                                width: 35%;
-                                height: 60px;
-                                border: solid 1px #141414;
-                                line-height: 60px;
+                                min-width: 50px;
+                                margin-left: 10px;
+                            }
+
+                            .text {
+                                color: $font-gray-3;
+                                margin-left: 10px;
+                            }
+
+
+                            .status {
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                color: $font-gray-2;
+
+                                &.active {
+                                    color: $primary-color;
+                                }
+                            }
+
+                            &.content {
+                                .text {
+                                    min-height: 100px;
+                                }
+                            }
+
+                            .reply-name {
+                                color: $primary-color;
+                                font-weight: 700;
+                            }
+
+                            .reply-content {
+                                margin-top: 10px;
+                            }
+
+                        }
+                    }
+                }
+
+                .edit-tbl {
+                    position: relative;
+                    width: 100%;
+                    border-top: solid 2px $primary-color;
+                    line-height: 1.423;
+                    font-size: 13px;
+
+                    .form-input {
+                        // margin: 10px 0;
+                        margin-left: 10px;
+                        // width: 60%;
+                        width: calc(100% - 10px - 10px - 70px);
+                        min-width: 180px;
+                        height: 30px;
+                        border: solid 1px #bdbdbd;
+                        border-radius: 5px;
+
+                        &.title {
+                            margin-top: 10px;
+                            margin-left: 0;
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+
+                    .form-textarea {
+                        // margin: 10px 0;
+                        border: solid 1px #bdbdbd;
+                        border-radius: 5px;
+
+                        &.content {
+                            margin-top: 10px;
+                            margin-left: 0;
+                            display: block;
+                            height: 200px;
+                        }
+                    }
+
+                    tbody {
+
+                        tr {
+                            vertical-align: middle;
+                            border-bottom: solid 1px $bor-gray;
+
+                            td {
+                                padding: 10px 0;
+                            }
+
+                            &.title,
+                            &.content {
                                 text-align: center;
                             }
-                        }
-                        
-                    }
-                    .pw-black {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 1000px;
-                        background: rgba($color: #000000, $alpha: 0.5);
-                    }
-                }
 
-                .inquiry-pw {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    .pw-pop{
-                        .pw-pop-tit{
-
-                        }
-                        .pw-pop-input{
-
-                        }
-                    }
-                }
-
-                .tbl-table {
-                    position: relative;
-                    margin-top: 10px;
-                    width: 100%;
-                    border-top: solid 2px #7954ff;
-                    .tbl-table-body {
-                        .tbl-table-tr {
-                            line-height: 60px;
-                            vertical-align: middle;
-                            border-bottom: solid 1px #cacaca;
-                            .tbl-table-td {
-                                .tbl-name {
-                                    display: block;
-                                    width: 100%;
-                                    line-height: 40px;
-                                    .tbl-name-tit {
-                                        margin-left: 20px;
-                                        font-weight: 500;
-                                    }
-                                    .tbl-name-text {
-                                        font-size: 14px;
-                                        color: #525252;
-                                        margin-left: 20px;
-                                    }
-                                }
-                                .tbl-email {
-                                    display: block;
-                                    width: 100%;
-                                    line-height: 40px;
-                                    .tbl-email-tit {
-                                        margin-left: 20px;
-                                        font-weight: 500;
-                                    }
-                                    .tbl-email-text {
-                                        font-size: 14px;
-                                        color: #525252;
-                                        margin-left: 20px;
-                                    }
-                                }
-                                .tbl-result {
-                                    display: block;
-                                    width: 100%;
-                                    line-height: 40px;
-                                    position: absolute;
-                                    top: 0;
-                                    right: 0;
-                                    text-align: right;
-                                    .tbl-result-status {
-                                        display: block;
-                                        margin-right: 20px;
-                                        font-size: 14px;
-                                        font-weight: 500;
-                                        color: #ababab;
-                                    }
-                                }
-                            }
-
-                            .tbl-title {
-                                margin: 20px 20px;
-                                line-height: 20px;
-                                font-size: 14px;
-                                color: #525252;
-                            }
-
-                            .tbl-copy {
-                                margin: 20px 20px;
-                                line-height: 20px;
-                                font-size: 14px;
-                                color: #525252;
-                            }
-
-                            .tbl-retitle {
-                                color: #7954ff;
-                                font-weight: 500;
-                                margin: 20px 20px;
-                                line-height: 20px;
-                            }
-
-                            .tbl-retext {
-                                margin: 20px 20px;
-                                line-height: 20px;
-                                font-size: 14px;
-                                color: #525252;
-                            }
-                        }
-                    }
-                }
-
-                .edit-table {
-                    position: relative;
-                    margin-top: 10px;
-                    width: 100%;
-                    border-top: solid 2px #7954ff;
-                    input {
-                        display: inline-block;
-                        margin: 10px 0;
-                        width: 60%;
-                        min-width: 180px;
-                        height: 38px;
-                        border: solid 1px #bdbdbd;
-                        border-radius: 5px;
-                    }
-                    textarea {
-                        display: inline-block;
-                        margin: 10px 0;
-                        border: solid 1px #bdbdbd;
-                        border-radius: 5px;
-                    }
-                    .edit-table-body {
-                        .edit-table-tr02 {
-                            text-align: center;
-                        }
-                        .edit-table-tr03 {
-                            text-align: center;
-                        }
-                        .edit-table-tr {
-                            line-height: 60px;
-                            vertical-align: middle;
-                            border-bottom: solid 1px #cacaca;
-                            .edit-table-td {
-                                .edit-name {
-                                    display: block;
-                                    width: 100%;
-                                    line-height: 40px;
-                                    .edit-name-tit {
-                                        display: inline-block;
-                                        margin: 0 20px;
-                                        font-weight: 500;
-                                        width: 65px;
-                                    }
-                                
-                                }
-                                .edit-email {
-                                    display: block;
-                                    width: 100%;
-                                    line-height: 40px;
-                                    .edit-email-tit {
-                                        display: inline-block;
-                                        margin: 0 20px;
-                                        font-weight: 500;
-                                        width: 65px;
-                                    }
-                                    
-                                }
-                                .edit-password {
-                                    display: block;
-                                    width: 100%;
-                                    line-height: 40px;
-                                    .edit-password-tit {
-                                        display: inline-block;
-                                        margin: 0 20px;
-                                        font-weight: 500;
-                                        width: 65px;
-                                    }
-                                }
-                            }
-
-                            .edit-title-tit {
+                            .row {
                                 display: block;
-                                margin-top: 20px;
-                                line-height: 20px;
-                                font-weight: 500;
-                            }
-                            .edit-title-input {
-                                width: 100%;
+
+                                &+.row {
+                                    .form-input {
+                                        margin-top: 10px;
+                                    }
+                                }
                             }
 
-                            .edit-copy-tit {
-                                display: block;
-                                margin-top: 20px;
-                                line-height: 20px;
+                            .label {
+                                display: inline-block;
+                                margin-left: 10px;
+                                font-size: 13.5px;
                                 font-weight: 500;
+                                // min-width: 70px;
+                                width: 70px;
+
+                                &.title,
+                                &.content {
+                                    display: block;
+                                    width: 100%;
+                                    margin-top: 5px;
+                                }
                             }
-                            .edit-copy-input {
-                                width: 100%;
-                                font-size: 14px;
-                                height: 200px;
-                            }
+
                         }
                     }
                 }
@@ -396,7 +349,7 @@
 
     .sec[class*='support-'] .comm-title {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
 
         .title {
             font-size: 30px;
@@ -407,7 +360,7 @@
     .support-inquiry-isec {
         .inquiry-wrapper {
             .inquiry-content {
-                .inquiry-tbl-st {
+                .tbl-comm-st {
                     margin-bottom: 10px;
                     font-size: 14px;
                 }
@@ -449,8 +402,9 @@
                             padding-left: 10px;
                         }
 
-                        .state {
+                        .status {
                             font-weight: 700;
+                            color: $font-gray-2;
 
                             &.active {
                                 color: $primary-color;
@@ -504,231 +458,137 @@
                 }
 
                 // to do...
-
-                .inquiry-pw {
-                    display: block;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    .pw-pop{
-                        text-align: center;
-                        position: fixed;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        z-index: 9999;
-                        width: 500px;
-                        height: 300px;
-                        background: #fff;
-                        border-radius: 10px;
-                        .pw-pop-tit{
-                            font-weight: 500;
-                            padding: 40px 0 20px 0;
-                        }
-                        .pw-pop-input{
-                            text-align: center;
-                            width: 300px;
-                            height: 40px;
-                            border: solid 1px #bdbdbd;
-                            border-radius: 5px;
-                        }
-                        .pw-pop-btn{
-                            text-align: center;
-                            padding-top: 60px;
-                            .comm-btn {
-                                margin: 0 5px;
-                                display: inline-block;
-                                box-sizing: border-box;
-                                width: 200px;
-                                height: 60px;
-                                border: solid 1px #141414;
-                                line-height: 60px;
-                                text-align: center;
-                            }
-                        }
-                        
-                    }
-                    .pw-black {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 1000px;
-                        background: rgba($color: #000000, $alpha: 0.5);
-                    }
-                }
-
-                .tbl-table {
-                    margin-top: 10px;
-                    width: 100%;
-                    border-top: solid 2px #7954ff;
-                    .tbl-table-body {
-                        .tbl-table-tr {
-                            line-height: 60px;
-                            vertical-align: middle;
-                            border-bottom: solid 1px #cacaca;
-                            .tbl-table-td {
-                                .tbl-name {
-                                    display: inline-block;
-                                    width: 30%;
-                                    .tbl-name-tit {
-                                        margin-left: 40px;
-                                        font-weight: 500;
-                                    }
-                                    .tbl-name-text {
-                                        font-size: 14px;
-                                        color: #525252;
-                                        margin-left: 20px;
-                                    }
-                                }
-                                .tbl-email {
-                                    display: inline-block;
-                                    width: 50%;
-                                    .tbl-email-tit {
-                                        margin-left: 40px;
-                                        font-weight: 500;
-                                    }
-                                    .tbl-email-text {
-                                        font-size: 14px;
-                                        color: #525252;
-                                        margin-left: 20px;
-                                    }
-                                }
-                                .tbl-result {
-                                    display: inline-block;
-                                    width: 10%;
-                                    text-align: right;
-                                    .tbl-result-status {
-                                        font-size: 14px;
-                                        font-weight: 500;
-                                        color: #ababab;
-                                    }
-                                }
-                            }
-
-                            .tbl-title {
-                                margin: 20px 40px;
-                                line-height: 20px;
-                                font-size: 14px;
-                                color: #525252;
-                            }
-
-                            .tbl-copy {
-                                margin: 20px 40px;
-                                line-height: 20px;
-                                font-size: 14px;
-                                color: #525252;
-                            }
-
-                            .tbl-retitle {
-                                color: #7954ff;
-                                font-weight: 500;
-                                margin: 20px 40px;
-                                line-height: 20px;
-                            }
-
-                            .tbl-retext {
-                                margin: 20px 40px;
-                                line-height: 20px;
-                                font-size: 14px;
-                                color: #525252;
-                            }
-                        }
-                    }
-                }
-
-                .edit-table {
+                .detail-tbl {
                     position: relative;
-                    margin-top: 10px;
                     width: 100%;
-                    border-top: solid 2px #7954ff;
-                    input {
-                        display: inline-block;
-                        margin: 10px 0;
+                    border-top: solid 2px $primary-color;
+                    line-height: 1.423;
+                    font-size: 14px;
+
+                    tbody {
+                        tr {
+                            vertical-align: middle;
+                            border-bottom: solid 1px $bor-gray;
+
+                            td {
+                                padding: 15px 0;
+                            }
+
+                            .row {
+                                display: inline-block;
+                                width: 30%;
+                            }
+
+                            .label,
+                            .status {
+                                font-size: 16px;
+                                font-weight: 500;
+                            }
+
+                            .label {
+                                margin-left: 20px;
+                            }
+
+                            .text {
+                                color: $font-gray-3;
+                                margin-left: 20px;
+                            }
+
+                            .status {
+                                position: absolute;
+                                top: 15px;
+                                right: 40px;
+                                color: $font-gray-2;
+
+                                &.active {
+                                    color: $primary-color;
+                                }
+                            }
+
+                            &.content {
+                                .text {
+                                    margin-left: 20px;
+                                    min-height: 150px;
+
+                                }
+                            }
+
+                            .reply-name {
+                                color: $primary-color;
+                            }
+
+                            .reply-content {
+                                margin-top: 15px;
+                            }
+                        }
+                    }
+                }
+
+                .edit-tbl {
+                    position: relative;
+                    width: 100%;
+                    border-top: solid 2px $primary-color;
+                    line-height: 1.423;
+
+                    .form-input {
+                        // margin: 10px 0;
                         width: 60%;
                         min-width: 180px;
                         height: 38px;
                         border: solid 1px #bdbdbd;
                         border-radius: 5px;
+
+                        &.title {
+                            width: 85%;
+                        }
                     }
-                    textarea {
-                        display: inline-block;
-                        margin: 10px 0;
+
+                    .form-textarea {
+                        // margin: 10px 0;
                         border: solid 1px #bdbdbd;
                         border-radius: 5px;
+
+
+                        &.content {
+                            display: block;
+                            margin-top: 10px;
+                            font-size: 14px;
+                            height: 300px;
+                        }
                     }
-                    .edit-table-body {
-                        .edit-table-tr02 {
-                            text-align: left;
-                        }
-                        .edit-table-tr03 {
-                            text-align: center;
-                        }
-                        .edit-table-tr {
-                            line-height: 60px;
+
+                    tbody {
+                        tr {
+                            td {
+                                padding: 10px 0;
+                            }
+
                             vertical-align: middle;
-                            border-bottom: solid 1px #cacaca;
-                            .edit-table-td {
-                                .edit-name {
-                                    display: inline-block;
-                                    width: 30%;
-                                    line-height: 40px;
-                                    .edit-name-tit {
-                                        display: inline-block;
-                                        margin: 0 20px;
-                                        font-weight: 500;
-                                        width: 65px;
-                                    }
-                                
-                                }
-                                .edit-email {
-                                    display: inline-block;
-                                    width: 30%;
-                                    line-height: 40px;
-                                    .edit-email-tit {
-                                        display: inline-block;
-                                        margin: 0 20px;
-                                        font-weight: 500;
-                                        width: 65px;
-                                    }
-                                    
-                                }
-                                .edit-password {
-                                    display: inline-block;
-                                    width: 30%;
-                                    line-height: 40px;
-                                    .edit-password-tit {
-                                        display: inline-block;
-                                        margin: 0 20px;
-                                        font-weight: 500;
-                                        width: 65px;
-                                    }
-                                }
+                            border-bottom: solid 1px $bor-gray;
+
+                            &.title {
+                                text-align: left;
                             }
 
-                            .edit-title-tit {
+                            &.content {
+                                text-align: center;
+                            }
+
+                            .row {
                                 display: inline-block;
-                                line-height: 20px;
-                                font-weight: 500;
-                                margin: 0 20px;
-                                width: 65px;
-                            }
-                            .edit-title-input {
-                                width: 85%;
+                                margin-right: 10px;
                             }
 
-                            .edit-copy-tit {
-                                display: block;
-                                margin-top: 20px;
-                                line-height: 20px;
+                            .label {
+                                display: inline-block;
+                                margin: 0 20px;
                                 font-weight: 500;
-                            }
-                            .edit-copy-input {
-                                width: 100%;
-                                font-size: 14px;
-                                height: 300px;
+                                // width: 75px;
+
+                                &.content {
+                                    margin-top: 10px;
+                                    width: 100%;
+                                }
                             }
                         }
                     }
@@ -736,4 +596,50 @@
             }
         }
     }
+
+    // .inquiry-pw {
+    //     .pw-pop {
+    //         width: 360px;
+    //         background: #fff;
+    //         border-radius: 10px;
+    //         text-align: center;
+
+    //         .pw-pop-tit {
+    //             font-weight: 500;
+    //             padding: 40px 0 20px 0;
+    //         }
+
+    //         .pw-pop-input {
+    //             text-align: center;
+    //             width: 55%;
+    //             height: 40px;
+    //             border-color: #bdbdbd;
+    //             border-radius: 5px;
+    //         }
+
+    //         .pw-pop-btn {
+    //             text-align: center;
+    //             padding: 30px 0 40px;
+
+    //             .comm-btn {
+    //                 margin: 0 5px;
+    //                 @include btn-base(40%, 60px, 0);
+    //                 @include btn-transparent(#141414);
+    //                 border-radius: 0;
+    //                 font-size: 16px;
+    //                 line-height: 60px;
+    //             }
+    //         }
+
+    //     }
+
+    //     .pw-black {
+    //         position: absolute;
+    //         top: 0;
+    //         left: 0;
+    //         width: 100%;
+    //         height: 1000px;
+    //         background: rgba($color: #000000, $alpha: 0.5);
+    //     }
+    // }
 }

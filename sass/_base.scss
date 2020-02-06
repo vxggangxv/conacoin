@@ -121,12 +121,21 @@ img.bor {
     }
 }
 
+.form-group {
+    margin-bottom: 0 !important;
+}
+
 // mobile & tablet
 // @media (max-width: 991px) {
 @media (max-width: $screen-md-width - 1px) {
     .group {
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .form-textarea,
+    .form-input {
+        @include form-base($ht: 40px);
     }
 }
 
@@ -148,6 +157,15 @@ img.bor {
     }
 }
 
+// pc
+@media (min-width: $screen-md-width) {
+
+    .form-textarea,
+    .form-input {
+        @include form-base;
+    }
+}
+
 // pc md
 // @media (min-width: 992px) and (max-width: 999px) {
 @media (min-width: $screen-md-width) and (max-width: $screen-lg-width+$vertical-scroll - 1px) {
@@ -156,8 +174,6 @@ img.bor {
     .group {
         width: 960px;
     }
-
-
 }
 
 // pc lg
@@ -172,15 +188,6 @@ img.bor {
         padding-left: 20px;
         padding-right: 20px;
     }
-}
-
-.form-group {
-    margin-bottom: 0 !important;
-}
-
-.form-textarea,
-.form-input {
-    @include form-base;
 }
 
 .btn {
@@ -335,6 +342,18 @@ a.btn>* {
     font-weight: 400 !important;
 }
 
+.ta-center {
+    text-align: center !important;
+}
+
+.ta-left {
+    text-align: left !important;
+}
+
+.ta-right {
+    text-align: right !important;
+}
+
 .tt-up {
     text-transform: uppercase !important;
 }
@@ -479,6 +498,7 @@ a.btn>* {
 }
 
 .modal-container {
+    margin: 0 auto;
     transform: scale(1.1);
     transition: all .3s ease;
 }

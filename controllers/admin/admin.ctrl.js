@@ -3,7 +3,9 @@ const dotenv = require('dotenv');
 dotenv.config(); // LOAD CONFIG
 
 exports.get_join = (req, res) => {
-    res.render('admin/join.html');
+    res.render('admin/join.html', {
+        csrfToken: req.csrfToken()
+    });
 }
 exports.post_join = async (req, res) => {
     try {
@@ -37,7 +39,8 @@ exports.post_join = async (req, res) => {
 }
 exports.get_login = (req, res) => {
     res.render('admin/login.html', {
-        flashMessage: req.flash().error
+        flashMessage: req.flash().error,
+        csrfToken: req.csrfToken()
     });
 }
 exports.post_login = async (req, res) => {
@@ -52,7 +55,9 @@ exports.logout = (req, res) => {
     res.redirect('admin/login');
 };
 exports.get_password = (req, res) => {
-    res.render('admin/password.html')
+    res.render('admin/password.html', {
+        csrfToken: req.csrfToken()
+    });
 }
 exports.post_password = async (req, res) => {
     try {
@@ -86,3 +91,11 @@ exports.post_password = async (req, res) => {
         console.log(e);
     }
 }
+
+// exports.get_detail = async (req, res) => {
+//     try {
+//         const inquiry = await models.inquirys.findOne({});
+//     } catch (e) {
+
+//     }
+// }
