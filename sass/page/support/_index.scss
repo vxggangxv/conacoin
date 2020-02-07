@@ -112,8 +112,8 @@
                         }
 
                         .status {
-                            font-weight: 700;
-                            color: $font-gray-2;
+                            font-weight: 500;
+                            color: $font-gray2;
 
                             &.active {
                                 color: $primary-color;
@@ -122,7 +122,7 @@
                     }
 
                     tr {
-                        border-bottom: 1px solid $bor-gray-2;
+                        border-bottom: 1px solid $bor-gray2;
                     }
 
                     thead {
@@ -160,12 +160,16 @@
                         .comm-btn {
                             width: 25%;
 
+                            &.list-btn,
                             &.inquiry-btn {
-                                width: 30%;
                                 margin: 0;
                                 position: absolute;
                                 bottom: 0;
                                 right: 10px;
+                            }
+
+                            &.inquiry-btn {
+                                width: 30%;
                             }
                         }
 
@@ -212,7 +216,7 @@
                             }
 
                             .text {
-                                color: $font-gray-3;
+                                color: $font-gray3;
                                 margin-left: 10px;
                             }
 
@@ -221,7 +225,7 @@
                                 position: absolute;
                                 top: 10px;
                                 right: 10px;
-                                color: $font-gray-2;
+                                color: $font-gray2;
 
                                 &.active {
                                     color: $primary-color;
@@ -234,13 +238,110 @@
                                 }
                             }
 
-                            .reply-name {
-                                color: $primary-color;
-                                font-weight: 700;
+                            &.reply-wrapper {
+                                .reply-name {
+                                    color: $primary-color;
+                                }
+
+                                .reply-content {
+                                    margin-top: 10px;
+                                }
                             }
 
-                            .reply-content {
-                                margin-top: 10px;
+                            .reply-register-wrapper {
+                                margin-top: 20px;
+
+                                .tablist {
+                                    padding: 0 10px;
+
+                                    .tab {
+                                        display: inline-block;
+
+                                        .tab-btn {
+                                            display: inline-block;
+                                            padding: 3px 10px;
+                                            border: 1px solid $font-gray;
+                                            color: $font-gray;
+                                            font-size: 13px;
+
+                                            .arr {
+                                                position: relative;
+                                                display: inline-block;
+                                                margin-left: 5px;
+                                                border: 2px solid $font-gray;
+                                                @include sizes(6px);
+                                                transform: rotate(-45deg);
+                                                vertical-align: middle;
+
+                                                &.up {
+                                                    display: none;
+                                                    top: 1px;
+                                                    border-left: none;
+                                                    border-bottom: none;
+                                                }
+
+                                                &.down {
+                                                    top: -3px;
+                                                    border-top: none;
+                                                    border-right: none;
+                                                }
+                                            }
+
+                                            &.active {
+                                                border-color: $primary-color;
+                                                color: $primary-color;
+
+                                                .arr {
+                                                    border-color: $primary-color;
+
+                                                    &.up {
+                                                        display: inline-block;
+                                                    }
+
+                                                    &.down {
+                                                        display: none;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        &+.tab {
+                                            margin-left: 3px;
+                                        }
+                                    }
+                                }
+
+                            }
+
+                            .reply-form {
+                                display: none;
+                                position: relative;
+                                margin: 0 10px;
+                                margin-top: 5px;
+                                height: 60px;
+                                border: 1px solid $bor-gray2;
+
+                                .register-content,
+                                .register-btn {
+                                    float: left;
+                                    height: 100%;
+                                    border-radius: 0;
+                                }
+
+                                .register-content {
+                                    width: 85%;
+                                    border: none;
+                                }
+
+                                .register-btn {
+                                    @include ap-reset;
+                                    width: 15%;
+                                    border-left: 1px solid $bor-gray2;
+                                }
+
+                                &.active {
+                                    display: block;
+                                }
                             }
 
                         }
@@ -403,8 +504,8 @@
                         }
 
                         .status {
-                            font-weight: 700;
-                            color: $font-gray-2;
+                            color: $font-gray2;
+                            font-weight: 500;
 
                             &.active {
                                 color: $primary-color;
@@ -413,7 +514,7 @@
                     }
 
                     tr {
-                        border-bottom: 1px solid $bor-gray-2;
+                        border-bottom: 1px solid $bor-gray2;
                     }
 
                     thead {
@@ -444,6 +545,7 @@
                             color: #fff;
                         }
 
+                        &.list-btn,
                         &.inquiry-btn {
                             margin: 0;
                             position: absolute;
@@ -490,15 +592,15 @@
                             }
 
                             .text {
-                                color: $font-gray-3;
+                                color: $font-gray3;
                                 margin-left: 20px;
                             }
 
                             .status {
                                 position: absolute;
                                 top: 15px;
-                                right: 40px;
-                                color: $font-gray-2;
+                                right: 20px;
+                                color: $font-gray2;
 
                                 &.active {
                                     color: $primary-color;
@@ -508,17 +610,20 @@
                             &.content {
                                 .text {
                                     margin-left: 20px;
+                                    margin-right: 20px;
                                     min-height: 150px;
 
                                 }
                             }
 
-                            .reply-name {
-                                color: $primary-color;
-                            }
+                            &.reply-wrapper {
+                                .reply-name {
+                                    color: $primary-color;
+                                }
 
-                            .reply-content {
-                                margin-top: 15px;
+                                .reply-content {
+                                    margin-top: 15px;
+                                }
                             }
 
                             .reply-register-wrapper {
@@ -533,17 +638,18 @@
                                         .tab-btn {
                                             display: inline-block;
                                             padding: 3px 10px;
-                                            border: 1px solid #555;
-                                            color: #555;
+                                            border: 1px solid $font-gray2;
+                                            color: $font-gray2;
                                             font-size: 14px;
 
                                             .arr {
                                                 position: relative;
                                                 display: inline-block;
                                                 margin-left: 5px;
-                                                border: 2px solid #555;
+                                                border: 2px solid $font-gray2;
                                                 @include sizes(6px);
                                                 transform: rotate(-45deg);
+                                                vertical-align: middle;
 
                                                 &.up {
                                                     display: none;
@@ -560,22 +666,12 @@
                                             }
 
                                             &.active {
-                                                border-color: $primary-color;
                                                 color: $primary-color;
+                                                border-color: $primary-color;
 
                                                 .arr {
                                                     border-color: $primary-color;
-                                                }
-                                            }
-                                        }
 
-                                        &+.tab {
-                                            margin-left: 3px;
-                                        }
-
-                                        &.active {
-                                            .tab-btn {
-                                                .arr {
                                                     &.up {
                                                         display: inline-block;
                                                     }
@@ -586,40 +682,44 @@
                                                 }
                                             }
                                         }
+
+                                        &+.tab {
+                                            margin-left: 3px;
+                                        }
                                     }
                                 }
-
                             }
 
-                            .reply-form {
-                                display: none;
-                                position: relative;
-                                margin: 0 20px;
-                                margin-top: 10px;
-                                height: 100px;
-                                border: 1px solid #555;
+                        }
 
-                                .register-content,
-                                .register-btn {
-                                    float: left;
-                                    height: 100%;
-                                    border-radius: 0;
-                                }
+                        .reply-form {
+                            display: none;
+                            position: relative;
+                            margin: 0 20px;
+                            margin-top: 10px;
+                            height: 100px;
+                            border: 1px solid $bor-gray2;
 
-                                .register-content {
-                                    width: 90%;
-                                    border: none;
-                                }
+                            .register-content,
+                            .register-btn {
+                                float: left;
+                                height: 100%;
+                                border-radius: 0;
+                            }
 
-                                .register-btn {
-                                    @include ap-reset;
-                                    width: 10%;
-                                    border-left: 1px solid #555;
-                                }
+                            .register-content {
+                                width: 90%;
+                                border: none;
+                            }
 
-                                &.active {
-                                    display: block;
-                                }
+                            .register-btn {
+                                @include ap-reset;
+                                width: 10%;
+                                border-left: 1px solid $bor-gray2;
+                            }
+
+                            &.active {
+                                display: block;
                             }
                         }
                     }
@@ -697,50 +797,4 @@
             }
         }
     }
-
-    // .inquiry-pw {
-    //     .pw-pop {
-    //         width: 360px;
-    //         background: #fff;
-    //         border-radius: 10px;
-    //         text-align: center;
-
-    //         .pw-pop-tit {
-    //             font-weight: 500;
-    //             padding: 40px 0 20px 0;
-    //         }
-
-    //         .pw-pop-input {
-    //             text-align: center;
-    //             width: 55%;
-    //             height: 40px;
-    //             border-color: #bdbdbd;
-    //             border-radius: 5px;
-    //         }
-
-    //         .pw-pop-btn {
-    //             text-align: center;
-    //             padding: 30px 0 40px;
-
-    //             .comm-btn {
-    //                 margin: 0 5px;
-    //                 @include btn-base(40%, 60px, 0);
-    //                 @include btn-transparent(#141414);
-    //                 border-radius: 0;
-    //                 font-size: 16px;
-    //                 line-height: 60px;
-    //             }
-    //         }
-
-    //     }
-
-    //     .pw-black {
-    //         position: absolute;
-    //         top: 0;
-    //         left: 0;
-    //         width: 100%;
-    //         height: 1000px;
-    //         background: rgba($color: #000000, $alpha: 0.5);
-    //     }
-    // }
 }

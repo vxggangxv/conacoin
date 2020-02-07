@@ -88,7 +88,7 @@
                 <div class="guide-card">
                     <ul id="guideVideoList" class="cf card-list">
                         <li class="card-item">
-                            <a href="javascript:;">
+                            <a href="javascript:;" data-video="34agc9QaV5U">
                                 <figure>
                                     <img src="/images/main/video.jpg" alt="동영상">
                                     <figcaption>회원가입 가이드</figcaption>
@@ -96,7 +96,7 @@
                             </a>
                         </li>
                         <li class="card-item">
-                            <a href="javascript:;">
+                            <a href="javascript:;" data-video="gNX2lU_ub4c">
                                 <figure>
                                     <img src="/images/main/video.jpg" alt="동영상">
                                     <figcaption>입금/출금 가이드</figcaption>
@@ -104,7 +104,7 @@
                             </a>
                         </li>
                         <li class="card-item">
-                            <a href="javascript:;">
+                            <a href="javascript:;" data-video="34agc9QaV5U">
                                 <figure>
                                     <img src="/images/main/video.jpg" alt="동영상">
                                     <figcaption>거래 가이드</figcaption>
@@ -112,7 +112,7 @@
                             </a>
                         </li>
                         <li class="card-item">
-                            <a href="javascript:;">
+                            <a href="javascript:;" data-video="gNX2lU_ub4c">
                                 <figure>
                                     <img src="/images/main/video.jpg" alt="동영상">
                                     <figcaption>커뮤니티 가이드</figcaption>
@@ -120,6 +120,18 @@
                             </a>
                         </li>
                     </ul>
+
+                    {# <iframe src="https://www.youtube.com/embed/gNX2lU_ub4c?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe> #}
+                    <div class="pop-mask video-pop-wrapper" id="video_pop_wrapper" style="display: none" onmousewheel="return false">
+                        <div class="pop-wrapper video-wrapper">
+                            <div class="pop-container video-container">
+                                <div class="iframe-wrapper" id="iframe_wrapper"></div>
+                                <div class="video-actions">
+                                    <button type="button" class="close-btn">CLOSE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -526,4 +538,22 @@
         </div>
     </section>
     <!-- /.sec main-news-sec comm-pd -->
+
+    <script>
+        guideVideo();
+        function guideVideo() {
+            var $video_pop_wrapper = $('#video_pop_wrapper');
+            var $iframe_wrapper = $('#iframe_wrapper');
+            $('#guideVideoList > li > a').on('click', function () {
+                var dataVideo = $(this).attr('data-video');
+                $video_pop_wrapper.addClass('active');
+                $iframe_wrapper.html('');
+                $iframe_wrapper.append('<iframe width="920" height="518" src="https://www.youtube.com/embed/' + dataVideo + '?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
+            });
+            $('#guide').on('click', '#video_pop_wrapper .close-btn', function () {
+                $video_pop_wrapper.removeClass('active');
+                $iframe_wrapper.html('');
+            });
+        }
+    </script>
 {% endblock %}

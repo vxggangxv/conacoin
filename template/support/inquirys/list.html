@@ -44,10 +44,10 @@
                         {% endfor %} #}
                         {% for inquiry in inquirys %}
                             <tr>
-                                <td class="date">{{ inquiry.dateFormat( product.createdAt ) }}</td>
+                                <td class="date">{{ inquiry.dateFormat( inquiry.createdAt ) }}</td>
                                 <td class="name">{{ inquiry.name }}</td>
                                 <td class="title">
-                                    <a href="/support/inquiry/detail/{{ inquiry.id }}">{{ inquiry.content }}</a>
+                                    <a href="/support/inquirys/detail/{{ inquiry.id }}">{{ inquiry.content }}</a>
                                     <!-- <a href="javascript:;" data-link="{{ inquiry.id }}" data-toggle="modal" data-target="support-inquiry-pw">{{ inquiry.content }}</a> -->
                                 </td>
                                 <td>
@@ -69,8 +69,10 @@
                     {# {% if paginate.hasPreviousPages %} #}
                     <a href="{{ paginate.href(true) }}" class="comm-btn outline prev-btn">이전</a>
                     {# {% endif %} #}
+                    {# {% if pagenate.hasNextPages(pageCount) %} #}
                     <a href="{{ paginate.href() }}" class="comm-btn outline next-btn">다음</a>
-                    <a href="/support/inquiry/write/" class="comm-btn primary inquiry-btn">문의하기</a>
+                    {# {% endif %} #}
+                    <a href="/support/inquirys/write/" class="comm-btn primary inquiry-btn">문의하기</a>
                 </div>
             </div>
         </div>

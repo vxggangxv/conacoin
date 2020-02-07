@@ -46,14 +46,18 @@
                                     <ul class="tablist">
                                         {% if inquiry.Reply.length %}
                                             <li class="tab">
-                                                <a href="javascript:;" class="tab-btn" id="register_edit">댓글 수정</a>
+                                                <a href="javascript:;" class="tab-btn" id="register_edit">
+                                                    <i class="mdi mdi-comment-edit"></i>
+                                                    댓글 수정
+                                                </a>
                                             </li>
                                             <li class="tab">
-                                                <a href="/support/inquiry/reply/delete/{{ inquiry.id }}" class="tab-btn" id="register_delete">댓글 삭제</a>
+                                                <a href="/support/inquirys/reply/delete/{{ inquiry.id }}" class="tab-btn" id="register_delete">댓글 삭제</a>
                                             </li>
                                         {% else %}
                                             <li class="tab">
                                                 <a href="javascript:;" class="tab-btn" id="register_write">
+                                                    <i class="mdi mdi-comment-outline"></i>
                                                     댓글 쓰기
                                                     <span class="arr down"></span>
                                                     <span class="arr up"></span>
@@ -62,14 +66,14 @@
                                         {% endif %}
                                     </ul>
                                     {% if inquiry.Reply.length %}
-                                        <form action="/support//inquiry/reply/edit/{{ inquiry.id }}" method="post">
+                                        <form action="/support/inquirys/reply/edit/{{ inquiry.id }}" method="post">
                                             <div class="reply-form cf" id="reply_form">
                                                 <textarea class="form-textarea register-content" name="content" required="required"></textarea>
                                                 <button type="submit" id="register_btn" class="register-btn">수정</button>
                                             </div>
                                         </form>
                                     {% else %}
-                                        <form action="" method="post">
+                                        <form action="/support/inquirys/reply/write/{{ inquiry.id }}" method="post">
                                             <div class="reply-form cf" id="reply_form">
                                                 <textarea class="form-textarea register-content" name="content" required="required"></textarea>
                                                 <button type="submit" id="register_btn" class="register-btn">등록</button>
@@ -82,7 +86,7 @@
                         </tr>
 
                         {% for reply in inquiry.Reply %}
-                            <tr class="reply" id="reply_wrapper">
+                            <tr class="reply-wrapper" id="reply_wrapper">
                                 <td>
                                     <div>
                                         <p class="label reply-name">고객센터</p>
@@ -93,9 +97,11 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                <div class="inquiry-actions">
-                    <a href="javascript: history.back(-1)" class="comm-btn outline back-btn">이전</a>
-                    <a href="/support/inquiry/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
+                <div class="inquiry-actions count-3">
+                    {# <a href="javascript: history.back(-1)" class="comm-btn outline back-btn">이전</a> #}
+                    <a href="/support/inquirys/" class="comm-btn outline back-btn">목록</a>
+                    <a href="/support/inquirys/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
+                    {# <a href="/support/inquirys/" class="comm-btn outline list-btn">목록</a> #}
                 </div>
             </div>
         </div>

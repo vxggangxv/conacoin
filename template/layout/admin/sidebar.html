@@ -1,19 +1,19 @@
 <nav class="admin-sidebar">
     <h1 class="sr-only">메뉴</h1>
     <h1 class="sidebar-logo">
-        <a href="/" class="logo-cover">
+        <a href="/admin/" class="logo-cover">
             <img src="/images/icon/cona.png" alt="코나코인" class="logo-img">
             <span>Admin</span>
         </a>
     </h1>
-    {% if isLogin %}
-        {{ req_user.username }}
-    {% endif %}
-
     <ul class="sidebar-menu cf">
         <li class="menu-item active">
             <a href="">
-                <i class="mdi mdi-comment-text-multiple-outline"></i>
+                {# <i class="mdi mdi-comment-text-multiple-outline"></i>
+                <i class="mdi mdi-card-text-outline"></i>
+                <i class="mdi mdi-card-bulleted-outline"></i>
+                <i class="mdi mdi-card-bulleted"></i> #}
+                <i class="mdi mdi-message-text-outline"></i>
                 <span>실시간 문의</span>
             </a>
         </li>

@@ -15,7 +15,10 @@
         <li class="menu-item icon hello">
             <span class="in">
                 Hi,
-                <span class="name">master</span>
+
+                {% if isLogin %}
+                    <span class="name">{{ req_user.username }}</span>
+                {% endif %}
             </span>
             <i class="mdi mdi-account-circle"></i>
         </li>

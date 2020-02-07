@@ -74,7 +74,11 @@
     }
 }
 
-#adminUsersPage {
+$card-pd: 25px;
+
+.admin-page {
+    min-width: 1010px;
+
     .comm-card {
         box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
         background-color: #fff;
@@ -96,19 +100,57 @@
 
     .comm-title,
     .comm-actions {
-        padding: 0 25px;
+        padding: 0 $card-pd;
     }
 
     .comm-title {
-        font-size: 15px;
-        color: $admin-c-black;
         padding-top: 25px;
         padding-bottom: 25px;
+        border-bottom: 1px solid $admin-bor;
+        font-size: 15px;
+        color: $admin-c-black;
+        font-weight: 500;
     }
 
     .comm-actions {
         padding-top: 25px;
         padding-bottom: 25px;
+    }
+
+    .comm-btn {
+        @include btn-base;
+        border-radius: 0;
+        @include btn-size(10px 0px, 13px);
+        border-radius: 2px;
+        width: 18%;
+        max-width: 200px;
+        // margin: 0 10px;
+        // margin-left: 25px;
+
+        &+.comm-btn {
+            margin-left: 10px;
+        }
+
+        &.outline {
+            @include btn-transparent($admin-c-black);
+            // color: $font-gray;
+        }
+
+        &.primary {
+            background-color: $primary-color;
+            color: #fff;
+        }
+
+        &.inquiry-btn {
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            @include screen-lg {
+                right: 20px;
+            }
+        }
     }
 
     .pager {
@@ -143,12 +185,24 @@
                 }
 
                 &.arrow {
-                    background-color: $admin-primary-light2;
-                    color: $admin-primary;
+                    // background-color: $admin-primary-light2;
+                    // color: $admin-primary;
+                    background-color: lighten($admin-primary-light2, 1%);
+                    color: lighten($admin-primary, 20%);
                     font-size: 25px;
+
+                    &.active {
+                        background-color: $admin-primary-light2;
+                        color: $admin-primary;
+
+                        &:hover {
+                            background-color: $admin-primary;
+                            color: #fff;
+                        }
+                    }
                 }
 
-                &:hover {
+                &:hover:not(.arrow) {
                     background-color: $admin-primary;
                     color: #fff;
                 }
@@ -165,14 +219,19 @@
     }
 }
 
-.admin-userlist-sec {
+.admin-inquirys-sec {
+    .inquirys-wrapper {
+        &.inquirys-detail {
+            max-width: 1150px;
+        }
 
-    .userlist-wrapper {
-        .userlist-content {
+        .inquirys-content {
 
-            .userlist-title {}
+            .inquirys-title {
+                border: none;
+            }
 
-            .userlist-tbl {
+            .inquirys-tbl {
                 width: 100%;
                 table-layout: fixed;
                 font-size: 14px;
@@ -204,6 +263,10 @@
                     font-size: 14px;
                 }
 
+                th {
+                    font-weight: 500;
+                }
+
                 td {
 
                     &.title {
@@ -211,8 +274,9 @@
                         padding-left: 10px;
                     }
 
-                    .state {
-                        font-weight: 700;
+                    .status {
+                        color: $font-gray2;
+                        font-weight: 500;
 
                         &.active {
                             color: $primary-color;
@@ -221,7 +285,8 @@
                 }
 
                 tr {
-                    border-bottom: 1px solid $admin-tbl-bor;
+                    // border-bottom: 1px solid $admin-tbl-bor;
+                    border-bottom: 1px solid darken($admin-tbl-bor, 3%);
                 }
 
                 thead {
@@ -233,38 +298,196 @@
 
             .inquiry-actions {
                 margin-top: 50px;
-                text-align: center;
+                padding-bottom: 25px;
+                padding-left: $card-pd;
+                text-align: left;
+            }
 
-                .comm-btn {
-                    @include btn-base;
-                    border-radius: 0;
-                    @include btn-size(15px 0px, 18px);
-                    width: 18%;
-                    max-width: 200px;
-                    margin: 0 10px;
+            .detail-tbl {
+                position: relative;
+                width: 100%;
+                // border-top: solid 2px $admin-primary;
+                line-height: 1.423;
+                font-size: 13.5px;
 
-                    &.outline {
-                        @include btn-transparent(#141414);
-                    }
+                tbody {
+                    tr {
+                        vertical-align: middle;
+                        border-bottom: solid 1px $admin-bor;
 
-                    &.primary {
-                        background-color: $primary-color;
-                        color: #fff;
-                    }
+                        td {
+                            padding: 15px 0;
+                        }
 
-                    &.inquiry-btn {
-                        margin: 0;
-                        position: absolute;
-                        bottom: 0;
-                        right: 0;
+                        .row {
+                            display: inline-block;
+                            width: 30%;
+                        }
 
-                        @include screen-lg {
+                        .label,
+                        .status {
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+
+                        .label {
+                            margin-left: $card-pd;
+                        }
+
+                        .text {
+                            color: $font-gray3;
+                            margin-left: $card-pd;
+                        }
+
+                        .status {
+                            position: absolute;
+                            top: 15px;
                             right: 20px;
+                            color: $font-gray2;
+
+                            &.active {
+                                color: $primary-color;
+                            }
+                        }
+
+                        &.content {
+                            .text {
+                                margin-left: $card-pd;
+                                margin-right: $card-pd;
+                                min-height: 150px;
+
+                            }
+                        }
+
+                        &.reply-wrapper {
+                            .reply-name {
+                                color: $primary-color;
+                            }
+
+                            .reply-content {
+                                margin-top: 15px;
+                                margin-right: $card-pd;
+                            }
+                        }
+
+                        .reply-register-wrapper {
+                            margin-top: 20px;
+
+                            .tablist {
+                                padding: 0 $card-pd;
+
+                                .tab {
+                                    display: inline-block;
+
+                                    .tab-btn {
+                                        display: inline-block;
+                                        padding: 3px 7px;
+                                        border: 1px solid $font-gray2;
+                                        border-radius: 2px;
+                                        color: $font-gray;
+                                        font-size: 13px;
+
+                                        .arr {
+                                            position: relative;
+                                            display: inline-block;
+                                            margin-left: 5px;
+                                            border: 2px solid $font-gray;
+                                            @include sizes(6px);
+                                            transform: rotate(-45deg);
+                                            vertical-align: middle;
+
+                                            &.up {
+                                                display: none;
+                                                top: 1px;
+                                                border-left: none;
+                                                border-bottom: none;
+                                            }
+
+                                            &.down {
+                                                top: -3px;
+                                                border-top: none;
+                                                border-right: none;
+                                            }
+                                        }
+
+                                        &.active {
+                                            color: $primary-color;
+                                            border-color: $primary-color;
+
+                                            .arr {
+                                                border-color: $primary-color;
+
+                                                &.up {
+                                                    display: inline-block;
+                                                }
+
+                                                &.down {
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &+.tab {
+                                        margin-left: 3px;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    .reply-form {
+                        display: none;
+                        position: relative;
+                        margin: 0 $card-pd;
+                        margin-top: 10px;
+                        height: 150px;
+                        border: 1px solid $bor-gray2;
+
+                        .texta-wrapper,
+                        .register-content,
+                        .register-btn {
+                            float: left;
+                            height: 100%;
+                            border-radius: 0;
+                        }
+
+                        .texta-wrapper {
+                            position: relative;
+                            height: 100%;
+
+                            .counter {
+                                position: absolute;
+                                right: 23px;
+                                bottom: 2px;
+                                color: $font-gray4;
+                                font-size: 12px;
+                                font-weight: 300;
+                            }
+                        }
+
+                        .texta-wrapper {
+                            width: 90%;
+                        }
+
+                        .register-content {
+                            border: none;
+                        }
+
+
+                        .register-btn {
+                            @include ap-reset;
+                            width: 10%;
+                            border-left: 1px solid $bor-gray2;
+                        }
+
+                        &.active {
+                            display: block;
                         }
                     }
                 }
             }
-
         }
     }
 }

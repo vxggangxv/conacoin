@@ -1,0 +1,126 @@
+{% set pageName = 'adminInquirysPage' %}
+{% extends "layout/admin/base.html" %}
+
+{% block content %}
+<section class="sec admin-inquirys-sec ">
+    <h1 class="comm-sec-title sec-title">실시간 문의하기</h1>
+    <div class="inquirys-wrapper comm-card inquirys-detail">
+        <div class="inquirys-content">
+            <div class="inquirys-title comm-title">
+                <h2 class="title">
+                    실시간 문의 리스트
+                </h2>
+            </div>
+            <table class="detail-tbl">
+                <tbody>
+                    <tr>
+                        <td>
+                            <p class="row">
+                                <span class="label name">이름</span><span class="text name">{{ inquiry.name }}</span></p>
+                            <p class="row">
+                                <span class="label">이메일</span><span class="text email">{{ inquiry.email }}</span></p>
+                            {% if inquiry.reply_cnt %}
+                            <span class="status active">
+                                답변완료
+                            </span>
+                            {% else %}
+                            <span class="status">
+                                답변대기
+                            </span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr class="title">
+                        <td>
+                            <p class="row">
+                                <span class="label title">제목</span><span class="text title">{{ inquiry.title }}</span></p>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>
+                            <p class="text content">{{ inquiry.content }}</p>
+                            <div class="reply-register-wrapper">
+                                <ul class="tablist">
+                                    {% if inquiry.Reply.length %}
+                                    <li class="tab">
+                                        <a href="javascript:;" class="tab-btn" id="register_edit">
+                                            <i class="mdi mdi-comment-edit"></i>
+                                            댓글 수정
+                                        </a>
+                                    </li>
+                                    <li class="tab">
+                                        <a href="/admin/inquirys/reply/delete/{{ inquiry.id }}" class="tab-btn" id="register_delete">댓글 삭제</a>
+                                    </li>
+                                    {% else %}
+                                    <li class="tab">
+                                        <a href="javascript:;" class="tab-btn" id="register_write">
+                                            <i class="mdi mdi-comment-outline"></i>
+                                            댓글 쓰기
+                                            <span class="arr down"></span>
+                                            <span class="arr up"></span>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                {% if inquiry.Reply.length %}
+                                <form action="/admin/inquirys/reply/edit/{{ inquiry.id }}" method="post">
+                                    <div class="reply-form cf" id="reply_form">
+                                        <div class="texta-wrapper">
+                                            <textarea class="form-textarea register-content" id="register_content" name="content" required="required" maxlength="500"></textarea>
+                                            <span id="counter" class="counter"></span>
+                                        </div>
+                                        <button type="submit" id="register_btn" class="register-btn">수정</button>
+                                    </div>
+                                </form>
+                                {% else %}
+                                <form action="/admin/inquirys/reply/write/{{ inquiry.id }}" method="post">
+                                    <div class="reply-form cf" id="reply_form">
+                                        <div class="texta-wrapper">
+                                            <textarea class="form-textarea register-content" id="register_content" name="content" required="required" maxlength="500"></textarea>
+                                            <span id="counter" class="counter"></span>
+                                        </div>
+                                        <button type="submit" id="register_btn" class="register-btn">등록</button>
+                                    </div>
+                                </form>
+                                {% endif %}
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    {% for reply in inquiry.Reply %}
+                    <tr class="reply-wrapper" id="reply_wrapper">
+                        <td>
+                            <div>
+                                <p class="label reply-name">고객센터</p>
+                                <p class="text reply-content">{{ reply.content }}</p>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="inquiry-actions count-3">
+                <a href="/admin/inquirys/" class="comm-btn outline back-btn">목록</a>
+                <a href="/admin/inquirys/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $('#register_write').on('click', function () {
+        $(this).toggleClass('active');
+        $('#reply_form').toggleClass('active');
+    });
+    $('#register_edit').on('click', function () {
+        $(this).toggleClass('active');
+        $('#reply_wrapper').toggle();
+        $('#reply_form').toggle();
+    });
+
+    $('#register_content').keydown(function () {
+        var content = $(this).val();
+        $('#counter').html(content.length + '/500');
+    });
+</script>
+{% endblock %}

@@ -1,8 +1,10 @@
 const models = require('../../database/models');
 const paginate = require('express-paginate');
 
-
-exports.get_inquiry = async (req, res) => {
+exports.index = (req, res) => {
+    res.redirect('/support/inquirys/')
+}
+exports.get_inquirys = async (req, res) => {
     try {
         const [inquirys, totalCount] = await Promise.all([
             models.Inquirys.findAll({
@@ -17,10 +19,10 @@ exports.get_inquiry = async (req, res) => {
 
         ]);
         const pageCount = Math.ceil(totalCount / req.query.limit);
-        const pages = paginate.getArrayPages(req)(4, pageCount, req.query.page);
+        const pages = paginate.getArrayPages(req)(5, pageCount, req.query.page);
         // const inquirys = await models.Inquirys.findAll();
 
-        res.render('support/inquiry/list.html', {
+        res.render('support/inquirys/list.html', {
             inquirys,
             pageCount,
             pages,
@@ -29,7 +31,7 @@ exports.get_inquiry = async (req, res) => {
         console.log(e);
     }
 }
-exports.get_detail = async (req, res) => {
+exports.get_inquirys_detail = async (req, res) => {
     try {
         const inquiry = await models.Inquirys.findOne({
             where: {
@@ -37,14 +39,14 @@ exports.get_detail = async (req, res) => {
             },
             include: ['Reply']
         });
-        res.render('support/inquiry/detail.html', {
+        res.render('support/inquirys/detail.html', {
             inquiry
         })
     } catch (e) {
         console.log(e);
     }
 }
-exports.post_detail = async (req, res) => {
+exports.post_inquirys_reply_write = async (req, res) => {
     try {
         const requiry = await models.Inquirys.findByPk(req.params.id);
         let reply_cnt = 0;
@@ -61,51 +63,51 @@ exports.post_detail = async (req, res) => {
             }
         });
         await requiry.createReply(req.body);
-        res.redirect(`/support/inquiry/detail/${req.params.id}`);
+        res.redirect(`/support/inquirys/detail/${req.params.id}`);
     } catch (e) {
         console.log(e);
     }
 }
-exports.get_write = async (req, res) => {
-    res.render('support/inquiry/edit.html', {
+exports.get_inquirys_write = async (req, res) => {
+    res.render('support/inquirys/edit.html', {
         csrfToken: req.csrfToken()
     });
 }
-exports.post_write = async (req, res) => {
+exports.post_inquirys_write = async (req, res) => {
     try {
         await models.Inquirys.create(req.body);
-        res.redirect('/support/inquiry/')
+        res.redirect('/support/inquirys/')
     } catch (e) {
         console.log(e);
     }
 }
 // exports.get_edit = async (req, res) => {
-//     res.render('support/inquiry/edit.html', {
+//     res.render('support/inquirys/edit.html', {
 //         csrfToken: req.csrfToken()
 //     });
 // }
 // exports.post_edit = async (req, res) => {
 //     try {
 //         await models.Inquirys.update(req.body);
-//         res.redirect('/support/inquiry/')
+//         res.redirect('/support/inquirys/')
 //     } catch (e) {
 //         console.log(e);
 //     }
 // }
-exports.get_delete = async (req, res) => {
+exports.get_inquirys_delete = async (req, res) => {
     try {
         await models.Inquirys.destroy({
             where: {
                 id: req.params.id
             }
         });
-        res.redirect('/support/inquiry/');
+        res.redirect('/support/inquirys/');
     } catch (e) {
         console.log(e);
     }
 }
 
-exports.post_reply_edit = async (req, res) => {
+exports.post_inquirys_reply_edit = async (req, res) => {
     try {
         // const requiry = await models.Inquirys.findByPk(req.params.id);
         // await requiry.updateReply(req.body);
@@ -116,20 +118,20 @@ exports.post_reply_edit = async (req, res) => {
                 }
             }
         );
-        res.redirect(`/support/inquiry/detail/${req.params.id}`);
+        res.redirect(`/support/inquirys/detail/${req.params.id}`);
     } catch (e) {
         console.log(e);
     }
 }
 
-exports.get_reply_delete = async (req, res) => {
+exports.get_inquirys_reply_delete = async (req, res) => {
     try {
         await models.InquirysReply.destroy({
             where: {
                 inquiry_id: req.params.id
             }
         });
-        res.redirect(`/support/inquiry/detail/${req.params.id}`);
+        res.redirect(`/support/inquirys/detail/${req.params.id}`);
     } catch (e) {
         console.log(e);
     }

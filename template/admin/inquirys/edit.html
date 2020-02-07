@@ -1,12 +1,8 @@
-{% set pageName = 'adminUsersPage' %}
+{% set pageName = 'adminInquirysPage' %}
 {% extends "layout/admin/base.html" %}
 
 {% block content %}
     <section class="sec admin-userlist-sec ">
-        {% if isLogin %}
-            {{ req_user.username }}
-        {% endif %}
-
         <h1 class="comm-sec-title sec-title">실시간 문의하기</h1>
         <div class="userlist-wrapper comm-card">
             <div class="userlist-content">
@@ -15,36 +11,7 @@
                         실시간 문의 리스트
                     </h2>
                 </div>
-                <table class="userlist-tbl">
-                    <colgroup>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>등록일</th>
-                            <th>작성자</th>
-                            <th>제목</th>
-                            <th>진행상황</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for i in range(0, 10) %}
-                            <tr>
-                                <td class="date">2019-12-08</td>
-                                <td class="name">h******</td>
-                                <td class="title">
-                                    <a href="/support/inquiry/detail/">가이드영상대로 진행했는데 잘 안되네요..ㅠㅠ</a>
-                                </td>
-                                <td>
-                                    <span class="state active">답변완료</span>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+
                 <div class="userlist-pagenation pager">
                     <ul class="pager-nav">
                         <li>
