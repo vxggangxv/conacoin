@@ -46,28 +46,6 @@ exports.get_inquirys_detail = async (req, res) => {
         console.log(e);
     }
 }
-exports.post_inquirys_reply_write = async (req, res) => {
-    try {
-        const requiry = await models.Inquirys.findByPk(req.params.id);
-        let reply_cnt = 0;
-        if (!requiry.reply_cnt) {
-            reply_cnt++;
-        } else {
-            reply_cnt = requiry.reply_cnt + 1;
-        }
-        await models.Inquirys.update({
-            reply_cnt: reply_cnt
-        }, {
-            where: {
-                id: req.params.id
-            }
-        });
-        await requiry.createReply(req.body);
-        res.redirect(`/support/inquirys/detail/${req.params.id}`);
-    } catch (e) {
-        console.log(e);
-    }
-}
 exports.get_inquirys_write = async (req, res) => {
     res.render('support/inquirys/edit.html', {
         csrfToken: req.csrfToken()
@@ -106,7 +84,28 @@ exports.get_inquirys_delete = async (req, res) => {
         console.log(e);
     }
 }
-
+exports.post_inquirys_reply_write = async (req, res) => {
+    try {
+        const requiry = await models.Inquirys.findByPk(req.params.id);
+        let reply_cnt = 0;
+        if (!requiry.reply_cnt) {
+            reply_cnt++;
+        } else {
+            reply_cnt = requiry.reply_cnt + 1;
+        }
+        await models.Inquirys.update({
+            reply_cnt: reply_cnt
+        }, {
+            where: {
+                id: req.params.id
+            }
+        });
+        await requiry.createReply(req.body);
+        res.redirect(`/support/inquirys/detail/${req.params.id}`);
+    } catch (e) {
+        console.log(e);
+    }
+}
 exports.post_inquirys_reply_edit = async (req, res) => {
     try {
         // const requiry = await models.Inquirys.findByPk(req.params.id);

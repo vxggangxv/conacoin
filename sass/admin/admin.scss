@@ -74,12 +74,31 @@
     }
 }
 
+@mixin comm-wd-style {
+    min-width: 992px;
+    background-color: #fff;
+}
+
 $card-pd: 25px;
+
+.texta-wrapper {
+    position: relative;
+
+    .texta-counter {
+        position: absolute;
+        right: 23px;
+        bottom: 2px;
+        color: $font-gray4;
+        font-size: 12px;
+        font-weight: 300;
+    }
+}
 
 .admin-page {
     min-width: 1010px;
 
     .comm-card {
+        @include comm-wd-style;
         box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
         background-color: #fff;
         margin-bottom: 20px;
@@ -98,57 +117,92 @@ $card-pd: 25px;
         font-weight: 500;
     }
 
+    // [class*=comm-title],
+    // [class*=comm-actions] {
+    //     &:after {
+    //         content: '';
+    //         display: block;
+    //         clear: both;
+    //     }
+    // }
+
     .comm-title,
     .comm-actions {
         padding: 0 $card-pd;
     }
 
     .comm-title {
-        padding-top: 25px;
-        padding-bottom: 25px;
+        // padding-top: 25px;
+        // padding-bottom: 25px;
+        height: 60px;
         border-bottom: 1px solid $admin-bor;
         font-size: 15px;
         color: $admin-c-black;
         font-weight: 500;
+        display: flex;
+        align-items: center;
+        // align-items: stretch;
+        justify-content: space-between;
+    }
+
+    .comm-actions-top {
+        position: relative;
+
+        .comm-btn {
+            @include btn-base;
+            @include btn-size(5px 10px, 13px);
+            border-radius: 2px;
+
+            &+.comm-btn {
+                margin-left: 10px;
+            }
+
+            &.outline {
+                @include btn-transparent($admin-c-black);
+                // color: $font-gray;
+            }
+
+            &.primary {
+                background-color: $admin-primary;
+                color: #fff;
+            }
+        }
+
     }
 
     .comm-actions {
         padding-top: 25px;
         padding-bottom: 25px;
-    }
 
-    .comm-btn {
-        @include btn-base;
-        border-radius: 0;
-        @include btn-size(10px 0px, 13px);
-        border-radius: 2px;
-        width: 18%;
-        max-width: 200px;
-        // margin: 0 10px;
-        // margin-left: 25px;
+        .comm-btn {
+            @include btn-base;
+            @include btn-size(10px 50px, 13px);
+            border-radius: 2px;
+            max-width: 200px;
 
-        &+.comm-btn {
-            margin-left: 10px;
-        }
+            &+.comm-btn {
+                margin-left: 10px;
+            }
 
-        &.outline {
-            @include btn-transparent($admin-c-black);
-            // color: $font-gray;
-        }
+            &.outline {
+                @include btn-transparent($admin-c-black);
+                // color: $font-gray;
+            }
 
-        &.primary {
-            background-color: $primary-color;
-            color: #fff;
-        }
+            &.primary {
+                background-color: $primary-color;
+                color: #fff;
+            }
 
-        &.inquiry-btn {
-            margin: 0;
-            position: absolute;
-            bottom: 0;
-            right: 0;
+            &.inquiry-btn {
+                margin: 0;
+                position: absolute;
+                bottom: 0;
+                right: 0;
 
-            @include screen-lg {
-                right: 20px;
+                @include screen-lg {
+                    right: 20px;
+                }
             }
         }
     }
@@ -219,8 +273,11 @@ $card-pd: 25px;
     }
 }
 
+
 .admin-inquirys-sec {
     .inquirys-wrapper {
+
+        &.inquirys-edit,
         &.inquirys-detail {
             max-width: 1150px;
         }
@@ -231,7 +288,11 @@ $card-pd: 25px;
                 border: none;
             }
 
-            .inquirys-tbl {
+            [class*=-tbl] {
+                @include comm-wd-style;
+            }
+
+            .list-tbl {
                 width: 100%;
                 table-layout: fixed;
                 font-size: 14px;
@@ -272,6 +333,9 @@ $card-pd: 25px;
                     &.title {
                         text-align: left;
                         padding-left: 10px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                     }
 
                     .status {
@@ -296,8 +360,8 @@ $card-pd: 25px;
                 tbody {}
             }
 
-            .inquiry-actions {
-                margin-top: 50px;
+            .inquirys-actions {
+                margin-top: 30px;
                 padding-bottom: 25px;
                 padding-left: $card-pd;
                 text-align: left;
@@ -316,12 +380,18 @@ $card-pd: 25px;
                         border-bottom: solid 1px $admin-bor;
 
                         td {
-                            padding: 15px 0;
+                            padding: 15px $card-pd;
                         }
 
                         .row {
                             display: inline-block;
-                            width: 30%;
+                        }
+
+                        .label,
+                        .status,
+                        .label-text {
+                            display: inline-block;
+                            vertical-align: top;
                         }
 
                         .label,
@@ -330,19 +400,22 @@ $card-pd: 25px;
                             font-weight: 500;
                         }
 
+                        $lbl-mwd: 26px;
+                        $lbl-ml: 20px;
+
                         .label {
-                            margin-left: $card-pd;
+                            min-width: 26px;
                         }
 
-                        .text {
-                            color: $font-gray3;
-                            margin-left: $card-pd;
+
+                        .label-text {
+                            margin-left: $lbl-ml;
                         }
 
                         .status {
                             position: absolute;
                             top: 15px;
-                            right: 20px;
+                            right: $card-pd;
                             color: $font-gray2;
 
                             &.active {
@@ -350,10 +423,21 @@ $card-pd: 25px;
                             }
                         }
 
+                        &.name {
+                            .row {
+                                width: 30%;
+                            }
+                        }
+
+                        &.title {
+                            .label-text {
+                                width: calc(100% - #{$lbl-mwd} - #{$lbl-ml});
+                            }
+                        }
+
                         &.content {
                             .text {
-                                margin-left: $card-pd;
-                                margin-right: $card-pd;
+                                display: block;
                                 min-height: 150px;
 
                             }
@@ -366,7 +450,7 @@ $card-pd: 25px;
 
                             .reply-content {
                                 margin-top: 15px;
-                                margin-right: $card-pd;
+                                // margin-right: $card-pd;
                             }
                         }
 
@@ -374,7 +458,7 @@ $card-pd: 25px;
                             margin-top: 20px;
 
                             .tablist {
-                                padding: 0 $card-pd;
+                                // padding: 0 $card-pd;
 
                                 .tab {
                                     display: inline-block;
@@ -437,10 +521,9 @@ $card-pd: 25px;
 
                     }
 
-                    .reply-form {
+                    .reply-form-in {
                         display: none;
                         position: relative;
-                        margin: 0 $card-pd;
                         margin-top: 10px;
                         height: 150px;
                         border: 1px solid $bor-gray2;
@@ -455,19 +538,6 @@ $card-pd: 25px;
 
                         .texta-wrapper {
                             position: relative;
-                            height: 100%;
-
-                            .counter {
-                                position: absolute;
-                                right: 23px;
-                                bottom: 2px;
-                                color: $font-gray4;
-                                font-size: 12px;
-                                font-weight: 300;
-                            }
-                        }
-
-                        .texta-wrapper {
                             width: 90%;
                         }
 
@@ -484,6 +554,88 @@ $card-pd: 25px;
 
                         &.active {
                             display: block;
+                        }
+                    }
+                }
+            }
+
+            .edit-tbl {
+                position: relative;
+                width: 100%;
+                // border-top: solid 2px $primary-color;
+                line-height: 1.423;
+                font-size: 13.5px;
+
+                .form-input {
+                    // margin: 10px 0;
+                    // width: 60%;
+                    width: auto;
+                    min-width: 120px;
+                    height: 38px;
+                    border: solid 1px #bdbdbd;
+                    border-radius: 5px;
+
+                    &.title {
+                        width: 85%;
+                    }
+                }
+
+                .form-textarea {
+                    // margin: 10px 0;
+                    border: solid 1px #bdbdbd;
+                    border-radius: 5px;
+
+
+                    &.content {
+                        display: block;
+                        font-size: 14px;
+                        height: 270px;
+                    }
+                }
+
+                .texta-wrapper {
+                    width: 100%;
+                    margin-top: 10px;
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            padding: 10px $card-pd;
+                        }
+
+                        vertical-align: middle;
+                        border-bottom: solid 1px $bor-gray;
+
+                        .row {
+                            display: inline-block;
+
+                            &+.row {
+                                margin-left: $card-pd + 10px;
+                            }
+                        }
+
+                        .label {
+                            display: inline-block;
+                            font-size: 14px;
+                            font-weight: 500;
+                            // width: 75px;
+                        }
+
+                        .label-text {
+                            margin-left: $card-pd;
+                        }
+
+                        &.title {
+                            text-align: left;
+                        }
+
+                        &.content {
+                            text-align: center;
+
+                            .label {
+                                margin-top: 10px;
+                            }
                         }
                     }
                 }

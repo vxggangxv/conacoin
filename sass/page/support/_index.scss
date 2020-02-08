@@ -1,5 +1,5 @@
 // 비밀번호 확인 팝업 영역
-.support-inquiry-pw {
+.support-inquirys-pw {
     .pw-pop {
         width: 90%;
         max-width: 360px;
@@ -61,9 +61,11 @@
         }
     }
 
-    .support-inquiry-isec {
-        .inquiry-wrapper {
-            .inquiry-content {
+    $card-pd: 10px;
+
+    .support-inquirys-isec {
+        .inquirys-wrapper {
+            .inquirys-content {
                 .tbl-comm-st {
                     margin-bottom: 10px;
                     font-size: 12px;
@@ -71,7 +73,7 @@
                     letter-spacing: -0.7px;
                 }
 
-                .postlist-tbl {
+                .list-tbl {
                     width: 100%;
                     table-layout: fixed;
                     letter-spacing: -0.7px;
@@ -132,7 +134,7 @@
                     tbody {}
                 }
 
-                .inquiry-actions {
+                .inquirys-actions {
                     margin-top: 20px;
                     text-align: center;
 
@@ -191,16 +193,23 @@
                             border-bottom: solid 1px $bor-gray;
 
                             td {
-                                padding: 10px 0;
+                                padding: 10px $card-pd;
                             }
 
                             .row {
                                 display: block;
-                                width: 100%;
+                                // width: 100%;
 
                                 &+.row {
                                     margin-top: 10px;
                                 }
+                            }
+
+                            .label,
+                            .status,
+                            .label-text {
+                                display: inline-block;
+                                vertical-align: top;
                             }
 
                             .label,
@@ -209,26 +218,38 @@
                                 font-weight: 500;
                             }
 
+
+                            .text,
+                            .label-text {
+                                color: $font-gray3;
+                            }
+
+                            $lbl-mwd: 50px;
+                            $lbl-ml: 10px;
+
                             .label {
                                 display: inline-block;
-                                min-width: 50px;
-                                margin-left: 10px;
+                                min-width: $lbl-mwd;
                             }
 
-                            .text {
-                                color: $font-gray3;
-                                margin-left: 10px;
+                            .label-text {
+                                margin-left: $lbl-ml;
                             }
-
 
                             .status {
                                 position: absolute;
                                 top: 10px;
-                                right: 10px;
+                                right: $card-pd;
                                 color: $font-gray2;
 
                                 &.active {
                                     color: $primary-color;
+                                }
+                            }
+
+                            &.title {
+                                .label-text {
+                                    width: calc(100% - #{$lbl-mwd} - #{$lbl-ml});
                                 }
                             }
 
@@ -252,8 +273,6 @@
                                 margin-top: 20px;
 
                                 .tablist {
-                                    padding: 0 10px;
-
                                     .tab {
                                         display: inline-block;
 
@@ -316,8 +335,7 @@
                             .reply-form {
                                 display: none;
                                 position: relative;
-                                margin: 0 10px;
-                                margin-top: 5px;
+                                margin-top: 10px;
                                 height: 60px;
                                 border: 1px solid $bor-gray2;
 
@@ -357,9 +375,9 @@
 
                     .form-input {
                         // margin: 10px 0;
-                        margin-left: 10px;
+                        margin-left: $card-pd;
                         // width: 60%;
-                        width: calc(100% - 10px - 10px - 70px);
+                        width: calc(100% - 10px - 70px);
                         min-width: 180px;
                         height: 30px;
                         border: solid 1px #bdbdbd;
@@ -393,12 +411,7 @@
                             border-bottom: solid 1px $bor-gray;
 
                             td {
-                                padding: 10px 0;
-                            }
-
-                            &.title,
-                            &.content {
-                                text-align: center;
+                                padding: 10px $card-pd;
                             }
 
                             .row {
@@ -413,14 +426,20 @@
 
                             .label {
                                 display: inline-block;
-                                margin-left: 10px;
                                 font-size: 13.5px;
                                 font-weight: 500;
                                 // min-width: 70px;
                                 width: 70px;
+                            }
 
-                                &.title,
-                                &.content {
+                            &.title,
+                            &.content {
+                                text-align: center;
+                            }
+
+                            &.title,
+                            &.content {
+                                .label {
                                     display: block;
                                     width: 100%;
                                     margin-top: 5px;
@@ -458,15 +477,17 @@
         }
     }
 
-    .support-inquiry-isec {
-        .inquiry-wrapper {
-            .inquiry-content {
+    $card-pd: 20px;
+
+    .support-inquirys-isec {
+        .inquirys-wrapper {
+            .inquirys-content {
                 .tbl-comm-st {
                     margin-bottom: 10px;
                     font-size: 14px;
                 }
 
-                .postlist-tbl {
+                .list-tbl {
                     width: 100%;
                     table-layout: fixed;
 
@@ -501,6 +522,9 @@
                         &.title {
                             text-align: left;
                             padding-left: 10px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
                         }
 
                         .status {
@@ -524,42 +548,6 @@
                     tbody {}
                 }
 
-                .inquiry-actions {
-                    margin-top: 50px;
-                    text-align: center;
-
-                    .comm-btn {
-                        @include btn-base;
-                        border-radius: 0;
-                        @include btn-size(15px 0px, 18px);
-                        width: 18%;
-                        max-width: 200px;
-                        margin: 0 10px;
-
-                        &.outline {
-                            @include btn-transparent(#141414);
-                        }
-
-                        &.primary {
-                            background-color: $primary-color;
-                            color: #fff;
-                        }
-
-                        &.list-btn,
-                        &.inquiry-btn {
-                            margin: 0;
-                            position: absolute;
-                            bottom: 0;
-                            right: 0;
-
-                            @include screen-lg {
-                                right: 20px;
-                            }
-                        }
-                    }
-                }
-
-                // to do...
                 .detail-tbl {
                     position: relative;
                     width: 100%;
@@ -573,12 +561,18 @@
                             border-bottom: solid 1px $bor-gray;
 
                             td {
-                                padding: 15px 0;
+                                padding: 15px $card-pd;
                             }
 
                             .row {
                                 display: inline-block;
-                                width: 30%;
+                            }
+
+                            .label,
+                            .status,
+                            .label-text {
+                                display: inline-block;
+                                vertical-align: top;
                             }
 
                             .label,
@@ -587,19 +581,26 @@
                                 font-weight: 500;
                             }
 
-                            .label {
-                                margin-left: 20px;
+                            .text,
+                            .label-text {
+                                color: $font-gray3;
                             }
 
-                            .text {
-                                color: $font-gray3;
-                                margin-left: 20px;
+                            $lbl-mwd: 30px;
+                            $lbl-ml: 20px;
+
+                            .label {
+                                min-width: $lbl-mwd;
+                            }
+
+                            .label-text {
+                                margin-left: $lbl-ml;
                             }
 
                             .status {
                                 position: absolute;
                                 top: 15px;
-                                right: 20px;
+                                right: $card-pd;
                                 color: $font-gray2;
 
                                 &.active {
@@ -607,12 +608,21 @@
                                 }
                             }
 
+                            &.name {
+                                .row {
+                                    width: 30%;
+                                }
+                            }
+
+                            &.title {
+                                .label-text {
+                                    width: calc(100% - #{$lbl-mwd} - #{$lbl-ml});
+                                }
+                            }
+
                             &.content {
                                 .text {
-                                    margin-left: 20px;
-                                    margin-right: 20px;
                                     min-height: 150px;
-
                                 }
                             }
 
@@ -630,8 +640,6 @@
                                 margin-top: 20px;
 
                                 .tablist {
-                                    padding: 0 20px;
-
                                     .tab {
                                         display: inline-block;
 
@@ -695,7 +703,6 @@
                         .reply-form {
                             display: none;
                             position: relative;
-                            margin: 0 20px;
                             margin-top: 10px;
                             height: 100px;
                             border: 1px solid $bor-gray2;
@@ -732,7 +739,6 @@
                     line-height: 1.423;
 
                     .form-input {
-                        // margin: 10px 0;
                         width: 60%;
                         min-width: 180px;
                         height: 38px;
@@ -745,7 +751,6 @@
                     }
 
                     .form-textarea {
-                        // margin: 10px 0;
                         border: solid 1px #bdbdbd;
                         border-radius: 5px;
 
@@ -758,31 +763,30 @@
                         }
                     }
 
+                    .texta-wrapper {
+                        width: 100%;
+                        margin-top: 10px;
+                    }
+
                     tbody {
                         tr {
                             td {
-                                padding: 10px 0;
+                                padding: 10px $card-pd;
                             }
 
                             vertical-align: middle;
                             border-bottom: solid 1px $bor-gray;
 
-                            &.title {
-                                text-align: left;
-                            }
-
-                            &.content {
-                                text-align: center;
-                            }
-
                             .row {
                                 display: inline-block;
-                                margin-right: 10px;
+
+                                &+.row {
+                                    margin-left: $card-pd + 10px;
+                                }
                             }
 
                             .label {
                                 display: inline-block;
-                                margin: 0 20px;
                                 font-weight: 500;
                                 // width: 75px;
 
@@ -790,6 +794,58 @@
                                     margin-top: 10px;
                                     width: 100%;
                                 }
+                            }
+
+                            .label-text {
+                                margin-left: $card-pd;
+                            }
+
+                            &.title {
+                                text-align: left;
+                            }
+
+                            &.content {
+                                // td {
+                                //     padding-left: $card-pd;
+                                //     padding-right: $card-pd;
+                                // }
+
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+
+                .inquirys-actions {
+                    margin-top: 50px;
+                    text-align: center;
+
+                    .comm-btn {
+                        @include btn-base;
+                        border-radius: 0;
+                        @include btn-size(15px 0px, 18px);
+                        width: 18%;
+                        max-width: 200px;
+                        margin: 0 10px;
+
+                        &.outline {
+                            @include btn-transparent(#141414);
+                        }
+
+                        &.primary {
+                            background-color: $primary-color;
+                            color: #fff;
+                        }
+
+                        &.list-btn,
+                        &.inquiry-btn {
+                            margin: 0;
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+
+                            @include screen-lg {
+                                right: 20px;
                             }
                         }
                     }

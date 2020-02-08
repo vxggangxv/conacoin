@@ -74,10 +74,8 @@ router.get('/accounts/password', csrfProtection, ctrl.get_password);
 router.post('/accounts/password', ctrl.post_password);
 
 router.get('/inquirys', paginate.middleware(10, 50), ctrl.get_inquirys);
-router.get('/inquirys/write/:id', ctrl.get_inquirys_write);
-router.post('/inquirys/write/:id', ctrl.post_inquirys_write);
-
-
+router.get('/inquirys/write', csrfProtection, ctrl.get_inquirys_write);
+router.post('/inquirys/write', ctrl.post_inquirys_write);
 router.get('/inquirys/detail/:id', ctrl.get_inquirys_detail);
 router.post('/inquirys/reply/write/:id', ctrl.post_inquirys_reply_write);
 // router.get('/inquirys/edit/:id', csrfProtection, ctrl.get_inquirys_edit);

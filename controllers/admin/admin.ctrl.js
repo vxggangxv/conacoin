@@ -118,8 +118,19 @@ exports.get_inquirys = async (req, res) => {
     }
 }
 
-exports.get_inquirys_write = async (req, res) => {}
-exports.post_inquirys_write = async (req, res) => {}
+exports.get_inquirys_write = async (req, res) => {
+    res.render('admin/inquirys/edit.html', {
+        csrfToken: req.csrfToken()
+    });
+}
+exports.post_inquirys_write = async (req, res) => {
+    try {
+        await models.Inquirys.create(req.body);
+        res.redirect('/admin/inquirys/')
+    } catch (e) {
+        console.log(e);
+    }
+}
 exports.get_inquirys_detail = async (req, res) => {
     try {
         const inquiry = await models.Inquirys.findOne({

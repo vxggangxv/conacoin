@@ -801,6 +801,19 @@ body {
     }
 }
 
+// 인풋 length 표시
+.texta-wrapper {
+    position: relative;
+
+    .texta-counter {
+        position: absolute;
+        right: 23px;
+        bottom: 2px;
+        color: $font-gray4;
+        font-size: 12px;
+        font-weight: 300;
+    }
+}
 
 @include screen-md {}
 

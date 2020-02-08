@@ -13,12 +13,12 @@
             </div>
             <table class="detail-tbl">
                 <tbody>
-                    <tr>
+                    <tr class="name">
                         <td>
                             <p class="row">
-                                <span class="label name">이름</span><span class="text name">{{ inquiry.name }}</span></p>
+                                <span class="label name">이름</span><span class="label-text name">{{ inquiry.name }}</span></p>
                             <p class="row">
-                                <span class="label">이메일</span><span class="text email">{{ inquiry.email }}</span></p>
+                                <span class="label">이메일</span><span class="label-text email">{{ inquiry.email }}</span></p>
                             {% if inquiry.reply_cnt %}
                             <span class="status active">
                                 답변완료
@@ -33,12 +33,12 @@
                     <tr class="title">
                         <td>
                             <p class="row">
-                                <span class="label title">제목</span><span class="text title">{{ inquiry.title }}</span></p>
+                                <span class="label title">제목</span><span class="label-text title">{{ inquiry.title }}</span></p>
                         </td>
                     </tr>
                     <tr class="content">
                         <td>
-                            <p class="text content">{{ inquiry.content }}</p>
+                            <p class="text content">{{ inquiry.content | replace("/\n/g", "<br/>") }}</p>
                             <div class="reply-register-wrapper">
                                 <ul class="tablist">
                                     {% if inquiry.Reply.length %}
@@ -63,21 +63,21 @@
                                     {% endif %}
                                 </ul>
                                 {% if inquiry.Reply.length %}
-                                <form action="/admin/inquirys/reply/edit/{{ inquiry.id }}" method="post">
-                                    <div class="reply-form cf" id="reply_form">
+                                <form action="/admin/inquirys/reply/edit/{{ inquiry.id }}" method="post" id="reply_form">
+                                    <div class="reply-form-in cf">
                                         <div class="texta-wrapper">
                                             <textarea class="form-textarea register-content" id="register_content" name="content" required="required" maxlength="500"></textarea>
-                                            <span id="counter" class="counter"></span>
+                                            <span id="texta_counter" class="texta-counter"></span>
                                         </div>
                                         <button type="submit" id="register_btn" class="register-btn">수정</button>
                                     </div>
                                 </form>
                                 {% else %}
-                                <form action="/admin/inquirys/reply/write/{{ inquiry.id }}" method="post">
-                                    <div class="reply-form cf" id="reply_form">
+                                <form action="/admin/inquirys/reply/write/{{ inquiry.id }}" method="post" id="reply_form">
+                                    <div class="reply-form-in cf">
                                         <div class="texta-wrapper">
                                             <textarea class="form-textarea register-content" id="register_content" name="content" required="required" maxlength="500"></textarea>
-                                            <span id="counter" class="counter"></span>
+                                            <span id="texta_counter" class="texta-counter"></span>
                                         </div>
                                         <button type="submit" id="register_btn" class="register-btn">등록</button>
                                     </div>
@@ -93,14 +93,14 @@
                         <td>
                             <div>
                                 <p class="label reply-name">고객센터</p>
-                                <p class="text reply-content">{{ reply.content }}</p>
+                                <p class="text reply-content">{{ reply.content | safe }}</p>
                             </div>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <div class="inquiry-actions count-3">
+            <div class="inquirys-actions comm-actions">
                 <a href="/admin/inquirys/" class="comm-btn outline back-btn">목록</a>
                 <a href="/admin/inquirys/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
             </div>
@@ -110,17 +110,24 @@
 <script>
     $('#register_write').on('click', function () {
         $(this).toggleClass('active');
-        $('#reply_form').toggleClass('active');
+        $('#reply_form .reply-form-in').toggleClass('active');
     });
     $('#register_edit').on('click', function () {
         $(this).toggleClass('active');
         $('#reply_wrapper').toggle();
-        $('#reply_form').toggle();
+        $('#reply_form .reply-form-in').toggle();
     });
-
     $('#register_content').keydown(function () {
         var content = $(this).val();
-        $('#counter').html(content.length + '/500');
+        $('#texta_counter').html(content.length + '/500');
+    });
+    $('#reply_form').submit(function () {
+        var $registerContent = $('#register_content');
+        var content = $registerContent.val();
+        content = content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+        console.log(content);
+        $registerContent.val(content);
+        return true;
     });
 </script>
 {% endblock %}

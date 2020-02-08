@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
             content: {
                 type: DataTypes.TEXT,
                 validate: {
-                    len: [0, 500],
+                    len: [0, 1000],
                 },
             },
             createdAt: {

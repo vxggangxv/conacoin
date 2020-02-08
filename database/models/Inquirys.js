@@ -28,13 +28,13 @@ module.exports = (sequelize, DataTypes) => {
             title: {
                 type: DataTypes.TEXT,
                 validate: {
-                    len: [0, 50],
+                    len: [0, 100],
                 },
             },
             content: {
                 type: DataTypes.TEXT,
                 validate: {
-                    len: [0, 500],
+                    len: [0, 1000],
                 },
             },
             reply_cnt: {

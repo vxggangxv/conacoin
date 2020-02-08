@@ -3,19 +3,18 @@
 
 {% block content %}
     <section class="sec admin-inquirys-sec ">
-        {% if isLogin %}
-            {{ req_user.username }}
-        {% endif %}
-
         <h1 class="comm-sec-title sec-title">실시간 문의하기</h1>
-        <div class="inquirys-wrapper comm-card">
+        <div class="inquirys-wrapper comm-card inquirys-list">
             <div class="inquirys-content">
                 <div class="inquirys-title comm-title">
                     <h2 class="title">
                         실시간 문의 리스트
                     </h2>
+                    <div class="title-actions comm-actions-top">
+                        <a href="/admin/inquirys/write/" class="comm-btn primary new-btn">새 글</a>
+                    </div>
                 </div>
-                <table class="inquirys-tbl">
+                <table class="list-tbl">
                     <colgroup>
                         <col>
                         <col>
