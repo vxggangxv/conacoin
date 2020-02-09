@@ -1,0 +1,17 @@
+{% set pageName = 'errorPage' %}
+{% set title = "Conacoin : 에러가 발생했습니다" %}
+{% extends "layout/base.html" %}
+
+{% block content -%}
+
+    <div class="pop-mask err-mask">
+        <div class="pop-wrapper err-wrapper">
+            <div class="pop-container err-container">
+                <h1 class="title">500 ERROR</h1>
+                <h2 class="st">현재 서비스 상태가 원활하지 않습니다.</h2>
+                <p class="text">잘못된 스크립트의 실행 또는 내부서버의 오류로 인해 발생했습니다. 시스템 관리자에게 문의하시기 바랍니다.</p>
+            </div>
+        </div>
+    </div>
+
+{%- endblock %}

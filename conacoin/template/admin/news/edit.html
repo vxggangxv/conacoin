@@ -1,0 +1,48 @@
+{% set pageName = 'adminInquirysPage' %}
+{% set dateLength = 50 %}
+{% set titleLength = 300 %}
+{% set contentLength = 3000 %}
+{% extends "admin/layout/base.html" %}
+
+{% block content %}
+    <section class="sec admin-inquirys-sec">
+        <h1 class="comm-sec-title sec-title">뉴스 업로드</h1>
+        <div class="inquirys-wrapper comm-card inquirys-edit">
+            <div class="inquirys-content">
+                <div class="inquirys-title comm-title">
+                    <h2 class="title">뉴스 리스트</h2>
+                </div>
+                <form action="" method="post" id="inquirys_form">
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
+                    <input type="hidden" name="id" value="{{ news.id }}">
+                    <input type="hidden" name="name" value="{{ req_user.username }}">
+                    <table class="edit-tbl">
+                        <tbody>
+                            <tr class="bor-no">
+                                <td>
+                                    <span class="label date">날짜</span><input class="form-input date label-text w-type1" name="date" type="text" maxlength="{{ dateLength }}" required="required" value="{{ news.date }}">
+                                </td>
+                            </tr>
+                            <tr class="bor-no">
+                                <td>
+                                    <span class="label title">제목</span><input class="form-input title label-text w-type1" name="title" type="text" maxlength="{{ titleLength }}" required="required" value="{{ news.title }}">
+                                </td>
+                            </tr>
+                            <tr class="bor-no">
+                                <td>
+                                    <span class="label link">링크</span><input class="form-input link label-text w-type1" name="link" type="text" maxlength="{{ titleLength }}" required="required" value="{{ news.link }}">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="inquirys-actions comm-actions">
+                        <a href="/admin/news/" class="comm-btn outline list-btn">목록</a>
+                        <a href="/admin/news/delete/{{ news.id }}" class="comm-btn outline delete-btn">삭제</a>
+                        <button type="submit" class="comm-btn primary complete-btn">등록</button>
+                        <a href="javascript: history.back(-1)" class="comm-btn outline back-btn pull-right">이전</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

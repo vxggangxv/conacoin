@@ -1,0 +1,23 @@
+<nav class="admin-sidebar">
+    <h1 class="sr-only">메뉴</h1>
+    <h1 class="sidebar-logo">
+        <a href="/admin/" class="logo-cover">
+            <img src="/images/icon/cona.png" alt="코나코인" class="logo-img">
+            <span>Admin</span>
+        </a>
+    </h1>
+    <ul class="sidebar-menu cf">
+        {% from "admin/macro/link.html" import link %}
+        {{ link( '/admin/inquirys/' , '실시간 문의' , req_path,  'mdi-message-text-outline') }}
+        {{ link( '/admin/news/' , '뉴스업로드' , req_path,  'mdi-newspaper-variant-multiple-outline') }}
+    </ul>
+    <div class="cs-wrapper">
+        <p class="title">고객지원</p>
+        <p class="text">
+            WEB PRODUCER
+            <span class="number">+82) 010-5691-2604</span>
+            {# 사이트 이상 증상이나<br>
+            접속장애 및 유지보수 문의 #}
+        </p>
+    </div>
+</nav>

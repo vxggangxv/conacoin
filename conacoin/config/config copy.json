@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "root",
+    "password": "1111",
+    "database": "conacoin",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "timezone": "+09:00"
+  },
+  "test": {
+    "username": "caryon",
+    "password": "dspark5052!",
+    "database": "dbcaryon",
+    "host": "211.47.75.102",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "timezone": "+09:00"
+  },
+  "production": {
+    "username": "caryon",
+    "password": "dspark5052!",
+    "database": "dbcaryon",
+    "host": "211.47.75.102",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "timezone": "+09:00"
+  }
+}

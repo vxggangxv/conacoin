@@ -1,0 +1,20 @@
+{% set pageName = 'errorPage' %}
+{% set title = "Conacoin : 페이자가 없습니다" %}
+{% extends "layout/base.html" %}
+
+{% block content -%}
+
+    <div class="pop-mask err-mask">
+        <div class="pop-wrapper err-wrapper">
+            <div class="pop-container err-container">
+                <h1 class="title">404</h1>
+                <h2 class="st">찾을 수 없는 페이지입니다.</h2>
+                <p class="text">요청하신 페이지가 사라졌거나, 잘못된 경로를 이용하셨습니다.</p>
+                <div class="err-actions">
+                    <a href="/" class="home-btn">홈으로 이동</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%- endblock %}

@@ -1,0 +1,13 @@
+{# 
+    href : 태그안의 링크
+    text : 링크안에 들어갈 텍스트
+    current_url : 현재 url
+ #}
+{% macro link(href, text, current_url, icon) %}
+    <li class="link{% if href == current_url  %} active{% endif %}">
+        <a href="{{ href }}">
+            <i class="mdi {{ icon }}"></i>
+            <span>{{ text }}</span>
+        </a>
+    </li>
+{% endmacro %}

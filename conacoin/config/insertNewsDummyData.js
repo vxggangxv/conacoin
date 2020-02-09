@@ -1,0 +1,96 @@
+const models = require('../database/models');
+
+module.exports = async () => {
+    try {
+        // 임시 문의 글
+        await models.News.bulkCreate([{
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+            {
+                name: "농어",
+                date: "2020-02-09",
+                title: "[NEWS] 2개월 서 공개 앞둔 코나코인",
+                link: "naver.com",
+            },
+        ]);
+
+
+    } catch (err) {
+        // throw(err);
+    }
+};

@@ -1,0 +1,76 @@
+{% set pageName = 'adminInquirysPage' %}
+{% set titleLength = 300 %}
+{% set contentLength = 3000 %}
+{% extends "admin/layout/base.html" %}
+
+{% block content %}
+    <section class="sec admin-inquirys-sec">
+        <h1 class="comm-sec-title sec-title">실시간 문의</h1>
+        <div class="inquirys-wrapper comm-card inquirys-edit">
+            <div class="inquirys-content">
+                <div class="inquirys-title comm-title">
+                    <h2 class="title">실시간 문의 리스트</h2>
+                </div>
+                <form action="" method="post" id="inquirys_form">
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
+                    <table class="edit-tbl">
+                        <tbody>
+                            <tr class="name">
+                                <td>
+                                    <p class="row">
+                                        <span class="label name">이름</span><input class="form-input name label-text" name="name" type="text" required="required"></p>
+                                    <p class="row">
+                                        <span class="label email">이메일</span><input class="form-input email label-text" name="email" type="email" required="required"></p>
+                                    <p class="row">
+                                        <span class="label password">비밀번호</span><input class="form-input password label-text" name="password" type="password" required="required"></p>
+                                </td>
+                            </tr>
+                            <tr class="title">
+                                <td>
+                                    <span class="label title">제목</span><input class="form-input title label-text" name="title" type="text" maxlength="{{ titleLength }}" required="required">
+                                </td>
+                            </tr>
+                            <tr class="content">
+                                <td>
+                                    <span class="label content">문의내용</span>
+                                    <div class="texta-wrapper" data-role="texta-wrapper">
+                                        <textarea class="form-textarea content" name="content" id="register_content" maxlength="{{ contentLength }}" required="required"></textarea>
+                                        <span id="texta_counter" class="texta-counter"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="inquirys-actions comm-actions">
+                        <a href="/admin/inquirys/" class="comm-btn outline list-btn">목록</a>
+                        <button type="submit" class="comm-btn primary complete-btn">작성완료</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        $('#inquirys_form').submit(function () {
+            var $inquirysPwInput = $('#inquirys_form [name=password]');
+            if ($inquirysPwInput.val().length < 4) {
+                alert('비밀번호를 네 글자 이상 입력하세요.');
+                $inquirysPwInput.focus();
+                return false;
+            }
+            return true;
+        });
+        $('#register_content').keydown(function () {
+            var $registerContent = $('#register_content');
+            var content = $registerContent.val();
+            $('#texta_counter').html(content.length + '/{{ contentLength }}');
+            content = content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+        });
+        // $('#inquiry_form').submit(function () {
+        //     var $registerContent = $('#register_content');
+        //     var content = $registerContent.val();
+        //     content = content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+        //     console.log(content);
+        //     return true;
+        // });
+    </script>
+{% endblock %}
