@@ -2,6 +2,10 @@ const models = require('../../database/models');
 
 
 exports.index = async (req, res) => {
+    // res.render('index.html')
+    res.redirect('/home');
+}
+exports.get_home = async (req, res) => {
     try {
         const [inquirys, news] = await Promise.all([
             models.Inquirys.findAll({

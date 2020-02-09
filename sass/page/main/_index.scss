@@ -111,18 +111,38 @@
                     box-sizing: border-box;
                     line-height: 1.5;
                     font-size: 0;
+                    text-align: center;
 
-                    .inquiry-btn {
-                        position: relative;
-                        // width: 350px;
-                        @include center-block(135px);
+                    .btn {
+                        width: 135px;
                         height: 36px;
                         @include btn-size(8px 0, 13px);
                         font-weight: 500;
-                        color: #fff;
                         border-radius: 35px;
+
+                        &+.btn {
+                            margin-left: 10px;
+                        }
+                    }
+
+                    .white {
+                        background-color: #fff;
+                        color: $font-color;
+                    }
+
+                    .outline {
+                        color: #fff;
                         background-color: rgba(255, 255, 255, 0.2);
                         border: 1px solid #fff;
+                    }
+
+                    .inquiry-btn {
+                        margin: 0 auto;
+                    }
+
+                    .paper-btn {
+                        // width: 140px;
+                        letter-spacing: -0.7px;
                     }
                 }
             }
@@ -247,7 +267,7 @@
                     @include btn-size(12px 50px, 13px);
                     font-weight: 500;
                     @include btn-transparent(#fff);
-                    background-color: rgba(255, 255, 255, .2);
+                    background-color: rgba(255, 255, 255, 0.2);
                     border-radius: 50px;
                 }
             }
@@ -273,12 +293,11 @@
             .cona-content {
                 .cona-card {
                     .card-list {
-
                         .card-item {
                             position: relative;
                             margin: 0 10px;
                             height: 180px;
-                            box-shadow: 0 2px 6px 2px rgba(0, 0, 0, .15);
+                            box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
 
                             &:not(:first-child) {
                                 margin-top: 10px;
@@ -528,7 +547,6 @@
                             width: 46%;
                             background-color: #ffdb4b;
                         }
-
                     }
                 }
             }
@@ -568,7 +586,7 @@
                                     width: $wd;
                                     height: $wd;
                                     top: 50%;
-                                    margin-top: - $wd/2;
+                                    margin-top: -$wd/2;
                                     right: 10px;
                                     // border: 1px solid #ddd;
 
@@ -619,7 +637,6 @@
                             }
 
                             &.counsel-item {
-
                                 .status {
                                     text-align: center;
                                 }
@@ -746,7 +763,6 @@
                     }
 
                     .banner-list {
-
                         .banner-item {
                             height: 600px;
                             background: url('/images/main/visual_bg.jpg') no-repeat center / cover;
@@ -806,19 +822,36 @@
                     box-sizing: border-box;
                     line-height: 1.5;
                     font-size: 0;
+                    text-align: center;
 
-                    .inquiry-btn {
-                        position: relative;
-                        // width: 350px;
-                        @include center-block(250px);
+                    .btn {
+                        width: 250px;
                         height: 60px;
                         @include btn-size(16px 0, 18px);
                         font-weight: 500;
-                        color: #fff;
                         border-radius: 35px;
+
+                        &+.btn {
+                            margin-left: 20px;
+                        }
+                    }
+
+                    .white {
+                        background-color: #fff;
+                        color: $font-color;
+                    }
+
+                    .outline {
+                        color: #fff;
                         background-color: rgba(255, 255, 255, 0.2);
                         border: 1px solid #fff;
                     }
+
+                    .inquiry-btn {
+                        margin: 0 auto;
+                    }
+
+                    .paper-btn {}
                 }
             }
         }
@@ -869,7 +902,6 @@
             .guide-content {
                 .guide-card {
                     .card-list {
-
                         .card-item {
                             $mg: 40px;
                             float: left;
@@ -932,7 +964,7 @@
                     @include btn-size(15px 90px, 18px);
                     font-weight: 500;
                     @include btn-transparent(#fff);
-                    background-color: rgba(255, 255, 255, .2);
+                    background-color: rgba(255, 255, 255, 0.2);
                     border-radius: 50px;
                 }
             }
@@ -958,14 +990,13 @@
             .cona-content {
                 .cona-card {
                     .card-list {
-
                         .card-item {
                             position: relative;
                             float: left;
                             margin: 0 10px;
                             width: calc(25% - 20px);
                             height: 300px;
-                            box-shadow: 0 2px 6px 2px rgba(0, 0, 0, .15);
+                            box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
 
                             .card-title {
                                 @include va-bef(60px);
@@ -1206,7 +1237,6 @@
                             width: 240px;
                             background-color: #ffdb4b;
                         }
-
                     }
                 }
             }
@@ -1285,7 +1315,6 @@
                                             }
                                         }
 
-
                                         &:nth-child(odd) {
                                             background-color: #f3f3f3;
                                         }
@@ -1294,7 +1323,6 @@
                             }
 
                             &.counsel-item {
-
                                 .status {
                                     text-align: center;
                                 }

@@ -37,7 +37,7 @@ function dbConnection() {
             // 더미 데이터가 필요하면 아래 설정
             // require('./config/insertInquirysDummyData')();
             // require('./config/insertNewsDummyData')();
-            // require('./config/insertUserDummyData')();
+            // require('./config/insertUserDummyData')()
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err)
@@ -68,16 +68,18 @@ app.use(
     }),
 )
 app.use(cookieParser())
-// app.use('/stylesheets',
-//     sassMiddleware({
-//         src: path.join(__dirname, "sass"),
-//         dest: path.join(__dirname, "public/stylesheets"),
-//         indentedSyntax: false, // true = .sass and false = .scss
-//         sourceMap: true,
-//         outputStyle: 'compact',
-//         debug: false
-//     })
-// );
+if (process.env.NODE_ENV !== 'development') {
+    app.use('/stylesheets',
+        sassMiddleware({
+            src: path.join(__dirname, "sass"),
+            dest: path.join(__dirname, "public/stylesheets"),
+            indentedSyntax: false, // true = .sass and false = .scss
+            sourceMap: true,
+            outputStyle: 'compressed',
+            // debug: false
+        })
+    );
+}
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/uploads', express.static('uploads'))
 app.use('/static', express.static('static'))

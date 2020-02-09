@@ -1642,3 +1642,186 @@ SequelizeDatabaseError: Table 'dbcaryon.Sessions' doesn't exist
     at readableAddChunk (_stream_readable.js:269:11)
     at Socket.Readable.push (_stream_readable.js:224:10)
     at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+Listening to requests on http://localhost:3000
+Listening to requests on http://localhost:3000
+Listening to requests on http://localhost:3000
+Executing (default): SELECT 1+1 AS result
+Connection has been established successfully.
+Executing (default): DROP TABLE IF EXISTS `Sessions`;
+Executing (default): DROP TABLE IF EXISTS `User`;
+Executing (default): SELECT 1+1 AS result
+Connection has been established successfully.
+Executing (default): DROP TABLE IF EXISTS `Sessions`;
+Executing (default): DROP TABLE IF EXISTS `News`;
+Executing (default): DROP TABLE IF EXISTS `User`;
+Executing (default): DROP TABLE IF EXISTS `News`;
+Executing (default): SELECT 1+1 AS result
+Connection has been established successfully.
+Executing (default): DROP TABLE IF EXISTS `Sessions`;
+Executing (default): DROP TABLE IF EXISTS `InquirysReply`;
+Executing (default): DROP TABLE IF EXISTS `InquirysReply`;
+Executing (default): DROP TABLE IF EXISTS `User`;
+Executing (default): DROP TABLE IF EXISTS `Inquirys`;
+Executing (default): DROP TABLE IF EXISTS `Inquirys`;
+Executing (default): DROP TABLE IF EXISTS `News`;
+Executing (default): DROP TABLE IF EXISTS `Inquirys`;
+Executing (default): DROP TABLE IF EXISTS `InquirysReply`;
+Executing (default): DROP TABLE IF EXISTS `Inquirys`;
+Executing (default): CREATE TABLE IF NOT EXISTS `Inquirys` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `password` VARCHAR(255) NOT NULL, `email` VARCHAR(255), `title` TEXT, `content` TEXT, `reply_cnt` BIGINT UNSIGNED, `createdAt` DATETIME, `updatedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): DROP TABLE IF EXISTS `Inquirys`;
+Executing (default): CREATE TABLE IF NOT EXISTS `Inquirys` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `password` VARCHAR(255) NOT NULL, `email` VARCHAR(255), `title` TEXT, `content` TEXT, `reply_cnt` BIGINT UNSIGNED, `createdAt` DATETIME, `updatedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `Inquirys` FROM `dbcaryon`
+Executing (default): DROP TABLE IF EXISTS `Inquirys`;
+Executing (default): SHOW INDEX FROM `Inquirys` FROM `dbcaryon`
+Executing (default): DROP TABLE IF EXISTS `InquirysReply`;
+Executing (default): CREATE TABLE IF NOT EXISTS `Inquirys` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `password` VARCHAR(255) NOT NULL, `email` VARCHAR(255), `title` TEXT, `content` TEXT, `reply_cnt` BIGINT UNSIGNED, `createdAt` DATETIME, `updatedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): DROP TABLE IF EXISTS `InquirysReply`;
+Executing (default): SHOW INDEX FROM `Inquirys` FROM `dbcaryon`
+Executing (default): CREATE TABLE IF NOT EXISTS `InquirysReply` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `content` TEXT, `createdAt` DATETIME, `updatedAt` DATETIME, `inquiry_id` BIGINT UNSIGNED, PRIMARY KEY (`id`), FOREIGN KEY (`inquiry_id`) REFERENCES `Inquirys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `InquirysReply` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `content` TEXT, `createdAt` DATETIME, `updatedAt` DATETIME, `inquiry_id` BIGINT UNSIGNED, PRIMARY KEY (`id`), FOREIGN KEY (`inquiry_id`) REFERENCES `Inquirys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `InquirysReply` FROM `dbcaryon`
+Executing (default): SHOW INDEX FROM `InquirysReply` FROM `dbcaryon`
+Executing (default): DROP TABLE IF EXISTS `InquirysReply`;
+Executing (default): DROP TABLE IF EXISTS `News`;
+Executing (default): DROP TABLE IF EXISTS `News`;
+Executing (default): CREATE TABLE IF NOT EXISTS `InquirysReply` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `content` TEXT, `createdAt` DATETIME, `updatedAt` DATETIME, `inquiry_id` BIGINT UNSIGNED, PRIMARY KEY (`id`), FOREIGN KEY (`inquiry_id`) REFERENCES `Inquirys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `News` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `date` VARCHAR(255), `title` TEXT, `link` TEXT, `content` TEXT, `createdAt` DATETIME, `updatedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `News` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `date` VARCHAR(255), `title` TEXT, `link` TEXT, `content` TEXT, `createdAt` DATETIME, `updatedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `InquirysReply` FROM `dbcaryon`
+Executing (default): SHOW INDEX FROM `News` FROM `dbcaryon`
+Executing (default): SHOW INDEX FROM `News` FROM `dbcaryon`
+Executing (default): DROP TABLE IF EXISTS `User`;
+Executing (default): DROP TABLE IF EXISTS `News`;
+Executing (default): DROP TABLE IF EXISTS `User`;
+Executing (default): CREATE TABLE IF NOT EXISTS `User` (`id` BIGINT UNSIGNED auto_increment , `username` VARCHAR(255) NOT NULL, `password` VARCHAR(255) NOT NULL, `displayname` VARCHAR(255), `email` VARCHAR(255), `status` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `News` (`id` BIGINT UNSIGNED auto_increment , `name` VARCHAR(255), `date` VARCHAR(255), `title` TEXT, `link` TEXT, `content` TEXT, `createdAt` DATETIME, `updatedAt` DATETIME, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `User` FROM `dbcaryon`
+Executing (default): SHOW INDEX FROM `News` FROM `dbcaryon`
+Executing (default): CREATE TABLE IF NOT EXISTS `User` (`id` BIGINT UNSIGNED auto_increment , `username` VARCHAR(255) NOT NULL, `password` VARCHAR(255) NOT NULL, `displayname` VARCHAR(255), `email` VARCHAR(255), `status` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `User` FROM `dbcaryon`
+Executing (default): DROP TABLE IF EXISTS `User`;
+Executing (default): DROP TABLE IF EXISTS `Sessions`;
+Executing (default): CREATE TABLE IF NOT EXISTS `Sessions` (`sid` VARCHAR(36) , `expires` DATETIME, `data` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`sid`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `User` (`id` BIGINT UNSIGNED auto_increment , `username` VARCHAR(255) NOT NULL, `password` VARCHAR(255) NOT NULL, `displayname` VARCHAR(255), `email` VARCHAR(255), `status` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Unable to connect to the database: { SequelizeDatabaseError: Table 'dbcaryon.User' doesn't exist
+    at Query.formatError (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\sequelize\lib\dialects\mysql\query.js:247:16)
+    at Query.handler [as onResult] (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\sequelize\lib\dialects\mysql\query.js:68:23)
+    at Query.execute (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\commands\command.js:30:14)
+    at Connection.handlePacket (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:417:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:75:12)
+    at PacketParser.executeStart (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:82:25)
+    at Socket.emit (events.js:198:13)
+    at addChunk (_stream_readable.js:288:12)
+    at readableAddChunk (_stream_readable.js:269:11)
+    at Socket.Readable.push (_stream_readable.js:224:10)
+    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Table 'dbcaryon.User' doesn't exist
+       at Packet.asError (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packets\packet.js:712:17)
+       at Query.execute (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\commands\command.js:28:26)
+       at Connection.handlePacket (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:417:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:75:12)
+       at PacketParser.executeStart (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:82:25)
+       at Socket.emit (events.js:198:13)
+       at addChunk (_stream_readable.js:288:12)
+       at readableAddChunk (_stream_readable.js:269:11)
+       at Socket.Readable.push (_stream_readable.js:224:10)
+       at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+     code: 'ER_NO_SUCH_TABLE',
+     errno: 1146,
+     sqlState: '42S02',
+     sqlMessage: 'Table \'dbcaryon.User\' doesn\'t exist',
+     sql: 'SHOW INDEX FROM `User` FROM `dbcaryon`' },
+  original:
+   { Error: Table 'dbcaryon.User' doesn't exist
+       at Packet.asError (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packets\packet.js:712:17)
+       at Query.execute (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\commands\command.js:28:26)
+       at Connection.handlePacket (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:417:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:75:12)
+       at PacketParser.executeStart (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:82:25)
+       at Socket.emit (events.js:198:13)
+       at addChunk (_stream_readable.js:288:12)
+       at readableAddChunk (_stream_readable.js:269:11)
+       at Socket.Readable.push (_stream_readable.js:224:10)
+       at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+     code: 'ER_NO_SUCH_TABLE',
+     errno: 1146,
+     sqlState: '42S02',
+     sqlMessage: 'Table \'dbcaryon.User\' doesn\'t exist',
+     sql: 'SHOW INDEX FROM `User` FROM `dbcaryon`' },
+  sql: 'SHOW INDEX FROM `User` FROM `dbcaryon`' }
+Unable to connect to the database: { SequelizeDatabaseError: Table 'dbcaryon.User' doesn't exist
+    at Query.formatError (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\sequelize\lib\dialects\mysql\query.js:247:16)
+    at Query.handler [as onResult] (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\sequelize\lib\dialects\mysql\query.js:68:23)
+    at Query.execute (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\commands\command.js:30:14)
+    at Connection.handlePacket (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:417:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:75:12)
+    at PacketParser.executeStart (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:82:25)
+    at Socket.emit (events.js:198:13)
+    at addChunk (_stream_readable.js:288:12)
+    at readableAddChunk (_stream_readable.js:269:11)
+    at Socket.Readable.push (_stream_readable.js:224:10)
+    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Table 'dbcaryon.User' doesn't exist
+       at Packet.asError (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packets\packet.js:712:17)
+       at Query.execute (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\commands\command.js:28:26)
+       at Connection.handlePacket (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:417:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:75:12)
+       at PacketParser.executeStart (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:82:25)
+       at Socket.emit (events.js:198:13)
+       at addChunk (_stream_readable.js:288:12)
+       at readableAddChunk (_stream_readable.js:269:11)
+       at Socket.Readable.push (_stream_readable.js:224:10)
+       at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+     code: 'ER_NO_SUCH_TABLE',
+     errno: 1146,
+     sqlState: '42S02',
+     sqlMessage: 'Table \'dbcaryon.User\' doesn\'t exist',
+     sql: 'SHOW INDEX FROM `User` FROM `dbcaryon`' },
+  original:
+   { Error: Table 'dbcaryon.User' doesn't exist
+       at Packet.asError (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packets\packet.js:712:17)
+       at Query.execute (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\commands\command.js:28:26)
+       at Connection.handlePacket (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:417:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:75:12)
+       at PacketParser.executeStart (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (C:\Users\toxns\Documents\joon\front-end-dev\express-project\conacoin.io\conacoin\conacoin\node_modules\mysql2\lib\connection.js:82:25)
+       at Socket.emit (events.js:198:13)
+       at addChunk (_stream_readable.js:288:12)
+       at readableAddChunk (_stream_readable.js:269:11)
+       at Socket.Readable.push (_stream_readable.js:224:10)
+       at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+     code: 'ER_NO_SUCH_TABLE',
+     errno: 1146,
+     sqlState: '42S02',
+     sqlMessage: 'Table \'dbcaryon.User\' doesn\'t exist',
+     sql: 'SHOW INDEX FROM `User` FROM `dbcaryon`' },
+  sql: 'SHOW INDEX FROM `User` FROM `dbcaryon`' }
+Executing (default): SHOW INDEX FROM `Sessions` FROM `dbcaryon`
+Executing (default): SHOW INDEX FROM `User` FROM `dbcaryon`
+DB Sync complete.
+Executing (default): DROP TABLE IF EXISTS `Sessions`;
+Executing (default): CREATE TABLE IF NOT EXISTS `Sessions` (`sid` VARCHAR(36) , `expires` DATETIME, `data` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`sid`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `Sessions` FROM `dbcaryon`
+DB Sync complete.
+Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = 'jU6VK-w1iB-yDJ4OxEXJTJ5VBYOFc1RO';
+Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = 'rClvt2Z50FR_q1-iqJUyW_g9QQ0_CkVQ';
+Executing (default): INSERT INTO `Sessions` (`sid`,`expires`,`data`,`createdAt`,`updatedAt`) VALUES ('rClvt2Z50FR_q1-iqJUyW_g9QQ0_CkVQ','2020-02-10 00:47:39','{\"cookie\":{\"originalMaxAge\":7200000,\"expires\":\"2020-02-09T15:47:39.722Z\",\"httpOnly\":true,\"path\":\"/\"}}','2020-02-09 22:47:39','2020-02-09 22:47:39');
+[0mGET /browser-sync/socket.io/?EIO=3&transport=polling&t=N0gDAiJ [33m404 [0m45.074 ms - 7491[0m
+Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = 'rClvt2Z50FR_q1-iqJUyW_g9QQ0_CkVQ';
+Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 00:47:45',`updatedAt`='2020-02-09 22:47:45' WHERE `sid` = 'rClvt2Z50FR_q1-iqJUyW_g9QQ0_CkVQ'
+[0mGET /browser-sync/socket.io/?EIO=3&transport=polling&t=N0gDCA4 [33m404 [0m25.112 ms - 7491[0m
+Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = 'rClvt2Z50FR_q1-iqJUyW_g9QQ0_CkVQ';
+Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 00:47:52',`updatedAt`='2020-02-09 22:47:52' WHERE `sid` = 'rClvt2Z50FR_q1-iqJUyW_g9QQ0_CkVQ'
+[0mGET /browser-sync/socket.io/?EIO=3&transport=polling&t=N0gDDtQ [33m404 [0m14.015 ms - 7491[0m
+Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = 'rClvt2Z50FR_q1-iqJUyW_g9QQ0_CkVQ';
+Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 00:47:58',`updatedAt`='2020-02-09 22:47:58' WHERE `sid` = 'rClvt2Z50FR_q1-iqJUyW_g9QQ0_CkVQ'
+[0mGET /browser-sync/socket.io/?EIO=3&transport=polling&t=N0gDFLC [33m404 [0m12.572 ms - 7491[0m

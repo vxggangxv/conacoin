@@ -5,8 +5,8 @@
         {
             // "format": "compact", // nested, expanded, compact, compressed
             "format": "compressed", // nested, expanded, compact, compressed
-            // "extensionName": ".css",
-            "extensionName": ".min.css",
+            "extensionName": ".css",
+            // "extensionName": ".min.css",
             // "savePath": "~/../public/stylesheets/"
             "savePath": "/public/stylesheets/"
             //   "savePath": "~/"
