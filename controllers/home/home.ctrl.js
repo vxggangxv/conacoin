@@ -26,7 +26,6 @@ exports.get_home = async (req, res) => {
 
         inquirys.forEach(item => {
             item.name = item.name.substr(0, 1) + '****';
-            console.log(item);
         });
 
         res.render('home.html', {

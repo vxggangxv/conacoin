@@ -109,7 +109,6 @@
                     margin-top: 30px;
                     padding: 0 10px;
                     box-sizing: border-box;
-                    line-height: 1.5;
                     font-size: 0;
                     text-align: center;
 
@@ -613,14 +612,13 @@
 
                                 .list {
                                     .list-item {
-                                        @include va-bef(45px);
+                                        @include va-bef(45px, 12px);
                                         border-top: 1px solid $bor-gray;
                                         box-sizing: border-box;
                                         font-size: 0;
 
                                         >div {
                                             box-sizing: border-box;
-                                            font-size: 12px;
                                             overflow: hidden;
 
                                             &.title {
@@ -637,43 +635,51 @@
                             }
 
                             &.counsel-item {
-                                .status {
-                                    text-align: center;
-                                }
+                                .list {
+                                    .list-item {
+                                        .status {
+                                            text-align: center;
+                                        }
 
-                                .name {
-                                    width: 18%;
-                                    padding-left: 10px;
-                                    padding-right: 5px;
-                                }
+                                        .name {
+                                            width: 18%;
+                                            padding-left: 10px;
+                                            padding-right: 5px;
+                                        }
 
-                                .title {
-                                    width: 64%;
-                                }
+                                        .title {
+                                            width: 64%;
+                                        }
 
-                                .status {
-                                    width: 18%;
-                                    font-size: 11px;
-                                    font-weight: 500;
-                                    color: $font-gray2;
+                                        .status {
+                                            width: 18%;
+                                            font-size: 11px;
+                                            font-weight: 500;
+                                            color: $font-gray2;
 
-                                    &.active {
-                                        color: $primary-color;
+                                            &.active {
+                                                color: $primary-color;
+                                            }
+                                        }
                                     }
                                 }
                             }
 
                             &.news-item {
-                                .title {
-                                    width: 75%;
-                                    padding-left: 10px;
-                                }
+                                .list {
+                                    .list-item {
+                                        .title {
+                                            width: 75%;
+                                            padding-left: 10px;
+                                        }
 
-                                .date {
-                                    width: 25%;
-                                    font-size: 11px;
-                                    text-align: center;
-                                    color: $font-gray2;
+                                        .date {
+                                            width: 25%;
+                                            font-size: 11px;
+                                            text-align: center;
+                                            color: $font-gray2;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -820,7 +826,6 @@
                     margin-top: 60px;
                     padding: 0 10px;
                     box-sizing: border-box;
-                    line-height: 1.5;
                     font-size: 0;
                     text-align: center;
 
@@ -1298,7 +1303,7 @@
 
                                 .list {
                                     .list-item {
-                                        @include va-bef(55px);
+                                        @include va-bef(55px, 14px);
                                         border-top: 1px solid $bor-gray;
                                         box-sizing: border-box;
                                         font-size: 0;
@@ -1323,40 +1328,48 @@
                             }
 
                             &.counsel-item {
-                                .status {
-                                    text-align: center;
-                                }
+                                .list {
+                                    .list-item {
+                                        .status {
+                                            text-align: center;
+                                        }
 
-                                .name {
-                                    width: 18%;
-                                    padding-left: 20px;
-                                }
+                                        .name {
+                                            width: 18%;
+                                            padding-left: 20px;
+                                        }
 
-                                .title {
-                                    width: 64%;
-                                }
+                                        .title {
+                                            width: 64%;
+                                        }
 
-                                .status {
-                                    width: 18%;
-                                    font-weight: 500;
-                                    color: $font-gray2;
+                                        .status {
+                                            width: 18%;
+                                            font-weight: 500;
+                                            color: $font-gray2;
 
-                                    &.active {
-                                        color: $primary-color;
+                                            &.active {
+                                                color: $primary-color;
+                                            }
+                                        }
                                     }
                                 }
                             }
 
                             &.news-item {
-                                .title {
-                                    width: 78%;
-                                    padding-left: 20px;
-                                }
+                                .list {
+                                    .list-item {
+                                        .title {
+                                            width: 78%;
+                                            padding-left: 20px;
+                                        }
 
-                                .date {
-                                    width: 22%;
-                                    text-align: center;
-                                    color: $font-gray2;
+                                        .date {
+                                            width: 22%;
+                                            text-align: center;
+                                            color: $font-gray2;
+                                        }
+                                    }
                                 }
                             }
                         }
