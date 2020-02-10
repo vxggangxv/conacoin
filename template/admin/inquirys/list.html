@@ -8,6 +8,24 @@
             <div class="inquirys-content">
                 <div class="inquirys-title comm-title">
                     <h2 class="title">실시간 문의 리스트</h2>
+                    <div class="title-actions comm-actions-top">
+                        <form action="/admin/inquirys/sort" class="sort-form comm-select" method="post">
+                            <span class="label">Sort By:</span>
+                            <div class="dropselect label-text">
+                                <select name="sort">
+                                    <option value="createdAt">날짜</option>
+                                    <option value="reply_cnt">진행상황</option>
+                                </select>
+                                <button type="button" class="dropbtn drop-toggle" data-toggle="dropmenu">
+                                    <span class="in">Status</span></button>
+                                <ul class="dropmenu">
+                                    <li class="item">날짜</li>
+                                    <li class="item">진행상황</li>
+                                </ul>
+                            </div>
+                        </form>
+                        <a href="/admin/news/write/" class="comm-btn primary new-btn">새 글</a>
+                    </div>
                 </div>
                 <table class="list-tbl">
                     <colgroup>
@@ -58,23 +76,41 @@
                 </table>
                 <div class="inquirys-pagenation pager">
                     <ul class="pager-nav">
-                        <li>
-                            <a href="{{ pages[0].url }}" class="pager-link arrow first {% if paginate.hasPreviousPages %} active {% endif %}">&laquo;</a>
-                        </li>
-                        <li>
-                            <a href="{{ paginate.href(true) }}" class="pager-link arrow prev {% if paginate.hasPreviousPages %} active {% endif %}">&lsaquo;</a>
-                        </li>
+                        {% if paginate.hasPreviousPages %}
+                            <li>
+                                <a href="{{ pages[0].url }}" class="pager-link arrow first active">&laquo;</a>
+                            </li>
+                            <li>
+                                <a href="{{ paginate.href(true) }}" class="pager-link arrow prev active">&lsaquo;</a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="javascript:;" class="pager-link arrow first">&laquo;</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="pager-link arrow prev">&lsaquo;</a>
+                            </li>
+                        {% endif %}
                         {% for page in pages %}
                             <li class="{% if paginate.page == page.number %} active {% endif %}">
                                 <a href="{{ page.url }}" class="pager-link">{{ page.number }}</a>
                             </li>
                         {% endfor %}
-                        <li>
-                            <a href="{{ paginate.href() }}" class="pager-link arrow next {% if paginate.hasNextPages(pageCount) %} active {% endif %}">&rsaquo;</a>
-                        </li>
-                        <li>
-                            <a href="/admin/inquirys/?page={{ pageCount }}&amp;limit={{ limit }}" class="pager-link arrow last {% if paginate.hasNextPages(pageCount) %} active {% endif %}">&raquo;</a>
-                        </li>
+                        {% if paginate.hasNextPages(pageCount) %}
+                            <li>
+                                <a href="{{ paginate.href() }}" class="pager-link arrow next active">&rsaquo;</a>
+                            </li>
+                            <li>
+                                <a href="/admin/inquirys/?page={{ pageCount }}&amp;limit={{ limit }}" class="pager-link arrow last active">&raquo;</a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="javascript:;" class="pager-link arrow next">&rsaquo;</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="pager-link arrow last">&raquo;</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

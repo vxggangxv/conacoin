@@ -19,7 +19,7 @@ exports.get_home = async (req, res) => {
                 limit: 20,
                 offset: 0,
                 order: [
-                    ['createdAt', 'desc']
+                    ['date', 'desc']
                 ]
             })
         ]);

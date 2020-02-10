@@ -108,7 +108,8 @@ $toolbar-ht: 75px;
                 margin-right: 10px;
                 top: 1px;
                 font-size: 21px;
-                color: $admin-sb-icon;
+                // color: $admin-sb-icon;
+                color: $admin-sb-icon-active;
             }
 
             >a {
@@ -125,6 +126,14 @@ $toolbar-ht: 75px;
                     color: $admin-sb-text-active;
                 }
             }
+
+            // &.active {
+            //     >a {
+            //         .mdi {
+            //             color: $admin-sb-icon-active;
+            //         }
+            //     }
+            // }
 
             &:hover {
                 >a {

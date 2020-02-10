@@ -2,7 +2,7 @@ const models = require('../../database/models');
 const paginate = require('express-paginate');
 
 exports.index = (req, res) => {
-    res.redirect('/admin/inquirys/')
+    res.redirect('/admin/inquirys')
 }
 // 로그인, 회원가입
 exports.get_join = (req, res) => {
@@ -73,7 +73,7 @@ exports.post_password = async (req, res) => {
         });
 
         res.send('<script>alert("변경 성공");\
-            location.href="/admin/";</script>');
+            location.href="/admin";</script>');
 
     } catch (e) {
         console.log(e);
@@ -107,7 +107,6 @@ exports.get_inquirys = async (req, res) => {
         console.log(e);
     }
 }
-
 exports.get_inquirys_write = async (req, res) => {
     res.render('admin/inquirys/edit.html', {
         csrfToken: req.csrfToken()
@@ -116,7 +115,7 @@ exports.get_inquirys_write = async (req, res) => {
 exports.post_inquirys_write = async (req, res) => {
     try {
         await models.Inquirys.create(req.body);
-        res.redirect('/admin/inquirys/')
+        res.redirect('/admin/inquirys')
     } catch (e) {
         console.log(e);
     }
@@ -136,50 +135,6 @@ exports.get_inquirys_detail = async (req, res) => {
 
     }
 }
-exports.post_inquirys_reply_write = async (req, res) => {
-    try {
-        const requiry = await models.Inquirys.findByPk(req.params.id);
-        let reply_cnt = 0;
-        if (!requiry.reply_cnt) {
-            reply_cnt++;
-        } else {
-            reply_cnt = requiry.reply_cnt + 1;
-        }
-        await models.Inquirys.update({
-            reply_cnt: reply_cnt
-        }, {
-            where: {
-                id: req.params.id
-            }
-        });
-        await requiry.createReply(req.body);
-        res.redirect(`/admin/inquirys/detail/${req.params.id}`);
-    } catch (e) {
-        console.log(e);
-    }
-}
-exports.post_inquirys_reply_write = async (req, res) => {
-    try {
-        const requiry = await models.Inquirys.findByPk(req.params.id);
-        let reply_cnt = 0;
-        if (!requiry.reply_cnt) {
-            reply_cnt++;
-        } else {
-            reply_cnt = requiry.reply_cnt + 1;
-        }
-        await models.Inquirys.update({
-            reply_cnt: reply_cnt
-        }, {
-            where: {
-                id: req.params.id
-            }
-        });
-        await requiry.createReply(req.body);
-        res.redirect(`/admin/inquirys/detail/${req.params.id}`);
-    } catch (e) {
-        console.log(e);
-    }
-}
 exports.get_inquirys_write = async (req, res) => {
     res.render('admin/inquirys/edit.html', {
         csrfToken: req.csrfToken()
@@ -188,7 +143,7 @@ exports.get_inquirys_write = async (req, res) => {
 exports.post_inquirys_write = async (req, res) => {
     try {
         await models.Inquirys.create(req.body);
-        res.redirect('/admin/inquirys/')
+        res.redirect('/admin/inquirys')
     } catch (e) {
         console.log(e);
     }
@@ -213,12 +168,33 @@ exports.get_inquirys_delete = async (req, res) => {
                 id: req.params.id
             }
         });
-        res.redirect('/admin/inquirys/');
+        res.redirect('/admin/inquirys');
     } catch (e) {
         console.log(e);
     }
 }
-
+exports.post_inquirys_reply_write = async (req, res) => {
+    try {
+        const inquiry = await models.Inquirys.findByPk(req.params.id);
+        let reply_cnt = 0;
+        if (!inquiry.reply_cnt) {
+            reply_cnt++;
+        } else {
+            reply_cnt = inquiry.reply_cnt + 1;
+        }
+        await models.Inquirys.update({
+            reply_cnt: reply_cnt
+        }, {
+            where: {
+                id: req.params.id
+            }
+        });
+        await inquiry.createReply(req.body);
+        res.redirect(`/admin/inquirys/detail/${req.params.id}`);
+    } catch (e) {
+        console.log(e);
+    }
+}
 exports.post_inquirys_reply_edit = async (req, res) => {
     try {
         // const requiry = await models.Inquirys.findByPk(req.params.id);
@@ -244,6 +220,37 @@ exports.get_inquirys_reply_delete = async (req, res) => {
             }
         });
         res.redirect(`/admin/inquirys/detail/${req.params.id}`);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+// 문의하기 정렬
+exports.post_inquirys_sort = async (req, res) => {
+    try {
+        let {
+            sort
+        } = req.body;
+        const [inquirys, totalCount] = await Promise.all([
+            models.Inquirys.findAll({
+                limit: req.query.limit,
+                offset: req.offset,
+                order: [
+                    [sort, 'desc']
+                ]
+            }),
+            models.Inquirys.count()
+        ]);
+        const pageCount = Math.ceil(totalCount / req.query.limit);
+        const pages = paginate.getArrayPages(req)(5, pageCount, req.query.page);
+        const limit = req.query.limit;
+
+        res.render('admin/inquirys/list.html', {
+            inquirys,
+            pageCount,
+            pages,
+            limit
+        });
     } catch (e) {
         console.log(e);
     }
@@ -299,7 +306,7 @@ exports.get_news_write = async (req, res) => {
 exports.post_news_write = async (req, res) => {
     try {
         await models.News.create(req.body);
-        res.redirect('/admin/news/')
+        res.redirect('/admin/news')
     } catch (e) {
         console.log(e);
     }
@@ -334,7 +341,7 @@ exports.get_news_delete = async (req, res) => {
                 id: req.params.id
             }
         });
-        res.redirect('/admin/news/');
+        res.redirect('/admin/news');
     } catch (e) {
         console.log(e);
     }

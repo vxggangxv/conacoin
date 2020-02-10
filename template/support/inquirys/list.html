@@ -66,12 +66,17 @@
                     </tbody>
                 </table>
                 <div class="inquirys-actions count-3">
-                    {# {% if paginate.hasPreviousPages %} #}
-                    <a href="{{ paginate.href(true) }}" class="comm-btn outline prev-btn">이전</a>
-                    {# {% endif %} #}
-                    {# {% if pagenate.hasNextPages(pageCount) %} #}
-                    <a href="{{ paginate.href() }}" class="comm-btn outline next-btn">다음</a>
-                    {# {% endif %} #}
+                    {% if paginate.hasPreviousPages %}
+                        <a href="{{ paginate.href(true) }}" class="comm-btn outline prev-btn">이전</a>
+                    {% else %}
+                        <a href="javascript:;" class="comm-btn outline prev-btn">이전</a>
+                    {% endif %}
+
+                    {% if paginate.hasNextPages(pageCount) %}
+                        <a href="{{ paginate.href() }}" class="comm-btn outline next-btn">다음</a>
+                    {% else %}
+                        <a href="javascript:;" class="comm-btn outline next-btn">다음</a>
+                    {% endif %}
                     <a href="/support/inquirys/write/" class="comm-btn primary inquiry-btn">문의하기</a>
                 </div>
             </div>
