@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "set NODE_ENV=production&&pm2 start server.js --name conacoin --log log/log.text -e log/log.text --merge-logs",
+    "start": "set NODE_ENV=production&&pm2 start ecosystem.config.js",
     "stop": "pm2 stop conacoin",
+    "reload": "pm2 reload conacoin",
     "restart": "pm2 restart conacoin",
     "delete": "pm2 delete conacoin",
-    "build": "set PORT=8000&&set NODE_ENV=production&&nodemon -e js,html server.js",
+    "build": "set NODE_ENV=production&&nodemon -e js,html server.js",
     "test": "set NODE_ENV=test&&nodemon -e js,html server.js",
-    "dev": "set PORT=8000&&set NODE_ENV=development&&nodemon -e js,html server.js",
-    "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.scss, **/*.html, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
+    "dev": "set PORT=8000&&nodemon -e js,html server.js",
+    "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.html, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",

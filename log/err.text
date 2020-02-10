@@ -1,0 +1,8 @@
+2020-02-10T10:27:37: (node:15064) Warning: a promise was created in a handler at D:\01_Joon\front-end-dev\express-project\conacoin.io\conacoin\app.js:40:52 but was not returned from it, see http://goo.gl/rRqMUw
+    at Function.Promise.attempt.Promise.try (D:\01_Joon\front-end-dev\express-project\conacoin.io\conacoin\node_modules\bluebird\js\release\method.js:29:9)
+2020-02-10T10:27:37: (node:19304) Warning: a promise was created in a handler at D:\01_Joon\front-end-dev\express-project\conacoin.io\conacoin\app.js:40:52 but was not returned from it, see http://goo.gl/rRqMUw
+    at Function.Promise.attempt.Promise.try (D:\01_Joon\front-end-dev\express-project\conacoin.io\conacoin\node_modules\bluebird\js\release\method.js:29:9)
+2020-02-10T10:27:40: (node:15544) Warning: a promise was created in a handler at D:\01_Joon\front-end-dev\express-project\conacoin.io\conacoin\app.js:40:52 but was not returned from it, see http://goo.gl/rRqMUw
+    at Function.Promise.attempt.Promise.try (D:\01_Joon\front-end-dev\express-project\conacoin.io\conacoin\node_modules\bluebird\js\release\method.js:29:9)
+2020-02-10T10:27:40: (node:12100) Warning: a promise was created in a handler at D:\01_Joon\front-end-dev\express-project\conacoin.io\conacoin\app.js:40:52 but was not returned from it, see http://goo.gl/rRqMUw
+    at Function.Promise.attempt.Promise.try (D:\01_Joon\front-end-dev\express-project\conacoin.io\conacoin\node_modules\bluebird\js\release\method.js:29:9)

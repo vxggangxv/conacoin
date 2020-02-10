@@ -68,18 +68,19 @@ app.use(
     }),
 )
 app.use(cookieParser())
-if (process.env.NODE_ENV !== 'development') {
-    app.use('/stylesheets',
-        sassMiddleware({
-            src: path.join(__dirname, "sass"),
-            dest: path.join(__dirname, "public/stylesheets"),
-            indentedSyntax: false, // true = .sass and false = .scss
-            sourceMap: true,
-            outputStyle: 'compressed',
-            // debug: false
-        })
-    );
-}
+// if (process.env.NODE_ENV !== 'development') {
+app.use(
+    '/stylesheets',
+    sassMiddleware({
+        src: path.join(__dirname, 'sass'),
+        dest: path.join(__dirname, 'public/stylesheets'),
+        indentedSyntax: false, // true = .sass and false = .scss
+        sourceMap: true,
+        outputStyle: 'compressed',
+        // debug: false
+    }),
+)
+// }
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/uploads', express.static('uploads'))
 app.use('/static', express.static('static'))
@@ -105,7 +106,7 @@ app.use(passport.session())
 app.use(flash())
 
 //로그인 정보 뷰에서만 변수로 셋팅, 전체 미들웨어는 router위에 두어야 에러가 안난다
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     // app.locals.myname = "nodejs";
     app.locals.isLogin = req.isAuthenticated()
     app.locals.req_path = req.path
@@ -119,10 +120,10 @@ app.use(function (req, res, next) {
 app.use(controller)
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     next(createError(404))
 })
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message
     res.locals.error = req.app.get('env') === 'development' ? err : {}

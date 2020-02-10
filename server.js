@@ -6,8 +6,25 @@ app.set('port', port)
 
 // var server = http.createServer(app)
 
-const server = app.listen(port, function() {
+let isDisableKeepAlive = false
+app.use(function (req, res, next) {
+    if (isDisableKeepAlive) {
+        res.set('Connection', 'close')
+    }
+    next()
+})
+
+const server = app.listen(port, function () {
+    process.send('ready')
     console.log(`Listening to requests on http://localhost:${port}`)
+})
+
+process.on('SIGINT', function () {
+    isDisableKeepAlive = true
+    server.close(function () {
+        console.log('server closed')
+        process.exit(0)
+    })
 })
 
 // const listen = require("socket.io");

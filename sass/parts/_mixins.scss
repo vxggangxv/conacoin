@@ -508,7 +508,7 @@
     padding: $pd;
     font-size: $fz;
 
-    @if ($fz==13px && $fz==12px) {
+    @if ($fz==13px and $fz==12px) {
         line-height: 1.2;
     }
 }
