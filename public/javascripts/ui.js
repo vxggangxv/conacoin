@@ -156,8 +156,8 @@ var main = {
     },
     visualBannerList: function () {
         $('#visualBannerList').slick({
-            // autoplay: true,
-            // autoplaySpeed: 2000,
+            autoplay: true,
+            autoplaySpeed: 5000,
             appendArrows: '#bannerArrow',
             prevArrow: '<button type="button" class="slick-prev"><img src="/images/icon/btn_prev.png" alt="이전"></button>',
             nextArrow: '<button type="button" class="slick-next"><img src="/images/icon/btn_next.png" alt="다음"></button>',

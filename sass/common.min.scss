@@ -55,6 +55,7 @@ body {
             height: $hd-ht-m;
             @include pos(fixed, 0, 0);
             border-bottom: 1px solid #fff;
+            background-color: rgba(0, 0, 0, .35);
             box-sizing: border-box;
 
             .gnb-area {
@@ -76,10 +77,11 @@ body {
 
                 .tel-cover {
                     @include va-bef(100%);
-                    @include pos(absolute, 0px, 15px);
+                    @include pos(absolute, 1px, 15px);
 
                     .tel-img {
-                        width: 20px;
+                        // width: 20px;
+                        width: 25px;
                     }
                 }
 
@@ -293,6 +295,7 @@ body {
             height: $hd-ht-pc;
             transition: height .3s;
             box-sizing: border-box;
+            background-color: rgba(0, 0, 0, .35);
             border-bottom: 1px solid #fff;
 
             .logo-cover {
