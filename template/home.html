@@ -75,40 +75,40 @@
     <section id="scroll_guide" class="sec main-guide-sec comm-pd">
         <div class="guide-wrapper">
             <div class="guide-content group-f">
-                <div class="guide-title comm-title hidden-sm-and-down">
+                {# <div class="guide-title comm-title hidden-sm-and-down">
                     <h1 class="title">동영상 가이드</h1>
-                </div>
+                </div> #}
                 <div class="guide-card">
                     <ul id="guideVideoList" class="cf card-list">
                         <li class="card-item">
-                            <a href="javascript:;" data-video="34agc9QaV5U">
+                            <a href="javascript:;" data-video="GA9W4s5fUG4">
                                 <figure>
                                     <img src="/images/main/video.jpg" alt="동영상">
-                                    <figcaption>회원가입 가이드</figcaption>
+                                    <figcaption>1. 매도하는 방법</figcaption>
                                 </figure>
                             </a>
                         </li>
                         <li class="card-item">
-                            <a href="javascript:;" data-video="gNX2lU_ub4c">
+                            <a href="javascript:;" data-video="gqxm3ViTDgw">
                                 <figure>
                                     <img src="/images/main/video.jpg" alt="동영상">
-                                    <figcaption>입금/출금 가이드</figcaption>
+                                    <figcaption>2. 매수하는 방법</figcaption>
                                 </figure>
                             </a>
                         </li>
                         <li class="card-item">
-                            <a href="javascript:;" data-video="34agc9QaV5U">
+                            <a href="javascript:;" data-video="HuV7kVRNTTI">
                                 <figure>
                                     <img src="/images/main/video.jpg" alt="동영상">
-                                    <figcaption>거래 가이드</figcaption>
+                                    <figcaption>3. 코인 가이드</figcaption>
                                 </figure>
                             </a>
                         </li>
                         <li class="card-item">
-                            <a href="javascript:;" data-video="gNX2lU_ub4c">
+                            <a href="javascript:;" data-video="ADTXWOZGD7c">
                                 <figure>
                                     <img src="/images/main/video.jpg" alt="동영상">
-                                    <figcaption>커뮤니티 가이드</figcaption>
+                                    <figcaption>4. 코나 가이드</figcaption>
                                 </figure>
                             </a>
                         </li>
@@ -436,7 +436,7 @@
                                         <li class="list-item">
                                             <div class="name">{{ item.name }}</div>
                                             <div class="title">{{ item.title }}</div>
-                                            {% if inquiry.reply_cnt %}
+                                            {% if item.reply_cnt %}
                                                 <span class="status active">답변완료</span>
                                             {% else %}
                                                 <span class="status">답변대기</span>
@@ -454,7 +454,7 @@
                                     {% for item in news %}
                                         <li class="list-item">
                                             <div class="title">
-                                                <a href="//{{ item.link }}" target="_blank">{{ item.title }}</a>
+                                                <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
                                             </div>
                                             <div class="date">{{ item.date }}</div>
                                         </li>
@@ -480,7 +480,7 @@
                 $iframe_wrapper.html('');
                 $iframe_wrapper.append('<iframe width="920" height="518" src="https://www.youtube.com/embed/' + dataVideo + '?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
             });
-            $('#guide').on('click', '#video_pop_wrapper .close-btn', function () {
+            $('#scroll_guide').on('click', '#video_pop_wrapper .close-btn', function () {
                 $video_pop_wrapper.removeClass('active');
                 $iframe_wrapper.html('');
             });

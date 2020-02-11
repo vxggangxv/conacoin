@@ -54,7 +54,15 @@
                     .banner-list {
                         .banner-item {
                             height: 300px;
-                            background: url('/images/main/visual_bg.jpg') no-repeat 55% center / cover;
+
+                            // background: url('/images/main/visual_bg.jpg') no-repeat 55% center / cover;
+                            &.item-1 {
+                                background: url('/images/main/visual_bg01.jpg') no-repeat center / cover;
+                            }
+
+                            &.item-2 {
+                                background: url('/images/main/visual_bg02.jpg') no-repeat center / cover;
+                            }
                         }
                     }
                 }
@@ -119,21 +127,32 @@
                         font-weight: 500;
                         border-radius: 35px;
 
+                        color: #fff;
+                        background-color: rgba(255, 255, 255, 0.2);
+                        border: 1px solid #fff;
+                        transition: color .3s;
+                        transition: background-color .3s;
+
+                        &:hover {
+                            background-color: #fff;
+                            color: $font-color;
+                        }
+
                         &+.btn {
                             margin-left: 10px;
                         }
                     }
 
-                    .white {
-                        background-color: #fff;
-                        color: $font-color;
-                    }
+                    // .white {
+                    //     background-color: #fff;
+                    //     color: $font-color;
+                    // }
 
-                    .outline {
-                        color: #fff;
-                        background-color: rgba(255, 255, 255, 0.2);
-                        border: 1px solid #fff;
-                    }
+                    // .outline {
+                    //     color: #fff;
+                    //     background-color: rgba(255, 255, 255, 0.2);
+                    //     border: 1px solid #fff;
+                    // }
 
                     .inquiry-btn {
                         margin: 0 auto;
@@ -296,6 +315,7 @@
                             position: relative;
                             margin: 0 10px;
                             height: 180px;
+                            background-color: #fff;
                             box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
 
                             &:not(:first-child) {
@@ -525,8 +545,7 @@
                     margin-top: 25px;
                     text-align: center;
 
-                    button {
-                        @include btn-base;
+                    .btn {
                         border-radius: 0;
                         @include btn-size(12px 0px, 13px);
                         border-width: 2px;
@@ -545,6 +564,7 @@
                         &.kakao-btn {
                             width: 46%;
                             background-color: #ffdb4b;
+                            color: $font-color;
                         }
                     }
                 }
@@ -772,7 +792,15 @@
                     .banner-list {
                         .banner-item {
                             height: 600px;
-                            background: url('/images/main/visual_bg.jpg') no-repeat center / cover;
+
+                            // background: url('/images/main/visual_bg.jpg') no-repeat center / cover;
+                            &.item-1 {
+                                background: url('/images/main/visual_bg01.jpg') no-repeat center / cover;
+                            }
+
+                            &.item-2 {
+                                background: url('/images/main/visual_bg02.jpg') no-repeat center / cover;
+                            }
                         }
                     }
                 }
@@ -836,22 +864,33 @@
                         @include btn-size(16px 0, 18px);
                         font-weight: 500;
                         border-radius: 35px;
+                        color: #fff;
+                        background-color: rgba(255, 255, 255, 0.2);
+                        border: 1px solid #fff;
+                        transition: color .3s;
+                        transition: background-color .3s;
+
+                        &:hover {
+                            background-color: #fff;
+                            color: $font-color;
+                        }
 
                         &+.btn {
                             margin-left: 20px;
                         }
+
                     }
 
-                    .white {
-                        background-color: #fff;
-                        color: $font-color;
-                    }
+                    // .white {
+                    //     background-color: #fff;
+                    //     color: $font-color;
+                    // }
 
-                    .outline {
-                        color: #fff;
-                        background-color: rgba(255, 255, 255, 0.2);
-                        border: 1px solid #fff;
-                    }
+                    // .outline {
+                    //     color: #fff;
+                    //     background-color: rgba(255, 255, 255, 0.2);
+                    //     border: 1px solid #fff;
+                    // }
 
                     .inquiry-btn {
                         margin: 0 auto;
@@ -904,6 +943,8 @@
 
     // guide 영역
     .main-guide-sec {
+        padding-top: 40px !important;
+
         .guide-wrapper {
             .guide-content {
                 .guide-card {
@@ -1002,6 +1043,7 @@
                             margin: 0 10px;
                             width: calc(25% - 20px);
                             height: 300px;
+                            background-color: #fff;
                             box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
 
                             .card-title {
@@ -1223,7 +1265,7 @@
                     margin-top: -28.5px;
                     right: 0;
 
-                    button {
+                    .btn {
                         @include btn-base;
                         border-radius: 0;
                         @include btn-size(15px 45px, 18px);
@@ -1242,6 +1284,7 @@
                         &.kakao-btn {
                             width: 240px;
                             background-color: #ffdb4b;
+                            color: $font-color;
                         }
                     }
                 }

@@ -47,8 +47,8 @@
                                 <td class="date">{{ inquiry.dateFormat( inquiry.createdAt ) }}</td>
                                 <td class="name">{{ inquiry.name }}</td>
                                 <td class="title">
-                                    <!--<a href="/support/inquirys/detail/{{ inquiry.id }}">{{ inquiry.content }}</a>-->
-                                    <a href="javascript:;" data-link="{{ inquiry.id }}" data-toggle="modal" data-target="support-inquirys-pw">{{ inquiry.content }}</a>
+                                    <!--<a href="/support/inquirys/detail/{{ inquiry.id }}">{{ inquiry.title }}</a>-->
+                                    <a href="javascript:;" data-link="{{ inquiry.id }}" data-toggle="modal" data-target="support-inquirys-pw">{{ inquiry.title }}</a>
                                 </td>
                                 <td>
                                     {% if inquiry.reply_cnt %}

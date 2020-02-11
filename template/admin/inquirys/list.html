@@ -60,7 +60,7 @@
                                 <td class="date">{{ inquiry.dateFormat( inquiry.createdAt )}}</td>
                                 <td class="name">{{ inquiry.name }}</td>
                                 <td class="title">
-                                    <a href="/admin/inquirys/detail/{{ inquiry.id }}">{{ inquiry.content }}</a>
+                                    <a href="/admin/inquirys/detail/{{ inquiry.id }}">{{ inquiry.title }}</a>
                                 </td>
                                 <td>
                                     {% if inquiry.reply_cnt %}
