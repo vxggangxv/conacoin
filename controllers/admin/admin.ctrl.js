@@ -231,13 +231,22 @@ exports.post_inquirys_sort = async (req, res) => {
         let {
             sort
         } = req.body;
+        let order = [];
+        if (sort !== 'createdAt') {
+            order = [
+                [sort, 'desc'],
+                ['createdAt', 'desc']
+            ]
+        } else {
+            order = [
+                ['createdAt', 'desc']
+            ]
+        }
         const [inquirys, totalCount] = await Promise.all([
             models.Inquirys.findAll({
                 limit: req.query.limit,
                 offset: req.offset,
-                order: [
-                    [sort, 'desc']
-                ]
+                order
             }),
             models.Inquirys.count()
         ]);
@@ -249,7 +258,8 @@ exports.post_inquirys_sort = async (req, res) => {
             inquirys,
             pageCount,
             pages,
-            limit
+            limit,
+            sort
         });
     } catch (e) {
         console.log(e);

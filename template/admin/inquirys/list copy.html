@@ -26,16 +26,17 @@
                                     {% endif %}
                                 </button>
                                 <ul class="dropmenu">
-                                    <li class="item">날짜</li>
-                                    <li class="item">진행상황</li>
+                                    <li class="item" data-value="createdAt">날짜</li>
+                                    <li class="item" data-vaule="reply_cnt">진행상황</li>
                                 </ul>
                             </div>
                         </form>
+                        <a href="/admin/news/write/" class="comm-btn primary new-btn">새 글</a>
                     </div>
                 </div>
                 <table class="list-tbl">
                     <colgroup>
-                        <col>
+                        <col style="width: 11%">
                         <col>
                         <col>
                         <col>

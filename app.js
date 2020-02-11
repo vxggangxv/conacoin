@@ -30,35 +30,25 @@ function dbConnection() {
             console.log('Connection has been established successfully.')
             // TODO 서버가 뜰 때, DB 테이블 자동으로 생성해줌
             if (env == 'development') {
-                console.log('Working has been established successfully in development mode.')
                 // return db.sequelize.drop()
                 // return db.sequelize.sync()
                 // return db.sequelize.sync({
                 //     force: true,
                 // })
             }
-            if (env == 'test') {
-                console.log('Working has been established successfully in test mode.')
-            }
-            if (env == 'production') {
-                console.log('Working has been established successfully in production mode.')
-            }
+            if (env == 'test') {}
+            if (env == 'production') {}
         })
         .then(() => {
             console.log('DB Sync complete.')
             // 더미 데이터가 필요하면 아래 설정
-            if (process.env.NODE_ENV == 'development') {
-                console.log('Working has been established successfully in development mode.')
+            if (env == 'development') {
                 // require('./config/insertInquirysDummyData')()
                 // require('./config/insertNewsDummyData')()
                 // require('./config/insertUserDummyData')()
             }
-            if (env == 'test') {
-                console.log('Working has been established successfully in test mode.')
-            }
-            if (env == 'production') {
-                console.log('Working has been established successfully in production mode.')
-            }
+            if (env == 'test') {}
+            if (env == 'production') {}
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err)
@@ -70,7 +60,7 @@ var app = express()
 
 // view engine setup
 var noCaching = false
-if (process.env.NODE_ENV == 'development') {
+if (env == 'development') {
     noCaching = true
 }
 nunjucks.configure('template', {
@@ -89,7 +79,7 @@ app.use(
     }),
 )
 app.use(cookieParser())
-if (process.env.NODE_ENV !== 'development') {
+if (env !== 'development') {
     app.use(
         '/stylesheets',
         sassMiddleware({
