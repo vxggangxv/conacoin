@@ -20,24 +20,45 @@ const db = require('./database/models')
 // const client = require('./config/redis');
 // const RedisStore = require('connect-redis')(session);
 
+const env = process.env.NODE_ENV || 'development';
+console.log(env);
+
 function dbConnection() {
     db.sequelize
         .authenticate()
         .then(() => {
             console.log('Connection has been established successfully.')
             // TODO 서버가 뜰 때, DB 테이블 자동으로 생성해줌
-            // return db.sequelize.drop()
-            // return db.sequelize.sync()
-            // return db.sequelize.sync({
-            //     force: true,
-            // })
+            if (env == 'development') {
+                console.log('Working has been established successfully in development mode.')
+                // return db.sequelize.drop()
+                // return db.sequelize.sync()
+                // return db.sequelize.sync({
+                //     force: true,
+                // })
+            }
+            if (env == 'test') {
+                console.log('Working has been established successfully in test mode.')
+            }
+            if (env == 'production') {
+                console.log('Working has been established successfully in production mode.')
+            }
         })
         .then(() => {
             console.log('DB Sync complete.')
             // 더미 데이터가 필요하면 아래 설정
-            // require('./config/insertInquirysDummyData')();
-            // require('./config/insertNewsDummyData')();
-            // require('./config/insertUserDummyData')()
+            if (process.env.NODE_ENV == 'development') {
+                console.log('Working has been established successfully in development mode.')
+                // require('./config/insertInquirysDummyData')()
+                // require('./config/insertNewsDummyData')()
+                // require('./config/insertUserDummyData')()
+            }
+            if (env == 'test') {
+                console.log('Working has been established successfully in test mode.')
+            }
+            if (env == 'production') {
+                console.log('Working has been established successfully in production mode.')
+            }
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err)
@@ -106,7 +127,7 @@ app.use(passport.session())
 app.use(flash())
 
 //로그인 정보 뷰에서만 변수로 셋팅, 전체 미들웨어는 router위에 두어야 에러가 안난다
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     // app.locals.myname = "nodejs";
     app.locals.isLogin = req.isAuthenticated()
     app.locals.req_path = req.path
@@ -120,10 +141,10 @@ app.use(function(req, res, next) {
 app.use(controller)
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     next(createError(404))
 })
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message
     res.locals.error = req.app.get('env') === 'development' ? err : {}

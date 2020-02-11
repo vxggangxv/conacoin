@@ -26,4 +26,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export WORK_DIR="/web/conacoin"
-
+export NODE_ENV="NODE_ENV test is working"
