@@ -510,10 +510,12 @@ body {
 // --------------------
 // mobile & tablet
 @media (max-width: 991px) {
+    $footer-bg: #373737;
+
     .footer {
         padding: 30px 0 60px;
         color: #fff;
-        background-color: #373737;
+        background-color: $footer-bg;
 
         .footer-area {
             text-align: center;
@@ -553,6 +555,29 @@ body {
                         width: 28px;
                     }
                 }
+            }
+        }
+    }
+
+    // 푸터 배너
+    .footer-bnr {
+        position: relative;
+        padding-bottom: 18%;
+        background-color: $footer-bg;
+
+        .footer-bnr-content {
+            z-index: 1;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+
+            .picture {
+                display: block;
+            }
+
+            .img {
+                width: 100%;
             }
         }
     }

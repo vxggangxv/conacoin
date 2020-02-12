@@ -171,7 +171,7 @@ img.bor {
 
 // pc md
 // @media (min-width: 992px) and (max-width: 999px) {
-@media (min-width: $screen-md-width) and (max-width: $screen-lg-width+$vertical-scroll - 1px) {
+@media (min-width: $screen-md-width) and (max-width: $screen-lg-width + $vertical-scroll - 1px) {
 
     .group-f,
     .group {
@@ -180,7 +180,7 @@ img.bor {
 }
 
 // pc lg
-@media (min-width: $screen-lg-width+$vertical-scroll) {
+@media (min-width: $screen-lg-width + $vertical-scroll) {
 
     .group-f,
     .group {
