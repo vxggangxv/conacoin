@@ -95,14 +95,13 @@
 
         $('#sp_pw_input').on('keydown', function (e) {
             if (e.which == 13 || e.keyCode == 13) {
-                console.log('before')
-                $('#sp_submit').click();
-                //$('[data-link]').click();
-                // $('#sp_submit').trigger('click');
-                console.log('after')
+                sp_submit();
             }
         });
         $('#sp_submit').click(function () {
+            sp_submit();
+        });
+        function sp_submit() {
             var $sp_pw_input = $('#sp_pw_input');
             if (!$sp_pw_input.val()) {
                 alert('비밀번호를 입력하세요.');
@@ -132,7 +131,8 @@
                 .fail(function (result) {
                     console.log(result);
                     alert('오류 발생');
-                })
-        });
+                });
+
+        }
     </script>
 {% endblock %}

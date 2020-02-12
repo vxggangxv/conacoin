@@ -446,6 +446,11 @@
                                 }
                             }
 
+                            &.attach {
+                                .file-wrapper {
+                                    margin-top: 5px;
+                                }
+                            }
                         }
                     }
                 }
@@ -811,6 +816,12 @@
                                 // }
 
                                 text-align: center;
+                            }
+
+                            &.attach {
+                                .file-wrapper {
+                                    margin-top: 5px;
+                                }
                             }
                         }
                     }
