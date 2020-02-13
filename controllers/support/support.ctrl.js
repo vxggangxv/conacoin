@@ -1,5 +1,6 @@
 const models = require('../../database/models');
 const paginate = require('express-paginate');
+const path = require('path');
 
 exports.index = (req, res) => {
     res.redirect('/support/inquirys')
@@ -34,21 +35,6 @@ exports.get_inquirys = async (req, res) => {
         console.log(e);
     }
 }
-exports.get_inquirys_detail = async (req, res) => {
-    try {
-        const inquiry = await models.Inquirys.findOne({
-            where: {
-                id: req.params.id,
-            },
-            include: ['Reply', 'Attach']
-        });
-        res.render('support/inquirys/detail.html', {
-            inquiry
-        })
-    } catch (e) {
-        console.log(e);
-    }
-}
 exports.get_inquirys_write = async (req, res) => {
     res.render('support/inquirys/edit.html', {
         csrfToken: req.csrfToken()
@@ -56,7 +42,6 @@ exports.get_inquirys_write = async (req, res) => {
 }
 exports.post_inquirys_write = async (req, res) => {
     try {
-        const path = require('path');
         const items = req.files;
 
         req.body.attach_cnt = items.length;
@@ -81,6 +66,21 @@ exports.post_inquirys_write = async (req, res) => {
             })
         })
         res.redirect('/support/inquirys')
+    } catch (e) {
+        console.log(e);
+    }
+}
+exports.get_inquirys_detail = async (req, res) => {
+    try {
+        const inquiry = await models.Inquirys.findOne({
+            where: {
+                id: req.params.id,
+            },
+            include: ['Reply', 'Attach']
+        });
+        res.render('support/inquirys/detail.html', {
+            inquiry
+        })
     } catch (e) {
         console.log(e);
     }

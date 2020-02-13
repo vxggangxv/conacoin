@@ -1,7 +1,6 @@
 //이미지 저장되는 위치 설정
 const path = require('path');
 const uploadDir = path.join(__dirname, '../uploads/inquirys'); // 루트의 uploads위치에 저장한다.
-const fs = require('fs');
 
 //multer 셋팅
 const multer = require('multer');

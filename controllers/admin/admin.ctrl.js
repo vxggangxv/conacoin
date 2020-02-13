@@ -1,5 +1,6 @@
 const models = require('../../database/models');
 const paginate = require('express-paginate');
+const path = require('path');
 
 exports.index = (req, res) => {
     res.redirect('/admin/inquirys')
@@ -114,7 +115,6 @@ exports.get_inquirys_write = async (req, res) => {
 }
 exports.post_inquirys_write = async (req, res) => {
     try {
-        const path = require('path');
         const items = req.files;
 
         await models.Inquirys.create(req.body).then(result => {

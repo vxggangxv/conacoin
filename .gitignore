@@ -62,7 +62,7 @@ typings/
 
 # etc
 _draft/
-uploads/*.png
+uploads/
 public/stylesheets/
 yarn.lock
 package.lock.json
