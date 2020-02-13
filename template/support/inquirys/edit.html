@@ -16,7 +16,7 @@
                 </h1>
             </div>
             <div class="tbl-comm-st">※ 답변이 완료된 문의는 이메일로 답변이 전송되오니 확인 부탁드립니다.</div>
-            <form action="" method="post" id="inquirys_form">
+            <form action="" method="post" id="inquirys_form" enctype="multipart/form-data">
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
                 <table class="edit-tbl">
                     <tbody>
@@ -47,8 +47,10 @@
                         <tr class="attach">
                             <td>
                                 <span class="label">첨부파일 (최대 5개, 10MB)</span>
-                                <div class="file-wrapper">
-                                    <input type="file" class="form-file" multiple>
+                                <div class="fileform-wrapper">
+                                    <input type="file" class="fileform" name="file" id="file" multiple>
+                                    <label for="file">파일선택</label>
+                                    <span class="filename">선택된 파일 없음</span>
                                 </div>
                             </td>
                         </tr>

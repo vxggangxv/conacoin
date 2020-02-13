@@ -87,6 +87,18 @@
                                 </div>
                             </td>
                         </tr>
+                        {% if inquiry.Attach.length %}
+                            <tr class="download">
+                                <td>
+                                    <span class="label">첨부파일</span>
+                                    <p class="text">
+                                        {% for item in inquiry.Attach %}
+                                            <a href="/uploads/inquirys/{{ item.filename }}" download="{{ item.originalname }}" class="btn down-btn">{{ item.originalname }}</a>
+                                        {% endfor %}
+                                    </p>
+                                </td>
+                            </tr>
+                        {% endif %}
 
                         {% for reply in inquiry.Reply %}
                             <tr class="reply-wrapper" id="reply_wrapper">

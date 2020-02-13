@@ -72,8 +72,8 @@
                             </li>
                         {% endif %}
                         {% for page in pages %}
-                            <li class="{% if paginate.page == page.number %} active {% endif %}">
-                                <a href="{{ page.url }}" class="pager-link">{{ page.number }}</a>
+                            <li class="">
+                                <a href="{{ page.url }}" class="pager-link{% if paginate.page == page.number %} active {% endif %}">{{ page.number }}</a>
                             </li>
                         {% endfor %}
                         {% if paginate.hasNextPages(pageCount) %}

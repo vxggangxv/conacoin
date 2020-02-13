@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>크롤링 페이지</title>
+        <script src="/static/js/libs/jquery-1.12.1.min.js"></script>
+    </head>
+    <body>
+        <h1>크롤링 테스트</h1>
+        <ul>
+            {# {% for item in range(0, content.length) %} #}
+            {# {% for item in content %}
+                <li>{{ item }}</li>
+            {% endfor %} #}
+            {{ content.text }}
+            {{ hi }}
+        </ul>
+        <button type="button">내용가지고오기</button>
+        <p class="text"></p>
+    </body>
+    <script>
+        $('button').click(function () {
+
+            $
+                .ajax({url: '/test/crawling', type: 'get'})
+                .done(function (result) {
+                    console.log(result);
+                    $('.text').text(result);
+                })
+                .fail(function (result) {
+                    console.log(result);
+                    alert('오류 발생');
+                });
+        });
+    </script>
+</html>

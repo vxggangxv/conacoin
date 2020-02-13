@@ -40,6 +40,9 @@ module.exports = (sequelize, DataTypes) => {
             reply_cnt: {
                 type: DataTypes.BIGINT.UNSIGNED,
             },
+            attach_cnt: {
+                type: DataTypes.BIGINT.UNSIGNED,
+            },
             createdAt: {
                 type: DataTypes.DATE,
             },
@@ -58,6 +61,13 @@ module.exports = (sequelize, DataTypes) => {
         // 댓글 모델에 외부키를 건다
         Inquirys.hasMany(models.InquirysReply, {
             as: 'Reply',
+            foreignKey: 'inquiry_id',
+            sourceKey: 'id',
+            onDelete: 'CASCADE'
+        });
+
+        Inquirys.hasMany(models.InquirysAttach, {
+            as: 'Attach',
             foreignKey: 'inquiry_id',
             sourceKey: 'id',
             onDelete: 'CASCADE'

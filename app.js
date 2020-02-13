@@ -31,13 +31,15 @@ function dbConnection() {
             // TODO 서버가 뜰 때, DB 테이블 자동으로 생성해줌
             if (env == 'development') {
                 // return db.sequelize.drop()
-                // return db.sequelize.sync()
                 // return db.sequelize.sync({
                 //     force: true,
                 // })
+                // return db.sequelize.sync()
             }
             if (env == 'test') {}
-            if (env == 'production') {}
+            if (env == 'production') {
+                // return db.sequelize.sync()
+            }
         })
         .then(() => {
             console.log('DB Sync complete.')
@@ -55,6 +57,45 @@ function dbConnection() {
         })
 }
 dbConnection()
+
+const fs = require('fs');
+const uploadInquirysDir = path.join(__dirname, './uploads/inquirys');
+const Op = require('sequelize').Op;
+let inquirysScheduler = async () => {
+
+    let date = new Date();
+    date.setMonth(date.getMonth() - 3);
+    // date.setDate(date.getMonth() - 1);
+    // date.setMinutes(date.getMinutes() - 1);
+    const inquirysAttach = await db.InquirysAttach.findAll({
+        where: {
+            updatedAt: {
+                [Op.lt]: date
+            }
+        }
+    });
+    const inquirysAttachArr = inquirysAttach;
+    inquirysAttachArr.forEach(item => {
+        fs.unlink(`${uploadInquirysDir}/${item.filename}`, (err) => {
+            if (err === null) {
+                console.log('file delete success')
+            } else {
+                console.log(err)
+            }
+        });
+    });
+    await db.InquirysAttach.destroy({
+        where: {
+            updatedAt: {
+                [Op.lt]: date
+            }
+        }
+    });
+
+    console.log('------------------------------------')
+    return console.log('inquirysScheduler working');
+}
+// inquirysScheduler();
 
 var app = express()
 

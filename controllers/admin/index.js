@@ -5,6 +5,7 @@ const ctrl = require('./admin.ctrl')
 
 const adminRequired = require('../../middleware/adminRequired');
 const csrfProtection = require('../../middleware/csrf');
+const upload = require('../../middleware/inquirysMulter');
 
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
@@ -75,7 +76,7 @@ router.post('/accounts/password', ctrl.post_password);
 
 router.get('/inquirys', paginate.middleware(10, 50), ctrl.get_inquirys);
 router.get('/inquirys/write', csrfProtection, ctrl.get_inquirys_write);
-router.post('/inquirys/write', ctrl.post_inquirys_write);
+router.post('/inquirys/write', upload.array('file', 5), ctrl.post_inquirys_write);
 router.get('/inquirys/detail/:id', ctrl.get_inquirys_detail);
 // router.get('/inquirys/edit/:id', csrfProtection, ctrl.get_inquirys_edit);
 // router.post('/inquirys/edit/:id', ctrl.post_inquirys_edit);

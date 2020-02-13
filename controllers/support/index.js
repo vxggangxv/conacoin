@@ -3,11 +3,12 @@ const router = express.Router();
 const ctrl = require('./support.ctrl');
 const paginate = require('express-paginate');
 const csrfProtection = require('../../middleware/csrf');
+const upload = require('../../middleware/inquirysMulter');
 
 router.get('/', ctrl.index);
 router.get('/inquirys', paginate.middleware(10, 50), ctrl.get_inquirys);
 router.get('/inquirys/write', csrfProtection, ctrl.get_inquirys_write);
-router.post('/inquirys/write', ctrl.post_inquirys_write);
+router.post('/inquirys/write', upload.array('file', 5), ctrl.post_inquirys_write);
 router.get('/inquirys/detail/:id', ctrl.get_inquirys_detail);
 // router.get('/inquirys/edit/:id', csrfProtection, ctrl.get_inquirys_edit);
 // router.post('/inquirys/edit/:id', ctrl.post_inquirys_edit);

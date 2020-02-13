@@ -91,7 +91,7 @@ exports.get_inquirys = async (req, res) => {
                     ['createdAt', 'desc']
                 ]
             }),
-            models.Inquirys.count()
+            models.Inquirys.count(),
         ]);
         const pageCount = Math.ceil(totalCount / req.query.limit);
         const pages = paginate.getArrayPages(req)(5, pageCount, req.query.page);
@@ -114,7 +114,27 @@ exports.get_inquirys_write = async (req, res) => {
 }
 exports.post_inquirys_write = async (req, res) => {
     try {
-        await models.Inquirys.create(req.body);
+        const path = require('path');
+        const items = req.files;
+
+        await models.Inquirys.create(req.body).then(result => {
+            let inquiry_id = result.id;
+            items.forEach(async item => {
+                let originalname = item.originalname;
+                let filename = item.filename;
+                let size = item.size;
+                let destination = item.destination;
+                let extension = path.extname(item.originalname);
+                await models.InquirysAttach.create({
+                    originalname,
+                    filename,
+                    size,
+                    destination,
+                    extension,
+                    inquiry_id
+                });
+            })
+        })
         res.redirect('/admin/inquirys')
     } catch (e) {
         console.log(e);
@@ -126,7 +146,7 @@ exports.get_inquirys_detail = async (req, res) => {
             where: {
                 id: req.params.id,
             },
-            include: ['Reply']
+            include: ['Reply', 'Attach']
         });
         res.render('admin/inquirys/detail.html', {
             inquiry

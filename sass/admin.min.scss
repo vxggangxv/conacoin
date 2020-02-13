@@ -148,71 +148,6 @@ $card-pd: 25px;
                 margin-left: 10px;
             }
 
-            .dropselect {
-                display: inline-block;
-                position: relative;
-
-                select {
-                    position: absolute !important;
-                    bottom: 0;
-                    left: 50%;
-                    display: block !important;
-                    width: .5px !important;
-                    height: 100% !important;
-                    padding: 0 !important;
-                    opacity: 0 !important;
-                    border: none;
-                    z-index: 0 !important;
-                }
-
-                .dropbtn {
-                    @include btn-base;
-                    @include btn-size(5px 10px, 13px);
-                    // @include btn-transparent($admin-c-black);
-                    @include btn-transparent($admin-primary);
-                    color: $admin-body-c;
-                    width: 120px;
-                    text-align: left;
-                    border-radius: 3px;
-
-                    &:after {
-                        position: absolute;
-                        font-family: "Material Design Icons";
-                        content: '\F140';
-                        font-size: 20px;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        right: 10px;
-                        // vertical-align: middle;
-                    }
-                }
-
-                .dropmenu {
-                    display: none;
-                    position: absolute;
-                    top: 100%;
-                    left: 0;
-                    width: 100%;
-                    padding: 10px 0;
-                    background-color: #fff;
-                    box-shadow: 0 0 50px 0 rgba(82, 63, 105, .18);
-                    border-radius: 3px;
-
-                    .item {
-                        padding: 10px;
-                        cursor: pointer;
-
-                        &:hover,
-                        &.active {
-                            background-color: #F7F8FA;
-                        }
-                    }
-
-                    &.active {
-                        display: block;
-                    }
-                }
-            }
         }
 
         &+* {
@@ -405,8 +340,12 @@ $card-pd: 25px;
                 }
 
                 td {
+                    @include screen-max(1180px) {
+                        font-size: 13.5px;
+                    }
 
                     &.title,
+                    &.title>*,
                     &.link {
                         overflow: hidden;
                         text-overflow: ellipsis;
@@ -419,6 +358,13 @@ $card-pd: 25px;
 
                         a {
                             display: block;
+                        }
+
+                        .mdi {
+                            position: relative;
+                            top: 1px;
+                            font-size: 18px;
+                            // line-height: 0;
                         }
                     }
 
@@ -528,6 +474,27 @@ $card-pd: 25px;
                                 display: block;
                                 min-height: 150px;
 
+                            }
+                        }
+
+                        &.download {
+                            .down-btn {
+                                @include btn-transparent($font-gray2);
+                                color: $font-gray;
+                                font-size: 13px;
+                                border-radius: 2px;
+
+                                &+.down-btn {
+                                    margin-left: 5px;
+                                }
+                            }
+
+                            .text {
+                                margin-top: 10px;
+
+                                &+.text {
+                                    margin-top: 5px;
+                                }
                             }
                         }
 

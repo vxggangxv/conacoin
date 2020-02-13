@@ -259,6 +259,27 @@
                                 }
                             }
 
+                            &.download {
+                                .down-btn {
+                                    @include btn-transparent($font-gray2);
+                                    color: $font-gray;
+                                    font-size: 13px;
+                                    border-radius: 2px;
+
+                                    &+.down-btn {
+                                        margin-left: 5px;
+                                    }
+                                }
+
+                                .text {
+                                    margin-top: 10px;
+
+                                    &+.text {
+                                        margin-top: 5px;
+                                    }
+                                }
+                            }
+
                             &.reply-wrapper {
                                 .reply-name {
                                     color: $primary-color;
@@ -437,6 +458,7 @@
                                 text-align: center;
                             }
 
+                            &.attach,
                             &.title,
                             &.content {
                                 .label {
@@ -447,8 +469,8 @@
                             }
 
                             &.attach {
-                                .file-wrapper {
-                                    margin-top: 5px;
+                                .fileform-wrapper {
+                                    margin-top: 10px;
                                 }
                             }
                         }
@@ -628,6 +650,26 @@
                             &.content {
                                 .text {
                                     min-height: 150px;
+                                }
+                            }
+
+                            &.download {
+                                .down-btn {
+                                    @include btn-transparent($font-gray2);
+                                    color: $font-gray;
+                                    border-radius: 2px;
+
+                                    &+.down-btn {
+                                        margin-left: 5px;
+                                    }
+                                }
+
+                                .text {
+                                    margin-top: 10px;
+
+                                    &+.text {
+                                        margin-top: 5px;
+                                    }
                                 }
                             }
 
@@ -819,8 +861,8 @@
                             }
 
                             &.attach {
-                                .file-wrapper {
-                                    margin-top: 5px;
+                                .fileform-wrapper {
+                                    margin-top: 10px;
                                 }
                             }
                         }
