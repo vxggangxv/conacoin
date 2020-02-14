@@ -529,15 +529,18 @@ body {
             }
 
             .address {
+                margin-top: 15px;
                 text-align: center;
                 font-weight: 200;
+                line-height: 1.423;
+                font-size: 12px;
 
                 .sitename {
                     font-size: 15px;
                 }
 
                 .copyright {
-                    margin-top: 15px;
+                    margin-top: 5px;
                     font-size: 11px;
                 }
             }
@@ -600,16 +603,18 @@ body {
             text-align: center;
 
             .address {
+                margin-top: 25px;
                 text-align: center;
                 font-weight: 200;
+                line-height: 1.423;
 
                 .sitename {
                     font-size: 25px;
                 }
 
                 .copyright {
-                    margin-top: 25px;
-                    font-size: 16px;
+                    margin-top: 10px;
+                    font-size: 14px;
                 }
             }
 
