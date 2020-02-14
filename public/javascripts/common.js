@@ -41,7 +41,7 @@ function dropselectFn() {
 function fileformFn() {
     $('.fileform').on('change', function () {
         var files = this.files;
-        var limitSize = 10 * 1024 * 1024;
+        var limitSize = 5 * 1024 * 1024;
         var $filename = $('.fileform-wrapper .filename');
         if (files[0] == undefined) {
             $filename.text('선택된 파일없음');
@@ -53,7 +53,7 @@ function fileformFn() {
         // }
         for (var i = 0; i < files.length; i++) {
             // console.log(files[i].size);
-            if (files[i].size > limitSize) return alert('파일크기가 10MB 보다 작아야합니다.')
+            if (files[i].size > limitSize) return alert('파일크기가 5MB 보다 작아야합니다.')
         }
         if (files.length > 1 && files.length < 6) {
             $filename.text(files.length + '개 파일');

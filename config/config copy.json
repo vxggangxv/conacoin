@@ -18,10 +18,10 @@
         "timezone": "+09:00"
     },
     "production": {
-        "username": "caryon",
-        "password": "dspark5052!",
-        "database": "dbcaryon",
-        "host": "211.47.75.102",
+        "username": "root",
+        "password": "1111",
+        "database": "conacoinprod",
+        "host": "127.0.0.1",
         "dialect": "mysql",
         "operatorsAliases": false,
         "timezone": "+09:00"

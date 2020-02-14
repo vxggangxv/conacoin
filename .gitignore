@@ -66,3 +66,4 @@ uploads/
 public/stylesheets/
 yarn.lock
 package.lock.json
+config/config.json

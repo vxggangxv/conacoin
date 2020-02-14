@@ -362,9 +362,14 @@ $card-pd: 25px;
 
                         .mdi {
                             position: relative;
-                            top: 1px;
+                            margin-right: -2px;
+                            top: 2px;
                             font-size: 18px;
+
                             // line-height: 0;
+                            &:before {
+                                transform: rotate(150deg);
+                            }
                         }
                     }
 
