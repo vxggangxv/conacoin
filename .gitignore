@@ -55,15 +55,15 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# .env
 
 # next.js build output
 .next
 
 # etc
+# config/config.json 
 _draft/
 uploads/
 public/stylesheets/
 yarn.lock
 package.lock.json
-config/config.json

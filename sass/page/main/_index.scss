@@ -1,3 +1,76 @@
+.cona-ticker-wrapper {
+    position: absolute;
+    left: 50%;
+    top: $hd-ht-pc;
+    transform: translate(-50%, 0);
+
+    .cona-ticker {
+        position: absolute;
+        right: 0;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 0, .7);
+        font-size: 14px;
+        color: #fff;
+
+        .split {
+            position: relative;
+            float: left;
+        }
+
+        .split-1 {
+            width: 85px;
+            text-align: center;
+
+            >* {
+                display: inline-block;
+            }
+        }
+
+        .split-2 {
+            margin-left: 20px;
+            line-height: 1.423;
+        }
+
+        .logo-img {
+            position: relative;
+            margin-top: 3px;
+            left: -3px;
+            width: 75px;
+        }
+
+        .ticker-btn {
+            @include btn-transparent(#fff);
+            width: 100%;
+            margin-top: 7px;
+            padding: 0;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            border-radius: 0;
+        }
+
+        .fw {
+            font-weight: 500;
+        }
+
+        .mdi {
+            position: relative;
+            margin-left: -7px;
+            top: 6px;
+            font-size: 33px;
+            line-height: 0;
+
+            &.mdi-menu-up {
+                color: #d60102;
+            }
+
+            &.mdi-menu-down {
+                color: #0050f1;
+            }
+        }
+    }
+}
+
 // mobile & tablet xs & sm
 @media (max-width: 991px) {
     $title-color: #252525;
@@ -36,6 +109,21 @@
         }
     }
 
+    // 시세 영역
+    .cona-ticker-wrapper {
+        position: absolute;
+        width: 100%;
+        top: $hd-ht-m;
+
+        .cona-ticker {
+            width: 280px;
+            right: auto;
+            left: 50%;
+            padding-right: 0;
+            transform: translate(-50%, 0);
+        }
+    }
+
     // visual 영역
     .main-visual-sec {
         position: relative;
@@ -53,7 +141,7 @@
 
                     .banner-list {
                         .banner-item {
-                            height: 300px;
+                            height: 360px;
 
                             // background: url('/images/main/visual_bg.jpg') no-repeat 55% center / cover;
                             &.item-1 {
@@ -70,6 +158,7 @@
                 .banner-title {
                     position: relative;
                     padding-top: $hd-ht-m;
+                    margin-top: 60px;
 
                     .title-wrapper {
                         position: relative;

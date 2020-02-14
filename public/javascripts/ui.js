@@ -289,6 +289,18 @@ var main = {
                 }
             );
         });
+        // $('#container .wayp-slider').each(function (index, item) {
+        //     $(item).waypoint(
+        //         function () {
+        //             // this.newsbarNewsList()
+        //             // this.guideVideoList()
+        //             // this.roadmapList()
+        //             // this.newsList()
+        //         }, {
+        //             offset: '70%',
+        //         }
+        //     );
+        // });
     },
 };
 

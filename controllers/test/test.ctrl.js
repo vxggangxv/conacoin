@@ -1,25 +1,29 @@
 const model = require('../../database/models')
+const axios = require('axios')
+const cheerio = require('cheerio')
+const request = require('request')
+const client = require('cheerio-httpcli')
 
 exports.index = (req, res) => {
-    // res.redirect('/crawling');
-    res.render('test/crawling.html')
+    res.send('index')
 }
-exports.get_crawling = (req, res) => {
-    const client = require('cheerio-httpcli')
+exports.get_crawl = (req, res) => {
+    let url = 'https://hanswsw.tistory.com/'
+    var params = {}
 
-    let url = 'https://hanswsw.tistory.com/';
-    var params = {};
-    let item = {};
-    let content = '';
-    let $articleList = '';
-
-    client.fetch(url, params, function (err, $, res) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        console.log($('#main .title_post').eq(0).text());
-        content = $('#main .title_post').eq(0).text();
+    client.fetch(url, params, function(err, $, result) {
+        if (err) console.log(err)
+        // console.log(
+        //     $('#main .title_post')
+        //     .eq(0)
+        //     .text(),
+        // );
+        res.send(
+            $('#main .title_post')
+                .eq(0)
+                .text(),
+        )
+        // content = $('#main .title_post').eq(0).text();
         // $('#main .title_post').each(function (post) {
         //     // console.log(post);
         //     console.log($(this).text());
@@ -29,11 +33,6 @@ exports.get_crawling = (req, res) => {
         // console.log(typeof content);
         // console.log($articleList.length);
     })
-    let hi = 'hi'
 
-    res.json(content)
-    // res.render('test/crawling.html', {
-    //     content,
-    //     hi
-    // });
+    // res.send(true)
 }

@@ -15,7 +15,7 @@
     "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.html, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
+    "axios": "^0.19.2",
     "cheerio-httpcli": "^0.7.4",
     "connect-flash": "^0.1.1",
     "connect-session-sequelize": "^6.0.0",
@@ -40,7 +40,7 @@
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",
     "passport-local": "^1.0.0",
-    "request": "^2.88.0",
+    "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "sequelize": "4.42.0",
     "socket.io": "^2.3.0",

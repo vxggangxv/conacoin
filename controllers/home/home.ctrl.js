@@ -1,5 +1,9 @@
 const models = require('../../database/models');
+const request = require('request')
+const crypto = require('crypto')
+const dotenv = require('dotenv')
 
+dotenv.config() //LOAD CONFIG
 
 exports.index = async (req, res) => {
     // res.render('index.html')
@@ -28,10 +32,50 @@ exports.get_home = async (req, res) => {
             item.name = item.name.substr(0, 1) + '****';
         });
 
-        res.render('home.html', {
-            inquirys,
-            news,
+        let apiKey = process.env.FOBLGATE_PUBLIC_KEY
+        let scretKey = process.env.FOBLGATE_SECRET_KEY
+
+        var pairName = "CONA/KRW";
+
+        var formData = {
+            apiKey: apiKey,
+            pairName: pairName
+        };
+
+        var secretHash = crypto.createHash('sha256').update(apiKey + pairName + scretKey).digest('hex');
+
+        var options = {
+            url: 'https://api2.foblgate.com/api/ticker/orderBook',
+            headers: {
+                SecretHeader: secretHash
+            },
+            form: formData
+        };
+
+        let result = [];
+        let prev_price = 0;
+        let price = 0;
+        request.post(options, function (error, response, body) {
+            if (error) {
+                console.error(error);
+            } else {
+                // console.log(body);
+                result = JSON.parse(body);
+            }
+            price = parseInt(result.data.buyList[0].price)
+            prev_price = parseInt(result.data.buyList[1].price)
+            res.render('home.html', {
+                prev_price,
+                price,
+                inquirys,
+                news,
+            });
         });
+
+        // res.render('home.html', {
+        //     inquirys,
+        //     news,
+        // });
     } catch (e) {
         console.log(e);
     }

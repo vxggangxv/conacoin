@@ -21,7 +21,10 @@ const db = require('./database/models')
 // const RedisStore = require('connect-redis')(session);
 
 const env = process.env.NODE_ENV || 'development';
-console.log(env);
+// console.log(env + ' mode');
+
+// test ---------------------------------
+// --------------------------------------------------------
 
 function dbConnection() {
     db.sequelize

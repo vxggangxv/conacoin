@@ -45,6 +45,29 @@
                     </div>
 
                     <div id="bannerArrow" class="banner-arrow group-f"></div>
+
+                    <div class="cona-ticker-wrapper group-f">
+                        <div class="cona-ticker">
+                            <div class="split split-1">
+                                <img src="/images/common/logo.png" alt="코나" class="logo-img"><br>
+                                <a href="https://www.foblgate.com/trade?pairName=CONA/KRW" target="_blank" class="btn ticker-btn">시세확인</a>
+                            </div>
+                            <div class="split split-2">
+                                <p>상장가: 100 KRW</p>
+                                <p class="fw">현재가:
+                                    {{ price }}
+                                    KRW
+                                    {% if price >= prev_price %}
+                                        <i class="mdi mdi-menu-up"></i>
+                                    {% else %}
+                                        <i class="mdi mdi-menu-down"></i>
+                                    {% endif %}
+                                </p>
+                                <p class="fw">상장가 대비:
+                                    {{ price - 100 }}%</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
