@@ -20,7 +20,7 @@ const db = require('./database/models')
 // const client = require('./config/redis');
 // const RedisStore = require('connect-redis')(session);
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development'
 // console.log(env + ' mode');
 
 // test ---------------------------------
@@ -39,7 +39,8 @@ function dbConnection() {
                 // })
                 // return db.sequelize.sync()
             }
-            if (env == 'test') {}
+            if (env == 'test') {
+            }
             if (env == 'production') {
                 // return db.sequelize.sync()
             }
@@ -52,8 +53,10 @@ function dbConnection() {
                 // require('./config/insertNewsDummyData')()
                 // require('./config/insertUserDummyData')()
             }
-            if (env == 'test') {}
-            if (env == 'production') {}
+            if (env == 'test') {
+            }
+            if (env == 'production') {
+            }
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err)
@@ -61,44 +64,47 @@ function dbConnection() {
 }
 dbConnection()
 
-const fs = require('fs');
-const uploadInquirysDir = path.join(__dirname, './uploads/inquirys');
-const Op = require('sequelize').Op;
+const fs = require('fs')
+const uploadInquirysDir = path.join(__dirname, './uploads/inquirys')
+const Op = require('sequelize').Op
 let inquirysScheduler = async () => {
-
-    let date = new Date();
-    date.setMonth(date.getMonth() - 3);
+    let date = new Date()
+    date.setMonth(date.getMonth() - 3)
     // date.setDate(date.getMonth() - 1);
     // date.setMinutes(date.getMinutes() - 1);
     const inquirysAttach = await db.InquirysAttach.findAll({
         where: {
             updatedAt: {
-                [Op.lt]: date
-            }
-        }
-    });
-    const inquirysAttachArr = inquirysAttach;
+                [Op.lt]: date,
+            },
+        },
+    })
+    const inquirysAttachArr = inquirysAttach
     inquirysAttachArr.forEach(item => {
-        fs.unlink(`${uploadInquirysDir}/${item.filename}`, (err) => {
+        fs.unlink(`${uploadInquirysDir}/${item.filename}`, err => {
             if (err === null) {
                 console.log('file delete success')
             } else {
                 console.log(err)
             }
-        });
-    });
+        })
+    })
     await db.InquirysAttach.destroy({
         where: {
             updatedAt: {
-                [Op.lt]: date
-            }
-        }
-    });
+                [Op.lt]: date,
+            },
+        },
+    })
 
     console.log('------------------------------------')
-    return console.log('inquirysScheduler working');
+    return console.log('inquirysScheduler working')
 }
 // inquirysScheduler();
+const schedule = require('node-schedule')
+const j = schedule.scheduleJob('0 0 0 1 * *', function() {
+    inquirysScheduler()
+})
 
 var app = express()
 
@@ -161,7 +167,7 @@ app.use(passport.session())
 app.use(flash())
 
 //로그인 정보 뷰에서만 변수로 셋팅, 전체 미들웨어는 router위에 두어야 에러가 안난다
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     // app.locals.myname = "nodejs";
     app.locals.isLogin = req.isAuthenticated()
     app.locals.req_path = req.path
@@ -175,10 +181,10 @@ app.use(function (req, res, next) {
 app.use(controller)
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     next(createError(404))
 })
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message
     res.locals.error = req.app.get('env') === 'development' ? err : {}

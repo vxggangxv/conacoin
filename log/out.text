@@ -1,697 +1,80 @@
-2020-02-10T10:26:07: Listening to requests on http://localhost:3000
-2020-02-10T10:26:07: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:26:07: Connection has been established successfully.
-2020-02-10T10:26:07: DB Sync complete.
-2020-02-10T10:26:09: Listening to requests on http://localhost:3000
-2020-02-10T10:26:09: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:26:09: Connection has been established successfully.
-2020-02-10T10:26:09: DB Sync complete.
-2020-02-10T10:26:12: Listening to requests on http://localhost:3000
-2020-02-10T10:26:12: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:26:12: Connection has been established successfully.
-2020-02-10T10:26:12: DB Sync complete.
-2020-02-10T10:26:14: Listening to requests on http://localhost:3000
-2020-02-10T10:26:14: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:26:14: Connection has been established successfully.
-2020-02-10T10:26:14: DB Sync complete.
-2020-02-10T10:26:32: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = 'KQTMUGCKk0uc8frS-6POjO-9uVnJ_dQM';
-2020-02-10T10:26:32: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:26:32: Executing (default): INSERT INTO `Sessions` (`sid`,`expires`,`data`,`createdAt`,`updatedAt`) VALUES ('3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo','2020-02-10 12:26:32','{\"cookie\":{\"originalMaxAge\":7199999,\"expires\":\"2020-02-10T03:26:32.131Z\",\"httpOnly\":true,\"path\":\"/\"}}','2020-02-10 10:26:32','2020-02-10 10:26:32');
-2020-02-10T10:26:32: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:26:32: [0mGET /admin/inquirys/ [36m302 [0m26.220 ms - 86[0m
-2020-02-10T10:26:32: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:26:32: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:26:32',`data`='{\"cookie\":{\"originalMaxAge\":7199999,\"expires\":\"2020-02-10T03:26:32.181Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}',`updatedAt`='2020-02-10 10:26:32' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:26:32: [0mGET /admin/accounts/login [32m200 [0m28.849 ms - 3250[0m
-2020-02-10T10:26:32: [0mGET /static/css/reset.css [32m200 [0m4.611 ms - 1861[0m
-2020-02-10T10:26:32: [0mGET /stylesheets/admin.min.css [32m200 [0m3.347 ms - 35564[0m
-2020-02-10T10:26:32: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m1.136 ms - 97408[0m
-2020-02-10T10:26:32: [0mGET /javascripts/admin/script.js [32m200 [0m5.458 ms - 21[0m
-2020-02-10T10:26:32: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m2.379 ms - 2750[0m
-2020-02-10T10:26:32: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.479 ms - 235984[0m
-2020-02-10T10:26:32: [0mGET /stylesheets/admin.min.css.map [32m200 [0m1.263 ms - 46805[0m
-2020-02-10T10:26:32: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:26:32: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:26:32',`updatedAt`='2020-02-10 10:26:32' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:26:32: [0mGET /favicon.ico [33m404 [0m62.700 ms - 7498[0m
-2020-02-10T10:27:37: Listening to requests on http://localhost:3000
-2020-02-10T10:27:37: Listening to requests on http://localhost:3000
-2020-02-10T10:27:37: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:27:37: Connection has been established successfully.
-2020-02-10T10:27:37: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:27:37: Connection has been established successfully.
-2020-02-10T10:27:37: DB Sync complete.
-2020-02-10T10:27:37: Executing (default): INSERT INTO `User` (`id`,`username`,`password`,`displayname`,`createdAt`,`updatedAt`) VALUES (DEFAULT,'master','4lCRajcZnHxDbE71GGJZozgpDwSW3LroFGP+y/7fKPXnjc+djtK/os1t+l0I/sI1Ld2hh0w793a3d+kzutF40A==','관리자','2020-02-10 10:27:37','2020-02-10 10:27:37');
-2020-02-10T10:27:37: DB Sync complete.
-2020-02-10T10:27:37: Executing (default): INSERT INTO `User` (`id`,`username`,`password`,`displayname`,`createdAt`,`updatedAt`) VALUES (DEFAULT,'master','4lCRajcZnHxDbE71GGJZozgpDwSW3LroFGP+y/7fKPXnjc+djtK/os1t+l0I/sI1Ld2hh0w793a3d+kzutF40A==','관리자','2020-02-10 10:27:37','2020-02-10 10:27:37');
-2020-02-10T10:27:40: Listening to requests on http://localhost:3000
-2020-02-10T10:27:40: Listening to requests on http://localhost:3000
-2020-02-10T10:27:40: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:27:40: Connection has been established successfully.
-2020-02-10T10:27:40: DB Sync complete.
-2020-02-10T10:27:40: Executing (default): INSERT INTO `User` (`id`,`username`,`password`,`displayname`,`createdAt`,`updatedAt`) VALUES (DEFAULT,'master','4lCRajcZnHxDbE71GGJZozgpDwSW3LroFGP+y/7fKPXnjc+djtK/os1t+l0I/sI1Ld2hh0w793a3d+kzutF40A==','관리자','2020-02-10 10:27:40','2020-02-10 10:27:40');
-2020-02-10T10:27:40: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:27:40: Connection has been established successfully.
-2020-02-10T10:27:40: DB Sync complete.
-2020-02-10T10:27:40: Executing (default): INSERT INTO `User` (`id`,`username`,`password`,`displayname`,`createdAt`,`updatedAt`) VALUES (DEFAULT,'master','4lCRajcZnHxDbE71GGJZozgpDwSW3LroFGP+y/7fKPXnjc+djtK/os1t+l0I/sI1Ld2hh0w793a3d+kzutF40A==','관리자','2020-02-10 10:27:40','2020-02-10 10:27:40');
-2020-02-10T10:28:01: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:28:01: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:28:01',`updatedAt`='2020-02-10 10:28:01' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:28:01: [0mGET /admin/accounts/join [32m200 [0m37.579 ms - 4172[0m
-2020-02-10T10:28:01: [0mGET /static/css/reset.css [32m200 [0m4.546 ms - 1861[0m
-2020-02-10T10:28:01: [0mGET /stylesheets/admin.min.css [32m200 [0m2.634 ms - 35564[0m
-2020-02-10T10:28:01: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m7.118 ms - 97408[0m
-2020-02-10T10:28:01: [0mGET /javascripts/admin/script.js [32m200 [0m5.335 ms - 21[0m
-2020-02-10T10:28:01: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.388 ms - 2750[0m
-2020-02-10T10:28:01: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.325 ms - 235984[0m
-2020-02-10T10:28:01: [0mGET /stylesheets/admin.min.css.map [32m200 [0m1.004 ms - 46805[0m
-2020-02-10T10:28:40: Listening to requests on http://localhost:3000
-2020-02-10T10:28:41: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:28:41: Connection has been established successfully.
-2020-02-10T10:28:41: DB Sync complete.
-2020-02-10T10:28:41: Listening to requests on http://localhost:3000
-2020-02-10T10:28:41: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:28:41: Connection has been established successfully.
-2020-02-10T10:28:41: DB Sync complete.
-2020-02-10T10:28:44: Listening to requests on http://localhost:3000
-2020-02-10T10:28:44: Listening to requests on http://localhost:3000
-2020-02-10T10:28:44: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:28:44: Connection has been established successfully.
-2020-02-10T10:28:44: DB Sync complete.
-2020-02-10T10:28:44: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:28:44: Connection has been established successfully.
-2020-02-10T10:28:44: DB Sync complete.
-2020-02-10T10:29:08: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:08: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:29:08',`updatedAt`='2020-02-10 10:29:08' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:29:08: [0mGET /admin/accounts/join [32m200 [0m52.125 ms - 4172[0m
-2020-02-10T10:29:08: [0mGET /static/css/reset.css [32m200 [0m3.331 ms - 1861[0m
-2020-02-10T10:29:08: [0mGET /stylesheets/admin.min.css [32m200 [0m2.305 ms - 35564[0m
-2020-02-10T10:29:08: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m6.873 ms - 97408[0m
-2020-02-10T10:29:08: [0mGET /javascripts/admin/script.js [32m200 [0m5.420 ms - 21[0m
-2020-02-10T10:29:08: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:08: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m2.448 ms - 2750[0m
-2020-02-10T10:29:08: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:29:08',`updatedAt`='2020-02-10 10:29:08' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:29:08: [0mGET /admin/accounts/join [32m200 [0m42.269 ms - 4172[0m
-2020-02-10T10:29:08: [0mGET /static/css/reset.css [32m200 [0m1.505 ms - 1861[0m
-2020-02-10T10:29:08: [0mGET /stylesheets/admin.min.css [32m200 [0m1.818 ms - 35564[0m
-2020-02-10T10:29:08: [0mGET /javascripts/admin/script.js [32m200 [0m2.268 ms - 21[0m
-2020-02-10T10:29:08: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m3.332 ms - 97408[0m
-2020-02-10T10:29:08: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m2.709 ms - 2750[0m
-2020-02-10T10:29:08: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.131 ms - 235984[0m
-2020-02-10T10:29:08: [0mGET /stylesheets/admin.min.css.map [32m200 [0m1.925 ms - 46805[0m
-2020-02-10T10:29:13: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:13: Executing (default): SELECT `id`, `username`, `password`, `displayname`, `email`, `status`, `createdAt`, `updatedAt` FROM `User` AS `User` WHERE `User`.`username` = 'master' LIMIT 1;
-2020-02-10T10:29:13: Executing (default): INSERT INTO `User` (`id`,`username`,`password`,`createdAt`,`updatedAt`) VALUES (DEFAULT,'master','4lCRajcZnHxDbE71GGJZozgpDwSW3LroFGP+y/7fKPXnjc+djtK/os1t+l0I/sI1Ld2hh0w793a3d+kzutF40A==','2020-02-10 10:29:13','2020-02-10 10:29:13');
-2020-02-10T10:29:13: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:29:13',`updatedAt`='2020-02-10 10:29:13' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:29:13: [0mPOST /admin/accounts/join [32m200 [0m40.717 ms - 55[0m
-2020-02-10T10:29:13: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:13: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:29:13',`updatedAt`='2020-02-10 10:29:13' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:29:13: [0mGET /admin/accounts/login [32m200 [0m12.312 ms - 3250[0m
-2020-02-10T10:29:13: [0mGET /static/css/reset.css [32m200 [0m2.380 ms - 1861[0m
-2020-02-10T10:29:13: [0mGET /javascripts/admin/script.js [32m200 [0m2.914 ms - 21[0m
-2020-02-10T10:29:13: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m2.582 ms - 97408[0m
-2020-02-10T10:29:13: [0mGET /stylesheets/admin.min.css [32m200 [0m5.564 ms - 35564[0m
-2020-02-10T10:29:13: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.653 ms - 2750[0m
-2020-02-10T10:29:13: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.230 ms - 235984[0m
-2020-02-10T10:29:13: [0mGET /stylesheets/admin.min.css.map [32m200 [0m2.057 ms - 46805[0m
-2020-02-10T10:29:17: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:17: Executing (default): SELECT `id`, `username`, `password`, `displayname`, `email`, `status`, `createdAt`, `updatedAt` FROM `User` AS `User` WHERE `User`.`username` = 'master' AND `User`.`password` = '4lCRajcZnHxDbE71GGJZozgpDwSW3LroFGP+y/7fKPXnjc+djtK/os1t+l0I/sI1Ld2hh0w793a3d+kzutF40A==' LIMIT 1;
-2020-02-10T10:29:17: serializeUser
-2020-02-10T10:29:17: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:17: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:29:17',`data`='{\"cookie\":{\"originalMaxAge\":7199999,\"expires\":\"2020-02-10T03:29:17.144Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":{\"id\":5,\"username\":\"master\",\"password\":\"4lCRajcZnHxDbE71GGJZozgpDwSW3LroFGP+y/7fKPXnjc+djtK/os1t+l0I/sI1Ld2hh0w793a3d+kzutF40A==\",\"displayname\":null,\"email\":null,\"status\":null,\"createdAt\":\"2020-02-10T01:29:13.000Z\",\"updatedAt\":\"2020-02-10T01:29:13.000Z\"}}}',`updatedAt`='2020-02-10 10:29:17' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:29:17: [0mPOST /admin/accounts/login [32m200 [0m12.313 ms - 40[0m
-2020-02-10T10:29:17: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:17: deserializeUser
-2020-02-10T10:29:17: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:17: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:29:17',`data`='{\"cookie\":{\"originalMaxAge\":7199999,\"expires\":\"2020-02-10T03:29:17.223Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":{\"id\":5,\"username\":\"master\",\"password\":\"\",\"displayname\":null,\"email\":null,\"status\":null,\"createdAt\":\"2020-02-10T01:29:13.000Z\",\"updatedAt\":\"2020-02-10T01:29:13.000Z\"}}}',`updatedAt`='2020-02-10 10:29:17' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:29:17: [0mGET /admin [36m302 [0m10.967 ms - 76[0m
-2020-02-10T10:29:17: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:29:17: deserializeUser
-2020-02-10T10:29:17: Executing (default): SELECT count(*) AS `count` FROM `Inquirys` AS `Inquirys`;
-2020-02-10T10:29:17: Executing (default): SELECT `id`, `name`, `password`, `email`, `title`, `content`, `reply_cnt`, `createdAt`, `updatedAt` FROM `Inquirys` AS `Inquirys` ORDER BY `Inquirys`.`createdAt` DESC LIMIT 0, 10;
-2020-02-10T10:29:17: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:29:17',`updatedAt`='2020-02-10 10:29:17' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:29:17: [0mGET /admin/inquirys/ [32m200 [0m78.057 ms - 12705[0m
-2020-02-10T10:29:17: [0mGET /static/css/reset.css [32m200 [0m3.091 ms - 1861[0m
-2020-02-10T10:29:17: [0mGET /static/fonts/mdi/css/materialdesignicons.min.css [32m200 [0m2.448 ms - 204602[0m
-2020-02-10T10:29:17: [0mGET /stylesheets/admin.min.css [32m200 [0m1.421 ms - 35564[0m
-2020-02-10T10:29:17: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m1.373 ms - 97408[0m
-2020-02-10T10:29:17: [0mGET /images/icon/cona.png [32m200 [0m0.905 ms - 2742[0m
-2020-02-10T10:29:17: [0mGET /javascripts/admin/script.js [32m200 [0m1.867 ms - 21[0m
-2020-02-10T10:29:17: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m2.644 ms - 2750[0m
-2020-02-10T10:29:17: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m4.064 ms - 235984[0m
-2020-02-10T10:29:17: [0mGET /static/fonts/notosanskr/NotoSans-Medium.woff [32m200 [0m4.590 ms - 235812[0m
-2020-02-10T10:29:17: [0mGET /static/fonts/mdi/fonts/materialdesignicons-webfont.woff2?v=4.5.95 [32m200 [0m4.063 ms - 262440[0m
-2020-02-10T10:29:17: [0mGET /stylesheets/admin.min.css.map [32m200 [0m1.055 ms - 46805[0m
-2020-02-10T10:30:20: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:30:20: deserializeUser
-2020-02-10T10:30:20: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:30:20: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:30:20',`data`='{\"cookie\":{\"originalMaxAge\":7199999,\"expires\":\"2020-02-10T03:30:20.553Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{}}',`updatedAt`='2020-02-10 10:30:20' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:30:20: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:30:20: [0mGET /admin/accounts/logout [36m302 [0m9.395 ms - 86[0m
-2020-02-10T10:30:20: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:30:20',`updatedAt`='2020-02-10 10:30:20' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:30:20: [0mGET /admin/accounts/login [32m200 [0m11.544 ms - 3250[0m
-2020-02-10T10:30:20: [0mGET /static/css/reset.css [32m200 [0m1.936 ms - 1861[0m
-2020-02-10T10:30:20: [0mGET /stylesheets/admin.min.css [32m200 [0m1.167 ms - 35564[0m
-2020-02-10T10:30:20: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m0.975 ms - 97408[0m
-2020-02-10T10:30:20: [0mGET /javascripts/admin/script.js [32m200 [0m1.509 ms - 21[0m
-2020-02-10T10:30:20: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.268 ms - 2750[0m
-2020-02-10T10:30:20: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m2.664 ms - 235984[0m
-2020-02-10T10:30:20: [0mGET /stylesheets/admin.min.css.map [32m200 [0m1.416 ms - 46805[0m
-2020-02-10T10:31:37: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:31:37: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:31:37',`updatedAt`='2020-02-10 10:31:37' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:31:37: [0mGET /admin/accounts/login [32m200 [0m20.185 ms - 3250[0m
-2020-02-10T10:31:37: [0mGET /static/css/reset.css [32m200 [0m1.511 ms - 1861[0m
-2020-02-10T10:31:37: [0mGET /stylesheets/admin.min.css [32m200 [0m1.037 ms - 35564[0m
-2020-02-10T10:31:37: [0mGET /javascripts/admin/script.js [32m200 [0m0.859 ms - 21[0m
-2020-02-10T10:31:37: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m1.112 ms - 97408[0m
-2020-02-10T10:31:37: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m3.402 ms - 2750[0m
-2020-02-10T10:31:37: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.704 ms - 235984[0m
-2020-02-10T10:31:37: [0mGET /stylesheets/admin.min.css.map [32m200 [0m1.521 ms - 46805[0m
-2020-02-10T10:31:38: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:31:38: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:31:38',`updatedAt`='2020-02-10 10:31:38' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:31:38: [0mGET /admin/accounts/login [32m200 [0m9.984 ms - 3250[0m
-2020-02-10T10:31:38: [0mGET /static/css/reset.css [32m200 [0m1.259 ms - 1861[0m
-2020-02-10T10:31:38: [0mGET /stylesheets/admin.min.css [32m200 [0m1.026 ms - 35564[0m
-2020-02-10T10:31:38: [0mGET /javascripts/admin/script.js [32m200 [0m0.717 ms - 21[0m
-2020-02-10T10:31:38: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m1.261 ms - 97408[0m
-2020-02-10T10:31:38: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.845 ms - 2750[0m
-2020-02-10T10:31:38: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.421 ms - 235984[0m
-2020-02-10T10:31:38: [0mGET /stylesheets/admin.min.css.map [32m200 [0m1.025 ms - 46805[0m
-2020-02-10T10:43:40: Executing (default): DELETE FROM `Sessions` WHERE `expires` < '2020-02-10 10:43:40'
-2020-02-10T10:43:41: Executing (default): DELETE FROM `Sessions` WHERE `expires` < '2020-02-10 10:43:41'
-2020-02-10T10:43:44: Executing (default): DELETE FROM `Sessions` WHERE `expires` < '2020-02-10 10:43:44'
-2020-02-10T10:43:44: Executing (default): DELETE FROM `Sessions` WHERE `expires` < '2020-02-10 10:43:44'
-2020-02-10T10:48:00: Listening to requests on http://localhost:3000
-2020-02-10T10:48:00: Listening to requests on http://localhost:3000
-2020-02-10T10:48:00: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:48:00: Connection has been established successfully.
-2020-02-10T10:48:00: DB Sync complete.
-2020-02-10T10:48:00: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:48:00: Connection has been established successfully.
-2020-02-10T10:48:00: DB Sync complete.
-2020-02-10T10:48:04: Listening to requests on http://localhost:3000
-2020-02-10T10:48:04: Listening to requests on http://localhost:3000
-2020-02-10T10:48:04: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:48:04: Connection has been established successfully.
-2020-02-10T10:48:04: DB Sync complete.
-2020-02-10T10:48:04: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:48:04: Connection has been established successfully.
-2020-02-10T10:48:04: DB Sync complete.
-2020-02-10T10:48:41: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:48:41: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:48:41',`updatedAt`='2020-02-10 10:48:41' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:48:41: [0mGET /admin/accounts/login [32m200 [0m42.484 ms - 3250[0m
-2020-02-10T10:48:41: [0mGET /static/css/reset.css [32m200 [0m4.221 ms - 1861[0m
-2020-02-10T10:48:41: [0mGET /stylesheets/admin.min.css [32m200 [0m1.191 ms - 35564[0m
-2020-02-10T10:48:41: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m6.072 ms - 97408[0m
-2020-02-10T10:48:41: [0mGET /javascripts/admin/script.js [32m200 [0m9.289 ms - 21[0m
-2020-02-10T10:48:41: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m2.100 ms - 2750[0m
-2020-02-10T10:48:42: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.587 ms - 235984[0m
-2020-02-10T10:48:42: [0mGET /stylesheets/admin.min.css.map [32m200 [0m0.925 ms - 46805[0m
-2020-02-10T10:48:42: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:48:42: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:48:42',`updatedAt`='2020-02-10 10:48:42' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:48:42: [0mGET /favicon.ico [33m404 [0m51.965 ms - 7498[0m
-2020-02-10T10:48:42: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:48:42: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:48:42',`updatedAt`='2020-02-10 10:48:42' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:48:42: [0mGET /admin/accounts/login [32m200 [0m10.875 ms - 3250[0m
-2020-02-10T10:48:42: [0mGET /stylesheets/admin.min.css [32m200 [0m2.759 ms - 35564[0m
-2020-02-10T10:48:42: [0mGET /static/css/reset.css [32m200 [0m4.772 ms - 1861[0m
-2020-02-10T10:48:42: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m4.820 ms - 97408[0m
-2020-02-10T10:48:42: [0mGET /javascripts/admin/script.js [32m200 [0m0.774 ms - 21[0m
-2020-02-10T10:48:42: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m2.232 ms - 2750[0m
-2020-02-10T10:48:42: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.204 ms - 235984[0m
-2020-02-10T10:48:42: [0mGET /stylesheets/admin.min.css.map [32m200 [0m0.984 ms - 46805[0m
-2020-02-10T10:48:56: Listening to requests on http://localhost:3000
-2020-02-10T10:48:56: Listening to requests on http://localhost:3000
-2020-02-10T10:48:56: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:48:56: Connection has been established successfully.
-2020-02-10T10:48:56: DB Sync complete.
-2020-02-10T10:48:56: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:48:56: Connection has been established successfully.
-2020-02-10T10:48:56: DB Sync complete.
-2020-02-10T10:49:00: Listening to requests on http://localhost:3000
-2020-02-10T10:49:00: Listening to requests on http://localhost:3000
-2020-02-10T10:49:00: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:49:00: Connection has been established successfully.
-2020-02-10T10:49:00: DB Sync complete.
-2020-02-10T10:49:00: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:49:00: Connection has been established successfully.
-2020-02-10T10:49:00: DB Sync complete.
-2020-02-10T10:49:04: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:49:04: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:49:04',`updatedAt`='2020-02-10 10:49:04' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:49:04: [0mGET /admin/accounts/login [32m200 [0m43.893 ms - 3250[0m
-2020-02-10T10:49:04: [0mGET /static/css/reset.css [32m200 [0m3.980 ms - 1861[0m
-2020-02-10T10:49:04: [0mGET /stylesheets/admin.min.css [32m200 [0m1.111 ms - 35564[0m
-2020-02-10T10:49:04: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m8.488 ms - 97408[0m
-2020-02-10T10:49:04: [0mGET /javascripts/admin/script.js [32m200 [0m6.046 ms - 21[0m
-2020-02-10T10:49:04: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m5.878 ms - 2750[0m
-2020-02-10T10:49:04: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.532 ms - 235984[0m
-2020-02-10T10:49:04: [0mGET /stylesheets/admin.min.css.map [32m200 [0m1.790 ms - 46805[0m
-2020-02-10T10:49:05: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:49:05: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:49:05',`updatedAt`='2020-02-10 10:49:05' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:49:05: [0mGET /admin/accounts/login [32m200 [0m36.257 ms - 3250[0m
-2020-02-10T10:49:05: [0mGET /static/css/reset.css [32m200 [0m1.322 ms - 1861[0m
-2020-02-10T10:49:05: [0mGET /stylesheets/admin.min.css [32m200 [0m1.823 ms - 35564[0m
-2020-02-10T10:49:05: [0mGET /javascripts/admin/script.js [32m200 [0m0.843 ms - 21[0m
-2020-02-10T10:49:05: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m2.616 ms - 97408[0m
-2020-02-10T10:49:05: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m2.185 ms - 2750[0m
-2020-02-10T10:49:05: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.512 ms - 235984[0m
-2020-02-10T10:49:05: [0mGET /stylesheets/admin.min.css.map [32m200 [0m2.752 ms - 46805[0m
-2020-02-10T10:49:06: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:49:06: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:49:06',`updatedAt`='2020-02-10 10:49:06' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:49:06: [0mGET /admin/accounts/login [32m200 [0m52.354 ms - 3250[0m
-2020-02-10T10:49:06: [0mGET /static/css/reset.css [32m200 [0m1.633 ms - 1861[0m
-2020-02-10T10:49:06: [0mGET /stylesheets/admin.min.css [32m200 [0m1.374 ms - 35564[0m
-2020-02-10T10:49:06: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m1.233 ms - 97408[0m
-2020-02-10T10:49:06: [0mGET /javascripts/admin/script.js [32m200 [0m0.856 ms - 21[0m
-2020-02-10T10:49:06: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.112 ms - 2750[0m
-2020-02-10T10:49:06: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.187 ms - 235984[0m
-2020-02-10T10:49:06: [0mGET /stylesheets/admin.min.css.map [32m200 [0m0.953 ms - 46805[0m
-2020-02-10T10:49:10: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:49:10: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:49:10',`updatedAt`='2020-02-10 10:49:10' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:49:10: [0mGET /admin/accounts/login [32m200 [0m13.574 ms - 3250[0m
-2020-02-10T10:49:10: [0mGET /static/css/reset.css [32m200 [0m2.692 ms - 1861[0m
-2020-02-10T10:49:10: [0mGET /stylesheets/admin.min.css [32m200 [0m1.765 ms - 35564[0m
-2020-02-10T10:49:10: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m2.081 ms - 97408[0m
-2020-02-10T10:49:10: [0mGET /javascripts/admin/script.js [32m200 [0m0.990 ms - 21[0m
-2020-02-10T10:49:10: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.339 ms - 2750[0m
-2020-02-10T10:49:10: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.374 ms - 235984[0m
-2020-02-10T10:49:10: [0mGET /stylesheets/admin.min.css.map [32m200 [0m0.923 ms - 46805[0m
-2020-02-10T10:50:01: Listening to requests on http://localhost:3000
-2020-02-10T10:50:01: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:50:01: Connection has been established successfully.
-2020-02-10T10:50:01: DB Sync complete.
-2020-02-10T10:50:04: Listening to requests on http://localhost:3000
-2020-02-10T10:50:04: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:50:04: Connection has been established successfully.
-2020-02-10T10:50:04: DB Sync complete.
-2020-02-10T10:50:06: Listening to requests on http://localhost:3000
-2020-02-10T10:50:06: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:50:06: Connection has been established successfully.
-2020-02-10T10:50:06: DB Sync complete.
-2020-02-10T10:50:08: Listening to requests on http://localhost:3000
-2020-02-10T10:50:09: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:50:09: Connection has been established successfully.
-2020-02-10T10:50:09: DB Sync complete.
-2020-02-10T10:50:13: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:50:13: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:50:13',`updatedAt`='2020-02-10 10:50:13' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:50:13: [0mGET /admin/accounts/login [32m200 [0m42.189 ms - 3250[0m
-2020-02-10T10:50:13: [0mGET /static/css/reset.css [32m200 [0m3.386 ms - 1861[0m
-2020-02-10T10:50:13: [0mGET /javascripts/admin/script.js [32m200 [0m6.270 ms - 21[0m
-2020-02-10T10:50:13: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m6.593 ms - 97408[0m
-2020-02-10T10:50:13: [0mGET /stylesheets/admin.min.css [32m200 [0m76.452 ms - -[0m
-2020-02-10T10:50:13: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.237 ms - 2750[0m
-2020-02-10T10:50:13: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.224 ms - 235984[0m
-2020-02-10T10:50:13: [0mGET /stylesheets/admin.min.css.map [32m200 [0m4.970 ms - 46805[0m
-2020-02-10T10:50:19: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:50:19: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:50:19',`updatedAt`='2020-02-10 10:50:19' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:50:19: [0mGET /admin/accounts/login [32m200 [0m54.972 ms - 3250[0m
-2020-02-10T10:50:19: [0mGET /static/css/reset.css [32m200 [0m2.116 ms - 1861[0m
-2020-02-10T10:50:19: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m1.232 ms - 97408[0m
-2020-02-10T10:50:19: [0mGET /javascripts/admin/script.js [32m200 [0m2.300 ms - 21[0m
-2020-02-10T10:50:19: [0mGET /stylesheets/admin.min.css [32m200 [0m51.736 ms - -[0m
-2020-02-10T10:50:19: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.112 ms - 2750[0m
-2020-02-10T10:50:19: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.247 ms - 235984[0m
-2020-02-10T10:50:19: [0mGET /stylesheets/admin.min.css.map [32m200 [0m2.453 ms - 46755[0m
-2020-02-10T10:56:58: Listening to requests on http://localhost:3000
-2020-02-10T10:56:58: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:56:58: Connection has been established successfully.
-2020-02-10T10:56:58: DB Sync complete.
-2020-02-10T10:57:01: Listening to requests on http://localhost:3000
-2020-02-10T10:57:01: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:01: Connection has been established successfully.
-2020-02-10T10:57:01: DB Sync complete.
-2020-02-10T10:57:02: Listening to requests on http://localhost:3000
-2020-02-10T10:57:02: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:02: Connection has been established successfully.
-2020-02-10T10:57:02: DB Sync complete.
-2020-02-10T10:57:04: Listening to requests on http://localhost:3000
-2020-02-10T10:57:04: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:04: Connection has been established successfully.
-2020-02-10T10:57:04: DB Sync complete.
-2020-02-10T10:57:11: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Sessions` AS `Session` WHERE `Session`.`sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo';
-2020-02-10T10:57:11: Executing (default): UPDATE `Sessions` SET `expires`='2020-02-10 12:57:11',`updatedAt`='2020-02-10 10:57:11' WHERE `sid` = '3fS3tld57AKwfUFzjMkxa5tjZrQS29Xo'
-2020-02-10T10:57:11: [0mGET /admin/accounts/login [32m200 [0m53.968 ms - 3250[0m
-2020-02-10T10:57:11: [0mGET /static/css/reset.css [32m200 [0m3.728 ms - 1861[0m
-2020-02-10T10:57:11: [0mGET /static/js/libs/jquery-1.12.1.min.js [32m200 [0m6.593 ms - 97408[0m
-2020-02-10T10:57:11: [0mGET /javascripts/admin/script.js [32m200 [0m6.506 ms - 21[0m
-2020-02-10T10:57:11: [0mGET /stylesheets/admin.min.css [32m200 [0m55.494 ms - -[0m
-2020-02-10T10:57:11: [0mGET /static/fonts/notosanskr/notosanskr.css [32m200 [0m1.230 ms - 2750[0m
-2020-02-10T10:57:11: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [32m200 [0m1.420 ms - 235984[0m
-2020-02-10T10:57:11: [0mGET /stylesheets/admin.min.css.map [32m200 [0m2.369 ms - 46755[0m
-2020-02-10T10:57:14: Listening to requests on http://localhost:3000
-2020-02-10T10:57:14: Listening to requests on http://localhost:3000
-2020-02-10T10:57:14: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:14: Connection has been established successfully.
-2020-02-10T10:57:14: DB Sync complete.
-2020-02-10T10:57:14: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:14: Connection has been established successfully.
-2020-02-10T10:57:14: DB Sync complete.
-2020-02-10T10:57:17: Listening to requests on http://localhost:3000
-2020-02-10T10:57:17: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:17: Connection has been established successfully.
-2020-02-10T10:57:17: DB Sync complete.
-2020-02-10T10:57:18: Listening to requests on http://localhost:3000
-2020-02-10T10:57:18: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:18: Connection has been established successfully.
-2020-02-10T10:57:18: DB Sync complete.
-2020-02-10T10:57:18: Listening to requests on http://localhost:3000
-2020-02-10T10:57:18: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:18: Connection has been established successfully.
-2020-02-10T10:57:18: DB Sync complete.
-2020-02-10T10:57:45: Listening to requests on http://localhost:3000
-2020-02-10T10:57:46: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:46: Connection has been established successfully.
-2020-02-10T10:57:46: DB Sync complete.
-2020-02-10T10:57:48: Listening to requests on http://localhost:3000
-2020-02-10T10:57:48: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:48: Connection has been established successfully.
-2020-02-10T10:57:48: DB Sync complete.
-2020-02-10T10:57:51: Listening to requests on http://localhost:3000
-2020-02-10T10:57:51: Executing (default): SELECT 1+1 AS result
-2020-02-10T10:57:51: Connection has been established successfully.
-2020-02-10T10:57:51: DB Sync complete.
-2020-02-14T17:21:56: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:21:56: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:21:56: Connection has been established successfully.
-2020-02-14T17:21:56: DB Sync complete.
-2020-02-14T17:21:59: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:22:00: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:22:00: Connection has been established successfully.
-2020-02-14T17:22:00: DB Sync complete.
-2020-02-14T17:22:02: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:22:03: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:22:03: Connection has been established successfully.
-2020-02-14T17:22:03: DB Sync complete.
-2020-02-14T17:23:04: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Session` AS `Session` WHERE `Session`.`sid` = 'mkZtQUGlGnYKMEeQ9FVA5BRnSMmn8fou';
-2020-02-14T17:23:04: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Session` AS `Session` WHERE `Session`.`sid` = 'mkZtQUGlGnYKMEeQ9FVA5BRnSMmn8fou';
-2020-02-14T17:23:04: Executing (default): INSERT INTO `Session` (`sid`,`expires`,`data`,`createdAt`,`updatedAt`) VALUES ('mkZtQUGlGnYKMEeQ9FVA5BRnSMmn8fou','2020-02-14 19:23:04','{\"cookie\":{\"originalMaxAge\":7200000,\"expires\":\"2020-02-14T10:23:04.202Z\",\"httpOnly\":true,\"path\":\"/\"}}','2020-02-14 17:23:04','2020-02-14 17:23:04');
-2020-02-14T17:23:04: Executing (default): SELECT `id`, `name`, `password`, `email`, `title`, `content`, `reply_cnt`, `attach_cnt`, `createdAt`, `updatedAt` FROM `Inquirys` AS `Inquirys` ORDER BY `Inquirys`.`createdAt` DESC LIMIT 0, 20;
-2020-02-14T17:23:04: Executing (default): SELECT `id`, `name`, `date`, `title`, `link`, `content`, `createdAt`, `updatedAt` FROM `News` AS `News` ORDER BY `News`.`date` DESC LIMIT 0, 20;
-2020-02-14T17:23:04: [0mGET / [36m302 [0m16.607 ms - 54[0m
-2020-02-14T17:23:04: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Session` AS `Session` WHERE `Session`.`sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P';
-2020-02-14T17:23:04: Executing (default): INSERT INTO `Session` (`sid`,`expires`,`data`,`createdAt`,`updatedAt`) VALUES ('WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P','2020-02-14 19:23:04','{\"cookie\":{\"originalMaxAge\":7200000,\"expires\":\"2020-02-14T10:23:04.485Z\",\"httpOnly\":true,\"path\":\"/\"}}','2020-02-14 17:23:04','2020-02-14 17:23:04');
-2020-02-14T17:23:04: [0mGET /home [32m200 [0m269.927 ms - 50762[0m
-2020-02-14T17:23:04: [0mGET /static/fonts/notosanskr/notosanskr.css [36m304 [0m2.592 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/css/reset.css [36m304 [0m2.544 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/js/libs/jquery-1.12.1.min.js [36m304 [0m3.573 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/css/libs/slick/slick.css [36m304 [0m2.006 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/css/libs/slick/slick-theme.css [36m304 [0m11.067 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/fonts/mdi/css/materialdesignicons.min.css [36m304 [0m5.755 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/common/logo_2.png [36m304 [0m0.637 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/common/logo.png [36m304 [0m0.678 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/js/libs/jquery.easing.min.js [36m304 [0m0.760 ms - -[0m
-2020-02-14T17:23:04: [0mGET /stylesheets/common.min.css [32m200 [0m95.907 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/js/libs/waypoints.min.js [36m304 [0m0.958 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/js/libs/slick.min.js [36m304 [0m1.001 ms - -[0m
-2020-02-14T17:23:04: [0mGET /javascripts/common.js [36m304 [0m0.831 ms - -[0m
-2020-02-14T17:23:04: [0mGET /javascripts/ui.js [36m304 [0m0.778 ms - -[0m
-2020-02-14T17:23:04: [0mGET /stylesheets/contents.min.css [32m200 [0m153.407 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/icon/call_ringing.png [36m304 [0m0.802 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/icon/call_ringing_black.png [36m304 [0m0.716 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/video01.jpg [36m304 [0m0.495 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/video02.jpg [36m304 [0m0.661 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/video03.jpg [36m304 [0m0.926 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/video04.jpg [36m304 [0m0.534 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/icon/cona.png [36m304 [0m0.662 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/sns/medium.png [36m304 [0m1.940 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/sns/kakao.png [36m304 [0m1.106 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/sns/twitter.png [36m304 [0m0.413 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/sns/insta.png [36m304 [0m0.333 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/sns/tel.png [36m304 [0m0.439 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/sns/youtube.png [36m304 [0m0.336 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/common/bnr_footer.gif [36m304 [0m0.389 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/visual_bg01.jpg [36m304 [0m0.457 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/icon_alternative_1.png [36m304 [0m0.739 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/visual_bg02.jpg [36m304 [0m0.452 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/icon_alternative_2.png [36m304 [0m0.714 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/icon_alternative_3.png [36m304 [0m0.447 ms - -[0m
-2020-02-14T17:23:04: [0mGET /images/main/icon_alternative_4.png [36m304 [0m0.361 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [36m304 [0m1.131 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/fonts/notosanskr/NotoSans-Light.woff [36m304 [0m1.561 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/fonts/notosanskr/NotoSans-Medium.woff [36m304 [0m4.087 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/fonts/mdi/fonts/materialdesignicons-webfont.woff2?v=4.5.95 [36m304 [0m2.037 ms - -[0m
-2020-02-14T17:23:04: [0mGET /static/fonts/notosanskr/NotoSans-Bold.woff [36m304 [0m2.671 ms - -[0m
-2020-02-14T17:23:05: [0mGET /images/icon/btn_prev.png [36m304 [0m0.477 ms - -[0m
-2020-02-14T17:23:05: [0mGET /images/icon/btn_next.png [36m304 [0m1.006 ms - -[0m
-2020-02-14T17:23:05: [0mGET /static/fonts/notosanskr/NotoSans-Thin.woff [36m304 [0m0.708 ms - -[0m
-2020-02-14T17:23:09: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:23:09: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:23:10: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:23:10: Connection has been established successfully.
-2020-02-14T17:23:10: DB Sync complete.
-2020-02-14T17:23:10: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:23:10: Connection has been established successfully.
-2020-02-14T17:23:10: DB Sync complete.
-2020-02-14T17:23:13: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:23:13: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:23:13: Connection has been established successfully.
-2020-02-14T17:23:13: DB Sync complete.
-2020-02-14T17:23:16: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Session` AS `Session` WHERE `Session`.`sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P';
-2020-02-14T17:23:16: Executing (default): SELECT `id`, `name`, `password`, `email`, `title`, `content`, `reply_cnt`, `attach_cnt`, `createdAt`, `updatedAt` FROM `Inquirys` AS `Inquirys` ORDER BY `Inquirys`.`createdAt` DESC LIMIT 0, 20;
-2020-02-14T17:23:16: Executing (default): SELECT `id`, `name`, `date`, `title`, `link`, `content`, `createdAt`, `updatedAt` FROM `News` AS `News` ORDER BY `News`.`date` DESC LIMIT 0, 20;
-2020-02-14T17:23:17: Executing (default): UPDATE `Session` SET `expires`='2020-02-14 19:23:17',`updatedAt`='2020-02-14 17:23:17' WHERE `sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P'
-2020-02-14T17:23:17: [0mGET /home [32m200 [0m186.029 ms - 50735[0m
-2020-02-14T17:23:17: [0mGET /static/fonts/notosanskr/notosanskr.css [36m304 [0m1.973 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/css/reset.css [36m304 [0m1.404 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/fonts/mdi/css/materialdesignicons.min.css [36m304 [0m1.744 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/css/libs/slick/slick-theme.css [36m304 [0m7.628 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/js/libs/jquery-1.12.1.min.js [36m304 [0m3.238 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/css/libs/slick/slick.css [36m304 [0m9.929 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/common/logo.png [36m304 [0m0.465 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/common/logo_2.png [36m304 [0m0.754 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/js/libs/jquery.easing.min.js [36m304 [0m0.658 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/js/libs/waypoints.min.js [36m304 [0m0.502 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/js/libs/slick.min.js [36m304 [0m0.623 ms - -[0m
-2020-02-14T17:23:17: [0mGET /javascripts/common.js [36m304 [0m1.237 ms - -[0m
-2020-02-14T17:23:17: [0mGET /stylesheets/common.min.css [32m200 [0m56.728 ms - -[0m
-2020-02-14T17:23:17: [0mGET /javascripts/ui.js [36m304 [0m0.820 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/icon/call_ringing.png [36m304 [0m0.382 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/icon/call_ringing_black.png [36m304 [0m0.498 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/video01.jpg [36m304 [0m0.957 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/video02.jpg [36m304 [0m0.499 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/video03.jpg [36m304 [0m0.528 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/video04.jpg [36m304 [0m0.413 ms - -[0m
-2020-02-14T17:23:17: [0mGET /stylesheets/contents.min.css [32m200 [0m100.476 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/icon/cona.png [36m304 [0m0.382 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/sns/medium.png [36m304 [0m0.389 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/sns/kakao.png [36m304 [0m0.391 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/sns/twitter.png [36m304 [0m0.324 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/sns/insta.png [36m304 [0m0.703 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/sns/tel.png [36m304 [0m0.534 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/common/bnr_footer.gif [36m304 [0m0.649 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/sns/youtube.png [36m304 [0m0.582 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/visual_bg01.jpg [36m304 [0m0.443 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/visual_bg02.jpg [36m304 [0m0.409 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/icon_alternative_1.png [36m304 [0m0.359 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/icon_alternative_2.png [36m304 [0m0.334 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/icon_alternative_4.png [36m304 [0m0.392 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/main/icon_alternative_3.png [36m304 [0m0.558 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [36m304 [0m0.921 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/fonts/notosanskr/NotoSans-Light.woff [36m304 [0m0.880 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/fonts/notosanskr/NotoSans-Medium.woff [36m304 [0m0.850 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/fonts/notosanskr/NotoSans-Bold.woff [36m304 [0m0.897 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/fonts/mdi/fonts/materialdesignicons-webfont.woff2?v=4.5.95 [36m304 [0m0.666 ms - -[0m
-2020-02-14T17:23:17: [0mGET /static/fonts/notosanskr/NotoSans-Thin.woff [36m304 [0m0.605 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/icon/btn_prev.png [36m304 [0m0.407 ms - -[0m
-2020-02-14T17:23:17: [0mGET /images/icon/btn_next.png [36m304 [0m0.335 ms - -[0m
-2020-02-14T17:23:21: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:23:21: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:23:21: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:23:21: Connection has been established successfully.
-2020-02-14T17:23:21: DB Sync complete.
-2020-02-14T17:23:21: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:23:21: Connection has been established successfully.
-2020-02-14T17:23:21: DB Sync complete.
-2020-02-14T17:23:26: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:23:26: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:23:26: Connection has been established successfully.
-2020-02-14T17:23:26: DB Sync complete.
-2020-02-14T17:29:10: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:29:10: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:29:10: Connection has been established successfully.
-2020-02-14T17:29:10: DB Sync complete.
-2020-02-14T17:29:13: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:29:13: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:29:13: Connection has been established successfully.
-2020-02-14T17:29:13: DB Sync complete.
-2020-02-14T17:29:16: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:29:16: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:29:16: Connection has been established successfully.
-2020-02-14T17:29:16: DB Sync complete.
-2020-02-14T17:32:37: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Session` AS `Session` WHERE `Session`.`sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P';
-2020-02-14T17:32:37: Executing (default): SELECT `id`, `name`, `password`, `email`, `title`, `content`, `reply_cnt`, `attach_cnt`, `createdAt`, `updatedAt` FROM `Inquirys` AS `Inquirys` ORDER BY `Inquirys`.`createdAt` DESC LIMIT 0, 20;
-2020-02-14T17:32:37: Executing (default): SELECT `id`, `name`, `date`, `title`, `link`, `content`, `createdAt`, `updatedAt` FROM `News` AS `News` ORDER BY `News`.`date` DESC LIMIT 0, 20;
-2020-02-14T17:32:37: Executing (default): UPDATE `Session` SET `expires`='2020-02-14 19:32:37',`updatedAt`='2020-02-14 17:32:37' WHERE `sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P'
-2020-02-14T17:32:37: [0mGET /home [36m304 [0m223.343 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/fonts/notosanskr/notosanskr.css [36m304 [0m2.275 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/css/reset.css [36m304 [0m1.118 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/css/libs/slick/slick.css [36m304 [0m1.241 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/css/libs/slick/slick-theme.css [36m304 [0m1.958 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/fonts/mdi/css/materialdesignicons.min.css [36m304 [0m0.983 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/js/libs/jquery-1.12.1.min.js [36m304 [0m0.619 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/common/logo.png [36m304 [0m0.488 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/common/logo_2.png [36m304 [0m2.502 ms - -[0m
-2020-02-14T17:32:37: [0mGET /stylesheets/common.min.css [32m200 [0m54.819 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/js/libs/jquery.easing.min.js [36m304 [0m0.657 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/js/libs/waypoints.min.js [36m304 [0m8.146 ms - -[0m
-2020-02-14T17:32:37: [0mGET /stylesheets/contents.min.css [32m200 [0m102.817 ms - -[0m
-2020-02-14T17:32:37: [0mGET /javascripts/common.js [36m304 [0m0.543 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/js/libs/slick.min.js [36m304 [0m1.209 ms - -[0m
-2020-02-14T17:32:37: [0mGET /javascripts/ui.js [36m304 [0m0.746 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/icon/call_ringing.png [36m304 [0m0.624 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/video01.jpg [36m304 [0m0.347 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/icon/call_ringing_black.png [36m304 [0m0.432 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/video03.jpg [36m304 [0m0.699 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/video04.jpg [36m304 [0m0.975 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/video02.jpg [36m304 [0m2.974 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/icon/cona.png [36m304 [0m0.541 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/sns/kakao.png [36m304 [0m2.096 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/sns/medium.png [36m304 [0m2.352 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/sns/twitter.png [36m304 [0m0.436 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/sns/tel.png [36m304 [0m0.512 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/sns/insta.png [36m304 [0m0.611 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/sns/youtube.png [36m304 [0m0.721 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/common/bnr_footer.gif [36m304 [0m0.454 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/visual_bg01.jpg [36m304 [0m1.387 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/visual_bg02.jpg [36m304 [0m1.860 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/icon_alternative_1.png [36m304 [0m1.451 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/icon_alternative_2.png [36m304 [0m1.630 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/icon_alternative_3.png [36m304 [0m1.706 ms - -[0m
-2020-02-14T17:32:37: [0mGET /images/main/icon_alternative_4.png [36m304 [0m0.586 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [36m304 [0m1.701 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/fonts/notosanskr/NotoSans-Light.woff [36m304 [0m3.614 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/fonts/notosanskr/NotoSans-Medium.woff [36m304 [0m2.339 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/fonts/mdi/fonts/materialdesignicons-webfont.woff2?v=4.5.95 [36m304 [0m1.612 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/fonts/notosanskr/NotoSans-Bold.woff [36m304 [0m3.051 ms - -[0m
-2020-02-14T17:32:37: [0mGET /static/fonts/notosanskr/NotoSans-Thin.woff [36m304 [0m0.802 ms - -[0m
-2020-02-14T17:32:38: [0mGET /images/icon/btn_next.png [36m304 [0m0.774 ms - -[0m
-2020-02-14T17:32:38: [0mGET /images/icon/btn_prev.png [36m304 [0m0.908 ms - -[0m
-2020-02-14T17:32:48: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Session` AS `Session` WHERE `Session`.`sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P';
-2020-02-14T17:32:48: Executing (default): SELECT `id`, `name`, `password`, `email`, `title`, `content`, `reply_cnt`, `attach_cnt`, `createdAt`, `updatedAt` FROM `Inquirys` AS `Inquirys` ORDER BY `Inquirys`.`createdAt` DESC LIMIT 0, 20;
-2020-02-14T17:32:48: Executing (default): SELECT `id`, `name`, `date`, `title`, `link`, `content`, `createdAt`, `updatedAt` FROM `News` AS `News` ORDER BY `News`.`date` DESC LIMIT 0, 20;
-2020-02-14T17:32:49: Executing (default): UPDATE `Session` SET `expires`='2020-02-14 19:32:49',`updatedAt`='2020-02-14 17:32:49' WHERE `sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P'
-2020-02-14T17:32:49: [0mGET /home [32m200 [0m175.567 ms - 50762[0m
-2020-02-14T17:32:49: [0mGET /static/fonts/notosanskr/notosanskr.css [36m304 [0m0.935 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/fonts/mdi/css/materialdesignicons.min.css [36m304 [0m1.369 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/css/reset.css [36m304 [0m1.073 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/css/libs/slick/slick.css [36m304 [0m0.925 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/css/libs/slick/slick-theme.css [36m304 [0m0.685 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/js/libs/jquery-1.12.1.min.js [36m304 [0m0.703 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/common/logo.png [36m304 [0m0.463 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/common/logo_2.png [36m304 [0m0.455 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/js/libs/jquery.easing.min.js [36m304 [0m0.624 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/js/libs/waypoints.min.js [36m304 [0m0.798 ms - -[0m
-2020-02-14T17:32:49: [0mGET /stylesheets/common.min.css [32m200 [0m44.614 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/js/libs/slick.min.js [36m304 [0m0.781 ms - -[0m
-2020-02-14T17:32:49: [0mGET /javascripts/common.js [36m304 [0m0.476 ms - -[0m
-2020-02-14T17:32:49: [0mGET /javascripts/ui.js [36m304 [0m0.404 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/icon/call_ringing.png [36m304 [0m1.826 ms - -[0m
-2020-02-14T17:32:49: [0mGET /stylesheets/contents.min.css [32m200 [0m84.758 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/icon/call_ringing_black.png [36m304 [0m0.418 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/video01.jpg [36m304 [0m1.922 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/video02.jpg [36m304 [0m0.420 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/video03.jpg [36m304 [0m0.429 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/video04.jpg [36m304 [0m0.597 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/icon/cona.png [36m304 [0m0.534 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/sns/kakao.png [36m304 [0m0.547 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/sns/medium.png [36m304 [0m0.415 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/sns/twitter.png [36m304 [0m0.499 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/sns/insta.png [36m304 [0m0.417 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/sns/tel.png [36m304 [0m0.536 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/sns/youtube.png [36m304 [0m1.043 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/common/bnr_footer.gif [36m304 [0m0.416 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/visual_bg01.jpg [36m304 [0m0.471 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/visual_bg02.jpg [36m304 [0m0.419 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/icon_alternative_1.png [36m304 [0m1.110 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/icon_alternative_2.png [36m304 [0m1.973 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/icon_alternative_4.png [36m304 [0m1.548 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/main/icon_alternative_3.png [36m304 [0m2.608 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [36m304 [0m0.739 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/fonts/notosanskr/NotoSans-Light.woff [36m304 [0m0.680 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/fonts/notosanskr/NotoSans-Medium.woff [36m304 [0m0.735 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/fonts/mdi/fonts/materialdesignicons-webfont.woff2?v=4.5.95 [36m304 [0m0.771 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/fonts/notosanskr/NotoSans-Bold.woff [36m304 [0m0.587 ms - -[0m
-2020-02-14T17:32:49: [0mGET /static/fonts/notosanskr/NotoSans-Thin.woff [36m304 [0m0.684 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/icon/btn_next.png [36m304 [0m0.446 ms - -[0m
-2020-02-14T17:32:49: [0mGET /images/icon/btn_prev.png [36m304 [0m0.500 ms - -[0m
-2020-02-14T17:33:17: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Session` AS `Session` WHERE `Session`.`sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P';
-2020-02-14T17:33:17: Executing (default): SELECT `id`, `name`, `password`, `email`, `title`, `content`, `reply_cnt`, `attach_cnt`, `createdAt`, `updatedAt` FROM `Inquirys` AS `Inquirys` ORDER BY `Inquirys`.`createdAt` DESC LIMIT 0, 20;
-2020-02-14T17:33:17: Executing (default): SELECT `id`, `name`, `date`, `title`, `link`, `content`, `createdAt`, `updatedAt` FROM `News` AS `News` ORDER BY `News`.`date` DESC LIMIT 0, 20;
-2020-02-14T17:33:18: Executing (default): UPDATE `Session` SET `expires`='2020-02-14 19:33:18',`updatedAt`='2020-02-14 17:33:18' WHERE `sid` = 'WrIBZfWYE8EE2vPiH8F0nnve43PjDy4P'
-2020-02-14T17:33:18: [0mGET /home [32m200 [0m91.164 ms - 50735[0m
-2020-02-14T17:33:18: [0mGET /static/fonts/notosanskr/notosanskr.css [36m304 [0m1.067 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/fonts/mdi/css/materialdesignicons.min.css [36m304 [0m1.381 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/css/libs/slick/slick.css [36m304 [0m1.148 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/css/reset.css [36m304 [0m2.022 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/css/libs/slick/slick-theme.css [36m304 [0m0.667 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/js/libs/jquery-1.12.1.min.js [36m304 [0m0.690 ms - -[0m
-2020-02-14T17:33:18: [0mGET /stylesheets/contents.min.css [32m200 [0m4.098 ms - 69316[0m
-2020-02-14T17:33:18: [0mGET /images/common/logo.png [36m304 [0m0.614 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/common/logo_2.png [36m304 [0m0.444 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/js/libs/jquery.easing.min.js [36m304 [0m0.715 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/js/libs/waypoints.min.js [36m304 [0m1.005 ms - -[0m
-2020-02-14T17:33:18: [0mGET /stylesheets/common.min.css [32m200 [0m48.721 ms - -[0m
-2020-02-14T17:33:18: [0mGET /javascripts/common.js [36m304 [0m0.582 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/js/libs/slick.min.js [36m304 [0m2.324 ms - -[0m
-2020-02-14T17:33:18: [0mGET /javascripts/ui.js [36m304 [0m1.734 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/icon/call_ringing_black.png [36m304 [0m1.667 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/icon/call_ringing.png [36m304 [0m2.615 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/video01.jpg [36m304 [0m0.692 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/video03.jpg [36m304 [0m0.381 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/video02.jpg [36m304 [0m0.771 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/video04.jpg [36m304 [0m0.589 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/icon/cona.png [36m304 [0m0.702 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/sns/medium.png [36m304 [0m0.883 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/sns/kakao.png [36m304 [0m1.108 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/sns/twitter.png [36m304 [0m0.537 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/sns/insta.png [36m304 [0m0.505 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/sns/tel.png [36m304 [0m1.058 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/sns/youtube.png [36m304 [0m0.673 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/common/bnr_footer.gif [36m304 [0m0.504 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/visual_bg01.jpg [36m304 [0m0.687 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/visual_bg02.jpg [36m304 [0m0.746 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/icon_alternative_3.png [36m304 [0m0.635 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/icon_alternative_1.png [36m304 [0m0.812 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/icon_alternative_4.png [36m304 [0m0.431 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/main/icon_alternative_2.png [36m304 [0m0.861 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [36m304 [0m0.839 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/fonts/notosanskr/NotoSans-Light.woff [36m304 [0m0.636 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/fonts/notosanskr/NotoSans-Medium.woff [36m304 [0m0.602 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/fonts/mdi/fonts/materialdesignicons-webfont.woff2?v=4.5.95 [36m304 [0m0.905 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/fonts/notosanskr/NotoSans-Bold.woff [36m304 [0m0.928 ms - -[0m
-2020-02-14T17:33:18: [0mGET /static/fonts/notosanskr/NotoSans-Thin.woff [36m304 [0m0.728 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/icon/btn_prev.png [36m304 [0m0.498 ms - -[0m
-2020-02-14T17:33:18: [0mGET /images/icon/btn_next.png [36m304 [0m0.422 ms - -[0m
-2020-02-14T17:50:43: Listening to requests on http://localhost:3000 in development mode
-2020-02-14T17:50:43: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:50:43: Connection has been established successfully.
-2020-02-14T17:50:43: DB Sync complete.
-2020-02-14T17:50:46: Listening to requests on http://localhost:3000 in development mode
-2020-02-14T17:50:46: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:50:46: Connection has been established successfully.
-2020-02-14T17:50:46: DB Sync complete.
-2020-02-14T17:50:49: Listening to requests on http://localhost:3000 in development mode
-2020-02-14T17:50:49: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:50:49: Connection has been established successfully.
-2020-02-14T17:50:49: DB Sync complete.
-2020-02-14T17:51:49: Listening to requests on http://localhost:3000 in development mode
-2020-02-14T17:51:50: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:51:50: Connection has been established successfully.
-2020-02-14T17:51:50: DB Sync complete.
-2020-02-14T17:51:53: Listening to requests on http://localhost:3000 in development mode
-2020-02-14T17:51:53: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:51:53: Connection has been established successfully.
-2020-02-14T17:51:53: DB Sync complete.
-2020-02-14T17:51:56: Listening to requests on http://localhost:3000 in development mode
-2020-02-14T17:51:56: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:51:56: Connection has been established successfully.
-2020-02-14T17:51:56: DB Sync complete.
-2020-02-14T17:52:22: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:52:23: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:52:23: Connection has been established successfully.
-2020-02-14T17:52:23: DB Sync complete.
-2020-02-14T17:52:26: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:52:26: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:52:26: Connection has been established successfully.
-2020-02-14T17:52:26: DB Sync complete.
-2020-02-14T17:52:29: Listening to requests on http://localhost:3000 in production mode
-2020-02-14T17:52:29: Executing (default): SELECT 1+1 AS result
-2020-02-14T17:52:29: Connection has been established successfully.
-2020-02-14T17:52:29: DB Sync complete.
+2020-02-17T17:34:56: Executing (default): SELECT `sid`, `expires`, `data`, `createdAt`, `updatedAt` FROM `Session` AS `Session` WHERE `Session`.`sid` = 'kYkS_bOf_4S3uWpjqCc7YLN-qFJns4y9';
+2020-02-17T17:34:56: Executing (default): SELECT `id`, `name`, `password`, `email`, `title`, `content`, `reply_cnt`, `attach_cnt`, `createdAt`, `updatedAt` FROM `Inquirys` AS `Inquirys` ORDER BY `Inquirys`.`createdAt` DESC LIMIT 0, 20;
+2020-02-17T17:34:56: Executing (default): SELECT `id`, `name`, `date`, `title`, `link`, `content`, `createdAt`, `updatedAt` FROM `News` AS `News` ORDER BY `News`.`date` DESC LIMIT 0, 20;
+2020-02-17T17:34:57: Executing (default): UPDATE `Session` SET `expires`='2020-02-17 19:34:57',`updatedAt`='2020-02-17 17:34:57' WHERE `sid` = 'kYkS_bOf_4S3uWpjqCc7YLN-qFJns4y9'
+2020-02-17T17:34:57: [0mGET /home [32m200 [0m325.923 ms - 60588[0m
+2020-02-17T17:34:57: [0mGET /static/fonts/notosanskr/notosanskr.css [36m304 [0m1.298 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/css/reset.css [36m304 [0m2.072 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/css/libs/slick/slick.css [36m304 [0m4.504 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/css/libs/slick/slick-theme.css [36m304 [0m3.446 ms - -[0m
+2020-02-17T17:34:57: [0mGET /stylesheets/common.min.css [36m304 [0m2.563 ms - -[0m
+2020-02-17T17:34:57: [0mGET /stylesheets/contents.min.css [36m304 [0m3.627 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/fonts/mdi/css/materialdesignicons.min.css [36m304 [0m5.392 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/js/libs/jquery-1.12.1.min.js [36m304 [0m2.421 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/common/logo.png [36m304 [0m2.201 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/common/logo_2.png [36m304 [0m0.643 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/js/libs/jquery.easing.min.js [36m304 [0m0.822 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/js/libs/waypoints.min.js [36m304 [0m0.709 ms - -[0m
+2020-02-17T17:34:57: [0mGET /javascripts/common.js [36m304 [0m2.503 ms - -[0m
+2020-02-17T17:34:57: [0mGET /javascripts/ui.js [36m304 [0m2.749 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/js/libs/slick.min.js [36m304 [0m4.392 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/icon/call_ringing.png [36m304 [0m1.487 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/icon/call_ringing_black.png [36m304 [0m2.430 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/main/video01.jpg [32m200 [0m6.839 ms - 37890[0m
+2020-02-17T17:34:57: [0mGET /images/main/video02.jpg [32m200 [0m8.485 ms - 15302[0m
+2020-02-17T17:34:57: [0mGET /images/main/video04.jpg [32m200 [0m6.763 ms - 17318[0m
+2020-02-17T17:34:57: [0mGET /images/main/video03.jpg [32m200 [0m8.976 ms - 17513[0m
+2020-02-17T17:34:57: [0mGET /images/icon/cona.png [36m304 [0m1.728 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/sns/medium.png [36m304 [0m0.542 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/sns/kakao.png [36m304 [0m1.033 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/sns/twitter.png [36m304 [0m1.007 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/sns/insta.png [36m304 [0m3.147 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/sns/tel.png [36m304 [0m2.491 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/sns/youtube.png [36m304 [0m1.993 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/common/bnr_footer.gif [36m304 [0m3.079 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/fonts/notosanskr/NotoSans-Light.woff [36m304 [0m4.195 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/fonts/notosanskr/NotoSans-Regular.woff [36m304 [0m5.529 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/fonts/notosanskr/NotoSans-Medium.woff [36m304 [0m4.546 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/fonts/mdi/fonts/materialdesignicons-webfont.woff2?v=4.5.95 [36m304 [0m3.720 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/fonts/notosanskr/NotoSans-Bold.woff [36m304 [0m3.554 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/main/visual_bg01.jpg [36m304 [0m0.915 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/main/visual_bg02.jpg [36m304 [0m0.852 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/main/icon_alternative_1.png [36m304 [0m1.338 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/main/icon_alternative_2.png [36m304 [0m1.477 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/main/icon_alternative_3.png [36m304 [0m2.509 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/main/icon_alternative_4.png [36m304 [0m1.400 ms - -[0m
+2020-02-17T17:34:57: [0mGET /static/fonts/notosanskr/NotoSans-Thin.woff [36m304 [0m1.118 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/icon/btn_prev.png [36m304 [0m1.137 ms - -[0m
+2020-02-17T17:34:57: [0mGET /images/icon/btn_next.png [36m304 [0m1.168 ms - -[0m
+2020-02-17T17:36:00: [0mGET /stylesheets/common.min.css [36m304 [0m0.782 ms - -[0m
+2020-02-17T17:36:00: [0mGET /static/css/reset.css [36m304 [0m3.012 ms - -[0m
+2020-02-17T17:36:00: [0mGET /static/css/libs/slick/slick.css [36m304 [0m2.472 ms - -[0m
+2020-02-17T17:36:00: [0mGET /static/css/libs/slick/slick-theme.css [36m304 [0m2.727 ms - -[0m
+2020-02-17T17:36:00: [0mGET /static/fonts/notosanskr/notosanskr.css [36m304 [0m6.813 ms - -[0m
+2020-02-17T17:36:00: [0mGET /stylesheets/contents.min.css [36m304 [0m1.421 ms - -[0m
+2020-02-17T17:36:00: [0mGET /static/fonts/mdi/css/materialdesignicons.min.css [36m304 [0m8.243 ms - -[0m
+2020-02-17T17:36:00: [0mGET /stylesheets/contents.min.css.map [32m200 [0m3.673 ms - 78643[0m
+2020-02-17T17:36:00: [0mGET /stylesheets/common.min.css.map [32m200 [0m5.970 ms - 42949[0m
+2020-02-17T17:36:02: [0mGET /images/main/visual_bg01.jpg [32m200 [0m1.542 ms - 391079[0m
+2020-02-17T17:36:02: [0mGET /images/main/visual_bg02.jpg [32m200 [0m1.105 ms - 744884[0m
+2020-02-17T17:36:02: [0mGET /images/main/icon_alternative_1.png [32m200 [0m3.024 ms - 5945[0m
+2020-02-17T17:36:02: [0mGET /images/main/icon_alternative_3.png [32m200 [0m2.085 ms - 6278[0m
+2020-02-17T17:36:02: [0mGET /images/main/icon_alternative_2.png [32m200 [0m5.598 ms - 6358[0m
+2020-02-17T17:36:02: [0mGET /images/main/icon_alternative_4.png [32m200 [0m4.245 ms - 6876[0m
+2020-02-17T17:36:02: [0mGET /static/fonts/notosanskr/NotoSans-Black.woff [36m304 [0m0.849 ms - -[0m
+2020-02-17T17:36:02: [0mGET /images/main/video04.jpg [32m200 [0m1.434 ms - 17318[0m
+2020-02-17T17:36:02: [0mGET /images/main/video02.jpg [32m200 [0m1.341 ms - 15302[0m
+2020-02-17T17:36:02: [0mGET /images/main/video03.jpg [32m200 [0m1.836 ms - 17513[0m
+2020-02-17T17:36:02: [0mGET /images/main/video01.jpg [32m200 [0m2.280 ms - 37890[0m
+2020-02-17T17:37:32: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 17:37:32'
+2020-02-17T17:37:35: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 17:37:35'
+2020-02-17T17:37:38: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 17:37:38'
+2020-02-17T17:52:32: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 17:52:32'
+2020-02-17T17:52:35: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 17:52:35'
+2020-02-17T17:52:38: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 17:52:38'
+2020-02-17T18:07:29: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 18:07:29'
+2020-02-17T18:07:31: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 18:07:31'
+2020-02-17T18:07:34: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 18:07:34'
+2020-02-17T18:22:29: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 18:22:29'
+2020-02-17T18:22:31: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 18:22:31'
+2020-02-17T18:22:34: Executing (default): DELETE FROM `Session` WHERE `expires` < '2020-02-17 18:22:34'
