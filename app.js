@@ -175,6 +175,7 @@ app.use(function(req, res, next) {
     app.locals.req_path = req.path
     app.locals.req_user = req.user
     app.locals.req_query = req.query
+    app.locals.env = req.app.get('env')
     //app.locals.urlparameter = req.url; //현재 url 정보를 보내고 싶으면 이와같이 셋팅
     //app.locals.userData = req.user; //사용 정보를 보내고 싶으면 이와같이 셋팅
     next()
