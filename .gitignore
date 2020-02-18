@@ -67,3 +67,4 @@ uploads/
 public/stylesheets/
 yarn.lock
 package.lock.json
+log/
