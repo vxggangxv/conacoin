@@ -8,8 +8,10 @@
     </h1>
     <ul class="sidebar-menu cf">
         {% from "admin/macro/link.html" import link %}
-        {{ link( '/admin/inquirys/' , '실시간 문의' , req_path,  'mdi-message-text-outline') }}
-        {{ link( '/admin/news/' , '뉴스업로드' , req_path,  'mdi-newspaper-variant-multiple-outline') }}
+        {{ link( '/admin/inquirys' , '실시간 문의' , req_path,  'mdi-message-text-outline') }}
+        {{ link( '/admin/news' , '뉴스업로드' , req_path,  'mdi-newspaper-variant-multiple-outline') }}
+        <li class="menu-section">SITE INFO</li>
+        {{ link( '/admin/siteinfo/detail/1' , '사이트 정보' , req_path,  'mdi-information-outline') }}
     </ul>
     <div class="cs-wrapper">
         <p class="title">고객지원</p>

@@ -246,11 +246,50 @@ exports.get_inquirys_reply_delete = async (req, res) => {
 }
 
 // 문의하기 정렬
-exports.post_inquirys_sort = async (req, res) => {
+// exports.get_inquirys_sort = async (req, res) => {
+//     try {
+//         let {
+//             sort
+//         } = req.body;
+//         let order = [];
+//         if (sort !== 'createdAt') {
+//             order = [
+//                 [sort, 'desc'],
+//                 ['createdAt', 'desc']
+//             ]
+//         } else {
+//             order = [
+//                 ['createdAt', 'desc']
+//             ]
+//         }
+//         const [inquirys, totalCount] = await Promise.all([
+//             models.Inquirys.findAll({
+//                 limit: req.query.limit,
+//                 offset: req.offset,
+//                 order
+//             }),
+//             models.Inquirys.count()
+//         ]);
+//         const pageCount = Math.ceil(totalCount / req.query.limit);
+//         const pages = paginate.getArrayPages(req)(5, pageCount, req.query.page);
+//         const limit = req.query.limit;
+
+//         res.render('admin/inquirys/list.html', {
+//             inquirys,
+//             pageCount,
+//             pages,
+//             limit,
+//             sort
+//         });
+//     } catch (e) {
+//         console.log(e);
+//     }
+// }
+exports.get_inquirys_sort = async (req, res) => {
     try {
         let {
             sort
-        } = req.body;
+        } = req.query;
         let order = [];
         if (sort !== 'createdAt') {
             order = [
@@ -372,6 +411,58 @@ exports.get_news_delete = async (req, res) => {
             }
         });
         res.redirect('/admin/news');
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+// 사이트정보
+exports.get_siteinfo_write = async (req, res) => {
+    res.render('admin/siteinfo/edit.html', {
+        csrfToken: req.csrfToken()
+    });
+}
+exports.post_siteinfo_write = async (req, res) => {
+    try {
+        await models.SiteInfo.create(req.body);
+        res.redirect(`/admin/siteinfo/detail/1`)
+    } catch (e) {
+        console.log(e);
+    }
+}
+exports.get_siteinfo_detail = async (req, res) => {
+    try {
+        const siteinfo = await models.SiteInfo.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.render('admin/siteinfo/detail.html', {
+            siteinfo
+        })
+    } catch (e) {
+        console.log(e);
+    }
+}
+exports.get_siteinfo_edit = async (req, res) => {
+    const siteinfo = await models.SiteInfo.findOne({
+        where: {
+            id: req.params.id,
+        }
+    })
+    res.render('admin/siteinfo/edit.html', {
+        csrfToken: req.csrfToken(),
+        siteinfo
+    });
+}
+exports.post_siteinfo_edit = async (req, res) => {
+    try {
+        await models.SiteInfo.update(req.body, {
+            where: {
+                id: req.params.id,
+            }
+        });
+        res.redirect(`/admin/siteinfo/detail/${req.params.id}`);
     } catch (e) {
         console.log(e);
     }

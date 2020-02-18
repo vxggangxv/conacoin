@@ -617,6 +617,16 @@ $card-pd: 25px;
                         }
                     }
                 }
+
+                &.siteinfo {
+                    tbody {
+                        tr {
+                            .label {
+                                min-width: 95px;
+                            }
+                        }
+                    }
+                }
             }
 
             .edit-tbl {
@@ -638,6 +648,10 @@ $card-pd: 25px;
                     &.w-type1 {
                         width: 85%;
                         // width: calc(100% - 30px - #{$card-pd});
+                    }
+
+                    &.w-type2 {
+                        width: 50%;
                     }
                 }
 
@@ -702,6 +716,16 @@ $card-pd: 25px;
                         &.bor-no {
                             td {
                                 padding: 5px $card-pd;
+                            }
+                        }
+                    }
+                }
+
+                &.siteinfo {
+                    tbody {
+                        tr {
+                            .label {
+                                min-width: 95px;
                             }
                         }
                     }

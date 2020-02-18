@@ -48,7 +48,12 @@
                                 <td class="name">{{ inquiry.name }}</td>
                                 <td class="title">
                                     <!--<a href="/support/inquirys/detail/{{ inquiry.id }}">{{ inquiry.title }}</a>-->
-                                    <a href="javascript:;" data-link="{{ inquiry.id }}" data-toggle="modal" data-target="support-inquirys-pw">{{ inquiry.title }}</a>
+                                    <a href="javascript:;" data-link="{{ inquiry.id }}" data-toggle="modal" data-target="support-inquirys-pw">
+                                        {% if inquiry.password %}
+                                            <i class="mdi mdi-lock"></i>
+                                        {% endif %}
+                                        {{ inquiry.title }}
+                                    </a>
                                 </td>
                                 <td>
                                     {% if inquiry.reply_cnt %}

@@ -13,11 +13,13 @@ module.exports = {
         env_production: {
             NODE_ENV: 'production',
         },
+        log_date_format: "YYYY-MM-DD HH:mm Z",
         error_file: 'log/err.text',
         out_file: 'log/out.text',
         log_file: 'log/combined.text',
         time: true,
-        watch: ['server'],
+        watch: ['template'],
+        // watch: true,
         watch_delay: 1000,
         ignore_watch: ['node_modules'],
         watch_options: {

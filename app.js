@@ -6,11 +6,11 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const sassMiddleware = require('node-sass-middleware')
-//controller
+// controller
 const controller = require('./controllers')
-//flash  메시지 관련
+// flash  메시지 관련
 const flash = require('connect-flash')
-//passport 로그인 관련
+// passport 로그인 관련
 const passport = require('passport')
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
@@ -141,7 +141,9 @@ if (env !== 'development') {
             // debug: false
         }),
     )
+} else if (env == 'development') {
 }
+
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/uploads', express.static('uploads'))
 app.use('/static', express.static('static'))

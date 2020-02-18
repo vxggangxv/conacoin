@@ -80,3 +80,18 @@ exports.get_home = async (req, res) => {
         console.log(e);
     }
 }
+
+exports.get_siteinfo = async (req, res) => {
+    try {
+        const siteinfo = await models.SiteInfo.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.json({
+            siteinfo
+        })
+    } catch (e) {
+        console.log(e);
+    }
+}

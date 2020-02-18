@@ -86,7 +86,7 @@ router.post('/inquirys/reply/write/:id', ctrl.post_inquirys_reply_write);
 router.post('/inquirys/reply/edit/:id', ctrl.post_inquirys_reply_edit);
 router.get('/inquirys/reply/delete/:id', ctrl.get_inquirys_reply_delete);
 
-router.post('/inquirys/sort', paginate.middleware(10, 50), ctrl.post_inquirys_sort);
+router.get('/inquirys/sort', paginate.middleware(10, 50), ctrl.get_inquirys_sort);
 
 router.get('/news', paginate.middleware(10, 50), ctrl.get_news);
 router.get('/news/write', csrfProtection, ctrl.get_news_write);
@@ -95,5 +95,11 @@ router.get('/news/detail/:id', ctrl.get_news_detail);
 router.get('/news/edit/:id', csrfProtection, ctrl.get_news_edit);
 router.post('/news/edit/:id', ctrl.post_news_edit);
 router.get('/news/delete/:id', ctrl.get_news_delete);
+
+router.get('/siteinfo/write', csrfProtection, ctrl.get_siteinfo_write);
+router.post('/siteinfo/write', ctrl.post_siteinfo_write);
+router.get('/siteinfo/detail/:id', ctrl.get_siteinfo_detail);
+router.get('/siteinfo/edit/:id', csrfProtection, ctrl.get_siteinfo_edit);
+router.post('/siteinfo/edit/:id', ctrl.post_siteinfo_edit);
 
 module.exports = router;
