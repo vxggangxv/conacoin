@@ -12,10 +12,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Admin | 관리자페이지</title>
+        <title>Admin | 관리자</title>
 
         <link rel="stylesheet" href="/static/css/reset.css">
-        <link rel="stylesheet" href="/static/fonts/mdi/css/materialdesignicons.min.css">
         <link rel="stylesheet" href="/stylesheets/admin.min.css">
 
         <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
@@ -23,16 +22,9 @@
         <script src="/static/js/libs/jquery-1.12.1.min.js"></script>
     </head>
 
-    <body id="{{ pageName }}" class="admin-page">
-        <div id="adminWrapper" class="admin-wrapper">
-            {% include("admin/layout/header.html") %}
-
-            {% include("admin/layout/sidebar.html") %}
-            <main id="container" class="container" role="main">
-                {%- block content %}{% endblock -%}
-            </main>
-        </div>
-        <!-- /#wrapper -->
+    <body id="adminSignPage" class="admin-sign-page {{pageName}}">
+    
+        {%- block content %}{% endblock -%}
 
         {% include("admin/layout/bottom.html") %}
     </body>

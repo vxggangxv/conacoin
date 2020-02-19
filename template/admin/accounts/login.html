@@ -1,71 +1,51 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html lang="ko" class="no-js ie8 lt-ie10"><![endif]-->
-<!--[if IE 9]><html lang="ko" class="no-js ie9 lt-ie10"><![endif]-->
-<!--[if !IE]><!-->
-<html lang="ko-KR">
-    <!--<![endif]-->
+{% set pageName = 'admin-signin-page' %}
+{% extends "admin/accounts/base.html" %}
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Admin | 관리자</title>
+{% block content %}
+    <h1 class="sr-only">관리자 로그인 페이지</h1>
 
-        <link rel="stylesheet" href="/static/css/reset.css">
-        <link rel="stylesheet" href="/stylesheets/admin.min.css">
-
-        <script src="/static/js/libs/jquery-1.12.1.min.js"></script>
-    </head>
-
-    <body id="adminSignupPage" class="admin-sign-page admin-signin-page">
-
-        <h1 class="sr-only">로그인 페이지</h1>
-
-        <section class="sec admin-sign-sec">
-            <div class="sign-wrapper">
-                <div class="sign-content">
-                    <h1 class="sign-title">Sign in to Admin</h1>
-                    <div class="sign-form-wrapper">
-                        <form action="" method="post" id="signinForm">
-                            <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
-                            <div class="form-group">
-                                <label class="form-label">User ID</label>
-                                <input type="text" class="form-input" placeholder="ID" name="username" required="required" autocomplete="username">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Password</label>
-                                <input type="password" class="form-input" placeholder="Password" name="password" required="required" autocomplete="new-password">
-                            </div>
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-primary lg btn-block">Sign in</button>
-                            </form>
-
-                            {% if flashMessage %}
-                                <div class="alert-msg">{{ flashMessage }}</div>
-                            {% endif %}
+    <section class="sec admin-sign-sec">
+        <div class="sign-wrapper">
+            <div class="sign-content">
+                <h1 class="sign-title">Sign in to Admin</h1>
+                <div class="sign-form-wrapper">
+                    <form action="" method="post" id="signinForm">
+                        <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
+                        <div class="form-group">
+                            <label class="form-label">User ID</label>
+                            <input type="text" class="form-input" placeholder="ID" name="username" required="required" autocomplete="username">
                         </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-input" placeholder="Password" name="password" required="required" autocomplete="new-password">
+                        </div>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary lg btn-block">Sign in</button>
+                        </form>
+
+                        {% if flashMessage %}
+                            <div class="alert-msg">{{ flashMessage }}</div>
+                        {% endif %}
                     </div>
                 </div>
-            </section>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#signinForm').submit(function () {
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#signinForm').submit(function () {
 
-                        var $usernameInput = $('#signinForm input[name=username]');
-                        var $passwordInput = $('#signinForm input[name=password]');
+                var $usernameInput = $('#signinForm input[name=username]');
+                var $passwordInput = $('#signinForm input[name=password]');
 
-                        if ($passwordInput.val().length < 4) {
-                            alert("4글자 이상 작성해주세요");
-                            return false;
-                        }
+                if ($passwordInput.val().length < 4) {
+                    alert("4글자 이상 작성해주세요");
+                    return false;
+                }
 
-                        return true;
-                    });
-                });
-            </script>
-            <!-- /.sec.admin-sign-sec -->
-
-            {% include("admin/layout/bottom.html") %}
-        </body>
-
-    </html>
+                return true;
+            });
+        });
+    </script>
+    <!-- /.sec.admin-sign-sec -->
+{% endblock %}
