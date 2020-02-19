@@ -39,8 +39,7 @@ function dbConnection() {
                 // })
                 // return db.sequelize.sync()
             }
-            if (env == 'test') {
-            }
+            if (env == 'test') {}
             if (env == 'production') {
                 // return db.sequelize.sync()
             }
@@ -53,10 +52,8 @@ function dbConnection() {
                 // require('./config/insertNewsDummyData')()
                 // require('./config/insertUserDummyData')()
             }
-            if (env == 'test') {
-            }
-            if (env == 'production') {
-            }
+            if (env == 'test') {}
+            if (env == 'production') {}
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err)
@@ -102,7 +99,7 @@ let inquirysScheduler = async () => {
 }
 // inquirysScheduler();
 const schedule = require('node-schedule')
-const j = schedule.scheduleJob('0 0 0 1 * *', function() {
+const j = schedule.scheduleJob('0 0 0 1 * *', function () {
     inquirysScheduler()
 })
 
@@ -141,7 +138,6 @@ if (env !== 'development') {
             // debug: false
         }),
     )
-} else if (env == 'development') {
 }
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -169,7 +165,7 @@ app.use(passport.session())
 app.use(flash())
 
 //로그인 정보 뷰에서만 변수로 셋팅, 전체 미들웨어는 router위에 두어야 에러가 안난다
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     // app.locals.myname = "nodejs";
     app.locals.isLogin = req.isAuthenticated()
     app.locals.req_path = req.path
@@ -184,10 +180,10 @@ app.use(function(req, res, next) {
 app.use(controller)
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     next(createError(404))
 })
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message
     res.locals.error = req.app.get('env') === 'development' ? err : {}

@@ -246,45 +246,6 @@ exports.get_inquirys_reply_delete = async (req, res) => {
 }
 
 // 문의하기 정렬
-// exports.get_inquirys_sort = async (req, res) => {
-//     try {
-//         let {
-//             sort
-//         } = req.body;
-//         let order = [];
-//         if (sort !== 'createdAt') {
-//             order = [
-//                 [sort, 'desc'],
-//                 ['createdAt', 'desc']
-//             ]
-//         } else {
-//             order = [
-//                 ['createdAt', 'desc']
-//             ]
-//         }
-//         const [inquirys, totalCount] = await Promise.all([
-//             models.Inquirys.findAll({
-//                 limit: req.query.limit,
-//                 offset: req.offset,
-//                 order
-//             }),
-//             models.Inquirys.count()
-//         ]);
-//         const pageCount = Math.ceil(totalCount / req.query.limit);
-//         const pages = paginate.getArrayPages(req)(5, pageCount, req.query.page);
-//         const limit = req.query.limit;
-
-//         res.render('admin/inquirys/list.html', {
-//             inquirys,
-//             pageCount,
-//             pages,
-//             limit,
-//             sort
-//         });
-//     } catch (e) {
-//         console.log(e);
-//     }
-// }
 exports.get_inquirys_sort = async (req, res) => {
     try {
         let {
