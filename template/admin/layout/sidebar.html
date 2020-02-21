@@ -1,17 +1,17 @@
 <nav class="admin-sidebar">
     <h1 class="sr-only">메뉴</h1>
     <h1 class="sidebar-logo">
-        <a href="/admin/" class="logo-cover">
+        <a href="/conaservice/" class="logo-cover">
             <img src="/images/icon/cona.png" alt="코나코인" class="logo-img">
             <span>Admin</span>
         </a>
     </h1>
     <ul class="sidebar-menu cf">
         {% from "admin/macro/link.html" import link %}
-        {{ link( '/admin/inquirys' , '실시간 문의' , req_path,  'mdi-message-text-outline') }}
-        {{ link( '/admin/news' , '뉴스업로드' , req_path,  'mdi-newspaper-variant-multiple-outline') }}
-        <li class="menu-section">SITE INFO</li>
-        {{ link( '/admin/siteinfo/detail/1' , '사이트 정보' , req_path,  'mdi-information-outline') }}
+        {{ link( '/conaservice/inquirys' , '실시간 문의' , req_path,  'mdi-message-text-outline') }}
+        {{ link( '/conaservice/news' , '뉴스업로드' , req_path,  'mdi-newspaper-variant-multiple-outline') }}
+        {# <li class="menu-section">SITE INFO</li>
+        {{ link( '/conaservice/siteinfo/detail/1' , '사이트 정보' , req_path,  'mdi-information-outline') }} #}
     </ul>
     <div class="cs-wrapper">
         <p class="title">고객지원</p>

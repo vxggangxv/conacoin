@@ -61,7 +61,7 @@ router.get('/accounts/login', csrfProtection, ctrl.get_login);
 router.post(
     '/accounts/login',
     passport.authenticate('local', {
-        failureRedirect: '/admin/accounts/login',
+        failureRedirect: '/conaservice/accounts/login',
         failureFlash: true,
     }),
     ctrl.post_login,

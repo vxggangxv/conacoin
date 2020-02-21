@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.use('/', require('./home'));
 router.use('/support', require('./support'));
-router.use('/admin', require('./admin'));
+router.use('/conaservice', require('./admin'));
 router.use('/test', require('./test'));
 
 router.use('/api', require('./api'));

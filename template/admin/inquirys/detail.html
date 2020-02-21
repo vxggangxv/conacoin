@@ -49,7 +49,7 @@
                                                 </a>
                                             </li>
                                             <li class="tab">
-                                                <a href="/admin/inquirys/reply/delete/{{ inquiry.id }}" class="tab-btn" id="register_delete">댓글 삭제</a>
+                                                <a href="/conaservice/inquirys/reply/delete/{{ inquiry.id }}" class="tab-btn" id="register_delete">댓글 삭제</a>
                                             </li>
                                         {% else %}
                                             <li class="tab">
@@ -63,7 +63,7 @@
                                         {% endif %}
                                     </ul>
                                     {% if inquiry.Reply.length %}
-                                        <form action="/admin/inquirys/reply/edit/{{ inquiry.id }}" method="post" id="reply_form">
+                                        <form action="/conaservice/inquirys/reply/edit/{{ inquiry.id }}" method="post" id="reply_form">
                                             <div class="reply-form-in cf">
                                                 <div class="texta-wrapper" data-role="texta-wrapper">
                                                     <textarea class="form-textarea register-content" id="reply_register_content" name="content" required="required" maxlength="{{ contentLength }}"></textarea>
@@ -73,7 +73,7 @@
                                             </div>
                                         </form>
                                     {% else %}
-                                        <form action="/admin/inquirys/reply/write/{{ inquiry.id }}" method="post" id="reply_form">
+                                        <form action="/conaservice/inquirys/reply/write/{{ inquiry.id }}" method="post" id="reply_form">
                                             <div class="reply-form-in cf">
                                                 <div class="texta-wrapper" data-role="texta-wrapper">
                                                     <textarea class="form-textarea register-content" id="reply_register_content" name="content" required="required" maxlength="{{ contentLength }}"></textarea>
@@ -113,8 +113,8 @@
                     </tbody>
                 </table>
                 <div class="inquirys-actions comm-actions">
-                    <a href="/admin/inquirys/" class="comm-btn outline list-btn">목록</a>
-                    <a href="/admin/inquirys/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
+                    <a href="/conaservice/inquirys/" class="comm-btn outline list-btn">목록</a>
+                    <a href="/conaservice/inquirys/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
                 </div>
             </div>
         </div>
