@@ -2,6 +2,7 @@ $(function () {
     // var commonUI = new CommonUI('#gnb', '#navTab').init();
     //   wayp();
 
+    tabsFn()
     dataFn();
     common.init();
     if ($('#mainPage').length) return main.init();

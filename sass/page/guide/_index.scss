@@ -1,0 +1,110 @@
+// mobile & tablet
+@media (max-width: $screen-md-width - 1px) {
+    .tabs-type1 {
+        .tablist {
+            padding: 30px 10px;
+            font-size: 0;
+
+            .tab {
+                $tab-mg: 10px;
+                @include btn-base;
+                border-radius: 0;
+                @include btn-size(6px 0px, 12px);
+                width: calc(calc(100% - (#{$tab-mg} * 1)) / 2);
+                color: #828282;
+
+                &:nth-child(2n) {
+                    margin-left: $tab-mg;
+                }
+
+                &:nth-child(2n)~button {
+                    margin-top: $tab-mg;
+                }
+
+                &[aria-selected="true"] {
+                    @include btn-transparent($primary-color);
+                    outline: 0;
+                }
+            }
+        }
+
+        .tabpanel {
+            border-top: 2px solid $primary-color;
+            padding: 30px 0;
+        }
+    }
+
+    .guide-sec {
+        .guide-wrapper {
+            .guide-content {
+                padding-top: 5px;
+                padding-bottom: 15px;
+
+                .iframe-wrapper {
+
+                    @include size(100%, 200px);
+                    max-width: 355px;
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    @include screen-max(360px) {
+                        height: 192px;
+                    }
+
+
+                    @include screen-xxs {
+                        height: 169px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// pc md & lg
+@media (min-width: $screen-md-width) {
+    .tabs-type1 {
+        .tablist {
+            padding: 60px 0;
+            font-size: 0;
+
+            .tab {
+                $tab-mg: 20px;
+                @include btn-base;
+                border-radius: 0;
+                @include btn-size(15px 45px, 18px);
+                width: calc(calc(100% - (#{$tab-mg} * 3)) / 4);
+                font-size: 20px;
+                color: #828282;
+                // font-weight: 700;
+
+                &:not(:first-child) {
+                    margin-left: $tab-mg;
+                }
+
+                &[aria-selected="true"] {
+                    @include btn-transparent($primary-color);
+                    outline: 0;
+                }
+            }
+        }
+
+        .tabpanel {
+            border-top: 2px solid $primary-color;
+            padding: 50px 0;
+        }
+    }
+
+    .guide-sec {
+        .guide-wrapper {
+            .guide-content {
+                padding-top: 10px;
+                padding-bottom: 120px;
+
+                .iframe-wrapper {
+                    @include size(100%, 641px);
+                }
+            }
+        }
+    }
+}

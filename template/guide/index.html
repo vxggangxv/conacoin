@@ -1,0 +1,49 @@
+{% set title = "CONA | 투자가이드" %}
+{% set pageName = "guidePage" %}
+{% set pageTitle = "GUIDE" %}
+{% set pageSubTitle = "User guide to read before using" %}
+{% extends "layout/base.html" %}
+
+{% block content %}
+{% include("layout/subvisual.html") %}
+
+<section class="sec guide-sec comm-pd">
+    <div class="guide-wrapper">
+        <div class="guide-content group">
+            <h1 class="sr-only">회사소개</h1>
+            <div class="tabs-type1 guide-tabs">
+                <div class="tablist" role="tablist" aria-label="guide tabs">
+                    <button class="tab" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" tabindex="0">코나코인 소개</button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">거래소 가입방법</button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">코인 매수방법</button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-4" id="tab-4" tabindex="-1">코인 매도방법</button>
+                </div>
+                <div class="tabpanel" id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+                    <div class="iframe-wrapper">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-FItemPCG4A?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+                </div>
+                <div class="tabpanel" id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
+                    <div class="iframe-wrapper">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8_pzFezpQIQ?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+                </div>
+                <div class="tabpanel" id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" hidden>
+                    <div class="iframe-wrapper">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tGT-8LX6KOs?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+                </div>
+                <div class="tabpanel" id="panel-4" role="tabpanel" tabindex="0" aria-labelledby="tab-4" hidden>
+                    <div class="iframe-wrapper">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/gXn19vr2uug?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.sec guide-sec -->
+
+{% include("inc/bn_meet.html") %}
+
+{% endblock %}

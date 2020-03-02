@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 router.use('/', require('./home'));
+router.use('/notice', require('./notice'));
+router.use('/about', require('./about'));
+router.use('/guide', require('./guide'));
 router.use('/support', require('./support'));
 router.use('/conaservice', require('./admin'));
 router.use('/test', require('./test'));

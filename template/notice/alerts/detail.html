@@ -1,0 +1,90 @@
+{% set title = "CONA | 공지사항" %}
+{% set pageName = "noticePage" %}
+{% set pageTitle = "NOTICE" %}
+{% set pageSubTitle = "Always acitve Conacoin" %}
+{% set titleLength = 300 %}
+{% set contentLength = 3000 %}
+{% extends "layout/base.html" %}
+
+{% block content %}
+    {% include("layout/subvisual.html") %}
+
+    <section class="sec support-inquirys-sec comm-pd">
+        <div class="inquirys-wrapper">
+            <div class="inquirys-content group">
+                <div class="inquirys-title comm-title">
+                    <h1 class="title">
+                        공지사항
+                    </h1>
+                </div>
+                <table class="detail-tbl">
+                    <tbody>
+                        <tr class="name">
+                            <td>
+                                <p class="row">
+                                    <span class="label name">이름</span><span class="label-text name">{{ alert.name }}</span></p>
+                                <p class="row">
+                                    <span class="label">이메일</span><span class="label-text email">{{ alert.email }}</span></p>
+                            </td>
+                        </tr>
+                        <tr class="title">
+                            <td>
+                                <p class="row">
+                                    <span class="label title">제목</span><span class="label-text title">{{ alert.title }}</span></p>
+                            </td>
+                        </tr>
+                        <tr class="content">
+                            <td>
+                                <p class="text content">{{ alert.content }}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="inquirys-actions">
+                    <a href="/notice/alerts" class="comm-btn outline back-btn">목록</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.sec support-inquirys-sec -->
+
+    {% include("inc/bn_meet.html") %}
+    {% include("inc/support_pw_pop.html") %}
+
+    <script>
+        $('#sp_submit').on('click', function () {
+            var data_id = '{{ alert.id }}';
+            var $sp_pw_input = $('#sp_pw_input');
+            if (!$sp_pw_input.val()) {
+                alert('비밀번호를 입력하세요.');
+                $sp_pw_input.focus();
+                return false;
+            }
+            if ($sp_pw_input.val().length < 4) {
+                alert('네글자 이상 입력하세요.');
+                $sp_pw_input.focus();
+                return false;
+            }
+            $
+                .ajax({
+                    url: '/support/password',
+                    type: 'post',
+                    data: {
+                        inquiry_id: data_id,
+                        sp_password: $sp_pw_input
+                            .val()
+                            .trim()
+                    }
+                })
+                .done(function (result) {
+                    if (result.status.length) {
+                        location.href = "/support/";
+                    }
+                })
+                .fail(function (result) {
+                    console.log(result);
+                    alert('비밀번호 오류');
+                })
+        });
+    </script>
+{% endblock %}

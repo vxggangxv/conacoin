@@ -160,7 +160,7 @@
     line-height: 1;
     font-size: 0;
 
-    >* {
+    >*:not(.va-no) {
         font-size: $fz;
         position: relative;
         display: inline-block;
