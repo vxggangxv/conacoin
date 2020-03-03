@@ -9,7 +9,7 @@
                 $tab-mg: 10px;
                 @include btn-base;
                 border-radius: 0;
-                @include btn-size(6px 0px, 12px);
+                @include btn-size(8px 0px, 12px);
                 width: calc(calc(100% - (#{$tab-mg} * 1)) / 2);
                 color: #828282;
 
@@ -56,6 +56,74 @@
                         height: 169px;
                     }
                 }
+
+                .screenshot-wrapper {
+                    .screenshot-title {
+                        margin-top: 30px;
+                        font-size: 22px;
+                        text-align: center;
+                    }
+
+                    >.mg {
+                        @include size(30px, 2px);
+                        background-color: $primary-color;
+                        margin: 10px auto -5px;
+                    }
+
+                    .card-list {
+                        padding: 0 10px;
+
+                        .card-item {
+                            position: relative;
+                            max-width: 375px;
+                            margin: 25px auto 0;
+
+                            .card-picture {
+                                padding: 20px 22px;
+                                background-color: #f4f4f4;
+                                border-radius: 10px;
+                                border: 1px solid #c9c9c9;
+                                box-sizing: border-box;
+                                text-align: center;
+
+                                figcaption {
+
+                                    >span {
+                                        vertical-align: middle;
+                                    }
+
+                                    .won {
+                                        @include va-icon(20px);
+                                        width: 20px;
+                                        margin-right: 2px;
+                                        background-color: $primary-color;
+                                        border-radius: 50%;
+                                        font-size: 10px;
+                                        color: #fff;
+                                        text-align: center;
+
+                                    }
+
+                                    .txt {
+                                        font-size: 14px;
+                                    }
+                                }
+
+                                >img {
+                                    margin-top: 20px;
+                                }
+                            }
+
+                            .card-text {
+                                margin-top: 10px;
+                                font-size: 12px;
+                                line-height: 1.5;
+                                text-align: center;
+                                word-break: keep-all;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -92,6 +160,7 @@
         .tabpanel {
             border-top: 2px solid $primary-color;
             padding: 50px 0;
+
         }
     }
 
@@ -103,6 +172,77 @@
 
                 .iframe-wrapper {
                     @include size(100%, 641px);
+                }
+
+                .screenshot-wrapper {
+                    .screenshot-title {
+                        margin-top: 60px;
+                        font-size: 30px;
+                        text-align: center;
+                    }
+
+                    >.mg {
+                        @include size(60px, 4px);
+                        background-color: $primary-color;
+                        margin: 25px auto 10px;
+                    }
+
+                    .card-list {
+                        .card-item {
+                            float: left;
+                            width: calc(50% - 20px);
+                            margin-top: 50px;
+
+                            &:nth-child(2n) {
+                                margin-left: 40px;
+                            }
+
+                            .card-picture {
+                                background-color: #f4f4f4;
+                                border-radius: 10px;
+                                border: 1px solid #c9c9c9;
+                                box-sizing: border-box;
+                                text-align: center;
+                                padding: 40px 40px;
+
+                                figcaption {
+
+                                    >span {
+                                        vertical-align: middle;
+                                    }
+
+                                    .won {
+                                        @include va-icon(30px);
+                                        width: 30px;
+                                        margin-right: 5px;
+                                        background-color: $primary-color;
+                                        border-radius: 50%;
+                                        font-size: 14px;
+                                        color: #fff;
+                                        text-align: center;
+
+                                        .in {
+                                            top: -1px;
+                                        }
+                                    }
+
+                                    .txt {
+                                        font-size: 20px;
+                                    }
+                                }
+
+                                >img {
+                                    margin-top: 40px;
+                                }
+                            }
+
+                            .card-text {
+                                margin-top: 20px;
+                                font-size: 16px;
+                                text-align: center;
+                            }
+                        }
+                    }
                 }
             }
         }

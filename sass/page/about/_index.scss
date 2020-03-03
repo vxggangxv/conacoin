@@ -1,5 +1,275 @@
 // mobile & tablet
-@media (max-width: $screen-md-width - 1px) {}
+@media (max-width: $screen-md-width - 1px) {
+    .about-sec {
+        .about-wrapper {
+            .about-content {
+                .tabpanel {
+                    .text-wrapper {
+                        >p+p {
+                            margin-top: 30px;
+                        }
+
+                        [class*=text-] {
+                            line-height: 1.7;
+                        }
+
+                        .text-1 {
+                            font-size: 14px;
+                        }
+
+                        .text-2 {
+                            font-size: 12px;
+                        }
+                    }
+
+                    .system-wrapper {
+                        margin-top: 40px;
+                        padding: 50px 0;
+                        border-radius: 10px;
+                        background-color: #151829;
+
+                        .system-title {
+                            font-size: 26px;
+                            color: #fff;
+                            text-align: center;
+                        }
+
+                        .system-bar {
+                            position: relative;
+                            @include center(87%);
+                            margin-top: 55px;
+                            font-size: 0;
+                            border-top: 2px solid #fff;
+
+                            .system-dot {
+                                display: inline-block;
+                                position: relative;
+                                text-align: center;
+                                width: 25%;
+                                line-height: 1.7;
+
+                                .dot {
+                                    position: absolute;
+                                    top: -17.5px;
+                                    left: 50%;
+                                    margin-left: -17px;
+                                    @include sizes(34px);
+
+                                    .won-1,
+                                    .won-2,
+                                    .won-3 {
+                                        position: absolute;
+                                        display: inline-block;
+                                        border-radius: 50%;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                    }
+
+                                    .won-1,
+                                    .won-2 {
+                                        opacity: .1;
+                                    }
+
+                                    .won-1 {
+                                        @include sizes(34px);
+                                    }
+
+                                    .won-2 {
+                                        @include sizes(24px);
+                                    }
+
+                                    .won-3 {
+                                        @include sizes(14px);
+                                    }
+                                }
+
+                                dl {
+                                    margin-top: 30px;
+
+                                    dt {
+                                        font-size: 20px;
+                                    }
+
+                                    dd {
+                                        margin-top: 10px;
+                                        font-size: 14px;
+                                        color: #fff;
+                                    }
+                                }
+
+                                &:nth-child(even) {
+                                    .dot {
+
+                                        .won-1,
+                                        .won-2,
+                                        .won-3 {
+                                            background-color: #18fefb;
+                                        }
+                                    }
+
+                                    dt {
+                                        color: #18fefb;
+                                    }
+                                }
+
+                                &:nth-child(odd) {
+                                    .dot {
+
+                                        .won-1,
+                                        .won-2,
+                                        .won-3 {
+                                            background-color: #eb61ff;
+                                        }
+                                    }
+
+                                    dt {
+                                        color: #eb61ff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 // pc md & lg
-@media (min-width: $screen-md-width) {}
+@media (min-width: $screen-md-width) {
+    .about-sec {
+        .about-wrapper {
+            .about-content {
+                .tabpanel {
+                    .text-wrapper {
+                        >p+p {
+                            margin-top: 30px;
+                        }
+
+                        [class*=text-] {
+                            line-height: 1.7;
+                        }
+
+                        .text-1 {
+                            font-size: 16px;
+                        }
+
+                        .text-2 {
+                            font-size: 14px;
+                        }
+                    }
+
+                    .system-wrapper {
+                        margin-top: 40px;
+                        padding: 50px 0;
+                        border-radius: 10px;
+                        background-color: #151829;
+
+                        .system-title {
+                            font-size: 26px;
+                            color: #fff;
+                            text-align: center;
+                        }
+
+                        .system-bar {
+                            position: relative;
+                            @include center(87%);
+                            margin-top: 55px;
+                            font-size: 0;
+                            border-top: 2px solid #fff;
+
+                            .system-dot {
+                                display: inline-block;
+                                position: relative;
+                                text-align: center;
+                                width: 25%;
+                                line-height: 1.7;
+
+                                .dot {
+                                    position: absolute;
+                                    top: -17.5px;
+                                    left: 50%;
+                                    margin-left: -17px;
+                                    @include sizes(34px);
+
+                                    .won-1,
+                                    .won-2,
+                                    .won-3 {
+                                        position: absolute;
+                                        display: inline-block;
+                                        border-radius: 50%;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                    }
+
+                                    .won-1,
+                                    .won-2 {
+                                        opacity: .1;
+                                    }
+
+                                    .won-1 {
+                                        @include sizes(34px);
+                                    }
+
+                                    .won-2 {
+                                        @include sizes(24px);
+                                    }
+
+                                    .won-3 {
+                                        @include sizes(14px);
+                                    }
+                                }
+
+                                dl {
+                                    margin-top: 30px;
+
+                                    dt {
+                                        font-size: 20px;
+                                    }
+
+                                    dd {
+                                        margin-top: 10px;
+                                        font-size: 14px;
+                                        color: #fff;
+                                    }
+                                }
+
+                                &:nth-child(even) {
+                                    .dot {
+
+                                        .won-1,
+                                        .won-2,
+                                        .won-3 {
+                                            background-color: #18fefb;
+                                        }
+                                    }
+
+                                    dt {
+                                        color: #18fefb;
+                                    }
+                                }
+
+                                &:nth-child(odd) {
+                                    .dot {
+
+                                        .won-1,
+                                        .won-2,
+                                        .won-3 {
+                                            background-color: #eb61ff;
+                                        }
+                                    }
+
+                                    dt {
+                                        color: #eb61ff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
