@@ -103,6 +103,7 @@ const schedule = require('node-schedule')
 const j = schedule.scheduleJob('0 0 0 1 * *', function () {
     inquirysScheduler()
 })
+// j.cancel()
 
 var app = express()
 
