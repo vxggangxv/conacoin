@@ -1,26 +1,26 @@
-const http = require('http')
-const createError = require('http-errors')
-const express = require('express')
-const nunjucks = require('nunjucks')
-const path = require('path')
-const cookieParser = require('cookie-parser')
-const logger = require('morgan')
-const sassMiddleware = require('node-sass-middleware')
+const http = require('http');
+const createError = require('http-errors');
+const express = require('express');
+const nunjucks = require('nunjucks');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const sassMiddleware = require('node-sass-middleware');
 // controller
-const controller = require('./controllers')
+const controller = require('./controllers');
 // flash  메시지 관련
-const flash = require('connect-flash')
+const flash = require('connect-flash');
 // passport 로그인 관련
-const passport = require('passport')
-const session = require('express-session')
-const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const passport = require('passport');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store );
 
-const db = require('./database/models')
+const db = require('./database/models');
 // redis
 // const client = require('./config/redis');
 // const RedisStore = require('connect-redis')(session);
 
-const env = process.env.NODE_ENV || 'development'
+const env = process.env.NODE_ENV || 'development';
 // console.log(env + ' mode');
 
 // test ---------------------------------
@@ -30,7 +30,7 @@ function dbConnection() {
     db.sequelize
         .authenticate()
         .then(() => {
-            console.log('Connection has been established successfully.')
+            console.log('Connection has been established successfully.');
             // TODO 서버가 뜰 때, DB 테이블 자동으로 생성해줌
             if (env == 'development') {
                 // return db.sequelize.drop()
@@ -43,9 +43,9 @@ function dbConnection() {
             if (env == 'production') {
                 // return db.sequelize.sync()
             }
-        })
+        } )
         .then(() => {
-            console.log('DB Sync complete.')
+            console.log('DB Sync complete.');
             // 더미 데이터가 필요하면 아래 설정
             if (env == 'development') {
                 // require('./config/insertAlertsDummyData')()
@@ -55,79 +55,79 @@ function dbConnection() {
             }
             if (env == 'test') {}
             if (env == 'production') {}
-        })
+        } )
         .catch(err => {
-            console.error('Unable to connect to the database:', err)
-        })
+            console.error('Unable to connect to the database:', err );
+        } );
 }
-dbConnection()
+dbConnection();
 
-const fs = require('fs')
-const uploadInquirysDir = path.join(__dirname, './uploads/inquirys')
-const Op = require('sequelize').Op
+const fs = require('fs');
+const uploadInquirysDir = path.join(__dirname, './uploads/inquirys');
+const Op = require('sequelize').Op;
 let inquirysScheduler = async () => {
-    let date = new Date()
-    date.setMonth(date.getMonth() - 3)
+    let date = new Date();
+    date.setMonth(date.getMonth() - 3 );
     // date.setDate(date.getMonth() - 1);
     // date.setMinutes(date.getMinutes() - 1);
     const inquirysAttach = await db.InquirysAttach.findAll({
         where: {
             updatedAt: {
-                [Op.lt]: date,
-            },
-        },
-    })
-    const inquirysAttachArr = inquirysAttach
+                [Op.lt]: date
+            }
+        }
+    } );
+    const inquirysAttachArr = inquirysAttach;
     inquirysAttachArr.forEach(item => {
         fs.unlink(`${uploadInquirysDir}/${item.filename}`, err => {
             if (err === null) {
-                console.log('file delete success')
+                console.log('file delete success');
             } else {
-                console.log(err)
+                console.log(err );
             }
-        })
-    })
+        } );
+    } );
     await db.InquirysAttach.destroy({
         where: {
             updatedAt: {
-                [Op.lt]: date,
-            },
-        },
-    })
+                [Op.lt]: date
+            }
+        }
+    } );
 
-    console.log('------------------------------------')
-    return console.log('inquirysScheduler working')
-}
+    console.log('------------------------------------');
+    return console.log('inquirysScheduler working');
+};
 // inquirysScheduler();
-const schedule = require('node-schedule')
+const schedule = require('node-schedule');
 const j = schedule.scheduleJob('0 0 0 1 * *', function () {
-    inquirysScheduler()
-})
+    inquirysScheduler();
+} );
 // j.cancel()
 
-var app = express()
+var app = express();
 
 // view engine setup
-var noCaching = false
+var noCaching = false;
 if (env == 'development') {
-    noCaching = true
+    noCaching = true;
 }
 nunjucks.configure('template', {
     autoescape: true,
     express: app,
-    noCache: noCaching,
-})
-app.set('view engine', 'html')
-app.set('views', path.join(__dirname, 'template'))
+    noCache: noCaching
+} );
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'template'));
 
-app.use(logger('dev'))
-app.use(express.json())
+app.use(logger('dev'));
+app.use(express.json());
 app.use(
     express.urlencoded({
-        extended: false,
-    }),
-)
-app.use(cookieParser())
+        extended: false
+    } )
+);
+app.use(cookieParser());
 if (env !== 'development') {
     app.use(
         '/stylesheets',
@@ -136,15 +136,15 @@ if (env !== 'development') {
             dest: path.join(__dirname, 'public/stylesheets'),
             indentedSyntax: false, // true = .sass and false = .scss
             sourceMap: true,
-            outputStyle: 'compressed',
+            outputStyle: 'compressed'
             // debug: false
-        }),
-    )
+        } )
+    );
 }
 
-app.use(express.static(path.join(__dirname, 'public')))
-app.use('/uploads', express.static('uploads'))
-app.use('/static', express.static('static'))
+app.use(express.static(path.join(__dirname, 'public')) );
+app.use('/uploads', express.static('uploads'));
+app.use('/static', express.static('static'));
 
 //session 관련 셋팅
 const sessionMiddleWare = session({
@@ -152,54 +152,54 @@ const sessionMiddleWare = session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        maxAge: 2000 * 60 * 60, //지속시간 2시간
+        maxAge: 2000 * 60 * 60 //지속시간 2시간
     },
     // store: new RedisStore({client}),
     store: new SequelizeStore({
-        db: db.sequelize,
-    }),
-})
-app.use(sessionMiddleWare)
+        db: db.sequelize
+    } )
+} );
+app.use(sessionMiddleWare );
 //passport 적용
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize());
+app.use(passport.session());
 //플래시 메시지 관련
-app.use(flash())
+app.use(flash());
 
 //로그인 정보 뷰에서만 변수로 셋팅, 전체 미들웨어는 router위에 두어야 에러가 안난다
-app.use(function (req, res, next) {
+app.use(function (req, res, next ) {
     // app.locals.myname = "nodejs";
-    app.locals.isLogin = req.isAuthenticated()
-    app.locals.req_path = req.path
-    app.locals.req_user = req.user
-    app.locals.req_query = req.query
-    app.locals.env = req.app.get('env')
+    app.locals.isLogin = req.isAuthenticated();
+    app.locals.req_path = req.path;
+    app.locals.req_user = req.user;
+    app.locals.req_query = req.query;
+    app.locals.env = req.app.get('env');
     //app.locals.urlparameter = req.url; //현재 url 정보를 보내고 싶으면 이와같이 셋팅
     //app.locals.userData = req.user; //사용 정보를 보내고 싶으면 이와같이 셋팅
-    next()
-})
+    next();
+} );
 
-app.use(controller)
+app.use(controller );
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    next(createError(404))
-})
-app.use(function (err, req, res, next) {
+app.use(function (req, res, next ) {
+    next(createError(404 ));
+} );
+app.use(function (err, req, res, next ) {
     // set locals, only providing error in development
-    res.locals.message = err.message
-    res.locals.error = req.app.get('env') === 'development' ? err : {}
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     // render the error page
-    res.status(err.status || 500)
+    res.status(err.status || 500 );
     if (err.status == 404) {
-        return res.render('common/404.html')
+        return res.render('common/404.html');
     }
     if (err.status == 500) {
-        return res.render('common/500.html')
+        return res.render('common/500.html');
     }
-    res.render('error')
-})
+    res.render('error');
+} );
 
 // error handler
 // app.use((req, res, _) => {
@@ -228,4 +228,4 @@ app.use(function (err, req, res, next) {
 // // });
 // // require("./helpers/socketConnection")(io);
 
-module.exports = app
+module.exports = app;

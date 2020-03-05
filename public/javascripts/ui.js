@@ -2,7 +2,7 @@ $(function () {
     // var commonUI = new CommonUI('#gnb', '#navTab').init();
     //   wayp();
 
-    tabsFn()
+    tabsFn();
     dataFn();
     common.init();
     if ($('#mainPage').length) return main.init();
@@ -24,9 +24,11 @@ var common = {
 
         return {
             winWd: function () {
-                $(window).resize(function () {
-                    wdVar = $(window).width();
-                }).resize();
+                $(window)
+                    .resize(function () {
+                        wdVar = $(window).width();
+                    })
+                    .resize();
                 return wdVar;
             },
             smBrowserPoint: function () {
@@ -40,7 +42,7 @@ var common = {
                 }
                 return hdHtVar;
             }
-        }
+        };
     },
     load: function () {
         $('.layer').show();
@@ -51,21 +53,23 @@ var common = {
         }
     },
     resize: function () {
-        $(window).resize(function () {
-            var winWd = $(window).width()
-            var smBreakPoint = 992;
-            var scrollBar = 17;
-            var smBrowserPoint = smBreakPoint + scrollBar;
-            if (winWd < smBrowserPoint) {
-                $('.modal-transition-block').hide();
-                setTimeout(function () {
-                    $('.modal-transition-block').addClass('mobile');
-                }, 100);
-            } else {
-                $('.modal-transition-block').show();
-                $('.modal-transition-block').removeClass('mobile');
-            }
-        }).resize();
+        $(window)
+            .resize(function () {
+                var winWd = $(window).width();
+                var smBreakPoint = 992;
+                var scrollBar = 17;
+                var smBrowserPoint = smBreakPoint + scrollBar;
+                if (winWd < smBrowserPoint) {
+                    $('.modal-transition-block').hide();
+                    setTimeout(function () {
+                        $('.modal-transition-block').addClass('mobile');
+                    }, 100);
+                } else {
+                    $('.modal-transition-block').show();
+                    $('.modal-transition-block').removeClass('mobile');
+                }
+            })
+            .resize();
     },
     scroll: function () {
         var gnb = $('#gnb');
@@ -93,11 +97,11 @@ var common = {
         var pageUrl, pageId;
         pageUrl = window.location.href;
         var params = getUrlParams();
-        scrollParam = params.scroll;
+        var scrollParam = params.scroll;
         // console.log(scrollParam);
         // console.log($('#scroll_' + scrollParam));
-        if (pageUrl.lastIndexOf("#") != -1) {
-            pageId = pageUrl.substring(pageUrl.lastIndexOf("#") + 1);
+        if (pageUrl.lastIndexOf('#') != -1) {
+            pageId = pageUrl.substring(pageUrl.lastIndexOf('#') + 1);
 
             setTimeout(function () {
                 $('html, body').scrollTop($('#scroll_' + pageId).offset().top - hdHt);
@@ -108,20 +112,27 @@ var common = {
                 e.preventDefault();
 
                 pageUrl = $(this).attr('href');
-                if (pageUrl.lastIndexOf("#") != -1) {
-                    pageId = pageUrl.substring(pageUrl.lastIndexOf("#") + 1);
+                if (pageUrl.lastIndexOf('#') != -1) {
+                    pageId = pageUrl.substring(pageUrl.lastIndexOf('#') + 1);
 
-                    $('html, body').stop().animate({
-                        scrollTop: $('#scroll_' + pageId).offset().top - hdHt
-                    }, 500, 'easeInOutQuad');
+                    $('html, body')
+                        .stop()
+                        .animate({
+                                scrollTop: $('#scroll_' + pageId).offset().top - hdHt
+                            },
+                            500,
+                            'easeInOutQuad'
+                        );
                 }
             });
         }
-        if (!!scrollParam) {
+        if (scrollParam) {
             var scrollTarget = 'scroll_' + scrollParam;
             // console.log(hdHt);
             setTimeout(function () {
-                $('html, body').scrollTop($('[data-scroll-target=' + scrollTarget + ']').offset().top - hdHt);
+                $('html, body').scrollTop(
+                    $('[data-scroll-target=' + scrollTarget + ']').offset().top - hdHt
+                );
             }, 100);
         }
         navTab.on('click', function () {
@@ -138,18 +149,17 @@ var common = {
         common.nav();
         // common.resize();
     }
-
-}
+};
 
 // mainUI
 var main = {
     init: function () {
         this.wayPoint();
-        this.visualBannerList()
-        this.newsbarNewsList()
-        this.guideVideoList()
-        this.roadmapList()
-        this.newsList()
+        this.visualBannerList();
+        this.newsbarNewsList();
+        this.guideVideoList();
+        this.roadmapList();
+        this.newsList();
         // main.load();
         // main.visualActions();
         // main.facilityPictureList();
@@ -161,7 +171,7 @@ var main = {
             autoplaySpeed: 5000,
             appendArrows: '#bannerArrow',
             prevArrow: '<button type="button" class="slick-prev"><img src="/images/icon/btn_prev.png" alt="이전"></button>',
-            nextArrow: '<button type="button" class="slick-next"><img src="/images/icon/btn_next.png" alt="다음"></button>',
+            nextArrow: '<button type="button" class="slick-next"><img src="/images/icon/btn_next.png" alt="다음"></button>'
             // infinite: false,
         });
     },
@@ -190,7 +200,7 @@ var main = {
                     slidesToShow: 1,
                     dots: true
                 }
-            }],
+            } ]
         });
     },
     roadmapList: function () {
@@ -206,16 +216,16 @@ var main = {
             responsive: [{
                     breakpoint: 1200,
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 3
                     }
                 },
                 {
                     breakpoint: 750,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: 1
                     }
                 }
-            ],
+            ]
         });
     },
     newsList: function () {
@@ -266,7 +276,7 @@ var main = {
                 function () {
                     $(item).addClass('animated fadeInUp');
                 }, {
-                    offset: '70%',
+                    offset: '70%'
                 }
             );
         });
@@ -276,7 +286,7 @@ var main = {
                 function () {
                     $(item).addClass('animated fadeInLeft');
                 }, {
-                    offset: '70%',
+                    offset: '70%'
                 }
             );
         });
@@ -286,7 +296,7 @@ var main = {
                 function () {
                     $(item).addClass('animated fadeInRight');
                 }, {
-                    offset: '70%',
+                    offset: '70%'
                 }
             );
         });
@@ -302,7 +312,7 @@ var main = {
         //         }
         //     );
         // });
-    },
+    }
 };
 
 var targetHide = {
@@ -318,34 +328,32 @@ var targetHide = {
         var el = obj;
         var elChild = obj + ' *';
         $('body').on('click', function (e) {
-            if (
-                !$(e.target).is(el) &&
-                !$(e.target).is(elChild)
-            ) {
-                $(el).removeClass('active').removeClass('on');
+            if (!$(e.target).is(el) && !$(e.target).is(elChild)) {
+                $(el)
+                    .removeClass('active')
+                    .removeClass('on');
             }
             // console.log(elChild);
             // console.log(e.target);
         });
     }
-}
+};
 
 function anotherTargetToggle(obj) {
     var el = obj;
     var elChild = obj + ' *';
     $('body').on('click', function (e) {
-        if (
-            !$(e.target).is(el) &&
-            !$(e.target).is(elChild)
-        ) {
-            $(el).removeClass('active').removeClass('on');
+        if (!$(e.target).is(el) && !$(e.target).is(elChild)) {
+            $(el)
+                .removeClass('active')
+                .removeClass('on');
         }
         // console.log(elChild);
         // console.log(e.target);
     });
 }
 
-// 페이지 로딩시 적용 
+// 페이지 로딩시 적용
 function dataFn() {
     var modal = $('.modal'),
         lastFocus;
@@ -356,7 +364,7 @@ function dataFn() {
             type = $(this).attr('data-toggle');
 
         switch (type) {
-            case ('modal'):
+            case 'modal':
                 modalFn.enter(obj);
                 break;
             default:
@@ -367,7 +375,7 @@ function dataFn() {
         var type = $(this).attr('data-dismiss'),
             obj = $(this).closest('.' + type);
         switch (type) {
-            case ('modal'):
+            case 'modal':
                 modalFn.leave(obj);
                 break;
             default:
@@ -392,7 +400,7 @@ function dataFn() {
         enter: function (obj) {
             obj.addClass('enter');
             obj.focus();
-            $("#wrap").attr('aria-hidden', true);
+            $('#wrap').attr('aria-hidden', true);
         },
         leave: function (obj) {
             obj.addClass('leave');
@@ -400,10 +408,10 @@ function dataFn() {
             setTimeout(function () {
                 obj.removeClass('leave');
             }, 300);
-            $("#wrap").attr('aria-hidden', false);
+            $('#wrap').attr('aria-hidden', false);
             lastFocus.focus();
         }
-    }
+    };
 }
 
 // 모달 영역
@@ -411,7 +419,7 @@ var modalFn = {
     enter: function (obj) {
         obj.addClass('enter');
         obj.focus();
-        $("#wrap").attr('aria-hidden', true);
+        $('#wrap').attr('aria-hidden', true);
     },
     leave: function (obj, lastFocus) {
         obj.addClass('leave');
@@ -419,10 +427,10 @@ var modalFn = {
         setTimeout(function () {
             obj.removeClass('leave');
         }, 300);
-        $("#wrap").attr('aria-hidden', false);
+        $('#wrap').attr('aria-hidden', false);
         if (lastFocus) lastFocus.focus();
     }
-}
+};
 
 // 탭 용 label
 var labelTabFn = {
@@ -431,7 +439,9 @@ var labelTabFn = {
 
         obj.closest('label').toggleClass('active');
         // console.log(obj.prop('checked'));
-        obj.prop('checked') ? obj.prop('checked', false) : obj.prop('checked', true);
+        obj.prop('checked') ?
+            obj.prop('checked', false) :
+            obj.prop('checked', true);
         // console.log(obj.prop('checked'));
     },
     radio: function (obj) {
@@ -445,7 +455,7 @@ var labelTabFn = {
         if (!chk) return obj.prop('checked', true);
         // console.log(obj.prop('checked'));
     }
-}
+};
 
 var toggleTabFn = {
     seleted_tab: function () {
@@ -453,18 +463,25 @@ var toggleTabFn = {
         // var bool = optionList.is(":hidden");
         // optionList.attr('hidden',!bool);
         tabWrapper.children('li').on('click', function () {
-            $(this).toggleClass('active').siblings().removeClass('active');
+            $(this)
+                .toggleClass('active')
+                .siblings()
+                .removeClass('active');
         });
     },
     init: function () {
         this.seleted_tab();
     }
-}
+};
 
 // urlParams
 function getUrlParams() {
     var params = {};
-    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (str, key, value) {
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (
+        str,
+        key,
+        value
+    ) {
         params[key] = value;
     });
     return params;
@@ -483,7 +500,7 @@ function tabsFn() {
     function generateArrays() {
         tabs = document.querySelectorAll('[role="tab"]');
         panels = document.querySelectorAll('[role="tabpanel"]');
-    };
+    }
 
     // For easy reference
     var keys = {
@@ -505,9 +522,9 @@ function tabsFn() {
     };
 
     // Bind listeners
-    for (i = 0; i < tabs.length; ++i) {
+    for (var i = 0; i < tabs.length; ++i) {
         addListeners(i);
-    };
+    }
 
     function addListeners(index) {
         tabs[index].addEventListener('click', clickEventListener);
@@ -516,13 +533,13 @@ function tabsFn() {
 
         // Build an array with all tabs (<button>s) in it
         tabs[index].index = index;
-    };
+    }
 
     // When a tab is clicked, activateTab is fired to activate it
     function clickEventListener(event) {
         var tab = event.target;
         activateTab(tab, false);
-    };
+    }
 
     // Handle keydown on tabs
     function keydownEventListener(event) {
@@ -546,8 +563,8 @@ function tabsFn() {
             case keys.down:
                 determineOrientation(event);
                 break;
-        };
-    };
+        }
+    }
 
     // Handle keyup on tabs
     function keyupEventListener(event) {
@@ -561,8 +578,8 @@ function tabsFn() {
             case keys.delete:
                 determineDeletable(event);
                 break;
-        };
-    };
+        }
+    }
 
     // When a tablist’s aria-orientation is set to vertical,
     // only up and down arrow should function.
@@ -576,26 +593,26 @@ function tabsFn() {
             if (key === keys.up || key === keys.down) {
                 event.preventDefault();
                 proceed = true;
-            };
+            }
         } else {
             if (key === keys.left || key === keys.right) {
                 proceed = true;
-            };
-        };
+            }
+        }
 
         if (proceed) {
             switchTabOnArrowPress(event);
-        };
-    };
+        }
+    }
 
     // Either focus the next, previous, first, or last tab
     // depening on key pressed
     function switchTabOnArrowPress(event) {
         var pressed = event.keyCode;
 
-        for (x = 0; x < tabs.length; x++) {
+        for (var x = 0; x < tabs.length; x++) {
             tabs[x].addEventListener('focus', focusEventHandler);
-        };
+        }
 
         if (direction[pressed]) {
             var target = event.target;
@@ -606,10 +623,10 @@ function tabsFn() {
                     focusLastTab();
                 } else if (pressed === keys.right || pressed == keys.down) {
                     focusFirstTab();
-                };
-            };
-        };
-    };
+                }
+            }
+        }
+    }
 
     // Activates any given tab panel
     function activateTab(tab, setFocus) {
@@ -634,35 +651,35 @@ function tabsFn() {
         // Set focus when required
         if (setFocus) {
             tab.focus();
-        };
-    };
+        }
+    }
 
     // Deactivate all tabs and tab panels
     function deactivateTabs() {
-        for (t = 0; t < tabs.length; t++) {
+        for (var t = 0; t < tabs.length; t++) {
             tabs[t].setAttribute('tabindex', '-1');
             tabs[t].setAttribute('aria-selected', 'false');
             tabs[t].removeEventListener('focus', focusEventHandler);
-        };
+        }
 
-        for (p = 0; p < panels.length; p++) {
+        for (var p = 0; p < panels.length; p++) {
             panels[p].setAttribute('hidden', 'hidden');
-        };
-    };
+        }
+    }
 
     // Make a guess
     function focusFirstTab() {
         tabs[0].focus();
-    };
+    }
 
     // Make a guess
     function focusLastTab() {
         tabs[tabs.length - 1].focus();
-    };
+    }
 
     // Detect if a tab is deletable
     function determineDeletable(event) {
-        target = event.target;
+        var target = event.target;
 
         if (target.getAttribute('data-deletable') !== null) {
             // Delete target tab
@@ -676,9 +693,9 @@ function tabsFn() {
                 activateTab(tabs[0]);
             } else {
                 activateTab(tabs[target.index - 1]);
-            };
-        };
-    };
+            }
+        }
+    }
 
     // Deletes a tab and its panel
     function deleteTab(event) {
@@ -687,7 +704,7 @@ function tabsFn() {
 
         target.parentElement.removeChild(target);
         panel.parentElement.removeChild(panel);
-    };
+    }
 
     // Determine whether there should be a delay
     // when user navigates with the arrow keys
@@ -702,27 +719,27 @@ function tabsFn() {
             } else {
                 // If no value is specified, default to 300ms
                 delay = 300;
-            };
-        };
+            }
+        }
 
         return delay;
-    };
+    }
 
     //
     function focusEventHandler(event) {
         var target = event.target;
 
         setTimeout(checkTabFocus, delay, target);
-    };
+    }
 
     // Only activate tab on focus if it still has focus after the delay
     function checkTabFocus(target) {
-        focused = document.activeElement;
+        var focused = document.activeElement;
 
         if (target === focused) {
             activateTab(target, false);
-        };
-    };
+        }
+    }
 }
 
 // lazyload
