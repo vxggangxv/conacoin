@@ -3,9 +3,10 @@ const paginate = require('express-paginate');
 const path = require('path');
 
 exports.index = (req, res) => {
-    res.redirect('/support/inquirys')
-}
-// 문의하기
+    res.redirect('/support/inquirys');
+};
+
+// 문의하기 페이지
 exports.get_inquirys = async (req, res) => {
     try {
         const [inquirys, totalCount] = await Promise.all([
@@ -29,17 +30,17 @@ exports.get_inquirys = async (req, res) => {
         res.render('support/inquirys/list.html', {
             inquirys,
             pageCount,
-            pages,
+            pages
         });
     } catch (e) {
         console.log(e);
     }
-}
+};
 exports.get_inquirys_write = async (req, res) => {
     res.render('support/inquirys/edit.html', {
         csrfToken: req.csrfToken()
     });
-}
+};
 exports.post_inquirys_write = async (req, res) => {
     try {
         const items = req.files;
@@ -63,28 +64,28 @@ exports.post_inquirys_write = async (req, res) => {
                     extension,
                     inquiry_id
                 });
-            })
-        })
-        res.redirect('/support/inquirys')
+            });
+        });
+        res.redirect('/support/inquirys');
     } catch (e) {
         console.log(e);
     }
-}
+};
 exports.get_inquirys_detail = async (req, res) => {
     try {
         const inquiry = await models.Inquirys.findOne({
             where: {
-                id: req.params.id,
+                id: req.params.id
             },
             include: ['Reply', 'Attach']
         });
         res.render('support/inquirys/detail.html', {
             inquiry
-        })
+        });
     } catch (e) {
         console.log(e);
     }
-}
+};
 // exports.get_edit = async (req, res) => {
 //     res.render('support/inquirys/edit.html', {
 //         csrfToken: req.csrfToken()
@@ -103,13 +104,13 @@ exports.get_inquirys_delete = async (req, res) => {
         await models.Inquirys.destroy({
             where: {
                 id: req.params.id
-            },
+            }
         });
         res.redirect('/support/inquirys');
     } catch (e) {
         console.log(e);
     }
-}
+};
 exports.post_inquirys_reply_write = async (req, res) => {
     try {
         const inquiry = await models.Inquirys.findByPk(req.params.id);
@@ -131,7 +132,7 @@ exports.post_inquirys_reply_write = async (req, res) => {
     } catch (e) {
         console.log(e);
     }
-}
+};
 exports.post_inquirys_reply_edit = async (req, res) => {
     try {
         // const inquiry = await models.Inquirys.findByPk(req.params.id);
@@ -147,7 +148,7 @@ exports.post_inquirys_reply_edit = async (req, res) => {
     } catch (e) {
         console.log(e);
     }
-}
+};
 
 exports.get_inquirys_reply_delete = async (req, res) => {
     try {
@@ -160,7 +161,7 @@ exports.get_inquirys_reply_delete = async (req, res) => {
     } catch (e) {
         console.log(e);
     }
-}
+};
 
 exports.inquirys_check = async (req, res) => {
     try {
@@ -181,8 +182,13 @@ exports.inquirys_check = async (req, res) => {
         res.json({
             inquiry,
             status
-        })
+        });
     } catch (e) {
         console.log(e);
     }
-}
+};
+
+// 자주묻는 질문 페이지
+exports.get_faq = (req, res) => {
+    res.render('support/faq/list.html');
+};

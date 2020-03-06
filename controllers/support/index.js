@@ -21,6 +21,6 @@ router.get('/inquirys/reply/delete/:id', ctrl.get_inquirys_reply_delete);
 
 router.post('/inquirys/check', ctrl.inquirys_check);
 
-
+router.get('/faq', ctrl.get_faq);
 
 module.exports = router;

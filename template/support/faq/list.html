@@ -1,143 +1,91 @@
 {% set title = "CONA | 고객센터" %}
 {% set pageName = "supportPage" %}
+{% set pageTitle = "SUPPORT" %}
+{% set pageSubTitle = "Always-on customer service" %}
 {% extends "layout/base.html" %}
 
 {% block content %}
-    {% include("layout/subvisual.html") %}
+{% include("layout/subvisual.html") %}
 
-    <section class="sec support-inquirys-sec comm-pd">
-        <div class="inquirys-wrapper">
-            <div class="inquirys-content group">
-                <div class="inquirys-title comm-title">
-                    <h1 class="title">
-                        실시간 문의하기
-                    </h1>
-                </div>
-                <div class="tbl-comm-st">※ 답변이 완료된 문의는 이메일로 답변이 전송되오니 확인 부탁드립니다.</div>
-                <table class="list-tbl">
-                    <colgroup>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>등록일</th>
-                            <th>작성자</th>
-                            <th>제목</th>
-                            <th>진행상황</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {# {% for i in range(0, 10) %}
-                            <tr>
-                                <td class="date">2019-12-08</td>
-                                <td class="name">h******</td>
-                                <td class="title">
-                                    <a href="javascript:;" data-toggle="modal" data-target="support-inquiry-pw">가이드영상대로 진행했는데 잘 안되네요..ㅠㅠ</a>
-                                </td>
-                                <td>
-                                    <span class="state active">답변완료</span>
-                                </td>
-                            </tr>
-                        {% endfor %} #}
-                        {% for inquiry in inquirys %}
-                            <tr>
-                                <td class="date">{{ inquiry.dateFormat( inquiry.createdAt ) }}</td>
-                                <td class="name">{{ inquiry.name }}</td>
-                                <td class="title">
-                                    <!--<a href="/support/inquirys/detail/{{ inquiry.id }}">{{ inquiry.title }}</a>-->
-                                    <a href="javascript:;" data-link="{{ inquiry.id }}" data-toggle="modal" data-target="support-inquirys-pw">
-                                        {% if inquiry.password %}
-                                            <i class="mdi mdi-lock"></i>
-                                        {% endif %}
-                                        {{ inquiry.title }}
-                                    </a>
-                                </td>
-                                <td>
-                                    {% if inquiry.reply_cnt %}
-                                        <span class="status active">
-                                            답변완료
-                                        </span>
-                                    {% else %}
-                                        <span class="status">
-                                            답변대기
-                                        </span>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="inquirys-actions count-3">
-                    {% if paginate.hasPreviousPages %}
-                        <a href="{{ paginate.href(true) }}" class="comm-btn outline prev-btn">이전</a>
-                    {% else %}
-                        <a href="javascript:;" class="comm-btn outline prev-btn">이전</a>
-                    {% endif %}
-
-                    {% if paginate.hasNextPages(pageCount) %}
-                        <a href="{{ paginate.href() }}" class="comm-btn outline next-btn">다음</a>
-                    {% else %}
-                        <a href="javascript:;" class="comm-btn outline next-btn">다음</a>
-                    {% endif %}
-                    <a href="/support/inquirys/write/" class="comm-btn primary inquiry-btn">문의하기</a>
-                </div>
+<section class="sec support-inquirys-sec comm-pd">
+    <div class="inquirys-wrapper">
+        <div class="inquirys-content group">
+            <div class="inquirys-title comm-title">
+                <h1 class="title">
+                    자주묻는 질문
+                </h1>
+            </div>
+            <div class="inquirys-faq">
+                <ul class="faq-list" id="faqList">
+                    <li class="faq-item">
+                        <div class="question">
+                            실시간 고객센터 운영시간은 어떻게 되나요?
+                        </div>
+                        <div class="answer">
+                            실시간 고객센터는 24시간 문의가 가능하며,<br>
+                            실시간 모니터링을 통하여 답변이 이루어지고 있습니다.<br>
+                            사정에 의해 부재중일경우, 코나코인 커뮤니티를 통해 문의바랍니다.<br>
+                            <br>
+                            코나코인 커뮤니티 : <a href="https://open.kakao.com/o/gTOA2xJb" target="_blank" rel="noopener noreferrer">https://open.kakao.com/o/gTOA2xJb</a><br>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <div class="question">
+                            포블게이트 회원가입은 어떻게 하나요?
+                        </div>
+                        <div class="answer">
+                            포블게이트 회원가입 방법에 대해 아래 링크에 자세한 가이드가 있습니다.<br>
+                            <br>
+                            [회원가입 방법 바로가기] <a href="https://www.youtube.com/watch?v=8_pzFezpQIQ" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=8_pzFezpQIQ</a><br>
+                            <br>
+                            해당링크를 참고하여 회원가입이 가능하십니다.<br>
+                            <br>
+                            코나코인은 현재 포블게이트 거래소 단독 상장되어있습니다.<br>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <div class="question">
+                            A-IEO를 통하여 매수는 어떻게 하나요?
+                        </div>
+                        <div class="answer">
+                            A-IEO 매수방법에 대해 아래 링크에 자세한 가이드가 있습니다.<br>
+                            <br>
+                            [코인 매수방법 바로가기] <a href="https://www.youtube.com/watch?v=tGT-8LX6KOs&t=45s" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=tGT-8LX6KOs&t=45s</a><br>
+                            <br>
+                            해당링크를 참고하여 확인이 가능하십니다.<br>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <div class="question">
+                            A-IEO를 통하여 매도는 어떻게 하나요?
+                        </div>
+                        <div class="answer">
+                            A-IEO 매수방법에 대해 아래 링크에 자세한 가이드가 있습니다.<br>
+                            <br>
+                            [코인 매도방법 바로가기] <a href="https://www.youtube.com/watch?v=gXn19vr2uug" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=gXn19vr2uug</a><br>
+                            <br>
+                            해당링크를 참고하여 확인이 가능하십니다.<br>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <div class="question">
+                            코나코인이란 무엇인가요?
+                        </div>
+                        <div class="answer">
+                            코나코인에 대한 자세한 소개사항을 하단 링크를 통해 안내드리고 있습니다.<br>
+                            <br>
+                            <!-- [코나코인 소개 바로가기] <a href="http://conacoin.io/guide" target="_blank" rel="noopener noreferrer">http://conacoin.io/guide</a><br> -->
+                            [코나코인 소개 바로가기] <a href="https://www.youtube.com/watch?v=-FItemPCG4A" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=-FItemPCG4A</a><br>
+                            <br>
+                            해당링크를 참고하여 확인이 가능하십니다.<br>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
-    <!-- /.sec support-inquirys-sec -->
+    </div>
+</section>
+<!-- /.sec support-inquirys-sec -->
 
-    {% include("inc/bn_meet.html") %}
-    {% include("inc/support_pw_pop.html") %}
-
-    <script>
-        var data_id = '';
-        $('[data-link]').on('click', function () {
-            data_id = $(this).attr('data-link');
-        });
-
-        $('#sp_pw_input').on('keydown', function (e) {
-            if (e.which == 13 || e.keyCode == 13) {
-                sp_submit();
-            }
-        });
-        $('#sp_submit').click(function () {
-            sp_submit();
-        });
-        function sp_submit() {
-            var $sp_pw_input = $('#sp_pw_input');
-            if (!$sp_pw_input.val()) {
-                alert('비밀번호를 입력하세요.');
-                $sp_pw_input.focus();
-                return false;
-            }
-            $
-                .ajax({
-                    url: '/support/inquirys/check',
-                    type: 'post',
-                    data: {
-                        inquiry_id: data_id,
-                        inquiry_password: $sp_pw_input
-                            .val()
-                            .trim()
-                    }
-                })
-                .done(function (result) {
-                    if (result.status) {
-                        location.href = "/support/inquirys/detail/" + data_id;
-                    } else {
-                        alert('올바른 비밀번호를 입력하세요.')
-                        $sp_pw_input.val('');
-                        $sp_pw_input.focus();
-                    }
-                })
-                .fail(function (result) {
-                    console.log(result);
-                    alert('오류 발생');
-                });
-
-        }
-    </script>
+{% include("inc/bn_meet.html") %}
 {% endblock %}

@@ -480,6 +480,65 @@
             }
         }
     }
+
+    .inquirys-faq {
+        .faq-list {
+
+            .faq-item {
+                padding: 0 10px;
+                border: 1px solid $bor-gray;
+                // word-break: keep-all;
+                line-height: 1.7;
+
+                &+.faq-item {
+                    margin-top: 10px;
+                }
+
+                &.on {
+                    border-color: $primary-color;
+
+                    .answer {
+                        // display: block;
+                    }
+                }
+
+                >div {
+                    position: relative;
+                }
+
+                .question {
+                    padding: 8px 15px;
+                    padding-left: 25px;
+                    font-size: 13.5px;
+                    letter-spacing: -0.3px;
+                    cursor: pointer;
+
+                    &:before {
+                        content: 'Q';
+                        position: absolute;
+                        top: 10px;
+                        left: 0;
+                        display: inline-block;
+                        @include sizes(20px);
+                        background-color: $primary-color;
+                        border-radius: 50%;
+                        color: #fff;
+                        font-size: 11.5px;
+                        line-height: 19px;
+                        text-align: center;
+
+                    }
+                }
+
+                .answer {
+                    display: none;
+                    padding: 5px 0 8px;
+                    border-top: 1px solid $bor-gray;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
 }
 
 // // mobile
@@ -899,6 +958,62 @@
 
                             @include screen-lg {
                                 right: 20px;
+                            }
+                        }
+                    }
+                }
+
+                .inquirys-faq {
+                    .faq-list {
+
+                        .faq-item {
+                            padding: 0 20px;
+                            border: 1px solid $bor-gray;
+                            word-break: keep-all;
+                            line-height: 1.7;
+
+                            &+.faq-item {
+                                margin-top: 20px;
+                            }
+
+                            &.on {
+                                border-color: $primary-color;
+
+                                .answer {
+                                    display: block;
+                                }
+                            }
+
+                            >div {
+                                position: relative;
+                            }
+
+                            .question {
+                                padding: 25px 30px;
+                                padding-left: 40px;
+                                cursor: pointer;
+
+                                &:before {
+                                    content: 'Q';
+                                    position: absolute;
+                                    top: 24px;
+                                    left: 0;
+                                    display: inline-block;
+                                    @include sizes(30px);
+                                    background-color: $primary-color;
+                                    border-radius: 50%;
+                                    color: #fff;
+                                    line-height: 27px;
+                                    text-align: center;
+
+                                }
+                            }
+
+                            .answer {
+                                display: none;
+                                padding: 20px 0;
+                                border-top: 1px solid $bor-gray;
+                                font-size: 14px;
                             }
                         }
                     }

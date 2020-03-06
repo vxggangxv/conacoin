@@ -5,7 +5,8 @@ $(function () {
     tabsFn();
     dataFn();
     common.init();
-    if ($('#mainPage').length) return main.init();
+    if ($('#mainPage')) main.init();
+    if ($('#supportPage')) support.init();
 });
 
 // commonUI
@@ -200,7 +201,7 @@ var main = {
                     slidesToShow: 1,
                     dots: true
                 }
-            } ]
+            }]
         });
     },
     roadmapList: function () {
@@ -315,6 +316,20 @@ var main = {
     }
 };
 
+// supportUI
+var support = {
+    init: function () {
+        this.faqListFn();
+    },
+    faqListFn: function () {
+        $('#faqList .faq-item .question').on('click', function () {
+            $(this).next().slideToggle();
+            $(this).parent().toggleClass('on').siblings().removeClass('on');
+            $(this).parent().siblings().children('.answer').slideUp();
+        });
+    }
+};
+
 var targetHide = {
     self: function (obj) {
         $(obj).on('click', function (e) {
@@ -338,6 +353,72 @@ var targetHide = {
         });
     }
 };
+
+// 모달 영역
+var modalFn = {
+    enter: function (obj) {
+        obj.addClass('enter');
+        obj.focus();
+        $('#wrap').attr('aria-hidden', true);
+    },
+    leave: function (obj, lastFocus) {
+        obj.addClass('leave');
+        obj.removeClass('enter');
+        setTimeout(function () {
+            obj.removeClass('leave');
+        }, 300);
+        $('#wrap').attr('aria-hidden', false);
+        if (lastFocus) lastFocus.focus();
+    }
+};
+
+// 탭 용 label
+var labelTabFn = {
+    checkbox: function (obj) {
+        var chk = obj.is(':checked');
+
+        obj.closest('label').toggleClass('active');
+        // console.log(obj.prop('checked'));
+        obj.prop('checked') ?
+            obj.prop('checked', false) :
+            obj.prop('checked', true);
+        // console.log(obj.prop('checked'));
+    },
+    radio: function (obj) {
+        var chk = obj.is(':checked');
+        var tabWrapper = $('[data-fn-type=tabs]');
+
+        tabWrapper.find('label').removeClass('active');
+        obj.closest('label').addClass('active');
+        // el.addClass('active');
+        // console.log(obj.prop('checked'));
+        if (!chk) return obj.prop('checked', true);
+        // console.log(obj.prop('checked'));
+    }
+};
+
+var toggleTabFn = {
+    seleted_tab: function () {
+        var tabWrapper = $('[data-fn-type=toggle-tab]');
+        // var bool = optionList.is(":hidden");
+        // optionList.attr('hidden',!bool);
+        tabWrapper.children('li').on('click', function () {
+            $(this)
+                .toggleClass('active')
+                .siblings()
+                .removeClass('active');
+        });
+    },
+    init: function () {
+        this.seleted_tab();
+    }
+};
+
+function toggleOn(obj) {
+    $(obj).on('click', function () {
+        $(this).addClass('on').siblings().removeClass('on');
+    });
+}
 
 function anotherTargetToggle(obj) {
     var el = obj;
@@ -413,66 +494,6 @@ function dataFn() {
         }
     };
 }
-
-// 모달 영역
-var modalFn = {
-    enter: function (obj) {
-        obj.addClass('enter');
-        obj.focus();
-        $('#wrap').attr('aria-hidden', true);
-    },
-    leave: function (obj, lastFocus) {
-        obj.addClass('leave');
-        obj.removeClass('enter');
-        setTimeout(function () {
-            obj.removeClass('leave');
-        }, 300);
-        $('#wrap').attr('aria-hidden', false);
-        if (lastFocus) lastFocus.focus();
-    }
-};
-
-// 탭 용 label
-var labelTabFn = {
-    checkbox: function (obj) {
-        var chk = obj.is(':checked');
-
-        obj.closest('label').toggleClass('active');
-        // console.log(obj.prop('checked'));
-        obj.prop('checked') ?
-            obj.prop('checked', false) :
-            obj.prop('checked', true);
-        // console.log(obj.prop('checked'));
-    },
-    radio: function (obj) {
-        var chk = obj.is(':checked');
-        var tabWrapper = $('[data-fn-type=tabs]');
-
-        tabWrapper.find('label').removeClass('active');
-        obj.closest('label').addClass('active');
-        // el.addClass('active');
-        // console.log(obj.prop('checked'));
-        if (!chk) return obj.prop('checked', true);
-        // console.log(obj.prop('checked'));
-    }
-};
-
-var toggleTabFn = {
-    seleted_tab: function () {
-        var tabWrapper = $('[data-fn-type=toggle-tab]');
-        // var bool = optionList.is(":hidden");
-        // optionList.attr('hidden',!bool);
-        tabWrapper.children('li').on('click', function () {
-            $(this)
-                .toggleClass('active')
-                .siblings()
-                .removeClass('active');
-        });
-    },
-    init: function () {
-        this.seleted_tab();
-    }
-};
 
 // urlParams
 function getUrlParams() {
