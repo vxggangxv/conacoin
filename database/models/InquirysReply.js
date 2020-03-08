@@ -6,29 +6,29 @@ module.exports = function (sequelize, DataTypes) {
             id: {
                 type: DataTypes.BIGINT.UNSIGNED,
                 primaryKey: true,
-                autoIncrement: true,
+                autoIncrement: true
             },
             name: {
                 type: DataTypes.STRING,
                 validate: {
                     len: [0, 50]
-                },
+                }
             },
             content: {
                 type: DataTypes.TEXT,
                 validate: {
-                    len: [0, 3000],
-                },
+                    len: [0, 3000]
+                }
             },
             createdAt: {
-                type: DataTypes.DATE,
+                type: DataTypes.DATE
             },
             updatedAt: {
-                type: DataTypes.DATE,
+                type: DataTypes.DATE
             }
         }, {
-            tableName: 'InquirysReply',
-        },
+            tableName: 'InquirysReply'
+        }
     );
 
     // 년-월-일
@@ -37,7 +37,7 @@ module.exports = function (sequelize, DataTypes) {
 
     InquirysReply.associate = function (models) {
         InquirysReply.belongsTo(models.Inquirys, {
-            foreignKey: 'inquiry_id',
+            foreignKey: 'inquiry_id'
         });
     };
 

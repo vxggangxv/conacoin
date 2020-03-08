@@ -7,15 +7,15 @@
 {% block content %}
     {% include("layout/subvisual.html") %}
 
-    <section class="sec support-inquirys-sec comm-pd">
-        <div class="inquirys-wrapper">
-            <div class="inquirys-content group">
-                <div class="inquirys-title comm-title">
+    <section class="sec notice-alerts-sec comm-pd">
+        <div class="alerts-wrapper">
+            <div class="alerts-content group">
+                <div class="alerts-title comm-title">
                     <h1 class="title">
                         공지사항
                     </h1>
                 </div>
-                <table class="list-tbl">
+                <table class="tbl-type1 list-tbl">
                     <colgroup>
                         <col>
                         <col>
@@ -33,7 +33,7 @@
                             <tr>
                                 <td class="no">{{ item.id }}</td>
                                 <td class="title">
-                                    {# <a href="javascript:;" data-link="{{ item.id }}" data-toggle="modal" data-target="support-inquirys-pw"> #}
+                                    {# <a href="javascript:;" data-link="{{ item.id }}" data-toggle="modal" data-target="support-alerts-pw"> #}
                                     <a href="/notice/alerts/detail/{{ item.id }}">
                                         {{ item.title }}
                                     </a>
@@ -43,7 +43,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                <div class="inquirys-actions count-3">
+                <div class="alerts-actions comm-actions  count-3">
                     {% if paginate.hasPreviousPages %}
                         <a href="{{ paginate.href(true) }}" class="comm-btn outline prev-btn">이전</a>
                     {% else %}
@@ -59,7 +59,7 @@
             </div>
         </div>
     </section>
-    <!-- /.sec support-inquirys-sec -->
+    <!-- /.sec support-alerts-sec -->
 
     {% include("inc/bn_meet.html") %}
 

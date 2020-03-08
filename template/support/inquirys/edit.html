@@ -20,7 +20,7 @@
                 <div class="tbl-comm-st">※ 답변이 완료된 문의는 이메일로 답변이 전송되오니 확인 부탁드립니다.</div>
                 <form action="" method="post" id="inquirys_form" enctype="multipart/form-data">
                     <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
-                    <table class="edit-tbl">
+                    <table class="tbl-type1 edit-tbl">
                         <tbody>
                             <tr class="name">
                                 <td>
@@ -58,7 +58,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="inquirys-actions">
+                    <div class="inquirys-actions comm-actions ">
                         <a href="/support/inquirys" class="comm-btn outline back-btn">목록</a>
                         <button type="submit" class="comm-btn primary complete-btn">작성완료</button>
                     </div>

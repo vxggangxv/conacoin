@@ -697,7 +697,24 @@ body {
 // subvisual 영역
 // --------------------
 // mobile tablet xs & sm 
-@media (max-width: 991px) {
+@media (max-width: $screen-md-width - 1px) {
+    $pages: (support, notice);
+
+    @each $item in $pages {
+        .sec.comm-pd[class*=#{$item}-] {
+            padding: 70px 0;
+        }
+
+        .sec[class*=#{$item}-] .comm-title {
+            text-align: center;
+            margin-bottom: 50px;
+
+            .title {
+                font-size: 30px;
+                line-height: 1.2;
+            }
+        }
+    }
 
     // subvisual 영역
     .subvisual-sec {
@@ -746,7 +763,26 @@ body {
 }
 
 // pd md & lg
-@media (min-width: 992px) {
+@media (min-width: $screen-md-width) {
+
+    $pages: (support, notice);
+
+    @each $item in $pages {
+        .sec.comm-pd[class*=#{$item}-] {
+            padding: 70px 0;
+        }
+
+        .sec[class*=#{$item}-] .comm-title {
+            text-align: center;
+            margin-bottom: 50px;
+
+            .title {
+                font-size: 30px;
+                line-height: 1.2;
+            }
+        }
+    }
+
 
     // subvisual 영역
     .subvisual-sec {

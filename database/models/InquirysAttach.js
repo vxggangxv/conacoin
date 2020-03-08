@@ -6,25 +6,25 @@ module.exports = function (sequelize, DataTypes) {
             id: {
                 type: DataTypes.BIGINT.UNSIGNED,
                 primaryKey: true,
-                autoIncrement: true,
+                autoIncrement: true
             },
             originalname: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING
             },
             filename: {
                 type: DataTypes.STRING,
                 validate: {
                     len: [0, 50]
-                },
+                }
             },
             size: {
-                type: DataTypes.BIGINT,
+                type: DataTypes.BIGINT
             },
             destination: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING
             },
             extension: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING
             },
             del_status: {
                 type: DataTypes.STRING(1),
@@ -32,19 +32,19 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             },
             createdAt: {
-                type: DataTypes.DATE,
+                type: DataTypes.DATE
             },
             updatedAt: {
-                type: DataTypes.DATE,
+                type: DataTypes.DATE
             }
         }, {
-            tableName: 'InquirysAttach',
-        },
+            tableName: 'InquirysAttach'
+        }
     );
 
     InquirysAttach.associate = function (models) {
         InquirysAttach.belongsTo(models.Inquirys, {
-            foreignKey: 'inquiry_id',
+            foreignKey: 'inquiry_id'
         });
     };
 
