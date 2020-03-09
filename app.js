@@ -48,7 +48,7 @@ function dbConnection() {
             console.log('DB Sync complete.');
             // 더미 데이터가 필요하면 아래 설정
             if (env == 'development') {
-                // require('./config/insertAlertsDummyData')()
+                // require('./config/insertAlertsDummyData')();
                 // require('./config/insertInquirysDummyData')()
                 // require('./config/insertNewsDummyData')()
                 // require('./config/insertUserDummyData')()

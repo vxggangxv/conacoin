@@ -74,6 +74,14 @@ router.get('/accounts/logout', ctrl.logout);
 router.get('/accounts/password', csrfProtection, ctrl.get_password);
 router.post('/accounts/password', ctrl.post_password);
 
+router.get('/alerts', paginate.middleware(10, 50), ctrl.get_alerts);
+router.get('/alerts/write', csrfProtection, ctrl.get_alerts_write);
+router.post('/alerts/write', ctrl.post_alerts_write);
+router.get('/alerts/detail/:id', ctrl.get_alerts_detail);
+router.get('/alerts/edit/:id', csrfProtection, ctrl.get_alerts_edit);
+router.post('/alerts/edit/:id', ctrl.post_alerts_edit);
+router.get('/alerts/delete/:id', ctrl.get_alerts_delete);
+
 router.get('/inquirys', paginate.middleware(10, 50), ctrl.get_inquirys);
 router.get('/inquirys/write', csrfProtection, ctrl.get_inquirys_write);
 router.post('/inquirys/write', upload.array('file', 5), ctrl.post_inquirys_write);

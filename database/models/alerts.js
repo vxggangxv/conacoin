@@ -7,13 +7,13 @@ module.exports = (sequelize, DataTypes) => {
             id: {
                 type: DataTypes.BIGINT.UNSIGNED,
                 primaryKey: true,
-                autoIncrement: true,
+                autoIncrement: true
             },
             name: {
                 type: DataTypes.STRING,
                 validate: {
                     len: [0, 50]
-                },
+                }
             },
             email: {
                 type: DataTypes.STRING
@@ -21,24 +21,27 @@ module.exports = (sequelize, DataTypes) => {
             title: {
                 type: DataTypes.TEXT,
                 validate: {
-                    len: [0, 300],
-                },
+                    len: [0, 300]
+                }
             },
             content: {
                 type: DataTypes.TEXT,
                 validate: {
-                    len: [0, 3000],
-                },
+                    len: [0, 3000]
+                }
+            },
+            attach_cnt: {
+                type: DataTypes.BIGINT.UNSIGNED
             },
             createdAt: {
-                type: DataTypes.DATE,
+                type: DataTypes.DATE
             },
             updatedAt: {
-                type: DataTypes.DATE,
+                type: DataTypes.DATE
             }
         }, {
-            tableName: 'Alerts',
-        },
+            tableName: 'Alerts'
+        }
     );
 
     Alerts.prototype.dateFormat = date => moment(date).format('YYYY-MM-DD');

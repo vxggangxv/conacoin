@@ -3,506 +3,507 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    <section class="sec main-visual-sec">
-        <h1 class="sr-only">코나코인 소개</h1>
-        <div class="visual-wrapper">
-            <div class="visual-content">
-                <div class="banner-list-wrapper">
-                    <div id="visualBannerList" class="banner-list">
-                        <div class="banner-item item-1">
-                            <div class="banner-title">
-                                <div class="title-wrapper">
-                                    <div class="wayp-item">
-                                        <p class="title ff-jfss">“ World's first ”</p>
-                                        <p class="st" data-langtarget="visualSubtitle">
-                                            <span class="big">펀드레이징 커뮤니티 플랫폼</span>
-                                            <span class="small">Cryptocurrency Offering New Alternative</span>
-                                        </p>
-                                    </div>
+<section class="sec main-visual-sec">
+    <h1 class="sr-only">코나코인 소개</h1>
+    <div class="visual-wrapper">
+        <div class="visual-content">
+            <div class="banner-list-wrapper">
+                <div id="visualBannerList" class="banner-list">
+                    <div class="banner-item item-1">
+                        <div class="banner-title">
+                            <div class="title-wrapper">
+                                <div class="wayp-item">
+                                    <p class="title ff-jfss">“ World's first ”</p>
+                                    <p class="st" data-langtarget="visualSubtitle">
+                                        <span class="big">펀드레이징 커뮤니티 플랫폼</span>
+                                        <span class="small">Cryptocurrency Offering New Alternative</span>
+                                    </p>
                                 </div>
-                            </div>
-                            <div class="banner-actions cf">
-                                <a href="/support/inquirys/" class="btn lg outline inquiry-btn" data-langtarget="visualJoin">문의하기</a>
                             </div>
                         </div>
-                        <div class="banner-item item-2">
-                            <div class="banner-title">
-                                <div class="title-wrapper">
-                                    <div class="wayp-item">
-                                        <p class="title ff-jfss">“ White paper ”</p>
-                                        <p class="st">
-                                            <span class="big">코나코인 백서를 확인하세요.</span>
-                                            <span class="small">Wath do you wonder?</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="banner-actions cf">
-                                <a href="javascript:;" target="_blank" class="btn lg white paper-btn end">WHITE PAPER_ENG</a>
-                                <a href="https://drive.google.com/file/d/1iGlhpizzd7kA_-76Ck_T-Y6uWIIwWjHR/view " target="_blank" class="btn lg outline paper-btn kor">WHITE PAPER_KOR</a>
-                            </div>
+                        <div class="banner-actions cf">
+                            <a href="/support/inquirys/" class="btn lg outline inquiry-btn" data-langtarget="visualJoin">문의하기</a>
                         </div>
                     </div>
-
-                    <div id="bannerArrow" class="banner-arrow group-f"></div>
-
-                    <div class="cona-ticker-wrapper group-f">
-                        <div class="cona-ticker">
-                            <div class="split split-1">
-                                <img src="/images/common/logo.png" alt="코나" class="logo-img"><br>
-                                <a href="https://www.foblgate.com/trade?pairName=CONA/KRW" target="_blank" class="btn ticker-btn">시세확인</a>
+                    <div class="banner-item item-2">
+                        <div class="banner-title">
+                            <div class="title-wrapper">
+                                <div class="wayp-item">
+                                    <p class="title ff-jfss">“ White paper ”</p>
+                                    <p class="st">
+                                        <span class="big">코나코인 백서를 확인하세요.</span>
+                                        <span class="small">Wath do you wonder?</span>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="split split-2">
-                                <p>상장가: 100 KRW</p>
-                                <p class="fw">현재가:
-                                    {{ price }}
-                                    KRW
-                                    {% if price >= prev_price %}
-                                        <i class="mdi mdi-menu-up"></i>
-                                    {% else %}
-                                        <i class="mdi mdi-menu-down"></i>
-                                    {% endif %}
-                                </p>
-                                <p class="fw">상장가 대비:
-                                    {{ price - 100 }}%</p>
-                            </div>
+                        </div>
+                        <div class="banner-actions cf">
+                            <a href="javascript:;" class="btn lg white paper-btn end" onclick="alert('준비중입니다.')">WHITE PAPER_ENG</a>
+                            <a href="https://drive.google.com/file/d/1iGlhpizzd7kA_-76Ck_T-Y6uWIIwWjHR/view " target="_blank" class="btn lg outline paper-btn kor">WHITE PAPER_KOR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bannerArrow" class="banner-arrow group-f"></div>
+
+                <div class="cona-ticker-wrapper group-f">
+                    <div class="cona-ticker">
+                        <div class="split split-1">
+                            <img src="/images/common/logo.png" alt="코나" class="logo-img"><br>
+                            <a href="https://www.foblgate.com/trade?pairName=CONA/KRW" target="_blank" class="btn ticker-btn">시세확인</a>
+                        </div>
+                        <div class="split split-2">
+                            <p>상장가: 100 KRW</p>
+                            <p class="fw">현재가:
+                                {{ price }}
+                                KRW
+                                {% if price >= prev_price %}
+                                <i class="mdi mdi-menu-up"></i>
+                                {% else %}
+                                <i class="mdi mdi-menu-down"></i>
+                                {% endif %}
+                            </p>
+                            <p class="fw">상장가 대비:
+                                {{ price - 100 }}%</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- /.sec.main-visual-sec -->
+    </div>
+</section>
+<!-- /.sec.main-visual-sec -->
 
-    <div class="sec main-newsbar-sec">
-        <div class="newsbar-wrapper">
-            <div class="newsbar-content group">
-                <h1 class="newsbar-title">코나뉴스</h1>
-                <div class="news-list-wrapper">
-                    <div id="newsbarNewsList" class="news-list">
-                        {% for item in news %}
-                            <div class="news-item">
-                                <a href="{{ item.link }}" target="_blank">
-                                    {{ item.title }}
-                                    <span class="date">{{ item.date }}</span>
-                                </a>
-                            </div>
-                        {% endfor %}
+<div class="sec main-newsbar-sec">
+    <div class="newsbar-wrapper">
+        <div class="newsbar-content group">
+            <h1 class="newsbar-title">코나뉴스</h1>
+            <div class="news-list-wrapper">
+                <div id="newsbarNewsList" class="news-list">
+                    {% for item in news %}
+                    <div class="news-item">
+                        <a href="{{ item.link }}" target="_blank">
+                            {{ item.title }}
+                            <span class="date">{{ item.date }}</span>
+                        </a>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-
     </div>
 
-    <section id="scroll_guide" class="sec main-guide-sec comm-pd">
-        <div class="guide-wrapper">
-            <div class="guide-content group-f">
-                {# <div class="guide-title comm-title hidden-sm-and-down">
+</div>
+
+<section id="scroll_guide" class="sec main-guide-sec comm-pd">
+    <div class="guide-wrapper">
+        <div class="guide-content group-f">
+            {# <div class="guide-title comm-title hidden-sm-and-down">
                     <h1 class="title">동영상 가이드</h1>
                 </div> #}
-                <div class="guide-card">
-                    <ul id="guideVideoList" class="cf card-list">
-                        <li class="card-item">
-                            <a href="javascript:;" data-video="-FItemPCG4A">
-                                <figure>
-                                    <img src="/images/main/video01.jpg" alt="동영상">
-                                    <figcaption>1. 코나코인 소개</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="card-item">
-                            <a href="javascript:;" data-video="8_pzFezpQIQ">
-                                <figure>
-                                    <img src="/images/main/video02.jpg" alt="동영상">
-                                    <figcaption>2. 거래소 가입방법</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="card-item">
-                            <a href="javascript:;" data-video="tGT-8LX6KOs">
-                                <figure>
-                                    <img src="/images/main/video03.jpg" alt="동영상">
-                                    <figcaption>3. 코인 매수방법</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="card-item">
-                            <a href="javascript:;" data-video="gXn19vr2uug">
-                                <figure>
-                                    <img src="/images/main/video04.jpg" alt="동영상">
-                                    <figcaption>4. 코인 매도방법</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
+            <div class="guide-card">
+                <ul id="guideVideoList" class="cf card-list">
+                    <li class="card-item">
+                        <a href="javascript:;" data-video="-FItemPCG4A">
+                            <figure>
+                                <img src="/images/main/video01.jpg" alt="동영상">
+                                <figcaption>1. 코나코인 소개</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="card-item">
+                        <a href="javascript:;" data-video="8_pzFezpQIQ">
+                            <figure>
+                                <img src="/images/main/video02.jpg" alt="동영상">
+                                <figcaption>2. 거래소 가입방법</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="card-item">
+                        <a href="javascript:;" data-video="tGT-8LX6KOs">
+                            <figure>
+                                <img src="/images/main/video03.jpg" alt="동영상">
+                                <figcaption>3. 코인 매수방법</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="card-item">
+                        <a href="javascript:;" data-video="gXn19vr2uug">
+                            <figure>
+                                <img src="/images/main/video04.jpg" alt="동영상">
+                                <figcaption>4. 코인 매도방법</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                </ul>
 
-                    {# <iframe src="https://www.youtube.com/embed/gNX2lU_ub4c?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe> #}
-                    <div class="pop-mask video-pop-wrapper" id="video_pop_wrapper" style="display: none" onmousewheel="return false">
-                        <div class="pop-wrapper video-wrapper">
-                            <div class="pop-container video-container">
-                                <div class="iframe-wrapper" id="iframe_wrapper"></div>
-                                <div class="video-actions">
-                                    <button type="button" class="close-btn">CLOSE</button>
-                                </div>
+                {# <iframe src="https://www.youtube.com/embed/gNX2lU_ub4c?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe> #}
+                <div class="pop-mask video-pop-wrapper" id="video_pop_wrapper" style="display: none" onmousewheel="return false">
+                    <div class="pop-wrapper video-wrapper">
+                        <div class="pop-container video-container">
+                            <div class="iframe-wrapper" id="iframe_wrapper"></div>
+                            <div class="video-actions">
+                                <button type="button" class="close-btn">CLOSE</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- /.sec.main-guide-sec -->
+    </div>
+</section>
+<!-- /.sec.main-guide-sec -->
 
-    <section id="scroll_cona" class="sec main-cona-sec">
-        <div class="cona-wrapper">
-            <div class="cona-content group-f">
-                <div class="cona-title comm-title">
-                    <h1 class="title">
-                        코나코인이 돋보이는 이유!
-                    </h1>
-                    <p class="st">
-                        Cryptocurrency Offering New Alternative
-                    </p>
-                </div>
-                <div class="cona-card">
-                    <ul class="cf card-list">
-                        <li class="card-item wayp-item">
-                            <div class="cf card-title">
-                                <img src="/images/icon/cona.png" alt="코나" class="ic-cona">
-                                <h2 class="title">POINT 01</h2>
+<section id="scroll_cona" class="sec main-cona-sec">
+    <div class="cona-wrapper">
+        <div class="cona-content group-f">
+            <div class="cona-title comm-title">
+                <h1 class="title">
+                    코나코인이 돋보이는 이유!
+                </h1>
+                <p class="st">
+                    Cryptocurrency Offering New Alternative
+                </p>
+            </div>
+            <div class="cona-card">
+                <ul class="cf card-list">
+                    <li class="card-item wayp-item">
+                        <div class="cf card-title">
+                            <img src="/images/icon/cona.png" alt="코나" class="ic-cona">
+                            <h2 class="title">POINT 01</h2>
+                        </div>
+                        <div class="card-text">
+                            <p class="title">[효율적이고 투명한 모금]</p>
+                            <p class="text">
+                                A-IEO를 통한 균등한 투자분배 및 소각을 통해 디플레이션 방지를 함으로써 다양한 프로세스 환경을 경험하세요.
+                            </p>
+                            <span class="ic-alternative ic-alternative-1"></span>
+                        </div>
+                    </li>
+                    <li class="card-item wayp-item">
+                        <div class="cf card-title">
+                            <img src="/images/icon/cona.png" alt="코나" class="ic-cona">
+                            <h2 class="title">POINT 02</h2>
+                        </div>
+                        <div class="card-text">
+                            <p class="title">[코나 멤버십]</p>
+                            <p class="text">
+                                코나 멤버십 회원이 되어 다양한 혜택을 누려보세요.
+                            </p>
+                            <span class="ic-alternative ic-alternative-2"></span>
+                        </div>
+                    </li>
+                    <li class="card-item wayp-item">
+                        <div class="cf card-title">
+                            <img src="/images/icon/cona.png" alt="코나" class="ic-cona">
+                            <h2 class="title">POINT 03</h2>
+                        </div>
+                        <div class="card-text">
+                            <p class="title">[커뮤니티 플랫폼]</p>
+                            <p class="text">
+                                CONA만의 국가별 및 지역별 플랫폼을 통해 다양한 네트워킹이 가능합니다.
+                            </p>
+                            <span class="ic-alternative ic-alternative-3"></span>
+                        </div>
+                    </li>
+                    <li class="card-item wayp-item">
+                        <div class="cf card-title">
+                            <img src="/images/icon/cona.png" alt="코나" class="ic-cona">
+                            <h2 class="title">POINT 04</h2>
+                        </div>
+                        <div class="card-text">
+                            <p class="title">[투자자와 함께 만드는 코나]</p>
+                            <p class="text">
+                                4차 산업 공모전 및 코나 인증마크를 통하여 다양한 사업군을 발전시킬 수 있습니다.
+                            </p>
+                            <span class="ic-alternative ic-alternative-4"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.sec main-cona-sec -->
+
+<section id="scroll_roadmap" class="sec main-roadmap-sec hidden-sm-and-down">
+    <div class="roadmap-wrapper">
+        <div class="roadmap-content">
+            <div class="roadmap-title comm-title">
+                <div class="title">코나 로드맵</div>
+                <div class="st">Road Map of Cryptocurrency Offering New Alternative</div>
+            </div>
+            <div class="roadmap-bar">
+                <div class="roadmap-list-wrapper">
+                    <ul id="roadmapList" class="roadmap-list cf wayp-item">
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Prepared Corporate Registration</span>
                             </div>
-                            <div class="card-text">
-                                <p class="title">[효율적이고 투명한 모금]</p>
-                                <p class="text">
-                                    A-IEO를 통한 균등한 투자분배 및 소각을 통해 디플레이션 방지를 함으로써 다양한 프로세스 환경을 경험하세요.
-                                </p>
-                                <span class="ic-alternative ic-alternative-1"></span>
+                            <div class="date">
+                                2019 2Q
                             </div>
                         </li>
-                        <li class="card-item wayp-item">
-                            <div class="cf card-title">
-                                <img src="/images/icon/cona.png" alt="코나" class="ic-cona">
-                                <h2 class="title">POINT 02</h2>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Prepared CI / MI</span>
                             </div>
-                            <div class="card-text">
-                                <p class="title">[코나 멤버십]</p>
-                                <p class="text">
-                                    코나 멤버십 회원이 되어 다양한 혜택을 누려보세요.
-                                </p>
-                                <span class="ic-alternative ic-alternative-2"></span>
+                            <div class="date">
+                                2019 2Q
                             </div>
                         </li>
-                        <li class="card-item wayp-item">
-                            <div class="cf card-title">
-                                <img src="/images/icon/cona.png" alt="코나" class="ic-cona">
-                                <h2 class="title">POINT 03</h2>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Team Construction and Concept Building</span>
                             </div>
-                            <div class="card-text">
-                                <p class="title">[커뮤니티 플랫폼]</p>
-                                <p class="text">
-                                    CONA만의 국가별 및 지역별 플랫폼을 통해 다양한 네트워킹이 가능합니다.
-                                </p>
-                                <span class="ic-alternative ic-alternative-3"></span>
+                            <div class="date">
+                                2019 2Q
                             </div>
                         </li>
-                        <li class="card-item wayp-item">
-                            <div class="cf card-title">
-                                <img src="/images/icon/cona.png" alt="코나" class="ic-cona">
-                                <h2 class="title">POINT 04</h2>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Developed Whitepaper</span>
                             </div>
-                            <div class="card-text">
-                                <p class="title">[투자자와 함께 만드는 코나]</p>
-                                <p class="text">
-                                    4차 산업 공모전 및 코나 인증마크를 통하여 다양한 사업군을 발전시킬 수 있습니다.
-                                </p>
-                                <span class="ic-alternative ic-alternative-4"></span>
+                            <div class="date">
+                                2019 2Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Built Website</span>
+                            </div>
+                            <div class="date">
+                                2019 2Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Researched Exchange</span>
+                            </div>
+                            <div class="date">
+                                2019 2Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Examined Regulatory Requirements of Target Market</span>
+                            </div>
+                            <div class="date">
+                                2019 2Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Entered into Agreement with Law Firm</span>
+                            </div>
+                            <div class="date">
+                                2019 2Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Prepared Legal Documents</span>
+                            </div>
+                            <div class="date">
+                                2019 2Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Token Issuance System and Transaction System R&D</span>
+                            </div>
+                            <div class="date">
+                                2019 3Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Determined Basic Coin Policy</span>
+                            </div>
+                            <div class="date">
+                                2019 3Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Published and Released Whitepaper</span>
+                            </div>
+                            <div class="date">
+                                2019 3Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Renewed Official Website</span>
+                            </div>
+                            <div class="date">
+                                2019 3Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Initial Listing Exchange Confirmed</span>
+                            </div>
+                            <div class="date">
+                                2019 3Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">CONA Fund-raising</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Listed in Exchange and Began IEO</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Began CONA Beta Testing</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Enhanced P2P Communication</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Enhanced Core Security</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Entered into Partnership Agreement and MOU</span>
+                            </div>
+                            <div class="date">
+                                2019 4Q [Now]
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Partnership System Release</span>
+                            </div>
+                            <div class="date">
+                                2020 3Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Listing in Additional Exchanges</span>
+                            </div>
+                            <div class="date">
+                                2020 3Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Enhancing CONA Platform System</span>
+                            </div>
+                            <div class="date">
+                                2020 3Q
+                            </div>
+                        </li>
+                        <li class="roadmap-item">
+                            <div class="info">
+                                <span class="text">Upgrading Mining Efficiency, Device Technology Compatibility and Stability</span>
+                            </div>
+                            <div class="date">
+                                2020 3Q
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- /.sec main-cona-sec -->
+    </div>
+</section>
+<!-- /.sec main-roadmap-sec -->
 
-    <section id="scroll_roadmap" class="sec main-roadmap-sec hidden-sm-and-down">
-        <div class="roadmap-wrapper">
-            <div class="roadmap-content">
-                <div class="roadmap-title comm-title">
-                    <div class="title">코나 로드맵</div>
-                    <div class="st">Road Map of Cryptocurrency Offering New Alternative</div>
-                </div>
-                <div class="roadmap-bar">
-                    <div class="roadmap-list-wrapper">
-                        <ul id="roadmapList" class="roadmap-list cf wayp-item">
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Prepared Corporate Registration</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Prepared CI / MI</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Team Construction and Concept Building</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Developed Whitepaper</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Built Website</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Researched Exchange</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Examined Regulatory Requirements of Target Market</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Entered into Agreement with Law Firm</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Prepared Legal Documents</span>
-                                </div>
-                                <div class="date">
-                                    2019 2Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Token Issuance System and Transaction System R&D</span>
-                                </div>
-                                <div class="date">
-                                    2019 3Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Determined Basic Coin Policy</span>
-                                </div>
-                                <div class="date">
-                                    2019 3Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Published and Released Whitepaper</span>
-                                </div>
-                                <div class="date">
-                                    2019 3Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Renewed Official Website</span>
-                                </div>
-                                <div class="date">
-                                    2019 3Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Initial Listing Exchange Confirmed</span>
-                                </div>
-                                <div class="date">
-                                    2019 3Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">CONA Fund-raising</span>
-                                </div>
-                                <div class="date">
-                                    2019 4Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Listed in Exchange and Began IEO</span>
-                                </div>
-                                <div class="date">
-                                    2019 4Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Began CONA Beta Testing</span>
-                                </div>
-                                <div class="date">
-                                    2019 4Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Enhanced P2P Communication</span>
-                                </div>
-                                <div class="date">
-                                    2019 4Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Enhanced Core Security</span>
-                                </div>
-                                <div class="date">
-                                    2019 4Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Entered into Partnership Agreement and MOU</span>
-                                </div>
-                                <div class="date">
-                                    2019 4Q [Now]
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Partnership System Release</span>
-                                </div>
-                                <div class="date">
-                                    2020 3Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Listing in Additional Exchanges</span>
-                                </div>
-                                <div class="date">
-                                    2020 3Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Enhancing CONA Platform System</span>
-                                </div>
-                                <div class="date">
-                                    2020 3Q
-                                </div>
-                            </li>
-                            <li class="roadmap-item">
-                                <div class="info">
-                                    <span class="text">Upgrading Mining Efficiency, Device Technology Compatibility and Stability</span>
-                                </div>
-                                <div class="date">
-                                    2020 3Q
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+{% include("inc/bn_meet.html") %}
+
+<section id="scroll_news" class="sec main-news-sec comm-pd">
+    <div class="news-wrapper">
+        <div class="news-content group">
+            <h1 class="sr-only">코나 고객센터 및 뉴스</h1>
+            <div class="news-card">
+                <ul class="card-list">
+                    <li class="card-item counsel-item">
+                        <h2 class="card-title">
+                            <span class="in">실시간 고객센터 운영현황</span>
+                            <a href="/support/inquirys/" class="plus"></a>
+                        </h2>
+                        <div class="card-text">
+                            <ul id="newsList-counsel" class="list cf">
+                                {% for item in inquirys %}
+                                <li class="list-item">
+                                    <div class="name">{{ item.name }}</div>
+                                    <div class="title">{{ item.title }}</div>
+                                    {% if item.reply_cnt %}
+                                    <span class="status active">답변완료</span>
+                                    {% else %}
+                                    <span class="status">답변대기</span>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="card-item news-item">
+                        <h2 class="card-title">
+                            <span class="in">코나뉴스</span></h2>
+                        <div class="card-text">
+                            <ul id="newsList-news" class="list cf">
+                                {% for item in news %}
+                                <li class="list-item">
+                                    <div class="title">
+                                        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                                    </div>
+                                    <div class="date">{{ item.date }}</div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
-    <!-- /.sec main-roadmap-sec -->
+    </div>
+</section>
+<!-- /.sec main-news-sec comm-pd -->
 
-    {% include("inc/bn_meet.html") %}
+<script>
+    guideVideo();
 
-    <section id="scroll_news" class="sec main-news-sec comm-pd">
-        <div class="news-wrapper">
-            <div class="news-content group">
-                <h1 class="sr-only">코나 고객센터 및 뉴스</h1>
-                <div class="news-card">
-                    <ul class="card-list">
-                        <li class="card-item counsel-item">
-                            <h2 class="card-title">
-                                <span class="in">실시간 고객센터 운영현황</span>
-                                <a href="/support/inquirys/" class="plus"></a>
-                            </h2>
-                            <div class="card-text">
-                                <ul id="newsList-counsel" class="list cf">
-                                    {% for item in inquirys %}
-                                        <li class="list-item">
-                                            <div class="name">{{ item.name }}</div>
-                                            <div class="title">{{ item.title }}</div>
-                                            {% if item.reply_cnt %}
-                                                <span class="status active">답변완료</span>
-                                            {% else %}
-                                                <span class="status">답변대기</span>
-                                            {% endif %}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="card-item news-item">
-                            <h2 class="card-title">
-                                <span class="in">코나뉴스</span></h2>
-                            <div class="card-text">
-                                <ul id="newsList-news" class="list cf">
-                                    {% for item in news %}
-                                        <li class="list-item">
-                                            <div class="title">
-                                                <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
-                                            </div>
-                                            <div class="date">{{ item.date }}</div>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- /.sec main-news-sec comm-pd -->
-
-    <script>
-        guideVideo();
-        function guideVideo() {
-            var $video_pop_wrapper = $('#video_pop_wrapper');
-            var $iframe_wrapper = $('#iframe_wrapper');
-            $('#guideVideoList > li > a').on('click', function () {
-                var dataVideo = $(this).attr('data-video');
-                $video_pop_wrapper.addClass('active');
-                $iframe_wrapper.html('');
-                $iframe_wrapper.append('<iframe width="920" height="518" src="https://www.youtube.com/embed/' + dataVideo + '?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
-            });
-            $('#scroll_guide').on('click', '#video_pop_wrapper .close-btn', function () {
-                $video_pop_wrapper.removeClass('active');
-                $iframe_wrapper.html('');
-            });
-        }
-    </script>
+    function guideVideo() {
+        var $video_pop_wrapper = $('#video_pop_wrapper');
+        var $iframe_wrapper = $('#iframe_wrapper');
+        $('#guideVideoList > li > a').on('click', function () {
+            var dataVideo = $(this).attr('data-video');
+            $video_pop_wrapper.addClass('active');
+            $iframe_wrapper.html('');
+            $iframe_wrapper.append('<iframe width="920" height="518" src="https://www.youtube.com/embed/' + dataVideo + '?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
+        });
+        $('#scroll_guide').on('click', '#video_pop_wrapper .close-btn', function () {
+            $video_pop_wrapper.removeClass('active');
+            $iframe_wrapper.html('');
+        });
+    }
+</script>
 {% endblock %}

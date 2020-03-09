@@ -86,6 +86,99 @@ exports.post_password = async (req, res) => {
     }
 };
 
+// 공지사항
+exports.get_alerts = async (req, res) => {
+    try {
+        const [alerts, totalCount] = await Promise.all([
+            models.Alerts.findAll({
+                limit: req.query.limit,
+                offset: req.offset,
+                order: [
+                    ['createdAt', 'desc']
+                ]
+            }),
+            models.Alerts.count()
+        ]);
+        const pageCount = Math.ceil(totalCount / req.query.limit);
+        const pages = paginate.getArrayPages(req)(5, pageCount, req.query.page);
+        const limit = req.query.limit;
+
+        res.render('admin/alerts/list.html', {
+            alerts,
+            pageCount,
+            pages,
+            limit
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.get_alerts_write = async (req, res) => {
+    res.render('admin/alerts/edit.html', {
+        csrfToken: req.csrfToken()
+    });
+};
+exports.post_alertys_write = async (req, res) => {
+    try {
+        await models.Alerts.create(req.body);
+        res.redirect('/conaservice/alerts');
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.get_alerts_detail = async (req, res) => {
+    try {
+        const alert = await models.Alerts.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.render('admin/alerts/detail.html', {
+            alert
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.get_alerts_write = async (req, res) => {
+    res.render('admin/alerts/edit.html', {
+        csrfToken: req.csrfToken()
+    });
+};
+exports.post_alerts_write = async (req, res) => {
+    try {
+        await models.Alerts.create(req.body);
+        res.redirect('/conaservice/alerts');
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.get_alerts_edit = async (req, res) => {
+    res.render('admin/alerts/edit.html', {
+        csrfToken: req.csrfToken()
+    });
+};
+exports.post_alerts_edit = async (req, res) => {
+    try {
+        await models.Alerts.update(req.body);
+        res.redirect('/conaservice/alerts');
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.get_alerts_delete = async (req, res) => {
+    try {
+        await models.Alerts.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.redirect('/conaservice/alerts');
+    } catch (e) {
+        console.log(e);
+    }
+};
+
 // 문의하기
 exports.get_inquirys = async (req, res) => {
     try {
@@ -157,7 +250,7 @@ exports.get_inquirys_detail = async (req, res) => {
             inquiry
         });
     } catch (e) {
-
+        console.log(e);
     }
 };
 exports.get_inquirys_write = async (req, res) => {
