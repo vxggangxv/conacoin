@@ -2,6 +2,7 @@ const models = require('../../database/models');
 const paginate = require('express-paginate');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const env = process.env.NODE_ENV || 'development';
 const dotenv = require('dotenv');
 dotenv.config(); // LOAD CONFIG
 const Op = require('sequelize').Op;
@@ -253,14 +254,14 @@ exports.get_inquirys_reply_delete = async (req, res) => {
 exports.post_inquirys_reply_email = async (req, res) => {
     try {
         let date = new Date();
-        Date.prototype.yyyymmdd = function() {
+        Date.prototype.yyyymmdd = function () {
             var mm = this.getMonth() + 1; // getMonth() is zero-based
             var dd = this.getDate();
 
             return [this.getFullYear(),
-                (mm>9 ? '' : '0') + mm,
-                (dd>9 ? '' : '0') + dd
-                ].join('');
+                (mm > 9 ? '' : '0') + mm,
+                (dd > 9 ? '' : '0') + dd
+            ].join('');
         };
 
         let gmail_date = date.yyyymmdd();
@@ -288,27 +289,40 @@ exports.post_inquirys_reply_email = async (req, res) => {
                 }
             });
         }
-        
+
         // 인증 메일 발송
         const template = require('../../helpers/email/inquirysReplyTemplate');
-        
+
         let status = null;
-        const { email, content } = req.body;
-        
+        const {
+            email,
+            content
+        } = req.body;
+
         // console.log(email);
         // console.log(content);
-        
+
+
+        let user = '';
+        let pass = '';
+        if (env == 'development') {
+            user = 'toxnsldxn@gmail.com';
+            pass = process.env.GMAIL_KEY_DEV;
+        } else {
+            user = 'conaservice@gmail.com';
+            pass = process.env.GMAIL_KEY;
+        }
+
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                // user: 'toxnsldxn@gmail.com', // gmail 계정 아이디를 입력
-                user: 'conaservice@gmail.com', // gmail 계정 아이디를 입력
-                pass: process.env.GMAIL_KEY // gmail 계정의 비밀번호를 입력
+                user, // gmail 계정 아이디를 입력
+                pass // gmail 계정의 비밀번호를 입력
             }
         });
 
         let mailOptions = {
-            from: 'noreply@gmail.com', // 발송 메일 주소 (위에서 작성한 gmail 계정 아이디)
+            from: 'Noreply - CONA <noreply@cona.com>', // 발송 메일 주소 (위에서 작성한 gmail 계정 아이디)
             to: email, // 수신 메일 주소
             subject: '[CONA] 실시간문의 답변드립니다.',
             html: template(content)
@@ -327,10 +341,10 @@ exports.post_inquirys_reply_email = async (req, res) => {
                 });
             }
         });
-        
+
     } catch (e) {
         console.log(e);
-        
+
     }
 };
 
