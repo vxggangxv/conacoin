@@ -181,9 +181,11 @@ var main = {
             autoplay: true,
             autoplaySpeed: 2000,
             vertical: true,
-            pauseOnHover: false,
             prevArrow: '',
-            nextArrow: ''
+            nextArrow: '',
+            pauseOnFocus: false,
+            pauseOnHover: false,
+            swipe: false
             // infinite: false,
         });
     },
@@ -237,7 +239,10 @@ var main = {
             slidesToScroll: 1,
             vertical: true,
             prevArrow: '',
-            nextArrow: ''
+            nextArrow: '',
+            pauseOnFocus: false,
+            pauseOnHover: false,
+            swipe: false
             // infinite: false,
         });
     },

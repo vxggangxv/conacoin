@@ -1,76 +1,51 @@
-{% set pageName = 'adminInquirysPage' %}
+{% set pageName = 'adminAlertsPage' %}
 {% set titleLength = 300 %}
 {% set contentLength = 3000 %}
 {% extends "admin/layout/base.html" %}
 
 {% block content %}
-    <section class="sec admin-inquirys-sec">
-        <h1 class="comm-sec-title sec-title">실시간 문의</h1>
-        <div class="inquirys-wrapper comm-card inquirys-edit">
-            <div class="inquirys-content">
-                <div class="inquirys-title comm-title">
-                    <h2 class="title">실시간 문의 리스트</h2>
-                </div>
-                <form action="" method="post" id="inquirys_form">
-                    <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
-                    <table class="tbl-type1 edit-tbl">
-                        <tbody>
-                            <tr class="name">
-                                <td>
-                                    <p class="row">
-                                        <span class="label name">이름</span><input class="form-input name label-text" name="name" type="text" required="required"></p>
-                                    <p class="row">
-                                        <span class="label email">이메일</span><input class="form-input email label-text" name="email" type="email" required="required"></p>
-                                    <p class="row">
-                                        <span class="label password">비밀번호</span><input class="form-input password label-text" name="password" type="password" required="required"></p>
-                                </td>
-                            </tr>
-                            <tr class="title">
-                                <td>
-                                    <span class="label title">제목</span><input class="form-input title label-text" name="title" type="text" maxlength="{{ titleLength }}" required="required">
-                                </td>
-                            </tr>
-                            <tr class="content">
-                                <td>
-                                    <span class="label content">문의내용</span>
-                                    <div class="texta-wrapper" data-role="texta-wrapper">
-                                        <textarea class="form-textarea content" name="content" id="register_content" maxlength="{{ contentLength }}" required="required"></textarea>
-                                        <span id="texta_counter" class="texta-counter"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="inquirys-actions comm-actions">
-                        <a href="/conaservice/inquirys/" class="comm-btn outline list-btn">목록</a>
-                        <button type="submit" class="comm-btn primary complete-btn">작성완료</button>
-                    </div>
-                </form>
+<section class="sec admin-alerts-sec">
+    <h1 class="comm-sec-title sec-title">공지사항</h1>
+    <div class="wrapper-type1 comm-card edit-wrapper">
+        <div class="content-type1 edit-content">
+            <div class="comm-title">
+                <h2 class="title">공지사항 작성</h2>
             </div>
+            <form action="" method="post" id="edit_form">
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+                <table class="tbl-type1 edit-tbl">
+                    <tbody>
+                        <tr class="bor-no">
+                            <td>
+                                <span class="label title">제목</span><input class="form-input title label-text w-left" name="title" type="text" maxlength="{{ titleLength }}" required="required" value="{{ alert.title }}">
+                            </td>
+                        </tr>
+                        <tr class="bor-no content">
+                            <td>
+                                <span class="label content">내용</span>
+                                <div class="texta-wrapper label-text" data-role="texta-wrapper">
+                                    <textarea class="form-textarea content" name="content" id="register_content" maxlength="{{ contentLength }}" required="required">{{ alert.content | safe }}</textarea>
+                                    <span id="texta_counter" class="texta-counter"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="comm-actions">
+                    <a href="/conaservice/alerts" class="comm-btn outline list-btn">목록</a>
+                    <button type="submit" class="comm-btn primary complete-btn">등록</button>
+                    <a href="javascript: history.back(-1)" class="comm-btn outline back-btn pull-right">이전</a>
+                </div>
+            </form>
         </div>
-    </section>
-    <script>
-        $('#inquirys_form').submit(function () {
-            var $inquirysPwInput = $('#inquirys_form [name=password]');
-            if ($inquirysPwInput.val().length < 4) {
-                alert('비밀번호를 네 글자 이상 입력하세요.');
-                $inquirysPwInput.focus();
-                return false;
-            }
-            return true;
-        });
+    </div>
+</section>
+<script>
+    $(function () {
         $('#register_content').keydown(function () {
-            var $registerContent = $('#register_content');
-            var content = $registerContent.val();
+            var content = $(this).val();
             $('#texta_counter').html(content.length + '/{{ contentLength }}');
-            content = content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
         });
-        // $('#inquiry_form').submit(function () {
-        //     var $registerContent = $('#register_content');
-        //     var content = $registerContent.val();
-        //     content = content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
-        //     console.log(content);
-        //     return true;
-        // });
-    </script>
+    })
+</script>
 {% endblock %}

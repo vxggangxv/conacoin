@@ -1,7 +1,6 @@
 //이미지 저장되는 위치 설정
 const path = require('path');
-const uploadDir = path.join(__dirname, '../uploads'); // 루트의 uploads위치에 저장한다.
-const fs = require('fs');
+const uploadDir = path.join(__dirname, '../../uploads/partners'); // 루트의 uploads위치에 저장한다.
 
 //multer 셋팅
 const multer = require('multer');
@@ -11,20 +10,20 @@ const storage = multer.diskStorage({
         callback(null, uploadDir);
     },
     filename: (req, file, callback) => {
-        // products-날짜.jpg(png) 저장
+        // inquirys-날짜.확장자 저장
+        // 'inquirys-' + new Date().valueOf() + '.' + file.mimetype.split('/')[1],
         let extension = path.extname(file.originalname);
         let basename = path.basename(file.originalname, extension);
-
         callback(
             null,
-            basename + '-' + Date.now() + '.' + file.mimetype.split('/')[1],
+            'inquirys-' + Date.now() + extension
         );
-    },
+    }
 });
 module.exports = multer({
     storage: storage,
     limits: {
         files: 5,
-        fileSize: 5 * 10 * 1024 * 1024
+        fileSize: 5 * 1024 * 1024
     }
 });

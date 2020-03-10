@@ -3,8 +3,8 @@ const paginate = require('express-paginate');
 const path = require('path');
 
 exports.index = (req, res) => {
-    res.redirect('/notice/alerts')
-}
+    res.redirect('/notice/alerts');
+};
 // 공지사항
 exports.get_alerts = async (req, res) => {
     try {
@@ -13,6 +13,7 @@ exports.get_alerts = async (req, res) => {
                 limit: req.query.limit,
                 offset: req.offset,
                 order: [
+                    ['createdAt', 'desc'],
                     ['id', 'desc']
                 ]
             }),
@@ -29,26 +30,26 @@ exports.get_alerts = async (req, res) => {
         res.render('notice/alerts/list.html', {
             alerts,
             pageCount,
-            pages,
+            pages
         });
     } catch (e) {
         console.log(e);
     }
-}
+};
 exports.get_alerts_detail = async (req, res) => {
     try {
         const alert = await models.Alerts.findOne({
             where: {
-                id: req.params.id,
-            },
+                id: req.params.id
+            }
         });
         res.render('notice/alerts/detail.html', {
             alert
-        })
+        });
     } catch (e) {
         console.log(e);
     }
-}
+};
 // 코나뉴스
 exports.get_news = async (req, res) => {
     try {
@@ -71,9 +72,9 @@ exports.get_news = async (req, res) => {
         res.render('notice/news/list.html', {
             news,
             pageCount,
-            pages,
+            pages
         });
     } catch (e) {
         console.log(e);
     }
-}
+};

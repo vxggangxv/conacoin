@@ -3,7 +3,7 @@ const router = express.Router();
 const ctrl = require('./support.ctrl');
 const paginate = require('express-paginate');
 const csrfProtection = require('../../middleware/csrf');
-const upload = require('../../middleware/inquirysMulter');
+const upload = require('../../middleware/multer/inquirys');
 
 router.get('/', ctrl.index);
 router.get('/inquirys', paginate.middleware(10, 50), ctrl.get_inquirys);

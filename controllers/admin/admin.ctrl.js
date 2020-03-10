@@ -94,7 +94,8 @@ exports.get_alerts = async (req, res) => {
                 limit: req.query.limit,
                 offset: req.offset,
                 order: [
-                    ['createdAt', 'desc']
+                    ['createdAt', 'desc'],
+                    ['id', 'desc']
                 ]
             }),
             models.Alerts.count()
@@ -118,7 +119,7 @@ exports.get_alerts_write = async (req, res) => {
         csrfToken: req.csrfToken()
     });
 };
-exports.post_alertys_write = async (req, res) => {
+exports.post_alerts_write = async (req, res) => {
     try {
         await models.Alerts.create(req.body);
         res.redirect('/conaservice/alerts');
@@ -140,28 +141,31 @@ exports.get_alerts_detail = async (req, res) => {
         console.log(e);
     }
 };
-exports.get_alerts_write = async (req, res) => {
-    res.render('admin/alerts/edit.html', {
-        csrfToken: req.csrfToken()
-    });
-};
-exports.post_alerts_write = async (req, res) => {
+exports.get_alerts_edit = async (req, res) => {
     try {
-        await models.Alerts.create(req.body);
-        res.redirect('/conaservice/alerts');
+        const alert = await models.Alerts.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        alert.content = alert.content.replace(/<br\s*\/?>/mg, '\n');
+        res.render('admin/alerts/edit.html', {
+            csrfToken: req.csrfToken(),
+            alert
+        });
     } catch (e) {
         console.log(e);
     }
 };
-exports.get_alerts_edit = async (req, res) => {
-    res.render('admin/alerts/edit.html', {
-        csrfToken: req.csrfToken()
-    });
-};
 exports.post_alerts_edit = async (req, res) => {
     try {
-        await models.Alerts.update(req.body);
-        res.redirect('/conaservice/alerts');
+        req.body.content = req.body.content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+        await models.Alerts.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.redirect(`/conaservice/alerts/detail/${req.params.id}`);
     } catch (e) {
         console.log(e);
     }
@@ -249,19 +253,6 @@ exports.get_inquirys_detail = async (req, res) => {
         res.render('admin/inquirys/detail.html', {
             inquiry
         });
-    } catch (e) {
-        console.log(e);
-    }
-};
-exports.get_inquirys_write = async (req, res) => {
-    res.render('admin/inquirys/edit.html', {
-        csrfToken: req.csrfToken()
-    });
-};
-exports.post_inquirys_write = async (req, res) => {
-    try {
-        await models.Inquirys.create(req.body);
-        res.redirect('/conaservice/inquirys');
     } catch (e) {
         console.log(e);
     }
@@ -510,20 +501,6 @@ exports.get_news = async (req, res) => {
         console.log(e);
     }
 };
-exports.get_news_detail = async (req, res) => {
-    try {
-        const news = await models.News.findOne({
-            where: {
-                id: req.params.id
-            }
-        });
-        res.render('admin/news/detail.html', {
-            news
-        });
-    } catch (e) {
-        console.log(e);
-    }
-};
 exports.get_news_write = async (req, res) => {
     res.render('admin/news/edit.html', {
         csrfToken: req.csrfToken()
@@ -547,6 +524,20 @@ exports.get_news_edit = async (req, res) => {
         csrfToken: req.csrfToken(),
         news
     });
+};
+exports.get_news_detail = async (req, res) => {
+    try {
+        const news = await models.News.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.render('admin/news/detail.html', {
+            news
+        });
+    } catch (e) {
+        console.log(e);
+    }
 };
 exports.post_news_edit = async (req, res) => {
     try {

@@ -1,190 +1,36 @@
-{% set pageName = 'adminInquirysPage' %}
+{% set pageName = 'adminAlertsPage' %}
 {% set titleLength = 300 %}
 {% set contentLength = 3000 %}
 {% extends "admin/layout/base.html" %}
 
 {% block content %}
-<section class="sec admin-inquirys-sec ">
-    <h1 class="comm-sec-title sec-title">실시간 문의</h1>
-    <div class="inquirys-wrapper comm-card inquirys-detail">
-        <div class="inquirys-content">
-            <div class="inquirys-title comm-title">
-                <h2 class="title">실시간 문의 리스트</h2>
+<section class="sec admin-alerts-sec ">
+    <h1 class="comm-sec-title sec-title">공지사항</h1>
+    <div class="wrapper-type1 comm-card detail-wrapper">
+        <div class="content-type1 detail-content">
+            <div class="comm-title">
+                <h2 class="title">공지사항 리스트</h2>
             </div>
             <table class="tbl-type1 detail-tbl">
                 <tbody>
-                    <tr class="name">
-                        <td>
-                            <p class="row">
-                                <span class="label name">이름</span><span class="label-text name">{{ inquiry.name }}</span></p>
-                            <p class="row">
-                                <span class="label">이메일</span><span class="label-text email">{{ inquiry.email }}</span></p>
-                            {% if inquiry.reply_cnt %}
-                            <span class="status active">
-                                답변완료
-                            </span>
-                            {% else %}
-                            <span class="status">
-                                답변대기
-                            </span>
-                            {% endif %}
-                        </td>
-                    </tr>
                     <tr class="title">
                         <td>
-                            <p class="row">
-                                <span class="label title">제목</span><span class="label-text title">{{ inquiry.title }}</span></p>
+                            <span class="label title">제목</span><span class="label-text title">{{ alert.title }}</span>
                         </td>
                     </tr>
                     <tr class="content">
                         <td>
-                            <p class="text content">{{ inquiry.content | safe }}</p>
-                            <div class="reply-register-wrapper">
-                                <ul class="tablist">
-                                    {% if inquiry.Reply.length %}
-                                    <li class="tab">
-                                        <a href="javascript:;" class="tab-btn" id="register_edit">
-                                            <i class="mdi mdi-comment-edit"></i>
-                                            댓글 수정
-                                        </a>
-                                    </li>
-                                    <li class="tab">
-                                        <a href="/conaservice/inquirys/reply/delete/{{ inquiry.id }}" class="tab-btn" id="register_delete">댓글 삭제</a>
-                                    </li>
-                                    {% else %}
-                                    <li class="tab">
-                                        <a href="javascript:;" class="tab-btn" id="register_write">
-                                            <i class="mdi mdi-comment-outline"></i>
-                                            댓글 쓰기
-                                            <span class="arr down"></span>
-                                            <span class="arr up"></span>
-                                        </a>
-                                    </li>
-                                    {% endif %}
-                                </ul>
-                                {% if inquiry.Reply.length %}
-                                <form action="/conaservice/inquirys/reply/edit/{{ inquiry.id }}" method="post" id="reply_form">
-                                    <div class="reply-form-in cf">
-                                        <div class="texta-wrapper" data-role="texta-wrapper">
-                                            <textarea class="form-textarea register-content" id="reply_register_content" name="content" required="required" maxlength="{{ contentLength }}"></textarea>
-                                            <span id="texta_counter" class="texta-counter"></span>
-                                        </div>
-                                        <button type="submit" id="register_btn" class="register-btn">수정</button>
-                                    </div>
-                                </form>
-                                {% else %}
-                                <form action="/conaservice/inquirys/reply/write/{{ inquiry.id }}" method="post" id="reply_form">
-                                    <div class="reply-form-in cf">
-                                        <div class="texta-wrapper" data-role="texta-wrapper">
-                                            <textarea class="form-textarea register-content" id="reply_register_content" name="content" required="required" maxlength="{{ contentLength }}"></textarea>
-                                            <span id="texta_counter" class="texta-counter"></span>
-                                        </div>
-                                        <button type="submit" id="register_btn" class="register-btn">등록</button>
-                                    </div>
-                                </form>
-                                {% endif %}
-
-                            </div>
+                            <p class="text content">{{ alert.content | safe }}</p>
                         </td>
                     </tr>
-                    {% if inquiry.Attach.length %}
-                    <tr class="download">
-                        <td>
-                            <span class="label">첨부파일</span>
-                            <p class="text">
-                                {% for item in inquiry.Attach %}
-                                <a href="/uploads/inquirys/{{ item.filename }}" download="{{ item.originalname }}" class="btn down-btn">{{ item.originalname }}</a>
-                                {% endfor %}
-                            </p>
-                        </td>
-                    </tr>
-                    {% endif %}
-
-                    {% for reply in inquiry.Reply %}
-                    <tr class="reply-wrapper" id="reply_wrapper">
-                        <td>
-                            <div>
-                                <p class="label reply-name">고객센터</p>
-                                <p class="text reply-content">{{ reply.content | safe }}</p>
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
                 </tbody>
             </table>
-            <div class="inquirys-actions comm-actions">
-                <a href="/conaservice/inquirys/" class="comm-btn outline list-btn">목록</a>
-                <a href="/conaservice/inquirys/delete/{{ inquiry.id }}" class="comm-btn outline delete-btn">삭제</a>
-                <a href="javascript:;" class="comm-btn outline email-btn pull-right" id="sendEmailBtn">메일 전송</a>
+            <div class="comm-actions">
+                <a href="/conaservice/alerts/" class="comm-btn outline list-btn">목록</a>
+                <a href="/conaservice/alerts/edit/{{ alert.id }}" class="comm-btn primary edit-btn">수정</a>
+                <a href="/conaservice/alerts/delete/{{ alert.id }}" class="comm-btn outline delete-btn">삭제</a>
             </div>
         </div>
     </div>
 </section>
-<script>
-    $('#register_write').on('click', function () {
-        $(this).toggleClass('active');
-        replyToggleFn();
-    });
-    $('#register_edit').on('click', function () {
-        $(this).toggleClass('active');
-        $('#reply_wrapper').toggle();
-        replyToggleFn();
-    });
-
-    function replyToggleFn() {
-        $('#reply_form .reply-form-in').toggle();
-        $('#reply_register_content').focus();
-        $('#sendEmailBtn').toggle();
-    }
-    $('#reply_register_content').keydown(function () {
-        var content = $(this).val();
-        $('#texta_counter').html(content.length + '/{{ contentLength }}');
-    });
-    $('#reply_form').submit(function () {
-        var $registerContent = $('#reply_register_content');
-        var content = $registerContent.val();
-        content = content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
-        $registerContent.val(content);
-        return true;
-    });
-    $('#sendEmailBtn').on('click', function () {
-        var $registerContent = $('#reply_register_content');
-        var content = $registerContent.val();
-        content = content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
-        // $registerContent.val(content);
-        content = content.trim();
-
-        var email = '{{ inquiry.email }}';
-
-        // console.log(email);
-        // console.log(content);
-
-        if (!content) {
-            alert('내용을 입력하세요.');
-            $registerContent.val('');
-            $registerContent.focus();
-            return false;
-        }
-        var $lds = $('#lds-mask');
-        $lds.show();
-        $.ajax({
-                url: '/conaservice/inquirys/reply/email',
-                type: 'post',
-                data: {
-                    email: email,
-                    content: content
-                }
-            })
-            .done(function (result) {
-                if (result.status) {
-                    alert('메일이 전송되었습니다. ' + result.gmail_cnt + '/' + result.gmail_total)
-                }
-                $lds.hide();
-            })
-            .fail(function (error) {
-                console.log(error);
-                alert('오류 발생');
-            });
-    });
-</script>
 {% endblock %}

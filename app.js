@@ -39,7 +39,7 @@ function dbConnection() {
                 // })
                 // return db.sequelize.sync();
             }
-            if (env == 'test') {}
+            // if (env == 'test') {}
             if (env == 'production') {
                 // return db.sequelize.sync();
             }
@@ -48,13 +48,13 @@ function dbConnection() {
             console.log('DB Sync complete.');
             // 더미 데이터가 필요하면 아래 설정
             if (env == 'development') {
-                // require('./config/insertAlertsDummyData')();
-                // require('./config/insertInquirysDummyData')()
-                // require('./config/insertNewsDummyData')()
-                // require('./config/insertUserDummyData')()
+                // require('./config/dummyData/insertAlerts')();
+                // require('./config/dummyData/insertInquirys')();
+                // require('./config/dummyData/insertNews')();
+                // require('./config/dummyData/insertUser')();
             }
-            if (env == 'test') {}
-            if (env == 'production') {}
+            // if (env == 'test') {}
+            // if (env == 'production') {}
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err);

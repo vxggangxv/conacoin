@@ -46,6 +46,7 @@ exports.post_inquirys_write = async (req, res) => {
         const items = req.files;
 
         req.body.attach_cnt = items.length;
+        req.body.content = req.body.content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
 
         await models.Inquirys.create(req.body).then(result => {
             let inquiry_id = result.id;

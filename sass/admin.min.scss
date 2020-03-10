@@ -184,6 +184,8 @@ $card-pd: 25px;
     .comm-actions {
         padding-top: 25px;
         padding-bottom: 25px;
+        text-align: left;
+
 
         .comm-btn {
             @include btn-base;
@@ -286,6 +288,27 @@ $card-pd: 25px;
             }
         }
     }
+}
+
+.tbl-type1[class*=-tbl] {
+    @include comm-wd-style;
+}
+
+.wrapper-type1 {
+
+    &.edit-wrapper,
+    &.detail-wrapper {
+        max-width: 1150px;
+
+        .comm-title {
+            border-bottom: none;
+        }
+
+        .comm-actions {
+            margin-top: 30px;
+        }
+    }
+
 }
 
 .tbl-type1.list-tbl {
@@ -608,7 +631,7 @@ $card-pd: 25px;
     width: 100%;
     // border-top: solid 2px $primary-color;
     line-height: 1.423;
-    font-size: 13.5px;
+    // font-size: 13.5px;
 
     .form-input {
         // margin: 10px 0;
@@ -619,13 +642,21 @@ $card-pd: 25px;
         border: solid 1px #bdbdbd;
         border-radius: 5px;
 
-        &.w-type1 {
-            width: 85%;
-            // width: calc(100% - 30px - #{$card-pd});
+        &.w-left {
+            width: calc(100% - 26px - #{$card-pd});
         }
 
+        &.w-type1 {
+            width: 85%;
+        }
+
+        &.w-half,
         &.w-type2 {
             width: 50%;
+        }
+
+        &.w-type3 {
+            width: 30%;
         }
     }
 
@@ -636,21 +667,29 @@ $card-pd: 25px;
 
 
         &.content {
-            display: block;
+            // display: block;
             font-size: 14px;
             height: 270px;
         }
     }
 
     .texta-wrapper {
-        width: 100%;
-        margin-top: 10px;
+        // display: inline-block;
+        // width: 100%;
+        // margin-top: 10px;
+        width: calc(100% - 26px - #{$card-pd});
+        font-size: 0;
     }
 
     tbody {
         tr {
             td {
                 padding: 10px $card-pd;
+                font-size: 0;
+
+                >* {
+                    font-size: 13.5px;
+                }
             }
 
             vertical-align: middle;
@@ -680,7 +719,13 @@ $card-pd: 25px;
             }
 
             &.content {
-                text-align: center;
+                // text-align: center;
+
+                .label,
+                .texta-wrapper {
+                    display: inline-block;
+                    vertical-align: top;
+                }
 
                 .label {
                     margin-top: 10px;
@@ -706,31 +751,4 @@ $card-pd: 25px;
     }
 }
 
-
-.admin-inquirys-sec {
-    .inquirys-wrapper {
-
-        &.inquirys-edit,
-        &.inquirys-detail {
-            max-width: 1150px;
-        }
-
-        .inquirys-content {
-
-            .inquirys-title {
-                border: none;
-            }
-
-            [class*=-tbl] {
-                @include comm-wd-style;
-            }
-
-            .inquirys-actions {
-                margin-top: 30px;
-                padding-bottom: 25px;
-                padding-left: $card-pd;
-                text-align: left;
-            }
-        }
-    }
-}
+.admin-inquirys-sec {}

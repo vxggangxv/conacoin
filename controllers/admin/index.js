@@ -5,7 +5,7 @@ const ctrl = require('./admin.ctrl');
 
 const adminRequired = require('../../middleware/adminRequired');
 const csrfProtection = require('../../middleware/csrf');
-const upload = require('../../middleware/inquirysMulter');
+const upload = require('../../middleware/multer/inquirys');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;

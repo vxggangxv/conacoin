@@ -53,15 +53,24 @@ function fileformFn() {
         // }
         for (var i = 0; i < files.length; i++) {
             // console.log(files[i].size);
-            if (files[i].size > limitSize) return alert('파일크기가 5MB 보다 작아야합니다.')
+            if (files[i].size > limitSize) return alert('파일크기가 5MB 보다 작아야합니다.');
         }
         if (files.length > 1 && files.length < 6) {
             $filename.text(files.length + '개 파일');
             return;
         } else if (files.length >= 6) {
-            alert('최대 5개까지 가능합니다.')
+            alert('최대 5개까지 가능합니다.');
             return;
         }
         $filename.text(files[0].name);
     });
+}
+
+function content_br2n(obj) {
+    var content = $(obj).val().trim().replace(/(?:\r\n|\r|\n)/g, '<br/>');
+    return $(obj).val(content);
+}
+
+function content_n2br(content) {
+    return content.replace(/<br\s*\/?>/mg, '\n');
 }

@@ -1,17 +1,17 @@
 const models = require('../../database/models');
-const request = require('request')
-const crypto = require('crypto')
-const dotenv = require('dotenv')
+const request = require('request');
+const crypto = require('crypto');
+const dotenv = require('dotenv');
 
-dotenv.config() //LOAD CONFIG
+dotenv.config(); //LOAD CONFIG
 
 exports.index = async (req, res) => {
     // res.render('index.html')
     res.redirect('/home');
-}
+};
 exports.get_home = async (req, res) => {
     try {
-        const [inquirys, news] = await Promise.all([
+        const [inquirys, news, alerts] = await Promise.all([
             models.Inquirys.findAll({
                 limit: 20,
                 offset: 0,
@@ -20,10 +20,17 @@ exports.get_home = async (req, res) => {
                 ]
             }),
             models.News.findAll({
-                limit: 20,
+                limit: 10,
                 offset: 0,
                 order: [
                     ['date', 'desc']
+                ]
+            }),
+            models.Alerts.findAll({
+                limit: 10,
+                offset: 0,
+                order: [
+                    ['createdAt', 'desc']
                 ]
             })
         ]);
@@ -32,10 +39,28 @@ exports.get_home = async (req, res) => {
             item.name = item.name.substr(0, 1) + '****';
         });
 
-        let apiKey = process.env.FOBLGATE_PUBLIC_KEY
-        let scretKey = process.env.FOBLGATE_SECRET_KEY
+        let notices = [];
 
-        var pairName = "CONA/KRW";
+        news.forEach(item => {
+            item.kinds = 'news';
+            notices.push(item);
+        });
+        alerts.forEach(item => {
+            item.kinds = 'alerts';
+            notices.push(item);
+        });
+
+        notices.sort((a, b) => {
+            return b.id - a.id;
+        });
+        // notices.forEach(item => {
+        //     console.log(item.title);
+        // });
+
+        let apiKey = process.env.FOBLGATE_PUBLIC_KEY;
+        let scretKey = process.env.FOBLGATE_SECRET_KEY;
+
+        var pairName = 'CONA/KRW';
 
         var formData = {
             apiKey: apiKey,
@@ -62,13 +87,13 @@ exports.get_home = async (req, res) => {
                 // console.log(body);
                 result = JSON.parse(body);
             }
-            price = parseInt(result.data.buyList[0].price)
-            prev_price = parseInt(result.data.buyList[1].price)
+            price = parseInt(result.data.buyList[0].price);
+            prev_price = parseInt(result.data.buyList[1].price);
             res.render('home.html', {
                 prev_price,
                 price,
                 inquirys,
-                news,
+                notices
             });
         });
 
@@ -79,7 +104,7 @@ exports.get_home = async (req, res) => {
     } catch (e) {
         console.log(e);
     }
-}
+};
 
 exports.get_siteinfo = async (req, res) => {
     try {
@@ -87,11 +112,11 @@ exports.get_siteinfo = async (req, res) => {
             where: {
                 id: req.params.id
             }
-        })
+        });
         res.json({
             siteinfo
-        })
+        });
     } catch (e) {
         console.log(e);
     }
-}
+};

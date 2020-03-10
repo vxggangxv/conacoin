@@ -467,16 +467,25 @@
                     </li>
                     <li class="card-item news-item">
                         <h2 class="card-title">
-                            <span class="in">코나뉴스</span></h2>
+                            <span class="in">공지사항</span></h2>
                         <div class="card-text">
                             <ul id="newsList-news" class="list cf">
-                                {% for item in news %}
+                                {% for item in notices %}
+                                {% if item.kinds == 'news' %}
                                 <li class="list-item">
                                     <div class="title">
-                                        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                                        <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">[NEWS] {{ item.title }}</a>
                                     </div>
                                     <div class="date">{{ item.date }}</div>
                                 </li>
+                                {% elif item.kinds == 'alerts' %}
+                                <li class="list-item">
+                                    <div class="title">
+                                        <a href="/notices/alerts/detail/{{ item.id }}">[공지] {{ item.title }}</a>
+                                    </div>
+                                    <div class="date">{{ item.dateFormat(item.createdAt) }}</div>
+                                </li>
+                                {% endif %}
                                 {% endfor %}
                             </ul>
                         </div>

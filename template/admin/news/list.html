@@ -1,34 +1,34 @@
-{% set pageName = 'adminInquirysPage' %}
+{% set pageName = 'adminNewsPage' %}
 {% extends "admin/layout/base.html" %}
 
 {% block content %}
-    <section class="sec admin-inquirys-sec ">
-        <h1 class="comm-sec-title sec-title">뉴스 업로드</h1>
-        <div class="inquirys-wrapper comm-card inquirys-list">
-            <div class="inquirys-content">
-                <div class="inquirys-title comm-title">
-                    <h2 class="title">뉴스 리스트</h2>
-                    <div class="title-actions comm-actions-top">
-                        <a href="/conaservice/news/write/" class="comm-btn primary new-btn">새 글</a>
-                    </div>
+<section class="sec admin-news-sec ">
+    <h1 class="comm-sec-title sec-title">뉴스 업로드</h1>
+    <div class="wrapper-type1 comm-card list-wrapper">
+        <div class="content-type1 list-content">
+            <div class="comm-title">
+                <h2 class="title">뉴스 리스트</h2>
+                <div class="title-actions comm-actions-top">
+                    <a href="/conaservice/news/write/" class="comm-btn primary new-btn">새 글</a>
                 </div>
-                <table class="tbl-type1 list-tbl">
-                    <colgroup>
-                        <col style="width: 12%">
-                        <col style="width: 10%">
-                        <col>
-                        <col style="width: 30%">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>날짜</th>
-                            <th>작성자</th>
-                            <th>제목</th>
-                            <th>링크</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {# {% for i in range(0, 10) %}
+            </div>
+            <table class="tbl-type1 list-tbl">
+                <colgroup>
+                    <col style="width: 12%">
+                    <col style="width: 10%">
+                    <col>
+                    <col style="width: 30%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>날짜</th>
+                        <th>작성자</th>
+                        <th>제목</th>
+                        <th>링크</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {# {% for i in range(0, 10) %}
                             <tr>
                                 <td class="date">2019-12-08</td>
                                 <td class="name">h******</td>
@@ -40,60 +40,60 @@
                                 </td>
                             </tr>
                         {% endfor %} #}
-                        {% for item in news %}
-                            <tr>
-                                <td class="date">{{ item.date }}</td>
-                                <td class="name">{{ item.name }}</td>
-                                <td class="title">
-                                    <a href="/conaservice/news/detail/{{ item.id }}">{{ item.title }}</a>
-                                </td>
-                                <td class="link">
-                                    <a href="{{ item.link }}" target="_blank">{{ item.link }}</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="inquirys-pagenation pager">
-                    <ul class="pager-nav">
-                        {% if paginate.hasPreviousPages %}
-                            <li>
-                                <a href="{{ pages[0].url }}" class="pager-link arrow first active">&laquo;</a>
-                            </li>
-                            <li>
-                                <a href="{{ paginate.href(true) }}" class="pager-link arrow prev active">&lsaquo;</a>
-                            </li>
-                        {% else %}
-                            <li>
-                                <a href="javascript:;" class="pager-link arrow first">&laquo;</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="pager-link arrow prev">&lsaquo;</a>
-                            </li>
-                        {% endif %}
-                        {% for page in pages %}
-                            <li class="">
-                                <a href="{{ page.url }}" class="pager-link{% if paginate.page == page.number %} active {% endif %}">{{ page.number }}</a>
-                            </li>
-                        {% endfor %}
-                        {% if paginate.hasNextPages(pageCount) %}
-                            <li>
-                                <a href="{{ paginate.href() }}" class="pager-link arrow next active">&rsaquo;</a>
-                            </li>
-                            <li>
-                                <a href="/conaservice/inquirys/?page={{ pageCount }}&amp;limit={{ limit }}" class="pager-link arrow last active">&raquo;</a>
-                            </li>
-                        {% else %}
-                            <li>
-                                <a href="javascript:;" class="pager-link arrow next">&rsaquo;</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="pager-link arrow last">&raquo;</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>
+                    {% for item in news %}
+                    <tr>
+                        <td class="date">{{ item.date }}</td>
+                        <td class="name">{{ item.name }}</td>
+                        <td class="title">
+                            <a href="/conaservice/news/detail/{{ item.id }}">{{ item.title }}</a>
+                        </td>
+                        <td class="link">
+                            <a href="{{ item.link }}" target="_blank">{{ item.link }}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="pager">
+                <ul class="pager-nav">
+                    {% if paginate.hasPreviousPages %}
+                    <li>
+                        <a href="{{ pages[0].url }}" class="pager-link arrow first active">&laquo;</a>
+                    </li>
+                    <li>
+                        <a href="{{ paginate.href(true) }}" class="pager-link arrow prev active">&lsaquo;</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="javascript:;" class="pager-link arrow first">&laquo;</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="pager-link arrow prev">&lsaquo;</a>
+                    </li>
+                    {% endif %}
+                    {% for page in pages %}
+                    <li class="">
+                        <a href="{{ page.url }}" class="pager-link{% if paginate.page == page.number %} active {% endif %}">{{ page.number }}</a>
+                    </li>
+                    {% endfor %}
+                    {% if paginate.hasNextPages(pageCount) %}
+                    <li>
+                        <a href="{{ paginate.href() }}" class="pager-link arrow next active">&rsaquo;</a>
+                    </li>
+                    <li>
+                        <a href="/conaservice/inquirys/?page={{ pageCount }}&amp;limit={{ limit }}" class="pager-link arrow last active">&raquo;</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="javascript:;" class="pager-link arrow next">&rsaquo;</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="pager-link arrow last">&raquo;</a>
+                    </li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}
