@@ -804,6 +804,33 @@
             }
         }
     }
+
+    // 파트너사 영역
+    .main-partners-sec {
+        padding: 15px 0 25px;
+
+        .partners-wrapper {
+            .partners-content {
+                .partners-card {
+                    padding: 0 5px;
+
+                    .card-list {
+                        .card-item {
+                            margin: 0 5px;
+
+                            .card-picture {
+                                border: 1px solid $bor-gray;
+
+                                >img {
+                                    margin: 0 auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 // // mobile
@@ -1524,6 +1551,33 @@
                                             color: $font-gray2;
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 파트너사 영역
+    .main-partners-sec {
+        padding: 40px 0 50px;
+
+        .partners-wrapper {
+            .partners-content {
+                .partners-card {
+                    padding: 0 10px;
+
+                    .card-list {
+                        .card-item {
+                            margin: 0 10px;
+
+                            .card-picture {
+                                border: 1px solid $bor-gray;
+
+                                >img {
+                                    margin: 0 auto;
                                 }
                             }
                         }

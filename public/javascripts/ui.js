@@ -155,16 +155,41 @@ var common = {
 // mainUI
 var main = {
     init: function () {
-        this.wayPoint();
+        this.openbnPopupList();
+        this.partnersCardList();
         this.visualBannerList();
         this.newsbarNewsList();
         this.guideVideoList();
         this.roadmapList();
         this.newsList();
+        this.wayPoint();
         // main.load();
         // main.visualActions();
         // main.facilityPictureList();
         // main.lookCardList();
+    },
+    openbnPopupList: function () {
+        $('#openbnPopupList').slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            prevArrow: '',
+            nextArrow: ''
+        });
+    },
+    partnersCardList: function () {
+        $('#partnersCardList').slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            slidesToShow: 5,
+            prevArrow: '',
+            nextArrow: '',
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2
+                }
+            }]
+        });
     },
     visualBannerList: function () {
         $('#visualBannerList').slick({

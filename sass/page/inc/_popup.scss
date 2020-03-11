@@ -1,0 +1,113 @@
+// mobile & tablet xs & sm
+@media (max-width: $screen-md-width - 1) {
+
+    // 메인 오픈 배너 팝업
+    .openbn-popup {
+        .modal-wrapper {
+            .modal-container {
+                position: relative;
+                width: 310px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+
+                .modal-body {
+                    .openbn-list {
+                        .openbn-item {
+                            display: block;
+                            height: 348px;
+                            background-color: #fff;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .modal-footer {
+                    background-color: #000;
+                    padding: 5px 10px;
+                    text-align: right;
+
+                    button[class*=close-] {
+                        font-size: 14px;
+                        color: #fff;
+
+                        i {
+                            position: relative;
+                            top: 2px;
+                            font-size: 18px;
+                            line-height: 0;
+                        }
+                    }
+
+                    .close-today-btn {
+                        float: left;
+                    }
+
+                    .close-btn {
+                        float: right;
+                    }
+
+                    .close-weekly-btn {
+                        // border: 1px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// pc md and up
+@media (min-width: $screen-md-width) {
+
+    // 메인 오픈 배너 팝업
+    .openbn-popup {
+        .modal-wrapper {
+            .modal-container {
+                position: relative;
+                width: 400px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+
+                .modal-body {
+                    .openbn-list {
+                        .openbn-item {
+                            display: block;
+                            height: 450px;
+                            background-color: #fff;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .modal-footer {
+                    background-color: #000;
+                    // padding: 5px 10px;
+                    padding: 10px 10px;
+                    text-align: right;
+
+                    button[class*=close-] {
+                        font-size: 14px;
+                        color: #fff;
+
+                        i {
+                            position: relative;
+                            top: 2px;
+                            font-size: 18px;
+                            line-height: 0;
+                        }
+                    }
+
+                    .close-today-btn {
+                        float: left;
+                    }
+
+                    .close-btn {
+                        float: right;
+                    }
+
+                    .close-weekly-btn {
+                        // border: 1px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+
+}

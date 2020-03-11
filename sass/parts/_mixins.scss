@@ -230,11 +230,12 @@
     box-shadow: none;
 }
 
-@mixin ft($s: 13px, $c: null, $w: null, $fm: null) {
+@mixin ft($s: 13px, $c: null, $w: null, $fm: null, $lh: null) {
     font-size: $s;
     color: $c;
     font-weight: $w;
     font-family: $fm;
+    line-height: $lh;
 }
 
 @mixin ft-w($s: 13px, $w: null) {
