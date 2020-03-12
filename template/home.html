@@ -52,6 +52,7 @@
                             <img src="/images/common/logo.png" alt="코나" class="logo-img"><br>
                             <a href="https://www.foblgate.com/trade?pairName=CONA/KRW" target="_blank" class="btn ticker-btn">시세확인</a>
                         </div>
+                        {% if price %}
                         <div class="split split-2">
                             <p>상장가: 100 KRW</p>
                             <p class="fw">현재가:
@@ -66,6 +67,7 @@
                             <p class="fw">상장가 대비:
                                 {{ price - 100 }}%</p>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -467,7 +469,8 @@
                     </li>
                     <li class="card-item news-item">
                         <h2 class="card-title">
-                            <span class="in">공지사항</span></h2>
+                            <!-- <span class="in">공지사항</span></h2> -->
+                            <span class="in">코나뉴스</span></h2>
                         <div class="card-text">
                             <ul id="newsList-news" class="list cf">
                                 {% for item in notices %}
@@ -497,7 +500,7 @@
 </section>
 <!-- /.sec main-news-sec comm-pd -->
 
-<section class="sec main-partners-sec">
+<!-- <section class="sec main-partners-sec">
     <div class="partners-wrapper">
         <div class="partners-content group-f">
             <h1 class="sr-only">파트너사 소개</h1>
@@ -525,7 +528,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- /.sec main-partners-sec comm-pd -->
 
 <script>

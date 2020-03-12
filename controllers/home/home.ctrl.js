@@ -1,5 +1,7 @@
 const models = require('../../database/models');
+const axios = require('axios');
 const request = require('request');
+const rp = require('request-promise');
 const crypto = require('crypto');
 const dotenv = require('dotenv');
 
@@ -70,6 +72,7 @@ exports.get_home = async (req, res) => {
         var secretHash = crypto.createHash('sha256').update(apiKey + pairName + scretKey).digest('hex');
 
         var options = {
+            method: 'post',
             url: 'https://api2.foblgate.com/api/ticker/orderBook',
             headers: {
                 SecretHeader: secretHash
@@ -80,22 +83,27 @@ exports.get_home = async (req, res) => {
         let result = [];
         let prev_price = 0;
         let price = 0;
-        request.post(options, function (error, response, body) {
-            if (error) {
-                console.error(error);
-            } else {
-                // console.log(body);
-                result = JSON.parse(body);
-            }
-            price = parseInt(result.data.buyList[0].price);
-            prev_price = parseInt(result.data.buyList[1].price);
-            res.render('home.html', {
-                prev_price,
-                price,
-                inquirys,
-                notices
+        rp(options)
+            .then((response) => {
+                // console.log(typeof response);
+                result = JSON.parse(response);
+                // console.log(result);
+                price = parseInt(result.data.buyList[0].price);
+                prev_price = parseInt(result.data.buyList[1].price);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+            .finally(() => {
+                // console.log(result);
+                res.render('home.html', {
+                    prev_price,
+                    price,
+                    inquirys,
+                    news,
+                    notices
+                });
             });
-        });
 
         // res.render('home.html', {
         //     inquirys,
