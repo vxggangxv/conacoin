@@ -5,8 +5,8 @@ $(function () {
     tabsFn();
     dataFn();
     common.init();
-    if ($('#mainPage')) main.init();
-    if ($('#supportPage')) support.init();
+    if ($('#mainPage').length) main.init();
+    if ($('#supportPage').length) support.init();
 });
 
 // commonUI
