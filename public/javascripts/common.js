@@ -74,3 +74,55 @@ function content_br2n(obj) {
 function content_n2br(content) {
     return content.replace(/<br\s*\/?>/mg, '\n');
 }
+
+function getCookie(cname) {
+    var name = cname + '=';
+    var decodedCookie = decodeURIComponent(unescape(document.cookie));
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return '';
+}
+
+function setCookieHour(name, value, hours) {
+    var now = new Date();
+    var time = now.getTime();
+    time += 3600 * 1000 * hours;
+    now.setTime(time);
+    document.cookie = name + '=' + escape(value) + '; path=/; expires=' + now.toUTCString() + ';';
+}
+
+// 달력 ui
+function datePick() {
+    $.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        showMonthAfterYear: true,
+        yearSuffix: '년'
+    });
+    $('input.date-ui').datepicker({
+        // minDate: 0,
+        dateFormat: 'yy-mm-dd'
+    });
+}
+
+// 모두 동의
+function allChk() {
+    $('.check-all').click(function () {
+        var checkName = $(this).attr('data-check-name');
+        $('.check-item[data-check-name="' + checkName + '"]').prop('checked', this.checked);
+    });
+}
