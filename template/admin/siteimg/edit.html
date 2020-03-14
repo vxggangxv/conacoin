@@ -1,0 +1,94 @@
+{% set pageName = 'adminSiteimgPage' %}
+{% set length = '256' %}
+{% extends "admin/layout/base.html" %}
+
+{% block content %}
+<section class="sec admin-siteimg-sec">
+    <h1 class="comm-sec-title sec-title">이미지 등록</h1>
+    <div class="wrapper-group cf">
+        <div class="wrapper-type1 comm-card card-sm edit-wrapper">
+            <div class="content-type1">
+                <div class="comm-title">
+                    <h2 class="title">오픈배너 이미지 등록</h2>
+                </div>
+                <form action="/conaservice/siteimg/openbanners/edit" method="post" enctype="multipart/form-data" id="openbannersForm">
+                    <table class="tbl-type1 edit-tbl">
+                        <tbody>
+                            <tr class="bor-no">
+                                <td>
+                                    <!-- {% if openbanners.length == 1 %}
+                                    <p class="img-name">
+                                        {{ openbanners[0].filename }}
+                                    </p>
+                                    {% else %}
+                                    <p class="img-name">
+                                        {{ openbanners[0].filename }}외 {{ openbanners.length - 1 }}개 이미지
+                                    </p>
+                                    {% endif %} -->
+                                    <div class="fileform-wrapper pd-md">
+                                        <input type="file" class="fileform" name="file" id="openbannerFiles" multiple="multiple">
+                                        <label for="openbannerFiles">파일선택</label>
+                                        <span class="filename">선택된 파일 없음</span>
+                                    </div>
+                                    <p class="st">
+                                        <span class="c-primary">10MB 이하</span>의 이미지 파일을 등록해주세요.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="comm-actions">
+                        <button type="submit" class="comm-btn primary register-btn" id="openbannersBtn">등록</button>
+                        <!-- <a href="javascript:;" class="comm-btn primary register-btn" id="openbannersBtn">등록</a> -->
+                        <a href="" class="comm-btn outline delete-btn">전체 삭제</a>
+                        <!-- <a type="submit" class="comm-btn primary register-btn">등록</a> -->
+                        <!-- <a href="javascript:;" class="comm-btn primary register-btn" id="openbannersImgBtn">등록</a> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="wrapper-type1 comm-card card-sm edit-wrapper">
+            <div class="content-type1">
+                <div class="comm-title">
+                    <h2 class="title">파트너사 이미지 등록</h2>
+                </div>
+                <form action="/siteimg/edit" method="post" enctype="multipart/form-data">
+                    <table class="tbl-type1 edit-tbl">
+                        <tbody>
+                            <tr class="bor-no">
+                                <td>
+                                    <div class="fileform-wrapper pd-md">
+                                        <input type="file" class="fileform" name="file" id="file" multiple="multiple" data-size="10">
+                                        <label for="file">파일선택</label>
+                                        <span class="filename">선택된 파일 없음</span>
+                                    </div>
+                                    <p class="st">
+                                        <span class="c-primary">10MB 이하</span>의 이미지 파일을 등록해주세요.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="comm-actions">
+                        <button type="submit" class="comm-btn primary complete-btn">등록</button>
+                        <a href="" class="comm-btn outline delete-btn">전체 삭제</a>
+                    </div>
+                </form>
+            </div>
+        </div> -->
+    </div>
+</section>
+<script>
+    var openbannerFiles = null;
+    $('#openbannerFiles').on('change', function () {
+        openbannerFiles = this.files;
+    })
+    $('#openbannersForm').submit(function (e) {
+        if (!openbannerFiles) {
+            alert('파일을 등록하세요.')
+            return false;
+        }
+        return true;
+    })
+</script>
+{% endblock %}

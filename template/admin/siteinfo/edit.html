@@ -1,67 +1,67 @@
-{% set pageName = 'adminInquirysPage' %}
+{% set pageName = 'adminSiteinfoPage' %}
 {% set length = '256' %}
 {% extends "admin/layout/base.html" %}
 
 {% block content %}
-    <section class="sec admin-inquirys-sec">
-        <h1 class="comm-sec-title sec-title">사이트 정보</h1>
-        <div class="inquirys-wrapper comm-card inquirys-edit">
-            <div class="inquirys-content">
-                <div class="inquirys-title comm-title">
-                    <h2 class="title">사이트 정보</h2>
-                </div>
-                <form action="" method="post">
-                    <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
-                    <table class="tbl-type1 edit-tbl siteinfo">
-                        <tbody>
-                            {# <tr class="bor-no">
+<section class="sec admin-siteinfo-sec">
+    <h1 class="comm-sec-title sec-title">사이트 정보</h1>
+    <div class="wrapper-type1 comm-card edit-wrapper">
+        <div class="content-type1 edit-content">
+            <div class="comm-title">
+                <h2 class="title">사이트 정보</h2>
+            </div>
+            <form action="" method="post">
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+                <table class="tbl-type1 edit-tbl siteinfo">
+                    <tbody>
+                        {# <tr class="bor-no">
                                 <td>
                                     <span class="label company">사이트명</span><input class="form-input company label-text w-type2" name="company" type="text" maxlength="{{ length }}" value="{{ siteinfo.name }}">
                                 </td>
                             </tr> #}
-                            <tr class="bor-no">
-                                <td>
-                                    <span class="label company">회사명</span><input class="form-input company label-text w-type2" name="company" type="text" maxlength="{{ length }}" value="{{ siteinfo.company }}">
-                                </td>
-                            </tr>
-                            <tr class="bor-no">
-                                <td>
-                                    <span class="label rep">대표자</span><input class="form-input rep label-text w-type2" name="rep" type="text" maxlength="{{ length }}" value="{{ siteinfo.rep }}">
-                                </td>
-                            </tr>
-                            <tr class="bor-no">
-                                <td>
-                                    <span class="label rep-number">대표번호</span><input class="form-input rep-number label-text w-type2" name="rep_number" type="text" maxlength="{{ length }}" value="{{ siteinfo.rep_number }}">
-                                </td>
-                            </tr>
-                            <tr class="bor-no">
-                                <td>
-                                    <span class="label email">이메일</span><input class="form-input email label-text w-type2" name="email" type="text" maxlength="{{ length }}" value="{{ siteinfo.email }}">
-                                </td>
-                            </tr>
-                            <tr class="bor-no">
-                                <td>
-                                    <span class="label business-number">사업자등록번호</span><input class="form-input business-number label-text w-type2" name="business_number" type="text" maxlength="{{ length }}" value="{{ siteinfo.business_number }}">
-                                </td>
-                            </tr>
-                            <tr class="bor-no">
-                                <td>
-                                    <span class="label business-link">사업자링크</span><input class="form-input business-link label-text w-type2" name="business_link" type="text" maxlength="{{ length }}" value="{{ siteinfo.business_link }}">
-                                </td>
-                            </tr>
-                            <tr class="bor-no">
-                                <td>
-                                    <span class="label mailorder">통신판매업</span><input class="form-input mailorder label-text w-type2" name="mailorder" type="text" maxlength="{{ length }}" value="{{ siteinfo.mailorder }}">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="inquirys-actions comm-actions">
-                        <button type="submit" class="comm-btn primary complete-btn">등록</button>
-                        <a href="javascript: history.back(-1)" class="comm-btn outline back-btn pull-right">이전</a>
-                    </div>
-                </form>
-            </div>
+                        <tr class="bor-no">
+                            <td>
+                                <span class="label company">회사명</span><input class="form-input company label-text w-type2" name="company" type="text" maxlength="{{ length }}" value="{{ siteinfo.company }}">
+                            </td>
+                        </tr>
+                        <tr class="bor-no">
+                            <td>
+                                <span class="label rep">대표자</span><input class="form-input rep label-text w-type2" name="rep" type="text" maxlength="{{ length }}" value="{{ siteinfo.rep }}">
+                            </td>
+                        </tr>
+                        <tr class="bor-no">
+                            <td>
+                                <span class="label rep-number">대표번호</span><input class="form-input rep-number label-text w-type2" name="rep_number" type="text" maxlength="{{ length }}" value="{{ siteinfo.rep_number }}">
+                            </td>
+                        </tr>
+                        <tr class="bor-no">
+                            <td>
+                                <span class="label email">이메일</span><input class="form-input email label-text w-type2" name="email" type="text" maxlength="{{ length }}" value="{{ siteinfo.email }}">
+                            </td>
+                        </tr>
+                        <tr class="bor-no">
+                            <td>
+                                <span class="label business-number">사업자등록번호</span><input class="form-input business-number label-text w-type2" name="business_number" type="text" maxlength="{{ length }}" value="{{ siteinfo.business_number }}">
+                            </td>
+                        </tr>
+                        <tr class="bor-no">
+                            <td>
+                                <span class="label business-link">사업자링크</span><input class="form-input business-link label-text w-type2" name="business_link" type="text" maxlength="{{ length }}" value="{{ siteinfo.business_link }}">
+                            </td>
+                        </tr>
+                        <tr class="bor-no">
+                            <td>
+                                <span class="label mailorder">통신판매업</span><input class="form-input mailorder label-text w-type2" name="mailorder" type="text" maxlength="{{ length }}" value="{{ siteinfo.mailorder }}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="comm-actions">
+                    <button type="submit" class="comm-btn primary complete-btn">등록</button>
+                    <a href="javascript: history.back(-1)" class="comm-btn outline back-btn pull-right">이전</a>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

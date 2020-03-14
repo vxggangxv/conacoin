@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    const InquirysAttach = sequelize.define(
-        'InquirysAttach', {
+    const Partners = sequelize.define(
+        'Partners', {
             id: {
                 type: DataTypes.BIGINT.UNSIGNED,
                 primaryKey: true,
@@ -36,15 +36,9 @@ module.exports = function (sequelize, DataTypes) {
                 type: DataTypes.DATE
             }
         }, {
-            tableName: 'InquirysAttach'
+            tableName: 'Partners'
         }
     );
 
-    InquirysAttach.associate = function (models) {
-        InquirysAttach.belongsTo(models.Inquirys, {
-            foreignKey: 'inquiry_id'
-        });
-    };
-
-    return InquirysAttach;
+    return Partners;
 };

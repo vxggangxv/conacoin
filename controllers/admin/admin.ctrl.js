@@ -617,33 +617,60 @@ exports.post_siteinfo_edit = async (req, res) => {
 };
 
 // 오픈배너 이미지 등록
-exports.post_openbn_write = async (req, res) => {
+exports.get_openbanners_edit = async (req, res) => {
+    try {
+        const openbanners = await models.Openbanners.findAll();
+
+        res.render('admin/siteimg/edit.html', {
+            openbanners
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_openbanners_edit = async (req, res) => {
     try {
         const items = req.files;
 
-        req.body.attach_cnt = items.length;
-        req.body.content = req.body.content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
-
-        await models.Inquirys.create(req.body).then(result => {
-            let inquiry_id = result.id;
-            items.forEach(async item => {
-
-                let originalname = item.originalname;
-                let filename = item.filename;
-                let size = item.size;
-                let destination = item.destination;
-                let extension = path.extname(item.originalname);
-                await models.InquirysAttach.create({
+        items.forEach(async item => {
+            let originalname = item.originalname;
+            let filename = item.filename;
+            let size = item.size;
+            let destination = item.destination;
+            let extension = path.extname(item.originalname);
+            const findOne = await models.Openbanners.find({
+                where: {
+                    filename
+                }
+            });
+            if (!findOne) {
+                await models.Openbanners.create({
                     originalname,
                     filename,
                     size,
                     destination,
-                    extension,
-                    inquiry_id
+                    extension
                 });
-            });
+            } else {
+                await models.Openbanners.update({
+                    originalname,
+                    filename,
+                    size,
+                    destination,
+                    extension
+                }, {
+                    where: {
+                        filename
+                    }
+
+                });
+            }
         });
-        res.redirect('/support/inquirys');
+
+        // res.send('<script>alert("등록되었습니다.")</script>');
+        res.send('<script>alert("등록되었습니다.");\
+            location.href="/conaservice/siteimg/edit";</script>');
+        // res.redirect('/conaservice/siteimg/edit');
     } catch (e) {
         console.log(e);
     }

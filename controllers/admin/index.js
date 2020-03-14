@@ -112,6 +112,7 @@ router.get('/siteinfo/detail/:id', ctrl.get_siteinfo_detail);
 router.get('/siteinfo/edit/:id', csrfProtection, ctrl.get_siteinfo_edit);
 router.post('/siteinfo/edit/:id', ctrl.post_siteinfo_edit);
 
-router.post('/openbn/write', upload('popups', 'basename').array('file', 5), ctrl.post_openbn_write);
+router.get('/siteimg/edit', ctrl.get_openbanners_edit);
+router.post('/siteimg/openbanners/edit', upload('popup/openbanners/', 'basename').array('file'), ctrl.post_openbanners_edit);
 
 module.exports = router;
