@@ -5,63 +5,63 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    {% include("layout/subvisual.html") %}
+{% include("layout/subvisual.html") %}
 
-    <section class="sec notice-alerts-sec comm-pd">
-        <div class="alerts-wrapper">
-            <div class="alerts-content group">
-                <div class="alerts-title comm-title">
-                    <h1 class="title">
-                        공지사항
-                    </h1>
-                </div>
-                <table class="tbl-type1 list-tbl">
-                    <colgroup>
-                        <col>
-                        <col>
-                        <col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>제목</th>
-                            <th>등록일</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in alerts %}
-                            <tr>
-                                <td class="no">{{ item.id }}</td>
-                                <td class="title">
-                                    {# <a href="javascript:;" data-link="{{ item.id }}" data-toggle="modal" data-target="support-alerts-pw"> #}
-                                    <a href="/notice/alerts/detail/{{ item.id }}">
-                                        {{ item.title }}
-                                    </a>
-                                </td>
-                                <td class="date">{{ item.dateFormat( item.createdAt ) }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="alerts-actions comm-actions  count-3">
-                    {% if paginate.hasPreviousPages %}
-                        <a href="{{ paginate.href(true) }}" class="comm-btn outline prev-btn">이전</a>
-                    {% else %}
-                        <a href="javascript:;" class="comm-btn outline prev-btn">이전</a>
-                    {% endif %}
+<section class="sec notice-alerts-sec comm-pd">
+    <div class="alerts-wrapper">
+        <div class="alerts-content group">
+            <div class="alerts-title comm-title">
+                <h1 class="title">
+                    공지사항
+                </h1>
+            </div>
+            <table class="tbl-type1 list-tbl">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>제목</th>
+                        <th>등록일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in alerts %}
+                    <tr>
+                        <td class="no">{{ item.id }}</td>
+                        <td class="title">
+                            {# <a href="javascript:;" data-link="{{ item.id }}" data-toggle="modal" data-target="support-alerts-pw"> #}
+                            <a href="/notice/alerts/detail/{{ item.id }}">
+                                {{ item.title }}
+                            </a>
+                        </td>
+                        <td class="date">{{ item.dateFormat( item.createdAt ) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="alerts-actions comm-actions  count-3">
+                {% if paginate.hasPreviousPages %}
+                <a href="{{ paginate.href(true) }}" class="comm-btn outline prev-btn">이전</a>
+                {% else %}
+                <a href="javascript:;" class="comm-btn outline prev-btn">이전</a>
+                {% endif %}
 
-                    {% if paginate.hasNextPages(pageCount) %}
-                        <a href="{{ paginate.href() }}" class="comm-btn outline next-btn">다음</a>
-                    {% else %}
-                        <a href="javascript:;" class="comm-btn outline next-btn">다음</a>
-                    {% endif %}
-                </div>
+                {% if paginate.hasNextPages(pageCount) %}
+                <a href="{{ paginate.href() }}" class="comm-btn outline next-btn">다음</a>
+                {% else %}
+                <a href="javascript:;" class="comm-btn outline next-btn">다음</a>
+                {% endif %}
             </div>
         </div>
-    </section>
-    <!-- /.sec support-alerts-sec -->
+    </div>
+</section>
+<!-- /.sec support-alerts-sec -->
 
-    {% include("inc/bn_meet.html") %}
+{% include("inc/bn_meet.html") %}
 
-    <script></script>
+<script></script>
 {% endblock %}

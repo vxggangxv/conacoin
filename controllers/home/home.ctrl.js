@@ -53,7 +53,7 @@ exports.get_home = async (req, res) => {
         });
 
         notices.sort((a, b) => {
-            return b.id - a.id;
+            return b.createdAt - a.createdAt;
         });
         // notices.forEach(item => {
         //     console.log(item.title);

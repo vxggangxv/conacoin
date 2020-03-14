@@ -5,7 +5,7 @@ const ctrl = require('./admin.ctrl');
 
 const adminRequired = require('../../middleware/adminRequired');
 const csrfProtection = require('../../middleware/csrf');
-const upload = require('../../middleware/multer/inquirys');
+const upload = require('../../middleware/multer/');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -83,8 +83,8 @@ router.post('/alerts/edit/:id', ctrl.post_alerts_edit);
 router.get('/alerts/delete/:id', ctrl.get_alerts_delete);
 
 router.get('/inquirys', paginate.middleware(10, 50), ctrl.get_inquirys);
-router.get('/inquirys/write', csrfProtection, ctrl.get_inquirys_write);
-router.post('/inquirys/write', upload.array('file', 5), ctrl.post_inquirys_write);
+// router.get('/inquirys/write', csrfProtection, ctrl.get_inquirys_write);
+// router.post('/inquirys/write', upload().array('file', 5), ctrl.post_inquirys_write);
 router.get('/inquirys/detail/:id', ctrl.get_inquirys_detail);
 // router.get('/inquirys/edit/:id', csrfProtection, ctrl.get_inquirys_edit);
 // router.post('/inquirys/edit/:id', ctrl.post_inquirys_edit);
@@ -111,5 +111,7 @@ router.post('/siteinfo/write', ctrl.post_siteinfo_write);
 router.get('/siteinfo/detail/:id', ctrl.get_siteinfo_detail);
 router.get('/siteinfo/edit/:id', csrfProtection, ctrl.get_siteinfo_edit);
 router.post('/siteinfo/edit/:id', ctrl.post_siteinfo_edit);
+
+router.post('/openbn/write', upload('popups', 'basename').array('file', 5), ctrl.post_openbn_write);
 
 module.exports = router;

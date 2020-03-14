@@ -8,7 +8,8 @@
     </h1>
     <ul class="sidebar-menu cf">
         {% from "admin/macro/link.html" import link %}
-        {{ link( '/conaservice/alerts' , '공지사항' , req_path,  'mdi-bell-outline') }}
+        <!-- {{ link( '/conaservice/alerts' , '공지사항' , req_path,  'mdi-bell-outline') }} -->
+        {{ link( '/conaservice/alerts' , '공지사항' , req_path,  'mdi-alert-rhombus-outline') }}
         {{ link( '/conaservice/inquirys' , '실시간 문의' , req_path,  'mdi-message-text-outline') }}
         {{ link( '/conaservice/news' , '뉴스업로드' , req_path,  'mdi-newspaper-variant-multiple-outline') }}
         <li class="menu-section">SITE INFO</li>

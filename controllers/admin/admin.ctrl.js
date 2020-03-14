@@ -615,3 +615,36 @@ exports.post_siteinfo_edit = async (req, res) => {
         console.log(e);
     }
 };
+
+// 오픈배너 이미지 등록
+exports.post_openbn_write = async (req, res) => {
+    try {
+        const items = req.files;
+
+        req.body.attach_cnt = items.length;
+        req.body.content = req.body.content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+
+        await models.Inquirys.create(req.body).then(result => {
+            let inquiry_id = result.id;
+            items.forEach(async item => {
+
+                let originalname = item.originalname;
+                let filename = item.filename;
+                let size = item.size;
+                let destination = item.destination;
+                let extension = path.extname(item.originalname);
+                await models.InquirysAttach.create({
+                    originalname,
+                    filename,
+                    size,
+                    destination,
+                    extension,
+                    inquiry_id
+                });
+            });
+        });
+        res.redirect('/support/inquirys');
+    } catch (e) {
+        console.log(e);
+    }
+};
