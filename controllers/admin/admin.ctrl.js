@@ -618,18 +618,10 @@ exports.post_siteinfo_edit = async (req, res) => {
 };
 
 // 사이트 이미지 등록
-exports.get_siteimg_edit = async (req, res) => {
+exports.get_siteimg_openbanners = async (req, res) => {
     try {
-        const [openbanners, partnerbanners] = await Promise.all([
+        const [openbanners] = await Promise.all([
             models.OpenBanners.findAll({
-                where: {
-                    del_status: 'N'
-                },
-                order: [
-                    ['createdAt', 'asc']
-                ]
-            }),
-            models.PartnerBanners.findAll({
                 where: {
                     del_status: 'N'
                 },
@@ -640,8 +632,7 @@ exports.get_siteimg_edit = async (req, res) => {
         ]);
 
         res.render('admin/siteimg/edit.html', {
-            openbanners,
-            partnerbanners
+            openbanners
         });
     } catch (e) {
         console.log(e);
@@ -787,6 +778,26 @@ exports.post_openbanners_delete = async (req, res) => {
     }
 };
 // 파트너사배너 이미지 등록
+exports.get_siteimg_partnerbanners = async (req, res) => {
+    try {
+        const [partnerbanners] = await Promise.all([
+            models.PartnerBanners.findAll({
+                where: {
+                    del_status: 'N'
+                },
+                order: [
+                    ['createdAt', 'asc']
+                ]
+            })
+        ]);
+
+        res.render('admin/siteimg/edit.html', {
+            partnerbanners
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
 exports.post_partnerbanners_edit = async (req, res) => {
     try {
         const partnerbanners = req.files;
