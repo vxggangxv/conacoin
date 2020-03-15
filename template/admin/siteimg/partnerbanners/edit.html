@@ -1,0 +1,224 @@
+{% set pageName = 'adminSiteimgPage' %}
+{% set length = '256' %}
+{% extends "admin/layout/base.html" %}
+
+{% block content %}
+<section class="sec admin-siteimg-sec">
+    <h1 class="comm-sec-title sec-title">이미지 등록</h1>
+    <div class="wrapper-group cf">
+        <div class="wrapper-type1 comm-card card-sm edit-wrapper">
+            <div class="content-type1">
+                <div class="comm-title">
+                    <h2 class="title">파트너 배너 이미지 등록</h2>
+                </div>
+                <table class="tbl-type1 edit-tbl">
+                    <tbody>
+                        <tr class="bor-no upload-row">
+                            <td>
+                                <div class="fileform-wrapper pd-md">
+                                    <input type="file" class="fileform" name="partnerbannerFiles" id="partnerbannerFiles" multiple="multiple" data-file-size="10" data-file-length="100">
+                                    <label for="partnerbannerFiles">파일선택</label>
+                                    <span class="filename">선택된 파일 없음</span>
+                                </div>
+                                <p class="st">
+                                    <span class="c-primary">10MB 이하</span> (권장 사이트 210 x 80)
+                                </p>
+                                {% if partnerbanners.length %}
+                                <div class="img-list-wrapper">
+                                    <div class="img-title">
+                                        <p class="img-name">
+                                            {{ partnerbanners.length }}개 이미지
+                                        </p>
+                                    </div>
+                                    <div class="img-list-scroll">
+                                        <ul class="img-list">
+                                            {% for item in partnerbanners %}
+                                            <li class="img-item"><span class="txt">{{ item.filename }}</span> <a href="/conaservice/siteimg/partnerbanners/delete/{{ item.id }}" class="close-btn"><i class="mdi mdi-close-box-outline"></i></a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="comm-actions">
+                    <!-- <a href="javascript:;" class="comm-btn primary register-btn" id="partnerbannersEditBtn">등록</a> -->
+                    <a href="javascript:;" class="comm-btn primary register-btn" id="partnerbannersAddBtn">추가</a>
+                    {% if partnerbanners.length %}
+                    <a href="javascript:;" class="comm-btn outline delete-btn pull-right" id="partnerbannersDeleteBtn">전체 삭제</a>
+                    {% endif %}
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    // 오픈배너
+    var openbannerFiles = [];
+    $('input[name=openbannerFiles]').on('change', function () {
+        openbannerFiles = this.files;
+        // console.log(openbannerFiles);
+    })
+    $('#openbannersEditBtn').on('click', function () {
+        // var openbannerFiles = $('input[name=file]#openbannerFiles')[0].files;
+        if (!openbannerFiles.length) {
+            alert('파일을 등록하세요.')
+            return false;
+        }
+        data = new FormData();
+        for (var i = 0; i < openbannerFiles.length; i++) {
+            data.append("file", openbannerFiles[i]);
+        }
+        $('#ldsMask').show();
+        $.ajax({
+            data: data,
+            type: "post",
+            url: '/conaservice/siteimg/openbanners/edit',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                // alert('이미지가 등록되었습니다.')
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
+    });
+    $('#openbannersAddBtn').on('click', function () {
+        if (!openbannerFiles.length) {
+            alert('파일을 등록하세요.')
+            return false;
+        }
+        data = new FormData();
+        for (var i = 0; i < openbannerFiles.length; i++) {
+            data.append("file", openbannerFiles[i]);
+        }
+        $('#ldsMask').show();
+        $.ajax({
+            data: data,
+            type: "post",
+            url: '/conaservice/siteimg/openbanners/add',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                // alert('이미지가 등록되었습니다.')
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
+    });
+    $('#openbannersDeleteBtn').on('click', function () {
+        if (!confirm('정말로 삭제하시겠습니까?')) {
+            return false;
+        }
+        $('#ldsMask').show();
+        $.ajax({
+            type: "get",
+            url: '/conaservice/siteimg/openbanners/delete/all',
+            success: function (result) {
+                // alert('이미지가 삭제되었습니다.')
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
+    });
+    // 파트너사
+    var partnerbannerFiles = [];
+    $('input[name=partnerbannerFiles]').on('change', function () {
+        partnerbannerFiles = this.files;
+        // console.log(partnerbannerFiles);
+    })
+    $('#partnerbannersEditBtn').on('click', function () {
+        // var partnerbannerFiles = $('input[name=file]#partnerbannerFiles')[0].files;
+        if (!partnerbannerFiles.length) {
+            alert('파일을 등록하세요.')
+            return false;
+        }
+        data = new FormData();
+        for (var i = 0; i < partnerbannerFiles.length; i++) {
+            data.append("file", partnerbannerFiles[i]);
+        }
+        $('#ldsMask').show();
+        $.ajax({
+            data: data,
+            type: "post",
+            url: '/conaservice/siteimg/partnerbanners/edit',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                // alert('이미지가 등록되었습니다.')
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
+    });
+    $('#partnerbannersAddBtn').on('click', function () {
+        if (!partnerbannerFiles.length) {
+            alert('파일을 등록하세요.')
+            return false;
+        }
+        data = new FormData();
+        for (var i = 0; i < partnerbannerFiles.length; i++) {
+            data.append("file", partnerbannerFiles[i]);
+        }
+        $('#ldsMask').show();
+        $.ajax({
+            data: data,
+            type: "post",
+            url: '/conaservice/siteimg/partnerbanners/add',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                // alert('이미지가 등록되었습니다.')
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
+    });
+    $('#partnerbannersDeleteBtn').on('click', function () {
+        if (!confirm('정말로 삭제하시겠습니까?')) {
+            return false;
+        }
+        $('#ldsMask').show();
+        $.ajax({
+            type: "get",
+            url: '/conaservice/siteimg/partnerbanners/delete/all',
+            success: function (result) {
+                // alert('이미지가 삭제되었습니다.')
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -617,7 +617,7 @@ exports.post_siteinfo_edit = async (req, res) => {
     }
 };
 
-// 사이트 이미지 등록
+// 오픈배너 이미지 등록
 exports.get_siteimg_openbanners = async (req, res) => {
     try {
         const [openbanners] = await Promise.all([
@@ -631,40 +631,40 @@ exports.get_siteimg_openbanners = async (req, res) => {
             })
         ]);
 
-        res.render('admin/siteimg/edit.html', {
+        res.render('admin/siteimg/openbanners/edit.html', {
             openbanners
         });
     } catch (e) {
         console.log(e);
     }
 };
-// 오픈배너 이미지 등록
 exports.post_openbanners_edit = async (req, res) => {
     try {
+        const link = req.body.link;
         const openbanners = req.files;
         let status = false;
 
-        await models.OpenBanners.update({
-            del_status: 'Y'
-        }, {
-            where: {
-                del_status: 'N'
-            }
-        });
-        const deleteItems = await models.OpenBanners.findAll({
-            where: {
-                del_status: 'Y'
-            }
-        });
-        deleteItems.forEach(item => {
-            fs.unlink(`${item.destination}/${item.filename}`, err => {
-                if (err === null) {
-                    console.log('file delete success');
-                } else {
-                    console.log(err);
-                }
-            });
-        });
+        // await models.OpenBanners.update({
+        //     del_status: 'Y'
+        // }, {
+        //     where: {
+        //         del_status: 'N'
+        //     }
+        // });
+        // const deleteItems = await models.OpenBanners.findAll({
+        //     where: {
+        //         del_status: 'Y'
+        //     }
+        // });
+        // deleteItems.forEach(item => {
+        //     fs.unlink(`${item.destination}/${item.filename}`, err => {
+        //         if (err === null) {
+        //             console.log('file delete success');
+        //         } else {
+        //             console.log(err);
+        //         }
+        //     });
+        // });
         openbanners.forEach(async item => {
             let originalname = item.originalname;
             let filename = item.filename;
@@ -791,7 +791,7 @@ exports.get_siteimg_partnerbanners = async (req, res) => {
             })
         ]);
 
-        res.render('admin/siteimg/edit.html', {
+        res.render('admin/siteimg/partnerbanners/edit.html', {
             partnerbanners
         });
     } catch (e) {

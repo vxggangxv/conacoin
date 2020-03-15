@@ -6,7 +6,7 @@
             <span>Admin</span>
         </a>
     </h1>
-    <ul class="sidebar-menu cf">
+    <ul class="sidebar-menu cf" id="sidebarMenu">
         <li class="link{% if req_path == '/conaservice/alerts' %} active{% endif %}">
             <a href="/conaservice/alerts">
                 <i class="mdi mdi-alert-rhombus-outline"></i>
@@ -32,11 +32,19 @@
                 <span>사이트 정보</span>
             </a>
         </li>
-        <li class="link{% if req_path == '/conaservice/siteimg/edit/' %} active{% endif %}">
-            <a href="/conaservice/siteimg/edit/">
+        <li class="link{% if '/conaservice/siteimg' in req_path %} active{% endif %}">
+            <a href="javascript:;">
                 <i class="mdi mdi-image-edit-outline"></i>
                 <span>이미지 등록</span>
             </a>
+            <ul class="depth2">
+                <li class="{% if req_path == '/conaservice/siteimg/openbanners' %} active{% endif %}">
+                    <a href="/conaservice/siteimg/openbanners"><span>오픈팝업 배너</span></a>
+                </li>
+                <li class="{% if req_path == '/conaservice/siteimg/partnerbanners' %} active{% endif %}">
+                    <a href="/conaservice/siteimg/partnerbanners"><span>파트너사 배너</span></a>
+                </li>
+            </ul>
         </li>
         <!-- {% from "admin/macro/link.html" import link %}
         {{ link( '/conaservice/alerts' , '공지사항' , req_path,  'mdi-alert-rhombus-outline') }}
@@ -56,3 +64,9 @@
         </p>
     </div>
 </nav>
+
+<script>
+    $('#sidebarMenu > li').on('click', function () {
+        $(this).addClass('active').siblings().remove('active');
+    });
+</script>

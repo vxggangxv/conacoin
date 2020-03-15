@@ -24,6 +24,12 @@ module.exports = function (sequelize, DataTypes) {
             extension: {
                 type: DataTypes.STRING
             },
+            link: {
+                type: DataTypes.TEXT,
+                validate: {
+                    len: [0, 3000]
+                }
+            },
             del_status: {
                 type: DataTypes.STRING(1),
                 defaultValue: 'N',

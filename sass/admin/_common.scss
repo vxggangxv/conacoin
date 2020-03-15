@@ -112,7 +112,7 @@ $toolbar-ht: 75px;
             color: $admin-sb-section;
         }
 
-        .link {
+        >.link {
             .mdi {
                 margin-right: 10px;
                 top: 1px;
@@ -136,18 +136,49 @@ $toolbar-ht: 75px;
                 }
             }
 
-            // &.active {
-            //     >a {
-            //         .mdi {
-            //             color: $admin-sb-icon-active;
-            //         }
-            //     }
-            // }
+            &.active {
+
+                // >a {
+                //     .mdi {
+                //         color: $admin-sb-icon-active;
+                //     }
+                // }
+                >.depth2 {
+                    display: block;
+                }
+            }
 
             &:hover {
                 >a {
                     .mdi {
                         color: $admin-primary;
+                    }
+                }
+            }
+
+            >.depth2 {
+                display: none;
+
+                >li {
+                    >a {
+                        display: block;
+                        @include va-bef(40px, 13px);
+                        padding: 0 25px;
+                        padding-left: 45px;
+                        color: $admin-sb-text;
+
+                        &:before {
+                            content: '·';
+                            margin-right: 5px;
+                            // padding-left: 10px;
+                            font-size: 13px;
+                            line-height: 40px;
+                        }
+                    }
+
+                    &.active {
+                        background-color: $admin-sb-bg-active;
+                        color: $admin-sb-text-active;
                     }
                 }
             }
