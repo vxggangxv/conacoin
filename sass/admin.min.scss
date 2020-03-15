@@ -95,7 +95,9 @@ $card-pd: 25px;
 
         &.card-sm {
             min-width: initial;
-            width: 30%;
+            width: 500px;
+            // width: 30%;
+            // min-width: 500px;
         }
     }
 
@@ -769,6 +771,65 @@ $card-pd: 25px;
                 .fileform-wrapper {
                     &+.st {
                         margin-top: 5px;
+                        font-size: 12.5px;
+                    }
+                }
+
+                tr.upload-row {
+                    padding-right: 155px;
+                }
+
+                .img-title,
+                .img-list {
+                    padding-left: 5px;
+                    font-size: 13px;
+                    color: $admin-body-c;
+                }
+
+                .img-title {
+                    position: absolute;
+                    top: -20px;
+                }
+
+                .img-list-wrapper {
+                    position: absolute;
+                    top: 5px;
+                    right: 25px;
+
+                    .img-list-scroll {
+                        position: relative;
+                        width: 125px;
+                        height: 60px;
+                        overflow: auto;
+                        // border-top: 1px solid $bor-gray;
+                        // border-bottom: 1px solid $bor-gray2;
+                        // border: 1px solid $bor-gray2;
+                        border: 1px solid $admin-c-black;
+                        border-radius: 1px;
+                        box-sizing: border-box;
+
+                        .img-list {
+                            height: auto;
+                            padding-top: 2px;
+                            padding-bottom: 2px;
+
+                            .img-item {
+                                line-height: 1.3;
+
+                                .txt {
+                                    display: inline-block;
+                                    width: 75px;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                }
+
+                                .close-btn {
+                                    position: relative;
+                                    top: -2px;
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    const Openbanners = sequelize.define(
-        'Openbanners', {
+    const OpenBanners = sequelize.define(
+        'OpenBanners', {
             id: {
                 type: DataTypes.BIGINT.UNSIGNED,
                 primaryKey: true,
@@ -36,9 +36,9 @@ module.exports = function (sequelize, DataTypes) {
                 type: DataTypes.DATE
             }
         }, {
-            tableName: 'Openbanners'
+            tableName: 'OpenBanners'
         }
     );
 
-    return Openbanners;
+    return OpenBanners;
 };

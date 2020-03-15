@@ -518,6 +518,11 @@ a.btn>* {
     display: table;
     transition: opacity .3s ease;
 
+    &.popup,
+    &.scale-no {
+        transition: initial;
+    }
+
     &.bg-no {
         background-color: transparent !important;
     }
@@ -576,6 +581,8 @@ a.btn>* {
     -webkit-transform: scale(1.1);
 }
 
+.modal.popup .modal-container,
+.modal.scale-no .modal-container,
 .modal.leave.scale-no .modal-container {
     transform: scale(1);
     -webkit-transform: scale(1);

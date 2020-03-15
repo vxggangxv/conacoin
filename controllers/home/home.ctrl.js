@@ -13,7 +13,7 @@ exports.index = async (req, res) => {
 };
 exports.get_home = async (req, res) => {
     try {
-        const [inquirys, news, alerts] = await Promise.all([
+        const [inquirys, news, alerts, openbanners, partnerbanners] = await Promise.all([
             models.Inquirys.findAll({
                 limit: 20,
                 offset: 0,
@@ -34,7 +34,9 @@ exports.get_home = async (req, res) => {
                 order: [
                     ['createdAt', 'desc']
                 ]
-            })
+            }),
+            models.OpenBanners.findAll(),
+            models.PartnerBanners.findAll()
         ]);
 
         inquirys.forEach(item => {
@@ -101,7 +103,9 @@ exports.get_home = async (req, res) => {
                     price,
                     inquirys,
                     news,
-                    notices
+                    notices,
+                    openbanners,
+                    partnerbanners
                 });
             });
 

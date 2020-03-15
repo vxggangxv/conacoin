@@ -39,14 +39,16 @@ function dropselectFn() {
 }
 
 function fileformFn() {
-    var size = 5;
+    var fileSize = 5;
+    var fileLength = 5;
     $('.fileform').on('click', function () {
-        size = $(this).attr('data-size') || 5;
+        fileSize = $(this).attr('data-file-size') || 5;
+        fileLength = $(this).attr('data-file-length') || 5;
     });
     $('.fileform').on('change', function () {
         var files = this.files;
-        var limitSize = size * 1024 * 1024;
-        var $filename = $('.fileform-wrapper .filename');
+        var limitSize = fileSize * 1024 * 1024;
+        var $filename = $(this).closest('.fileform-wrapper').find('.filename');
         if (files[0] == undefined) {
             $filename.text('선택된 파일없음');
             return;
@@ -57,13 +59,13 @@ function fileformFn() {
         // }
         for (var i = 0; i < files.length; i++) {
             // console.log(files[i].size);
-            var alertText = '파일크기가 ' + size + 'MB 보다 작아야합니다.';
+            var alertText = '파일크기가 ' + fileSize + 'MB 보다 작아야합니다.';
             if (files[i].size > limitSize) return alert(alertText);
         }
-        if (files.length > 1 && files.length < 6) {
+        if (files.length > 1 && files.length < fileLength + 1) {
             $filename.text(files.length + '개 파일');
             return;
-        } else if (files.length >= 6) {
+        } else if (files.length >= fileLength + 1) {
             alert('최대 5개까지 가능합니다.');
             return;
         }

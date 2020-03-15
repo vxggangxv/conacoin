@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    const Partners = sequelize.define(
-        'Partners', {
+    const PartnerBanners = sequelize.define(
+        'PartnerBanners', {
             id: {
                 type: DataTypes.BIGINT.UNSIGNED,
                 primaryKey: true,
@@ -36,9 +36,9 @@ module.exports = function (sequelize, DataTypes) {
                 type: DataTypes.DATE
             }
         }, {
-            tableName: 'Partners'
+            tableName: 'PartnerBanners'
         }
     );
 
-    return Partners;
+    return PartnerBanners;
 };

@@ -520,7 +520,7 @@ function dataFn() {
                 obj.removeClass('leave');
             }, 300);
             $('#wrap').attr('aria-hidden', false);
-            lastFocus.focus();
+            if (lastFocus) lastFocus.focus();
         }
     };
 }

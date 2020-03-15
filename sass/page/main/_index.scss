@@ -815,6 +815,11 @@
                     padding: 0 5px;
 
                     .card-list {
+                        .slick-track {
+                            margin-left: 0;
+                            margin-right: 0;
+                        }
+
                         .card-item {
                             margin: 0 5px;
 
@@ -1432,15 +1437,24 @@
     .main-news-sec {
         .news-wrapper {
             .news-content {
+
                 .news-card {
                     .card-list {
                         .card-item {
                             float: left;
-                            width: calc(50% - 40px);
-                            margin: 0 20px;
+                            width: calc(50% - 20px);
+                            // margin: 0 20px;
                             border: 1px solid $bor-gray;
                             box-sizing: border-box;
                             background-color: #fff;
+
+                            &:nth-child(2n-1) {
+                                margin-right: 20px;
+                            }
+
+                            &:nth-child(2n) {
+                                margin-left: 20px;
+                            }
 
                             .card-title {
                                 z-index: 1;
@@ -1566,10 +1580,21 @@
 
         .partners-wrapper {
             .partners-content {
+                @include screen-md {
+                    width: 980px;
+                }
+
                 .partners-card {
-                    padding: 0 10px;
+                    @include screen-lg {
+                        padding: 0 10px;
+                    }
 
                     .card-list {
+                        .slick-track {
+                            margin-left: 0;
+                            margin-right: 0;
+                        }
+
                         .card-item {
                             margin: 0 10px;
 

@@ -6,6 +6,7 @@ const env = process.env.NODE_ENV || 'development';
 const dotenv = require('dotenv');
 dotenv.config(); // LOAD CONFIG
 const Op = require('sequelize').Op;
+const fs = require('fs');
 
 exports.index = (req, res) => {
     res.redirect('/conaservice/inquirys');
@@ -616,61 +617,311 @@ exports.post_siteinfo_edit = async (req, res) => {
     }
 };
 
-// 오픈배너 이미지 등록
-exports.get_openbanners_edit = async (req, res) => {
+// 사이트 이미지 등록
+exports.get_siteimg_edit = async (req, res) => {
     try {
-        const openbanners = await models.Openbanners.findAll();
+        const [openbanners, partnerbanners] = await Promise.all([
+            models.OpenBanners.findAll({
+                where: {
+                    del_status: 'N'
+                },
+                order: [
+                    ['createdAt', 'asc']
+                ]
+            }),
+            models.PartnerBanners.findAll({
+                where: {
+                    del_status: 'N'
+                },
+                order: [
+                    ['createdAt', 'asc']
+                ]
+            })
+        ]);
 
         res.render('admin/siteimg/edit.html', {
-            openbanners
+            openbanners,
+            partnerbanners
         });
     } catch (e) {
         console.log(e);
     }
 };
+// 오픈배너 이미지 등록
 exports.post_openbanners_edit = async (req, res) => {
     try {
-        const items = req.files;
+        const openbanners = req.files;
+        let status = false;
 
-        items.forEach(async item => {
+        await models.OpenBanners.update({
+            del_status: 'Y'
+        }, {
+            where: {
+                del_status: 'N'
+            }
+        });
+        const deleteItems = await models.OpenBanners.findAll({
+            where: {
+                del_status: 'Y'
+            }
+        });
+        deleteItems.forEach(item => {
+            fs.unlink(`${item.destination}/${item.filename}`, err => {
+                if (err === null) {
+                    console.log('file delete success');
+                } else {
+                    console.log(err);
+                }
+            });
+        });
+        openbanners.forEach(async item => {
             let originalname = item.originalname;
             let filename = item.filename;
             let size = item.size;
             let destination = item.destination;
             let extension = path.extname(item.originalname);
-            const findOne = await models.Openbanners.find({
-                where: {
-                    filename
-                }
+            await models.OpenBanners.create({
+                originalname,
+                filename,
+                size,
+                destination,
+                extension
             });
-            if (!findOne) {
-                await models.Openbanners.create({
-                    originalname,
-                    filename,
-                    size,
-                    destination,
-                    extension
-                });
-            } else {
-                await models.Openbanners.update({
-                    originalname,
-                    filename,
-                    size,
-                    destination,
-                    extension
-                }, {
-                    where: {
-                        filename
-                    }
+        });
 
+        status = true;
+        res.json({
+            status
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_openbanners_add = async (req, res) => {
+    try {
+        const openbanners = req.files;
+        let status = false;
+
+        openbanners.forEach(async item => {
+            let originalname = item.originalname;
+            let filename = item.filename;
+            let size = item.size;
+            let destination = item.destination;
+            let extension = path.extname(item.originalname);
+            await models.OpenBanners.create({
+                originalname,
+                filename,
+                size,
+                destination,
+                extension
+            });
+        });
+
+        status = true;
+        res.json({
+            status
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_openbanners_delete_all = async (req, res) => {
+    try {
+        let status = false;
+
+        const deleteItem = await models.OpenBanners.findOne({
+            where: {}
+        });
+        if (deleteItem) {
+            let deleteFiles = fs.readdirSync(deleteItem.destination);
+            console.log(deleteFiles);
+
+            deleteFiles.forEach(item => {
+                fs.unlink(`${deleteItem.destination}/${item}`, err => {
+                    if (err === null) {
+                        console.log('file delete success');
+                    } else {
+                        console.log(err);
+                    }
                 });
+            });
+            await models.OpenBanners.destroy({
+                where: {},
+                truncate: true
+            });
+
+            status = true;
+        }
+        res.json({
+            status
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_openbanners_delete = async (req, res) => {
+    try {
+        // console.log(req.id);
+        // let deleteItems = [];
+        const item = await models.OpenBanners.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        fs.unlink(`${item.destination}/${item.filename}`, err => {
+            if (err === null) {
+                console.log('file delete success');
+            } else {
+                console.log(err);
+            }
+        });
+        await models.OpenBanners.destroy({
+            where: {
+                id: req.params.id
             }
         });
 
-        // res.send('<script>alert("등록되었습니다.")</script>');
-        res.send('<script>alert("등록되었습니다.");\
-            location.href="/conaservice/siteimg/edit";</script>');
-        // res.redirect('/conaservice/siteimg/edit');
+        res.redirect('/conaservice/siteimg/edit');
+    } catch (e) {
+        console.log(e);
+    }
+};
+// 파트너사배너 이미지 등록
+exports.post_partnerbanners_edit = async (req, res) => {
+    try {
+        const partnerbanners = req.files;
+        let status = false;
+
+        await models.PartnerBanners.update({
+            del_status: 'Y'
+        }, {
+            where: {
+                del_status: 'N'
+            }
+        });
+        const deleteItems = await models.PartnerBanners.findAll({
+            where: {
+                del_status: 'Y'
+            }
+        });
+        deleteItems.forEach(item => {
+            fs.unlink(`${item.destination}/${item.filename}`, err => {
+                if (err === null) {
+                    console.log('file delete success');
+                } else {
+                    console.log(err);
+                }
+            });
+        });
+        partnerbanners.forEach(async item => {
+            let originalname = item.originalname;
+            let filename = item.filename;
+            let size = item.size;
+            let destination = item.destination;
+            let extension = path.extname(item.originalname);
+            await models.PartnerBanners.create({
+                originalname,
+                filename,
+                size,
+                destination,
+                extension
+            });
+        });
+
+        status = true;
+        res.json({
+            status
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_partnerbanners_add = async (req, res) => {
+    try {
+        const partnerbanners = req.files;
+        let status = false;
+
+        partnerbanners.forEach(async item => {
+            let originalname = item.originalname;
+            let filename = item.filename;
+            let size = item.size;
+            let destination = item.destination;
+            let extension = path.extname(item.originalname);
+            await models.PartnerBanners.create({
+                originalname,
+                filename,
+                size,
+                destination,
+                extension
+            });
+        });
+
+        status = true;
+        res.json({
+            status
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_partnerbanners_delete_all = async (req, res) => {
+    try {
+        let status = false;
+
+        const deleteItem = await models.PartnerBanners.findOne({
+            where: {}
+        });
+        if (deleteItem) {
+            // console.log(deleteItem);
+            let deleteFiles = fs.readdirSync(deleteItem.destination);
+            console.log(deleteFiles);
+
+            deleteFiles.forEach(item => {
+                fs.unlink(`${deleteItem.destination}/${item}`, err => {
+                    if (err === null) {
+                        console.log('file delete success');
+                    } else {
+                        console.log(err);
+                    }
+                });
+            });
+            await models.PartnerBanners.destroy({
+                where: {},
+                truncate: true
+            });
+
+            status = true;
+        }
+        res.json({
+            status
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_partnerbanners_delete = async (req, res) => {
+    try {
+        // console.log(req.id);
+        // let deleteItems = [];
+        const item = await models.PartnerBanners.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        fs.unlink(`${item.destination}/${item.filename}`, err => {
+            if (err === null) {
+                console.log('file delete success');
+            } else {
+                console.log(err);
+            }
+        });
+        await models.PartnerBanners.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        res.redirect('/conaservice/siteimg/edit');
     } catch (e) {
         console.log(e);
     }

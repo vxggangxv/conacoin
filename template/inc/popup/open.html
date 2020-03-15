@@ -1,4 +1,5 @@
-<div class="modal-mask modal enter scale-no openbn-popup">
+{% if openbanners.length %}
+<div class="modal-mask modal scale-no openbn-popup" id="openbnPopup">
     <div class="modal-wrapper">
         <div class="modal-container">
             <div class="modal-header">
@@ -7,17 +8,31 @@
             <div class="modal-body">
                 <div class="openbn-list-wrapper">
                     <ul class="openbn-list" id="openbnPopupList">
-                        <li class="openbn-item">배너1</li>
-                        <li class="openbn-item">배너2</li>
-                        <li class="openbn-item">배너3</li>
+                        {% for item in openbanners %}
+                        <li class="openbn-item"><img src="/uploads/popup/openbanners/{{ item.filename }}" alt="오픈배너"></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
             <div class="modal-footer cf">
-                <button type="button" class="ap-reset close-today-btn" data-dismiss="modal"><i class="mdi mdi-close-box-outline"></i> 하루동안 보지 않기</button>
+                <button type="button" class="ap-reset close-today-btn" id="closeTodayBtn" data-dismiss="modal"><i class="mdi mdi-close-box-outline"></i> 하루동안 보지 않기</button>
                 <button type="button" class="ap-reset close-btn" data-dismiss="modal">닫기 <i class="mdi mdi-close"></i></button>
             </div>
         </div>
     </div>
 </div>
 <!-- /openbn-popup -->
+{% endif %}
+
+<script>
+    $(function () {
+        if (!(getCookie('openbannersCookie') == 'done')) {
+            $('#openbnPopup').addClass('enter');
+        }
+
+        $('#closeTodayBtn').on('click', function () {
+            setCookieHour('openbannersCookie', 'done', 1);
+            $('#openbnPopup').removeClass('enter');
+        });
+    })
+</script>
