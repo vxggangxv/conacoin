@@ -617,6 +617,27 @@ exports.post_siteinfo_edit = async (req, res) => {
     }
 };
 
+// 사이트 이미지 등록
+exports.get_siteimg_edit = async (req, res) => {
+    try {
+        const [openbanners] = await Promise.all([
+            models.OpenBanners.findAll({
+                where: {
+                    del_status: 'N'
+                },
+                order: [
+                    ['createdAt', 'asc']
+                ]
+            })
+        ]);
+
+        res.render('admin/siteimg/edit.html', {
+            openbanners
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
 // 오픈배너 이미지 등록
 exports.get_siteimg_openbanners = async (req, res) => {
     try {
@@ -641,8 +662,33 @@ exports.get_siteimg_openbanners = async (req, res) => {
 exports.post_openbanners_edit = async (req, res) => {
     try {
         const link = req.body.link;
-        const openbanners = req.files;
         let status = false;
+
+        console.log('link: ' + link);
+        console.log('files: ' + req.file);
+
+        if (req.file) {
+            const item = req.file;
+            let originalname = item.originalname;
+            let filename = item.filename;
+            let size = item.size;
+            let destination = item.destination;
+            let extension = path.extname(item.originalname);
+
+            await models.OpenBanners.create({
+                link,
+                originalname,
+                filename,
+                size,
+                destination,
+                extension
+            });
+        } else {
+            await models.OpenBanners.create({
+                link
+            });
+        }
+
 
         // await models.OpenBanners.update({
         //     del_status: 'Y'
@@ -665,25 +711,27 @@ exports.post_openbanners_edit = async (req, res) => {
         //         }
         //     });
         // });
-        openbanners.forEach(async item => {
-            let originalname = item.originalname;
-            let filename = item.filename;
-            let size = item.size;
-            let destination = item.destination;
-            let extension = path.extname(item.originalname);
-            await models.OpenBanners.create({
-                originalname,
-                filename,
-                size,
-                destination,
-                extension
-            });
-        });
+        // openbanners.forEach(async item => {
+        //     let originalname = item.originalname;
+        //     let filename = item.filename;
+        //     let size = item.size;
+        //     let destination = item.destination;
+        //     let extension = path.extname(item.originalname);
+        //     await models.OpenBanners.create({
+        //         link,
+        //         originalname,
+        //         filename,
+        //         size,
+        //         destination,
+        //         extension
+        //     });
+        // });
 
         status = true;
         res.json({
             status
         });
+        // res.redirect('/conaservice/siteimg/openbanners');
     } catch (e) {
         console.log(e);
     }

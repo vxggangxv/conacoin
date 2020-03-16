@@ -112,10 +112,11 @@ router.get('/siteinfo/detail/:id', ctrl.get_siteinfo_detail);
 router.get('/siteinfo/edit/:id', csrfProtection, ctrl.get_siteinfo_edit);
 router.post('/siteinfo/edit/:id', ctrl.post_siteinfo_edit);
 
+router.get('/siteimg/edit', ctrl.get_siteimg_edit);
 
 router.get('/siteimg/openbanners', ctrl.get_siteimg_openbanners);
-router.post('/siteimg/openbanners/edit', upload('popup/openbanners/', 'basename').array('file'), ctrl.post_openbanners_edit);
-router.post('/siteimg/openbanners/add', upload('popup/openbanners/', 'basename').array('file'), ctrl.post_openbanners_add);
+router.post('/siteimg/openbanners/edit', upload('popup/openbanners/', 'basename').single('file'), ctrl.post_openbanners_edit);
+router.post('/siteimg/openbanners/add', upload('popup/openbanners/', 'basename').single('file'), ctrl.post_openbanners_add);
 router.get('/siteimg/openbanners/delete/all', ctrl.post_openbanners_delete_all);
 router.get('/siteimg/openbanners/delete/:id', ctrl.post_openbanners_delete);
 

@@ -791,7 +791,7 @@ $card-pd: 25px;
                     // }
 
                     input[readonly] {
-                        // outline: none;
+                        outline: none;
                         // border-color: transparent;
                         // box-shadow: none;
                         // background-color: #fff;
@@ -847,9 +847,9 @@ $card-pd: 25px;
 
                         // @include btn-base;
                         // @include btn-size(8px 10px, 13px);
-                        // &+.edit-one-btn {
-                        //     margin-left: 5px;
-                        // }
+                        &+.edit-one-btn {
+                            margin-left: 5px;
+                        }
                     }
                 }
 
