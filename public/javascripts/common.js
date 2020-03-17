@@ -5,13 +5,13 @@ $(function () {
 
 function dropselectFn() {
     // 드롭메뉴(셀렉트 연결)
-    $('.dropbtn[data-toggle=dropmenu]').on('click', function () {
+    $('body').on('click', '.dropbtn[data-toggle=dropmenu]', function () {
         $(this)
             .closest('.dropselect')
             .find('.dropmenu')
             .toggleClass('active');
     });
-    $('.dropselect .dropmenu li').on('click', function () {
+    $('body').on('click', '.dropselect .dropmenu li', function () {
         var idx = $(this).index();
         var txt = $(this).text();
         $(this)
@@ -41,11 +41,11 @@ function dropselectFn() {
 function fileformFn() {
     var fileSize = 5;
     var fileLength = 5;
-    $('.fileform').on('click', function () {
+    $('body').on('click', '.fileform', function () {
         fileSize = $(this).attr('data-file-size') || 5;
         fileLength = $(this).attr('data-file-length') || 5;
     });
-    $('.fileform').on('change', function () {
+    $('body').on('change', '.fileform', function () {
         var files = this.files;
         var limitSize = fileSize * 1024 * 1024;
         var $filename = $(this).closest('.fileform-wrapper').find('.filename');

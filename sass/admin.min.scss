@@ -124,6 +124,16 @@ $card-pd: 25px;
     .comm-title,
     .comm-actions {
         padding: 0 $card-pd;
+
+    }
+
+    .comm-actions {
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
     }
 
     .comm-title {

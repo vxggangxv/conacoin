@@ -115,15 +115,15 @@ router.post('/siteinfo/edit/:id', ctrl.post_siteinfo_edit);
 router.get('/siteimg/edit', ctrl.get_siteimg_edit);
 
 router.get('/siteimg/openbanners', ctrl.get_siteimg_openbanners);
-router.post('/siteimg/openbanners/edit', upload('popup/openbanners/', 'basename').single('file'), ctrl.post_openbanners_edit);
 router.post('/siteimg/openbanners/add', upload('popup/openbanners/', 'basename').single('file'), ctrl.post_openbanners_add);
-router.get('/siteimg/openbanners/delete/all', ctrl.post_openbanners_delete_all);
-router.get('/siteimg/openbanners/delete/:id', ctrl.post_openbanners_delete);
+router.post('/siteimg/openbanners/edit/:id', upload('popup/openbanners/', 'basename').single('file'), ctrl.post_openbanners_edit);
+router.get('/siteimg/openbanners/delete/:id', ctrl.get_openbanners_delete);
+router.get('/siteimg/openbanners/delete_all', ctrl.get_openbanners_delete_all);
 
 router.get('/siteimg/partnerbanners', ctrl.get_siteimg_partnerbanners);
-router.post('/siteimg/partnerbanners/edit', upload('banner/partnerbanners/', 'basename').array('file'), ctrl.post_partnerbanners_edit);
 router.post('/siteimg/partnerbanners/add', upload('banner/partnerbanners/', 'basename').array('file'), ctrl.post_partnerbanners_add);
-router.get('/siteimg/partnerbanners/delete/all', ctrl.post_partnerbanners_delete_all);
+router.post('/siteimg/partnerbanners/edit/:id', upload('banner/partnerbanners/', 'basename').array('file'), ctrl.post_partnerbanners_edit);
 router.get('/siteimg/partnerbanners/delete/:id', ctrl.post_partnerbanners_delete);
+router.get('/siteimg/partnerbanners/delete/all', ctrl.post_partnerbanners_delete_all);
 
 module.exports = router;

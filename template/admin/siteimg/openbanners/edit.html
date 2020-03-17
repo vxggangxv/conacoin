@@ -16,21 +16,51 @@
                     <colgroup>
                         <col style="width: 100%">
                     </colgroup>
-                    <tbody id="openbannersContainer">
-                        {% for item in openbanners %}
-                        <tr class="bor-no upload-row">
+                    <tbody id="bannersContainer">
+                        {% set itemId = 0 %}
+
+                        {% if openbanners.length == 0 %}
+                        {% set itemId  = itemId + 1 %}
+
+                        <tr class="bor-no upload-row" data-id="{{ item.id }}">
                             <td>
-                                <span class="no">No 1. </span>
+                                <span class="no">No {{ itemId }}. </span>
                                 <span class="label">링크: </span>
-                                <input class="form-input label-text link" readonly name="link" type="text"
-                                    maxlength="{{ titleLength }}" required="required" value="{{ item.link }}">
+                                <input class="form-input label-text link" name="link" type="text"
+                                    maxlength="{{ titleLength }}" value="{{ item.link }}">
 
                                 <span class="label img">이미지: </span>
+                                <div class="fileform-wrapper pd-md">
+                                    <input type="file" class="fileform" name="openbannerFiles_{{ itemId }}"
+                                        id="openbannerFiles_{{ itemId }}" data-file-size="10">
+                                    <label for="openbannerFiles_{{ itemId }}">파일선택</label>
+                                    <span class="filename">선택된 파일 없음</span>
+                                </div>
+
+
+                                <span class="btn-cover pull-right">
+                                    <a href="javascript:;" class="btn btn-primary outline edit-one-btn"
+                                        onclick="addOne(this)">등록</a>
+                                </span>
+                            </td>
+                        </tr>
+                        {% else %}
+
+                        {% for item in openbanners %}
+                        {% set itemId  = itemId + 1 %}
+                        <tr class="bor-no upload-row" data-id="{{ item.id }}">
+                            <td>
+                                <span class="no">No {{ itemId }}. </span>
+                                <span class="label">링크: </span>
+                                <input class="form-input label-text link" readonly name="link" type="text"
+                                    maxlength="{{ titleLength }}" value="{{ item.link }}">
+
+                                <span class=" label img">이미지: </span>
                                 <span class="file-name label-text">{{ item.filename }}</span>
                                 <div class="fileform-wrapper pd-md hide">
-                                    <input type="file" class="fileform" name="openbannerFiles_1" id="openbannerFiles_1"
-                                        data-file-size="10">
-                                    <label for="openbannerFiles_1">파일선택</label>
+                                    <input type="file" class="fileform" name="openbannerFiles_{{ itemId }}"
+                                        id="openbannerFiles_{{ itemId }}" data-file-size="10">
+                                    <label for="openbannerFiles_{{ itemId }}">파일선택</label>
                                     <span class="filename">선택된 파일 없음</span>
                                 </div>
 
@@ -48,80 +78,16 @@
                             </td>
                         </tr>
                         {% endfor %}
-                        <tr class="bor-no upload-row">
-                            <td>
-                                <span class="no">No 1. </span>
-                                <span class="label">링크: </span>
-                                <input class="form-input label-text link" readonly name="link" type="text"
-                                    maxlength="{{ titleLength }}" required="required" value="{{ item.link }}">
-
-                                <span class="label img">이미지: </span>
-                                <div class="fileform-wrapper pd-md hide">
-                                    <input type="file" class="fileform" name="openbannerFiles_1" id="openbannerFiles_1"
-                                        data-file-size="10">
-                                    <label for="openbannerFiles_1">파일선택</label>
-                                    <span class="filename">선택된 파일 없음</span>
-                                </div>
-
-
-                                <span class="btn-cover pull-right">
-                                    <a href="javascript:;" class="btn btn-primary outline edit-one-btn"
-                                        onclick="editOne(this)">적용</a>
-                                    <a href="javascript:;" class="btn btn-gray outline edit-one-btn"
-                                        onclick="removeRow(this)">삭제</a>
-                                </span>
-                            </td>
-                        </tr>
-
-                        <!-- <tr class="bor-no upload-row">
-                            <td>
-                                <form action="/conaservice/siteimg/openbanners/edit" method="post" enctype="multipart/form-data">
-                                    <span class="no">No 1. </span>
-                                    <span class="label">링크: </span>
-                                    <input class="form-input label-text link" readonly name="link" type="text" maxlength="{{ titleLength }}" required="required" value="{{ item.link }}">
-                                    <span class="label img">이미지: </span>
-
-                                    <span class="file-name label-text">{{ item.filename }}</span>
-                                    <div class="fileform-wrapper pd-md hide">
-                                        <input type="file" class="fileform" name="file" id="file" data-file-size="10">
-                                        <label for="file">파일선택</label>
-                                        <span class="filename">선택된 파일 없음</span>
-                                    </div>
-
-
-                                    <span class="btn-cover pull-right">
-                                        <a href="javascript:;" class="btn btn-primary outline edit-one-btn" onclick="editToggleOn(this)">수정</a>
-                                        <a href="javascript:;" class="btn btn-gray outline edit-one-btn" onclick="deleteOne(this)">삭제</a>
-                                        <a href="javascript:;" class="btn btn-primary outline edit-one-btn hide" onclick="editOneForm(this)">적용</a>
-                                        <a href="javascript:;" class="btn btn-gray outline edit-one-btn hide" onclick="editToggleOn(this)">취소</a>
-                                    </span>
-                                </form>
-                            </td>
-                        </tr> -->
-
-                        <!-- {% if openbanners.length %}
-                        <div class="img-list-wrapper">
-                            <div class="img-title">
-                                <p class="img-name">
-                                    {{ openbanners.length }}개 이미지
-                                </p>
-                            </div>
-                            <div class="img-list-scroll">
-                                <ul class="img-list">
-                                    {% for item in openbanners %}
-                                    <li class="img-item"><span class="txt">{{ item.filename }}</span> <a href="/conaservice/siteimg/openbanners/delete/{{ item.id }}" class="close-btn"><i class="mdi mdi-close-box-outline"></i></a></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                        {% endif %} -->
+                        {% endif %}
                     </tbody>
                 </table>
                 <div class="comm-actions">
-                    <!-- <a href="javascript:;" class="comm-btn primary register-btn" id="openbannersEditBtn">등록</a> -->
-                    <a href="javascript:;" class="comm-btn primary register-btn" onclick="addOneRow()">추가</a>
                     {% if openbanners.length %}
-                    <a href="javascript:;" class="comm-btn outline delete-btn pull-right" id="openbannersDeleteBtn">전체
+                    <a href="javascript:;" class="comm-btn primary register-btn" id="addOneRow"
+                        onclick="addOneRow(this)">추가</a>
+                    {% endif %}
+                    {% if openbanners.length %}
+                    <a href="javascript:;" class="comm-btn outline delete-btn pull-right" onclick="deleteAll()">전체
                         삭제</a>
                     {% endif %}
                 </div>
@@ -140,24 +106,28 @@
         $(obj).closest('td').find('.fileform-wrapper').toggleClass('hide');
     }
 
-    function editOne(obj) {
-        var openbannerFiles = $(obj).closest('td').find('input[type=file]')[0].files;
+    function addOne(obj) {
+        var bannerFiles = $(obj).closest('td').find('input[type=file]')[0].files;
         var link = $(obj).closest('td').find('input[type=text]').val();
-        // if (!files.length) {
-        //     alert('파일을 등록하세요.')
+        // if (link.trim() == '') {
+        //     alert('링크를 입력하세요.')
         //     return false;
         // }
+        if (!bannerFiles.length) {
+            alert('파일을 등록하세요.')
+            return false;
+        }
         data = new FormData();
-        console.log(openbannerFiles.length);
-        console.log(openbannerFiles[0]);
-        console.log(link);
+        // console.log(bannerFiles.length);
+        // console.log(bannerFiles[0]);
+        // console.log(link);
         data.append("link", link);
-        data.append("file", openbannerFiles[0]);
+        data.append("file", bannerFiles[0]);
         $('#ldsMask').show();
         $.ajax({
             data: data,
             type: "post",
-            url: '/conaservice/siteimg/openbanners/edit',
+            url: '/conaservice/siteimg/openbanners/add',
             cache: false,
             contentType: false,
             processData: false,
@@ -172,15 +142,103 @@
         });
     }
 
-    function addOneRow() {
-        var $openbannerContainer = $('#openbannersContainer');
-        var addrow = '\
-            <div></div>';
-        $openbannerContainer.append();
+    function editOne(obj) {
+        var bannerFiles = $(obj).closest('td').find('input[type=file]')[0].files;
+        var link = $(obj).closest('td').find('input[type=text]').val();
+        var dataId = $(obj).closest('tr').attr('data-id');
+        data = new FormData();
+        // console.log(bannerFiles.length);
+        // console.log(bannerFiles[0]);
+        // console.log(link);
+        // console.log(dataId);
+        data.append("link", link);
+        data.append("file", bannerFiles[0]);
+        $('#ldsMask').show();
+        $.ajax({
+            data: data,
+            type: "post",
+            url: '/conaservice/siteimg/openbanners/edit/' + dataId,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
     }
 
-    function removeRow(obj) {
+    function deleteOne(obj) {
+        var dataId = $(obj).closest('tr').attr('data-id');
+        // console.log(dataId);
+        $('#ldsMask').show();
+        $.ajax({
+            type: "get",
+            url: '/conaservice/siteimg/openbanners/delete/' + dataId,
+            success: function (result) {
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
+    }
+
+    function deleteAll() {
+        $('#ldsMask').show();
+        $.ajax({
+            type: "get",
+            url: '/conaservice/siteimg/openbanners/delete_all',
+            success: function (result) {
+                $('#ldsMask').hide();
+                location.reload();
+            },
+            fail: function (error) {
+                console.log(error);
+                alert('오류 발생');
+            }
+        });
+    }
+
+    function addOneRow(obj) {
+        var $bannersContainer = $('#bannersContainer');
+        var itemIndex = $('#bannersContainer').find('tr:last-child').index() + 2;
+        // console.log(itemIndex);
+        var $addOne = '\
+            <tr class="bor-no upload-row" id="addOneRow">\
+                <td>' +
+            '<span class="no">No ' + itemIndex + '. </span>' +
+            '<span class="label">링크: </span>\
+                    <input class="form-input label-text link" name="link" type="text"\
+                        maxlength="{{ titleLength }}" value="{{ item.link }}">\
+                    <span class="label img">이미지: </span>\
+                    <div class="fileform-wrapper pd-md">' +
+            '<input type="file" class="fileform" name="openbannerFiles_' + itemIndex + '" id="openbannerFiles_' +
+            itemIndex + '" data-file-size="10">' +
+            '<label for="openbannerFiles_' + itemIndex + '">파일선택</label>' +
+            '<span class="filename">선택된 파일 없음</span>\
+                    </div>\
+                    <span class="btn-cover pull-right">\
+                        <a href="javascript:;" class="btn btn-primary outline edit-one-btn"\
+                            onclick="addOne(this)">적용</a>\
+                        <a href="javascript:;" class="btn btn-gray outline edit-one-btn"\
+                            onclick="removeAddOneRow(this)">취소</a>\
+                    </span>\
+                </td>\
+            </tr>';
+        $bannersContainer.append($addOne);
+        $(obj).addClass('hide');
+    }
+
+    function removeAddOneRow(obj) {
         $(obj).closest('tr').remove();
+        $('#addOneRow').toggleClass('hide');
     }
 
     // $('#editOneBtn').on('click', function () {
