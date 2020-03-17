@@ -167,6 +167,7 @@
 
                 .label-text {
                     margin-left: $lbl-ml;
+                    word-break: break-all;
                 }
 
                 .status {
@@ -180,12 +181,14 @@
                     }
                 }
 
+                td.title,
                 &.title {
                     .label-text {
                         width: calc(100% - #{$lbl-mwd} - #{$lbl-ml});
                     }
                 }
 
+                td.content,
                 &.content {
                     .text {
                         min-height: 100px;
@@ -623,6 +626,7 @@
 
                 .row {
                     display: inline-block;
+                    vertical-align: top;
                 }
 
                 .label,
@@ -651,7 +655,10 @@
                 }
 
                 .label-text {
+                    position: relative;
+                    top: 2px;
                     margin-left: $lbl-ml;
+                    word-break: break-all;
                 }
 
                 .status {
@@ -665,18 +672,21 @@
                     }
                 }
 
+                td.name,
                 &.name {
                     .row {
                         width: 30%;
                     }
                 }
 
+                td.title,
                 &.title {
                     .label-text {
                         width: calc(100% - #{$lbl-mwd} - #{$lbl-ml});
                     }
                 }
 
+                td.content,
                 &.content {
                     .text {
                         min-height: 150px;

@@ -64,7 +64,7 @@
                         {% endfor %} #}
                     {% for inquiry in inquirys %}
                     <tr>
-                        <td class="date">{{ inquiry.dateFormat( inquiry.createdAt )}}</td>
+                        <td class="date">{{ inquiry.dateFormat( inquiry.createdAt ) }}</td>
                         <td class="name">{{ inquiry.name }}</td>
                         <td class="title">
                             <a href="/conaservice/inquirys/detail/{{ inquiry.id }}">

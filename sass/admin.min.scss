@@ -364,6 +364,11 @@ $card-pd: 25px;
         text-overflow: ellipsis;
         white-space: nowrap;
 
+        >a {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         &.title {
             text-align: left;
             padding-left: 10px;
@@ -646,7 +651,8 @@ $card-pd: 25px;
         // width: 60%;
         // width: auto;
         min-width: 120px;
-        height: 38px;
+        // height: 38px;
+        height: 40px;
         border: solid 1px #bdbdbd;
         border-radius: 5px;
 
@@ -842,11 +848,11 @@ $card-pd: 25px;
 
                     .edit-one-btn {
                         margin-left: 20px;
-                        padding: 8.5px 20px;
+                        @include btn-size(10px 20px, 13px);
                         border-radius: 2px;
 
-                        // @include btn-base;
-                        // @include btn-size(8px 10px, 13px);
+                        // padding: 9px 20px;
+                        // border-radius: 2px;
                         &+.edit-one-btn {
                             margin-left: 5px;
                         }

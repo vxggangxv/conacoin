@@ -18,19 +18,17 @@
                 </h1>
             </div>
             <table class="tbl-type1 detail-tbl">
+                <!-- <colgroup>
+                    <col>
+                    <col>
+                </colgroup> -->
                 <tbody>
-                    <tr class="name">
+                    <tr>
                         <td>
-                            <p class="row">
-                                <span class="label name">이름</span><span class="label-text name">{{ alert.name }}</span></p>
-                            <p class="row">
-                                <span class="label">이메일</span><span class="label-text email">{{ alert.email }}</span></p>
-                        </td>
-                    </tr>
-                    <tr class="title">
-                        <td>
-                            <p class="row">
+                            <p class="row title-row">
                                 <span class="label title">제목</span><span class="label-text title">{{ alert.title }}</span></p>
+                            <p class="row date-row">
+                                <span class="label date">등록일</span><span class="label-text date">{{ alert.dateFormat( inquiry.createdAt ) }}</span></p>
                         </td>
                     </tr>
                     <tr class="content">

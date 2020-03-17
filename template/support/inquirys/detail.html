@@ -45,7 +45,7 @@
                     </tr>
                     <tr class="content">
                         <td>
-                            <p class="text content">{{ inquiry.content }}</p>
+                            <p class="text content">{{ inquiry.content | safe }}</p>
                         </td>
                     </tr>
                     {% if inquiry.Attach.length %}

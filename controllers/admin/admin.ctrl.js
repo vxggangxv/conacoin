@@ -122,6 +122,7 @@ exports.get_alerts_write = async (req, res) => {
 };
 exports.post_alerts_write = async (req, res) => {
     try {
+        req.body.content = req.body.content.replace(/(?:\r\n|\r|\n)/g, '<br/>');
         await models.Alerts.create(req.body);
         res.redirect('/conaservice/alerts');
     } catch (e) {
