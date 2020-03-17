@@ -124,6 +124,16 @@ img.bor {
     }
 }
 
+.row {
+    position: relative;
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
 .form-group {
     margin-bottom: 0 !important;
 }
