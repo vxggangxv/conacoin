@@ -170,10 +170,12 @@ var main = {
     },
     openbnPopupList: function () {
         $('#openbnPopupList').slick({
-            autoplay: true,
+            // autoplay: true,
             autoplaySpeed: 5000,
             prevArrow: '',
-            nextArrow: ''
+            nextArrow: '',
+            dots: true,
+            appendDots: '#openbnDots'
         });
     },
     partnersCardList: function () {
@@ -183,6 +185,8 @@ var main = {
             slidesToShow: 5,
             prevArrow: '',
             nextArrow: '',
+            centerMode: true,
+            centerPadding: '0px',
             responsive: [{
                 breakpoint: 992,
                 settings: {

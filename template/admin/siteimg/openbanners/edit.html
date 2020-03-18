@@ -9,7 +9,7 @@
         <div class="wrapper-type1 comm-card card-sm edit-wrapper">
             <div class="content-type1">
                 <div class="comm-title">
-                    <h2 class="title">오픈 배너 이미지 등록 <span class="st">(<span class="c-primary">10MB 이하</span>, 권장 사이트 400
+                    <h2 class="title">오픈 팝업 배너 이미지 등록 <span class="st">(<span class="c-primary">10MB 이하</span>, 권장 사이트 400
                             x 450)</span></h2>
                 </div>
                 <table class="tbl-type1 edit-tbl">
@@ -26,21 +26,18 @@
                             <td>
                                 <span class="no">No {{ itemId }}. </span>
                                 <span class="label">링크: </span>
-                                <input class="form-input label-text link" name="link" type="text"
-                                    maxlength="{{ titleLength }}" value="{{ item.link }}">
+                                <input class="form-input label-text link" name="link" type="text" maxlength="{{ titleLength }}" value="{{ item.link }}">
 
-                                <span class="label img">이미지: </span>
+                                <span class="label img"><span class="c-primary">＊</span>이미지: </span>
                                 <div class="fileform-wrapper pd-md">
-                                    <input type="file" class="fileform" name="openbannerFiles_{{ itemId }}"
-                                        id="openbannerFiles_{{ itemId }}" data-file-size="10">
+                                    <input type="file" class="fileform" name="openbannerFiles_{{ itemId }}" id="openbannerFiles_{{ itemId }}" data-file-size="10">
                                     <label for="openbannerFiles_{{ itemId }}">파일선택</label>
                                     <span class="filename">선택된 파일 없음</span>
                                 </div>
 
 
                                 <span class="btn-cover pull-right">
-                                    <a href="javascript:;" class="btn btn-primary outline edit-one-btn"
-                                        onclick="addOne(this)">등록</a>
+                                    <a href="javascript:;" class="btn btn-primary outline edit-one-btn" onclick="addOne(this)">등록</a>
                                 </span>
                             </td>
                         </tr>
@@ -52,28 +49,22 @@
                             <td>
                                 <span class="no">No {{ itemId }}. </span>
                                 <span class="label">링크: </span>
-                                <input class="form-input label-text link" readonly name="link" type="text"
-                                    maxlength="{{ titleLength }}" value="{{ item.link }}">
+                                <input class="form-input label-text link" readonly name="link" type="text" maxlength="{{ titleLength }}" value="{{ item.link }}">
 
-                                <span class=" label img">이미지: </span>
+                                <span class=" label img"><span class="c-primary">＊</span>이미지: </span>
                                 <span class="file-name label-text">{{ item.filename }}</span>
                                 <div class="fileform-wrapper pd-md hide">
-                                    <input type="file" class="fileform" name="openbannerFiles_{{ itemId }}"
-                                        id="openbannerFiles_{{ itemId }}" data-file-size="10">
+                                    <input type="file" class="fileform" name="openbannerFiles_{{ itemId }}" id="openbannerFiles_{{ itemId }}" data-file-size="10">
                                     <label for="openbannerFiles_{{ itemId }}">파일선택</label>
                                     <span class="filename">선택된 파일 없음</span>
                                 </div>
 
 
                                 <span class="btn-cover pull-right">
-                                    <a href="javascript:;" class="btn btn-primary outline edit-one-btn"
-                                        onclick="editToggleOn(this)">수정</a>
-                                    <a href="javascript:;" class="btn btn-gray outline edit-one-btn"
-                                        onclick="deleteOne(this)">삭제</a>
-                                    <a href="javascript:;" class="btn btn-primary outline edit-one-btn hide"
-                                        onclick="editOne(this)">적용</a>
-                                    <a href="javascript:;" class="btn btn-gray outline edit-one-btn hide"
-                                        onclick="editToggleOn(this)">취소</a>
+                                    <a href="javascript:;" class="btn btn-primary outline edit-one-btn" onclick="editToggleOn(this)">수정</a>
+                                    <a href="javascript:;" class="btn btn-gray outline edit-one-btn" onclick="deleteOne(this)">삭제</a>
+                                    <a href="javascript:;" class="btn btn-primary outline edit-one-btn hide" onclick="editOne(this)">적용</a>
+                                    <a href="javascript:;" class="btn btn-gray outline edit-one-btn hide" onclick="editToggleOn(this)">취소</a>
                                 </span>
                             </td>
                         </tr>
@@ -83,8 +74,7 @@
                 </table>
                 <div class="comm-actions">
                     {% if openbanners.length %}
-                    <a href="javascript:;" class="comm-btn primary register-btn" id="addOneRow"
-                        onclick="addOneRow(this)">추가</a>
+                    <a href="javascript:;" class="comm-btn primary register-btn" id="addOneRow" onclick="addOneRow(this)">추가</a>
                     {% endif %}
                     {% if openbanners.length %}
                     <a href="javascript:;" class="comm-btn outline delete-btn pull-right" onclick="deleteAll()">전체
@@ -217,7 +207,7 @@
             '<span class="label">링크: </span>\
                     <input class="form-input label-text link" name="link" type="text"\
                         maxlength="{{ titleLength }}" value="{{ item.link }}">\
-                    <span class="label img">이미지: </span>\
+                    <span class="label img"><span class="c-primary">＊</span>이미지: </span>\
                     <div class="fileform-wrapper pd-md">' +
             '<input type="file" class="fileform" name="openbannerFiles_' + itemIndex + '" id="openbannerFiles_' +
             itemIndex + '" data-file-size="10">' +

@@ -33,19 +33,26 @@
             </a>
         </li>
         <li class="link{% if '/conaservice/siteimg' in req_path %} active{% endif %}">
-            <a href="javascript:;">
+            <a href="/conaservice/siteimg/edit">
                 <i class="mdi mdi-image-edit-outline"></i>
                 <span>이미지 등록</span>
             </a>
             <ul class="depth2">
                 <li class="{% if req_path == '/conaservice/siteimg/openbanners' %} active{% endif %}">
-                    <a href="/conaservice/siteimg/openbanners"><span>오픈 팝업 배너</span></a>
+                    <a href="/conaservice/siteimg/openbanners"><span>오픈팝업 배너</span></a>
                 </li>
                 <li class="{% if req_path == '/conaservice/siteimg/partnerbanners' %} active{% endif %}">
                     <a href="/conaservice/siteimg/partnerbanners"><span>파트너사 배너</span></a>
                 </li>
             </ul>
         </li>
+        <!-- {% from "admin/macro/link.html" import link %}
+        {{ link( '/conaservice/alerts' , '공지사항' , req_path,  'mdi-alert-rhombus-outline') }}
+        {{ link( '/conaservice/inquirys' , '실시간 문의' , req_path,  'mdi-message-text-outline') }}
+        {{ link( '/conaservice/news' , '뉴스업로드' , req_path,  'mdi-newspaper-variant-multiple-outline') }}
+        <li class="menu-section">SITE INFO</li>
+        {{ link( '/conaservice/siteinfo/detail/1' , '사이트 정보' , req_path,  'mdi-information-outline') }}
+        {{ link( '/conaservice/siteimg/edit/' , '이미지 등록' , req_path,  'mdi-image-edit-outline') }} -->
     </ul>
     <div class="cs-wrapper">
         <p class="title">고객지원</p>

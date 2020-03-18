@@ -83,7 +83,7 @@
 $card-pd: 25px;
 
 .admin-page {
-    min-width: 1010px;
+    min-width: 1200px;
 
     .comm-card {
         @include comm-wd-style;
@@ -469,6 +469,7 @@ $card-pd: 25px;
 
             .label-text {
                 margin-left: $lbl-ml;
+                word-break: break-all;
             }
 
             .status {
@@ -485,6 +486,22 @@ $card-pd: 25px;
             &.name {
                 .row {
                     width: 31%;
+
+                    &.name-row {
+                        width: 31%;
+
+                        .label-text {
+                            width: calc(100% - 30px - #{$lbl-ml});
+                        }
+                    }
+
+                    &.email-row {
+                        width: 60%;
+
+                        .label-text {
+                            width: calc(100% - 40px - #{$lbl-ml});
+                        }
+                    }
                 }
             }
 
@@ -825,6 +842,13 @@ $card-pd: 25px;
                         width: 52px;
                     }
 
+                    .label.img {
+                        .c-primary {
+                            position: relative;
+                            top: -5px;
+                            font-size: 10px;
+                        }
+                    }
 
                     .label-text {
                         margin-left: 10px;

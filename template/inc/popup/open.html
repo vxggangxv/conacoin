@@ -9,9 +9,18 @@
                 <div class="openbn-list-wrapper">
                     <ul class="openbn-list" id="openbnPopupList">
                         {% for item in openbanners %}
-                        <li class="openbn-item"><img src="/uploads/popup/openbanners/{{ item.filename }}" alt="오픈배너"></li>
+                        <li class="openbn-item">
+                            {% if item.link %}
+                            <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer"><img src="/uploads/popup/openbanners/{{ item.filename }}" alt="오픈배너"></a>
+                            {% else %}
+                            <img src="/uploads/popup/openbanners/{{ item.filename }}" alt="오픈배너">
+                            {% endif %}
+                        </li>
                         {% endfor %}
                     </ul>
+                    {% if openbanners.length > 1 %}
+                    <div id="openbnDots"></div>
+                    {% endif %}
                 </div>
             </div>
             <div class="modal-footer cf">

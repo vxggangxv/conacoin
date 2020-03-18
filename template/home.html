@@ -510,7 +510,13 @@
                 <ul class="card-list" id="partnersCardList">
                     {% for item in partnerbanners %}
                     <li class="card-item">
+                        {% if item.link %}
+                        <a href="{{ item.link }}" target="blank" rel="noopener noreferrer">
+                            <figure class="card-picture"><img src="/uploads/banner/partnerbanners/{{ item.filename }}" alt="파트너사"></figure>
+                        </a>
+                        {% else %}
                         <figure class="card-picture"><img src="/uploads/banner/partnerbanners/{{ item.filename }}" alt="파트너사"></figure>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>

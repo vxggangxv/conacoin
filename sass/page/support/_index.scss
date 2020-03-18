@@ -181,14 +181,12 @@
                     }
                 }
 
-                td.title,
                 &.title {
                     .label-text {
                         width: calc(100% - #{$lbl-mwd} - #{$lbl-ml});
                     }
                 }
 
-                td.content,
                 &.content {
                     .text {
                         min-height: 100px;
@@ -672,21 +670,34 @@
                     }
                 }
 
-                td.name,
                 &.name {
                     .row {
                         width: 30%;
+
+                        &.name-row {
+                            width: 30%;
+
+                            .label-text {
+                                width: calc(100% - 32px - #{$lbl-ml});
+                            }
+                        }
+
+                        &.email-row {
+                            width: 60%;
+
+                            .label-text {
+                                width: calc(100% - 45px - #{$lbl-ml});
+                            }
+                        }
                     }
                 }
 
-                td.title,
                 &.title {
                     .label-text {
                         width: calc(100% - #{$lbl-mwd} - #{$lbl-ml});
                     }
                 }
 
-                td.content,
                 &.content {
                     .text {
                         min-height: 150px;

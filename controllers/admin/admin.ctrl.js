@@ -618,40 +618,17 @@ exports.post_siteinfo_edit = async (req, res) => {
     }
 };
 
-// 사이트 이미지 등록
-exports.get_siteimg_edit = async (req, res) => {
-    try {
-        const [openbanners] = await Promise.all([
-            models.OpenBanners.findAll({
-                where: {
-                    del_status: 'N'
-                },
-                order: [
-                    ['createdAt', 'asc']
-                ]
-            })
-        ]);
-
-        res.render('admin/siteimg/edit.html', {
-            openbanners
-        });
-    } catch (e) {
-        console.log(e);
-    }
-};
 // 오픈배너 이미지 등록
 exports.get_siteimg_openbanners = async (req, res) => {
     try {
-        const [openbanners] = await Promise.all([
-            models.OpenBanners.findAll({
-                where: {
-                    del_status: 'N'
-                },
-                order: [
-                    ['createdAt', 'asc']
-                ]
-            })
-        ]);
+        const openbanners = await models.OpenBanners.findAll({
+            where: {
+                del_status: 'N'
+            },
+            order: [
+                ['createdAt', 'asc']
+            ]
+        });
 
         res.render('admin/siteimg/openbanners/edit.html', {
             openbanners
@@ -664,7 +641,7 @@ exports.post_openbanners_edit = async (req, res) => {
     try {
         const link = req.body.link;
         const id = req.params.id;
-        let status = false;
+        let status = null;
 
         // console.log('link: ' + link);
         // console.log('files: ' + req.file);
@@ -749,10 +726,10 @@ exports.post_openbanners_edit = async (req, res) => {
 exports.post_openbanners_add = async (req, res) => {
     try {
         const link = req.body.link;
-        let status = false;
+        let status = null;
 
-        console.log('link: ' + link);
-        console.log('files: ' + req.file);
+        // console.log('link: ' + link);
+        // console.log('files: ' + req.file);
 
         const item = req.file;
         let originalname = item.originalname;
@@ -780,7 +757,7 @@ exports.post_openbanners_add = async (req, res) => {
 };
 exports.get_openbanners_delete = async (req, res) => {
     try {
-        let status = false;
+        let status = null;
         // console.log(req.id);
         // let deleteItems = [];
         const item = await models.OpenBanners.findOne({
@@ -813,7 +790,7 @@ exports.get_openbanners_delete = async (req, res) => {
 };
 exports.get_openbanners_delete_all = async (req, res) => {
     try {
-        let status = false;
+        let status = null;
 
         const deleteItem = await models.OpenBanners.findOne({
             where: {}
@@ -851,16 +828,14 @@ exports.get_openbanners_delete_all = async (req, res) => {
 // 파트너사배너 이미지 등록
 exports.get_siteimg_partnerbanners = async (req, res) => {
     try {
-        const [partnerbanners] = await Promise.all([
-            models.PartnerBanners.findAll({
-                where: {
-                    del_status: 'N'
-                },
-                order: [
-                    ['createdAt', 'asc']
-                ]
-            })
-        ]);
+        const partnerbanners = await models.PartnerBanners.findAll({
+            where: {
+                del_status: 'N'
+            },
+            order: [
+                ['createdAt', 'asc']
+            ]
+        });
 
         res.render('admin/siteimg/partnerbanners/edit.html', {
             partnerbanners
@@ -871,44 +846,42 @@ exports.get_siteimg_partnerbanners = async (req, res) => {
 };
 exports.post_partnerbanners_edit = async (req, res) => {
     try {
-        const partnerbanners = req.files;
-        let status = false;
+        const link = req.body.link;
+        const id = req.params.id;
+        let status = null;
 
-        await models.PartnerBanners.update({
-            del_status: 'Y'
-        }, {
-            where: {
-                del_status: 'N'
-            }
-        });
-        const deleteItems = await models.PartnerBanners.findAll({
-            where: {
-                del_status: 'Y'
-            }
-        });
-        deleteItems.forEach(item => {
-            fs.unlink(`${item.destination}/${item.filename}`, err => {
-                if (err === null) {
-                    console.log('file delete success');
-                } else {
-                    console.log(err);
-                }
-            });
-        });
-        partnerbanners.forEach(async item => {
+        // console.log('link: ' + link);
+        // console.log('files: ' + req.file);
+
+        if (req.file) {
+            const item = req.file;
             let originalname = item.originalname;
             let filename = item.filename;
             let size = item.size;
             let destination = item.destination;
             let extension = path.extname(item.originalname);
-            await models.PartnerBanners.create({
+
+            await models.PartnerBanners.update({
+                link,
                 originalname,
                 filename,
                 size,
                 destination,
                 extension
+            }, {
+                where: {
+                    id
+                }
             });
-        });
+        } else {
+            await models.PartnerBanners.update({
+                link
+            }, {
+                where: {
+                    id
+                }
+            });
+        }
 
         status = true;
         res.json({
@@ -920,22 +893,57 @@ exports.post_partnerbanners_edit = async (req, res) => {
 };
 exports.post_partnerbanners_add = async (req, res) => {
     try {
-        const partnerbanners = req.files;
-        let status = false;
+        const link = req.body.link;
+        let status = null;
 
-        partnerbanners.forEach(async item => {
-            let originalname = item.originalname;
-            let filename = item.filename;
-            let size = item.size;
-            let destination = item.destination;
-            let extension = path.extname(item.originalname);
-            await models.PartnerBanners.create({
-                originalname,
-                filename,
-                size,
-                destination,
-                extension
-            });
+        // console.log('link: ' + link);
+        // console.log('files: ' + req.file);
+
+        const item = req.file;
+        let originalname = item.originalname;
+        let filename = item.filename;
+        let size = item.size;
+        let destination = item.destination;
+        let extension = path.extname(item.originalname);
+
+        await models.PartnerBanners.create({
+            link,
+            originalname,
+            filename,
+            size,
+            destination,
+            extension
+        });
+
+        status = true;
+        res.json({
+            status
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_partnerbanners_delete = async (req, res) => {
+    try {
+        let status = null;
+        // console.log(req.id);
+        // let deleteItems = [];
+        const item = await models.PartnerBanners.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        fs.unlink(`${item.destination}/${item.filename}`, err => {
+            if (err === null) {
+                console.log('file delete success');
+            } else {
+                console.log(err);
+            }
+        });
+        await models.PartnerBanners.destroy({
+            where: {
+                id: req.params.id
+            }
         });
 
         status = true;
@@ -948,13 +956,13 @@ exports.post_partnerbanners_add = async (req, res) => {
 };
 exports.post_partnerbanners_delete_all = async (req, res) => {
     try {
-        let status = false;
+        let status = null;
 
         const deleteItem = await models.PartnerBanners.findOne({
             where: {}
         });
+        // console.log(deleteItem);
         if (deleteItem) {
-            // console.log(deleteItem);
             let deleteFiles = fs.readdirSync(deleteItem.destination);
             console.log(deleteFiles);
 
@@ -977,33 +985,6 @@ exports.post_partnerbanners_delete_all = async (req, res) => {
         res.json({
             status
         });
-    } catch (e) {
-        console.log(e);
-    }
-};
-exports.post_partnerbanners_delete = async (req, res) => {
-    try {
-        // console.log(req.id);
-        // let deleteItems = [];
-        const item = await models.PartnerBanners.findOne({
-            where: {
-                id: req.params.id
-            }
-        });
-        fs.unlink(`${item.destination}/${item.filename}`, err => {
-            if (err === null) {
-                console.log('file delete success');
-            } else {
-                console.log(err);
-            }
-        });
-        await models.PartnerBanners.destroy({
-            where: {
-                id: req.params.id
-            }
-        });
-
-        res.redirect('/conaservice/siteimg/edit');
     } catch (e) {
         console.log(e);
     }
