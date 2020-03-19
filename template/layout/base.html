@@ -57,9 +57,14 @@
 </head>
 
 <body id="{{ pageName }}">
+    <div id="mainIndex" class="sr-only">
+        <a href="#mainBody">본문 바로가기</a>
+        <a href="#mainNav">메뉴 바로가기</a>
+    </div>
     <div id="wrapper" class="wrapper">
         {% include("layout/header.html") %}
 
+        <h2 id="mainBody" class="sr-only">메인 본문</h2>
         <main id="container" class="container" role="main">
             {%- block content %}{% endblock -%}
         </main>

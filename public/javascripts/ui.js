@@ -11,6 +11,12 @@ $(function () {
 
 // commonUI
 var common = {
+    init: function () {
+        this.load();
+        this.scroll();
+        this.nav();
+        // common.resize();
+    },
     common: function () {
         var wdVar = 0;
         var hdHtVar = 0;
@@ -104,9 +110,11 @@ var common = {
         if (pageUrl.lastIndexOf('#') != -1) {
             pageId = pageUrl.substring(pageUrl.lastIndexOf('#') + 1);
 
-            setTimeout(function () {
-                $('html, body').scrollTop($('#scroll_' + pageId).offset().top - hdHt);
-            }, 100);
+            if ($('#scroll_' + pageId).length) {
+                setTimeout(function () {
+                    $('html, body').scrollTop($('#scroll_' + pageId).offset().top - hdHt);
+                }, 100);
+            }
         }
         if ($('#mainPage').length) {
             navBar.find('.menu > .in-link a').on('click', function (e) {
@@ -143,12 +151,6 @@ var common = {
             navBar.removeClass('active');
         });
         targetHide.self('#navBar');
-    },
-    init: function () {
-        common.load();
-        common.scroll();
-        common.nav();
-        // common.resize();
     }
 };
 
