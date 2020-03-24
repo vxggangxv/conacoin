@@ -1,6 +1,7 @@
 {% macro include(fileName) %}
 {% include fileName ignore missing %}
 {% endmacro %}
+{% set description = description | default('CONA - Cryptocurrency Offering New Alternative') %}
 <!DOCTYPE html>
 <!--[if IE 8]><html lang="ko" class="no-js ie8 lt-ie10"><![endif]-->
 <!--[if IE 9]><html lang="ko" class="no-js ie9 lt-ie10"><![endif]-->
@@ -12,19 +13,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="CONA - Cryptocurrency Offering New Alternative">
+    <meta name="description" content="{{ description }}">
     <meta name="keywords" content="cona, coin">
     <meta name="author" content="CONA COIN INC">
     <title>{{title}}</title>
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="CONA - Cryptocurrency Offering New Alternative">
-    <meta property="og:description" content="CONA - Cryptocurrency Offering New Alternative">
+    <meta property="og:description" content="{{ description }}">
     <meta property="og:url" content="http://conacoin.io">
     <!-- <meta property="og:image" content=""> -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="CONA - Cryptocurrency Offering New Alternative">
-    <meta name="twitter:description" content="CONA - Cryptocurrency Offering New Alternative">
+    <meta name="twitter:description" content="{{ description }}">
     <meta name="twitter:url" content="http://conacoin.io">
     <!-- <meta name="twitter:image" content=""> -->
     <link rel="canonical" href="http://conacoin.io">
