@@ -71,6 +71,13 @@ function fileformFn() {
         }
         $filename.text(files[0].name);
     });
+    var $deleteBtn = $('.fileform-wrapper .delete-btn');
+    $deleteBtn.on('click', function () {
+        if ($('.fileform')[0].files.length) {
+            $('.fileform').val('');
+            $filename.html('선택된 파일 없음');
+        }
+    });
 }
 
 function content_br2n(obj) {
