@@ -1,6 +1,7 @@
 {% macro include(fileName) %}
 {% include fileName ignore missing %}
 {% endmacro %}
+{% set title = title | default('CONA - Cryptocurrency Offering New Alternative') %}
 {% set description = description | default('CONA - Cryptocurrency Offering New Alternative') %}
 <!DOCTYPE html>
 <!--[if IE 8]><html lang="ko" class="no-js ie8 lt-ie10"><![endif]-->
