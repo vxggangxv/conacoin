@@ -74,8 +74,10 @@ function fileformFn() {
     var $deleteBtn = $('.fileform-wrapper .delete-btn');
     $deleteBtn.on('click', function () {
         var $filename = $(this).closest('.fileform-wrapper').find('.filename');
+        // console.log($('.fileform')[0].files);
         if ($('.fileform')[0].files.length) {
             $('.fileform').val('');
+            // console.log($('.fileform')[0].files);
             $filename.text('선택된 파일 없음');
         }
     });
