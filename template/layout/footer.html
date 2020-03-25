@@ -44,11 +44,13 @@
         }).done(function (data) {
             if (data) {
                 var siteinfo = data.siteinfo;
-                var $text =
-                    '<span>' + siteinfo.company + '</span><br>' +
-                    '<span>대표자: ' + siteinfo.rep + '</span><br>' +
-                    '<span>사업자등록번호: ' + siteinfo.business_number + '</span>';
-                $('#footer .address .text').append($text);
+                if (data.siteinfo) {
+                    var $text =
+                        '<span>' + siteinfo.company + '</span><br>' +
+                        '<span>대표자: ' + siteinfo.rep + '</span><br>' +
+                        '<span>사업자등록번호: ' + siteinfo.business_number + '</span>';
+                    $('#footer .address .text').append($text);
+                }
             }
         }).fail(function (e) {
             console.log(e);

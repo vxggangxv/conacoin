@@ -10,6 +10,7 @@
 <url><loc>http://conacoin.io/support/inquirys</loc><changefreq>hourly</changefreq><priority>0.85</priority></url>
 <url><loc>http://conacoin.io/support/faq</loc><changefreq>hourly</changefreq><priority>0.85</priority></url>
 <url><loc>http://conacoin.io/support/inquirys/</loc><changefreq>hourly</changefreq><priority>0.85</priority></url>
+<url><loc>http://conacoin.io/support/inquirys/detail/295</loc><changefreq>hourly</changefreq><priority>0.69</priority></url>
 <url><loc>http://conacoin.io/notice/alerts/detail/2</loc><changefreq>hourly</changefreq><priority>0.85</priority></url>
 <url><loc>http://conacoin.io/support/inquirys?page=2&amp;limit=10</loc><changefreq>hourly</changefreq><priority>0.69</priority></url>
 <url><loc>http://conacoin.io/support/inquirys/write</loc><changefreq>hourly</changefreq><priority>0.69</priority></url>

@@ -75,4 +75,25 @@
 <!-- /.sec support-inquirys-sec -->
 
 {% include("inc/bn_meet.html") %}
+
+<script>
+    $(window).on('beforeunload', function() {
+        $.ajax({
+            url: '/support/inquirys/lock',
+            type: 'post',
+            data: {
+                id: '{{ inquiry.id }}'
+            }
+        })
+        .done(function (result) {
+            if (result.status) {
+                // console.log('success');
+            }
+        })
+        .fail(function (error) {
+            console.log(error);
+            alert('오류 발생');
+        });
+    });
+</script>
 {% endblock %}

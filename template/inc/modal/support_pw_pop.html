@@ -2,7 +2,9 @@
     <div class="modal-wrapper">
         <div class="modal-container pw-pop">
             <p class="pw-pop-tit">PASSWORD</p>
-            <input class="form-input pw-pop-input" id="sp_pw_input" type="password">
+            <form action="">
+                <input class="form-input pw-pop-input" id="sp_pw_input" type="password" autocomplete="new-password">
+            </form>
             <div class="pw-pop-btn">
                 <a href="javascript:;" class="comm-btn outline prev-btn" data-dismiss="modal">이전</a>
                 <a href="javascript:;" class="comm-btn outline next-btn" id="sp_submit">확인</a>
@@ -11,3 +13,13 @@
     </div>
 </div>
 <!-- password popup end -->
+<script>
+    $('[data-dismiss]').on('click', function() {
+        $('.modal input').val('');
+    });
+    $('.modal').on('click', function (e) {
+        if (!$(e.target).is('.modal-wrapper *')) {
+            $('.modal input').val('');
+        }
+    });
+</script>
