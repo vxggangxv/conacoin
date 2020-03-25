@@ -1,4 +1,5 @@
-{% set title = "CONA | 공지사항" %}
+{% set title %}CONA | 공지사항 - {{ alert.title }}{% endset %}
+{% set description %}{{ alert.content }}{% endset %}
 {% set pageName = "noticePage" %}
 {% set pageTitle = "NOTICE" %}
 {% set pageSubTitle = "Always acitve Conacoin" %}

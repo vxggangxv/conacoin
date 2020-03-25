@@ -35,8 +35,8 @@ function dbConnection() {
             if (env == 'development') {
                 // return db.sequelize.drop()
                 // return db.sequelize.sync({
-                //     force: true,
-                // })
+                //     force: true
+                // });
                 // return db.sequelize.sync();
             }
             // if (env == 'test') {}

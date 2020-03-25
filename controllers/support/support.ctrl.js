@@ -76,13 +76,18 @@ exports.get_inquirys_detail = async (req, res) => {
     try {
         const inquiry = await models.Inquirys.findOne({
             where: {
-                id: req.params.id
+                id: req.params.id,
+                lock_int: 1
             },
             include: ['Reply', 'Attach']
         });
-        res.render('support/inquirys/detail.html', {
-            inquiry
-        });
+        if (inquiry) {
+            res.render('support/inquirys/detail.html', {
+                inquiry
+            });
+        } else {
+            res.redirect('/support/inquirys');
+        }
     } catch (e) {
         console.log(e);
     }
@@ -104,7 +109,8 @@ exports.get_inquirys_delete = async (req, res) => {
     try {
         await models.Inquirys.destroy({
             where: {
-                id: req.params.id
+                id: req.params.id,
+                lock_int: 1
             }
         });
         res.redirect('/support/inquirys');
@@ -179,9 +185,36 @@ exports.inquirys_check = async (req, res) => {
         });
         if (inquiry) {
             status = true;
+            await models.Inquirys.update({
+                lock_int: 1
+            }, {
+                where: {
+                    id: inquiry_id,
+                    password: inquiry_password
+                }
+            });
         }
         res.json({
             inquiry,
+            status
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.inquirys_lock = async (req, res) => {
+    try {
+        let status = null;
+        await models.Inquirys.update({
+            lock_int: 0
+        }, {
+            where: {
+                id: req.body.id,
+                lock_int: 1
+            }
+        });
+        status = true;
+        res.json({
             status
         });
     } catch (e) {

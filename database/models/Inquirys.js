@@ -37,6 +37,10 @@ module.exports = (sequelize, DataTypes) => {
                     len: [0, 3000]
                 }
             },
+            lock_int: {
+                type: DataTypes.BIGINT.UNSIGNED,
+                defaultValue: '0'
+            },
             reply_cnt: {
                 type: DataTypes.BIGINT.UNSIGNED
             },

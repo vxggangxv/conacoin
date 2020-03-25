@@ -20,6 +20,7 @@ router.get('/inquirys/reply/delete/:id', ctrl.get_inquirys_reply_delete);
 // router.delete('/inquirys/reply/delete/:id', ctrl.delete_reply);
 
 router.post('/inquirys/check', ctrl.inquirys_check);
+router.post('/inquirys/lock', ctrl.inquirys_lock);
 
 router.get('/faq', ctrl.get_faq);
 
