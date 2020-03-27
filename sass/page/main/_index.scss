@@ -249,8 +249,14 @@
 
                     .paper-btn {
                         // width: 140px;
+                        margin-top: 10px;
                         letter-spacing: -0.7px;
                     }
+
+                    &.whitepaper {
+                        margin-top: 10px;
+                    }
+
                 }
             }
         }

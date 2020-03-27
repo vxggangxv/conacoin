@@ -199,7 +199,7 @@ var main = {
     },
     visualBannerList: function () {
         $('#visualBannerList').slick({
-            autoplay: true,
+            // autoplay: true,
             autoplaySpeed: 5000,
             appendArrows: '#bannerArrow',
             prevArrow: '<button type="button" class="slick-prev"><img src="/images/icon/btn_prev.png" alt="이전"></button>',
