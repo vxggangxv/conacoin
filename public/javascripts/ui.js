@@ -172,7 +172,7 @@ var main = {
     },
     openbnPopupList: function () {
         $('#openbnPopupList').slick({
-            // autoplay: true,
+            autoplay: true,
             autoplaySpeed: 5000,
             prevArrow: '',
             nextArrow: '',
