@@ -51,7 +51,7 @@ module.exports = function (sequelize, DataTypes) {
 
     // 년-월-일
     News.prototype.dateFormat = date =>
-        moment(date).format('YYYY-MM-DD');
+        moment(date).format('YY.MM.DD');
 
     return News;
 };

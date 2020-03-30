@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
 
     // 년-월-일
     InquirysReply.prototype.dateFormat = date =>
-        moment(date).format('YYYY-MM-DD');
+        moment(date).format('YY.MM.DD');
 
     InquirysReply.associate = function (models) {
         InquirysReply.belongsTo(models.Inquirys, {

@@ -1,5 +1,5 @@
-{% set title %}CONA | 공지사항 - {{ alert.title }}{% endset %}
-{% set description %}{{ alert.content }}{% endset %}
+{% set title %}{{ alert.title }} | CONA 공지사항 {% endset %}
+{% set description %}{{ alert.content | safe }}{% endset %}
 {% set pageName = "noticePage" %}
 {% set pageTitle = "NOTICE" %}
 {% set pageSubTitle = "Always acitve Conacoin" %}

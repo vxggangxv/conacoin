@@ -59,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
-    Inquirys.prototype.dateFormat = date => moment(date).format('YYYY-MM-DD');
+    Inquirys.prototype.dateFormat = date => moment(date).format('YY.MM.DD');
     // 제품 모델 관계도
     Inquirys.associate = models => {
         // 댓글 모델에 외부키를 건다

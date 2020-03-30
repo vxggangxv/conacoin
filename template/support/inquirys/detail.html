@@ -1,5 +1,5 @@
-{% set title %}CONA | 고객센터 - {{ inquiry.title }}{% endset %}
-{% set description %}{{ inquiry.content }}{% endset %}
+{% set title %}{{ inquiry.title }} | CONA 고객센터{% endset %}
+{% set description %}{{ inquiry.content | safe }}{% endset %}
 {% set pageName = "supportPage" %}
 {% set pageTitle = "SUPPORT" %}
 {% set pageSubTitle = "Always-on customer service" %}
@@ -77,23 +77,23 @@
 {% include("inc/bn_meet.html") %}
 
 <script>
-    $(window).on('beforeunload', function() {
+    $(window).on('beforeunload', function () {
         $.ajax({
-            url: '/support/inquirys/lock',
-            type: 'post',
-            data: {
-                id: '{{ inquiry.id }}'
-            }
-        })
-        .done(function (result) {
-            if (result.status) {
-                // console.log('success');
-            }
-        })
-        .fail(function (error) {
-            console.log(error);
-            alert('오류 발생');
-        });
+                url: '/support/inquirys/lock',
+                type: 'post',
+                data: {
+                    id: '{{ inquiry.id }}'
+                }
+            })
+            .done(function (result) {
+                if (result.status) {
+                    // console.log('success');
+                }
+            })
+            .fail(function (error) {
+                console.log(error);
+                alert('오류 발생');
+            });
     });
 </script>
 {% endblock %}

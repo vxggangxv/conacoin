@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
-    Alerts.prototype.dateFormat = date => moment(date).format('YYYY-MM-DD');
+    Alerts.prototype.dateFormat = date => moment(date).format('YY.MM.DD');
 
     return Alerts;
 };
