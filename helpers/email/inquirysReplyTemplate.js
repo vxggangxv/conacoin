@@ -8,8 +8,8 @@ module.exports = (content) => (`
         <p style="margin-top: 20px;">${content}</p>
         <p style="margin-top: 20px;">
             더 궁굼한 사항이 있으시면
-            <a href="http://conacoin.io/support/inquirys" target="_blank" rel="noopener noreferrer">[코나코인 - 실시간문의]</a>에서
-            문의주시기 바랍니다.
+            <a href="http://conacoin.io/support/inquirys" target="_blank" rel="noopener noreferrer">[코나코인 - 실시간문의]</a>
+            혹은 메일로 문의주시기 바랍니다.
         </p>
         <p style="margin-top: 20px;">감사합니다.</p>
     </div>
