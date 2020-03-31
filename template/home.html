@@ -2,7 +2,7 @@
 {% extends "layout/base.html" %}
 {% block head %}
 <script>
-    $(function() {
+    $(function () {
         $.ajax({
             url: '/api/foblgate/ticker/order',
             type: 'get',
@@ -16,7 +16,7 @@
                 $html += '<div class="split split-2">';
                 $html += '<p>상장가: 100 KRW</p>';
                 $html += '<p class="fw">현재가: ' + price + ' KRW';
-                if ( price >= prev_price ) {
+                if (price >= prev_price) {
                     $html += '<i class="mdi mdi-menu-up"></i>';
                 } else {
                     $html += '<i class="mdi mdi-menu-down"></i>';
@@ -47,13 +47,15 @@
                                     <p class="title ff-jfss">“ World's first ”</p>
                                     <p class="st" data-langtarget="visualSubtitle">
                                         <span class="big">펀드레이징 커뮤니티 플랫폼</span>
-                                        <span class="small">Cryptocurrency Offering New Alternative</span>
+                                        <span class="small">Cryptocurrency Offering New
+                                            Alternative</span>
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="banner-actions cf">
-                            <a href="/support/inquirys/" class="btn lg outline inquiry-btn" data-langtarget="visualJoin">문의하기</a>
+                            <a href="/support/inquirys/" class="btn lg outline inquiry-btn"
+                                data-langtarget="visualJoin">문의하기</a>
                         </div>
                     </div>
                     <div class="banner-item item-2">
@@ -69,9 +71,15 @@
                             </div>
                         </div>
                         <div class="banner-actions whitepaper cf">
-                            <a href="https://drive.google.com/file/d/1ItYenc0m0jAefJJK-HSpbDnuJ5bqII6V/view?usp=sharing" class="btn lg white paper-btn end" target="_blank" rel="noopener noreferrer">WHITE PAPER_ENG</a>
-                            <a href="https://drive.google.com/file/d/1ELUFSY0N_0vP0iHicQfsuvP_olgt8Ig9/view?usp=sharing" class="btn lg outline paper-btn kor" target="_blank" rel="noopener noreferrer">WHITE PAPER_KOR</a>
-                            <a href="https://drive.google.com/file/u/2/d/1v04RtyQjLmbVDwRuBa10dmvx10sSucxa/view?usp=sharing" class="btn lg white paper-btn end" target="_blank" rel="noopener noreferrer">WHITE PAPER_CHN</a>
+                            <a href="https://drive.google.com/file/d/1ItYenc0m0jAefJJK-HSpbDnuJ5bqII6V/view?usp=sharing"
+                                class="btn lg white paper-btn end" target="_blank"
+                                rel="noopener noreferrer">WHITE PAPER_ENG</a>
+                            <a href="https://drive.google.com/file/d/1ELUFSY0N_0vP0iHicQfsuvP_olgt8Ig9/view?usp=sharing"
+                                class="btn lg outline paper-btn kor" target="_blank"
+                                rel="noopener noreferrer">WHITE PAPER_KOR</a>
+                            <a href="https://drive.google.com/file/u/2/d/1v04RtyQjLmbVDwRuBa10dmvx10sSucxa/view?usp=sharing"
+                                class="btn lg white paper-btn end" target="_blank"
+                                rel="noopener noreferrer">WHITE PAPER_CHN</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +90,8 @@
                     <div class="cona-ticker" id="conaTicker">
                         <div class="split split-1">
                             <img src="/images/common/logo.png" alt="코나" class="logo-img"><br>
-                            <a href="https://www.foblgate.com/trade?pairName=CONA/KRW" target="_blank" class="btn ticker-btn">시세확인</a>
+                            <a href="https://www.foblgate.com/trade?pairName=CONA/KRW"
+                                target="_blank" class="btn ticker-btn">시세확인</a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +166,8 @@
                 </ul>
 
                 {# <iframe src="https://www.youtube.com/embed/gNX2lU_ub4c?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe> #}
-                <div class="pop-mask video-pop-wrapper" id="video_pop_wrapper" style="display: none" onmousewheel="return false">
+                <div class="pop-mask video-pop-wrapper" id="video_pop_wrapper" style="display: none"
+                    onmousewheel="return false">
                     <div class="pop-wrapper video-wrapper">
                         <div class="pop-container video-container">
                             <div class="iframe-wrapper" id="iframe_wrapper"></div>
@@ -305,7 +315,8 @@
                         </li>
                         <li class="roadmap-item">
                             <div class="info">
-                                <span class="text">Examined Regulatory Requirements of Target Market</span>
+                                <span class="text">Examined Regulatory Requirements of Target
+                                    Market</span>
                             </div>
                             <div class="date">
                                 2019 2Q
@@ -329,7 +340,8 @@
                         </li>
                         <li class="roadmap-item">
                             <div class="info">
-                                <span class="text">Token Issuance System and Transaction System R&D</span>
+                                <span class="text">Token Issuance System and Transaction System
+                                    R&D</span>
                             </div>
                             <div class="date">
                                 2019 3Q
@@ -441,7 +453,8 @@
                         </li>
                         <li class="roadmap-item">
                             <div class="info">
-                                <span class="text">Upgrading Mining Efficiency, Device Technology Compatibility and Stability</span>
+                                <span class="text">Upgrading Mining Efficiency, Device Technology
+                                    Compatibility and Stability</span>
                             </div>
                             <div class="date">
                                 2020 3Q
@@ -495,14 +508,16 @@
                                 {% if item.kinds == 'news' %}
                                 <li class="list-item">
                                     <div class="title">
-                                        <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">[NEWS] {{ item.title }}</a>
+                                        <a href="{{ item.link }}" target="_blank"
+                                            rel="noopener noreferrer">[NEWS] {{ item.title }}</a>
                                     </div>
                                     <div class="date">{{ item.date }}</div>
                                 </li>
                                 {% elif item.kinds == 'alerts' %}
                                 <li class="list-item">
                                     <div class="title">
-                                        <a href="/notice/alerts/detail/{{ item.id }}">[공지] {{ item.title }}</a>
+                                        <a href="/notice/alerts/detail/{{ item.id }}">[공지]
+                                            {{ item.title }}</a>
                                     </div>
                                     <div class="date">{{ item.dateFormat(item.createdAt) }}</div>
                                 </li>
@@ -529,10 +544,14 @@
                     <li class="card-item">
                         {% if item.link %}
                         <a href="{{ item.link }}" target="blank" rel="noopener noreferrer">
-                            <figure class="card-picture"><img src="/uploads/banner/partnerbanners/{{ item.filename }}" alt="파트너사"></figure>
+                            <figure class="card-picture"><img
+                                    src="/uploads/banner/partnerbanners/{{ item.filename }}"
+                                    alt="파트너사"></figure>
                         </a>
                         {% else %}
-                        <figure class="card-picture"><img src="/uploads/banner/partnerbanners/{{ item.filename }}" alt="파트너사"></figure>
+                        <figure class="card-picture"><img
+                                src="/uploads/banner/partnerbanners/{{ item.filename }}" alt="파트너사">
+                        </figure>
                         {% endif %}
                     </li>
                     {% endfor %}
@@ -554,7 +573,11 @@
             var dataVideo = $(this).attr('data-video');
             $video_pop_wrapper.addClass('active');
             $iframe_wrapper.html('');
-            $iframe_wrapper.append('<iframe width="920" height="518" src="https://www.youtube.com/embed/' + dataVideo + '?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
+            $iframe_wrapper.append(
+                '<iframe width="920" height="518" src="https://www.youtube.com/embed/' +
+                dataVideo +
+                '?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+                )
         });
         $('#scroll_guide').on('click', '#video_pop_wrapper .close-btn', function () {
             $video_pop_wrapper.removeClass('active');
