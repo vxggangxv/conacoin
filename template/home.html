@@ -7,7 +7,8 @@
             url: '/api/foblgate/ticker/order',
             type: 'get',
         }).done(function (data) {
-            if (data) {
+            // console.log(data.status);
+            if (data.status) {
                 // console.log(data);
                 var prev_price = data.prev_price;
                 var price = data.price;
@@ -25,6 +26,7 @@
                 $html += '<p class="fw">상장가 대비: ' + (price - 100) + '%</p>';
                 $html += '</div>'
                 // console.log($html);
+                $conaTicker.removeClass('hide');
                 $conaTicker.append($html);
             }
         }).fail(function (e) {
@@ -87,7 +89,7 @@
                 <div id="bannerArrow" class="banner-arrow group-f"></div>
 
                 <div class="cona-ticker-wrapper group-f">
-                    <div class="cona-ticker" id="conaTicker">
+                    <div class="cona-ticker hide" id="conaTicker">
                         <div class="split split-1">
                             <img src="/images/common/logo.png" alt="코나" class="logo-img"><br>
                             <a href="https://www.foblgate.com/trade?pairName=CONA/KRW"
@@ -577,7 +579,7 @@
                 '<iframe width="920" height="518" src="https://www.youtube.com/embed/' +
                 dataVideo +
                 '?rel=0&playsinline=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
-                )
+            )
         });
         $('#scroll_guide').on('click', '#video_pop_wrapper .close-btn', function () {
             $video_pop_wrapper.removeClass('active');

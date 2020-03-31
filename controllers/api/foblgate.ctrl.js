@@ -32,22 +32,26 @@ exports.ticker_order = async (req, res) => {
     let result = [];
     let prev_price = 0;
     let price = 0;
+    let status = null;
     rp(options)
         .then((response) => {
             // console.log(typeof response);
             result = JSON.parse(response);
-            // console.log(result);
+            // console.log('res: ' + result);
             price = parseInt(result.data.buyList[0].price);
             prev_price = parseInt(result.data.buyList[1].price);
-        })
-        .catch(err => {
-            console.log(err.message);
-        })
-        .finally(() => {
-            // console.log(result);
+            status = true;
             res.json({
                 prev_price,
-                price
+                price,
+                status
+            });
+        })
+        .catch(err => {
+            console.log('err: ' + err);
+            status = false;
+            res.json({
+                status
             });
         });
 };
