@@ -408,7 +408,8 @@ exports.post_inquirys_reply_email = async (req, res) => {
         });
 
         let mailOptions = {
-            from: 'Noreply - CONA <noreply@cona.com>', // 발송 메일 주소 (위에서 작성한 gmail 계정 아이디)
+            // from: 'Noreply - CONA <noreply@cona.com>', // 발송 메일 주소 (위에서 작성한 gmail 계정 아이디)
+            from: 'CONA <noreply@cona.com>', // 발송 메일 주소 (위에서 작성한 gmail 계정 아이디)
             to: email, // 수신 메일 주소
             subject: '[CONA] 실시간문의 답변드립니다.',
             html: template(content)
