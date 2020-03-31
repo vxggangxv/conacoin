@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config(); // LOAD CONFIG
 const Op = require('sequelize').Op;
 const fs = require('fs');
+const passwordHash = require('../../helpers/passwordHash');
 
 exports.index = (req, res) => {
     res.redirect('/conaservice/inquirys');
@@ -67,20 +68,52 @@ exports.get_password = (req, res) => {
 exports.post_password = async (req, res) => {
     try {
         let {
+            password_current,
             password_new
         } = req.body;
 
-        await models.User.update({
-            password: password_new
-        }, {
-            individualHooks: true,
+        const user = await models.User.findOne({
             where: {
-                username: req.user.username
+                username: req.user.username,
+                password: passwordHash(password_current)
             }
         });
 
-        res.send('<script>alert("변경 성공");\
-            location.href="/conaservice";</script>');
+        if (!user) {
+            res.render('admin/accounts/password.html', {
+                errMessage: '현재 비밀번호가 일치하지 않습니다'
+            });
+        } else {
+            if (passwordHash(password_new) == user.password) {
+                res.render('admin/accounts/password.html', {
+                    errMessage: '새 비밀번호가 현재 비밀번호와 일치합니다.'
+                }); 
+            } else {
+                await models.User.update({
+                    password: password_new
+                }, {
+                    individualHooks: true,
+                    where: {
+                        username: req.user.username
+                    }
+                });
+        
+                res.send('<script>alert("변경 성공");\
+                    location.href="/conaservice";</script>');    
+            }
+        }
+
+        // await models.User.update({
+        //     password: password_new
+        // }, {
+        //     individualHooks: true,
+        //     where: {
+        //         username: req.user.username
+        //     }
+        // });
+
+        // res.send('<script>alert("변경 성공");\
+        //     location.href="/conaservice";</script>');
 
     } catch (e) {
         console.log(e);
