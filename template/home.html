@@ -1,6 +1,38 @@
 {% set pageName = "mainPage" %}
 {% extends "layout/base.html" %}
-
+{% block head %}
+<script>
+    $(function() {
+        $.ajax({
+            url: '/api/foblgate/ticker/order',
+            type: 'get',
+        }).done(function (data) {
+            if (data) {
+                // console.log(data);
+                var prev_price = data.prev_price;
+                var price = data.price;
+                var $conaTicker = $('#conaTicker');
+                var $html = '';
+                $html += '<div class="split split-2">';
+                $html += '<p>상장가: 100 KRW</p>';
+                $html += '<p class="fw">현재가: ' + price + ' KRW';
+                if ( price >= prev_price ) {
+                    $html += '<i class="mdi mdi-menu-up"></i>';
+                } else {
+                    $html += '<i class="mdi mdi-menu-down"></i>';
+                }
+                $html += '</p>';
+                $html += '<p class="fw">상장가 대비: ' + (price - 100) + '%</p>';
+                $html += '</div>'
+                // console.log($html);
+                $conaTicker.append($html);
+            }
+        }).fail(function (e) {
+            console.log(e);
+        });
+    });
+</script>
+{% endblock %}
 {% block content %}
 <section class="sec main-visual-sec">
     <h1 class="sr-only">코나코인 소개</h1>
@@ -47,27 +79,11 @@
                 <div id="bannerArrow" class="banner-arrow group-f"></div>
 
                 <div class="cona-ticker-wrapper group-f">
-                    <div class="cona-ticker">
+                    <div class="cona-ticker" id="conaTicker">
                         <div class="split split-1">
                             <img src="/images/common/logo.png" alt="코나" class="logo-img"><br>
                             <a href="https://www.foblgate.com/trade?pairName=CONA/KRW" target="_blank" class="btn ticker-btn">시세확인</a>
                         </div>
-                        {% if price %}
-                        <div class="split split-2">
-                            <p>상장가: 100 KRW</p>
-                            <p class="fw">현재가:
-                                {{ price }}
-                                KRW
-                                {% if price >= prev_price %}
-                                <i class="mdi mdi-menu-up"></i>
-                                {% else %}
-                                <i class="mdi mdi-menu-down"></i>
-                                {% endif %}
-                            </p>
-                            <p class="fw">상장가 대비:
-                                {{ price - 100 }}%</p>
-                        </div>
-                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 const models = require('../../database/models');
-const axios = require('axios');
-const request = require('request');
+// const axios = require('axios');
+// const request = require('request');
 const rp = require('request-promise');
 const crypto = require('crypto');
 const dotenv = require('dotenv');
@@ -61,58 +61,61 @@ exports.get_home = async (req, res) => {
         //     console.log(item.title);
         // });
 
-        let apiKey = process.env.FOBLGATE_PUBLIC_KEY;
-        let scretKey = process.env.FOBLGATE_SECRET_KEY;
+        // let apiKey = process.env.FOBLGATE_PUBLIC_KEY;
+        // let scretKey = process.env.FOBLGATE_SECRET_KEY;
 
-        var pairName = 'CONA/KRW';
+        // var pairName = 'CONA/KRW';
 
-        var formData = {
-            apiKey: apiKey,
-            pairName: pairName
-        };
+        // var formData = {
+        //     apiKey: apiKey,
+        //     pairName: pairName
+        // };
 
-        var secretHash = crypto.createHash('sha256').update(apiKey + pairName + scretKey).digest('hex');
+        // var secretHash = crypto.createHash('sha256').update(apiKey + pairName + scretKey).digest('hex');
 
-        var options = {
-            method: 'post',
-            url: 'https://api2.foblgate.com/api/ticker/orderBook',
-            headers: {
-                SecretHeader: secretHash
-            },
-            form: formData
-        };
+        // var options = {
+        //     method: 'post',
+        //     url: 'https://api2.foblgate.com/api/ticker/orderBook',
+        //     headers: {
+        //         SecretHeader: secretHash
+        //     },
+        //     form: formData
+        // };
 
-        let result = [];
-        let prev_price = 0;
-        let price = 0;
-        rp(options)
-            .then((response) => {
-                // console.log(typeof response);
-                result = JSON.parse(response);
-                // console.log(result);
-                price = parseInt(result.data.buyList[0].price);
-                prev_price = parseInt(result.data.buyList[1].price);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-            .finally(() => {
-                // console.log(result);
-                res.render('home.html', {
-                    prev_price,
-                    price,
-                    inquirys,
-                    news,
-                    notices,
-                    openbanners,
-                    partnerbanners
-                });
-            });
+        // let result = [];
+        // let prev_price = 0;
+        // let price = 0;
+        // rp(options)
+        //     .then((response) => {
+        //         // console.log(typeof response);
+        //         result = JSON.parse(response);
+        //         // console.log(result);
+        //         price = parseInt(result.data.buyList[0].price);
+        //         prev_price = parseInt(result.data.buyList[1].price);
+        //     })
+        //     .catch(err => {
+        //         console.log(err.message);
+        //     })
+        //     .finally(() => {
+        //         // console.log(result);
+        //         res.render('home.html', {
+        //             prev_price,
+        //             price,
+        //             inquirys,
+        //             news,
+        //             notices,
+        //             openbanners,
+        //             partnerbanners
+        //         });
+        //     });
 
-        // res.render('home.html', {
-        //     inquirys,
-        //     news,
-        // });
+        res.render('home.html', {
+            inquirys,
+            news,
+            notices,
+            openbanners,
+            partnerbanners
+        });
     } catch (e) {
         console.log(e);
     }

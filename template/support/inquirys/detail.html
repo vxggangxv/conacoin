@@ -1,5 +1,5 @@
 {% set title %}{{ inquiry.title }} | CONA 고객센터{% endset %}
-{% set description %}{{ inquiry.content | safe }}{% endset %}
+{% set description %}{{ inquiry.content | safe  | truncate }}{% endset %}
 {% set pageName = "supportPage" %}
 {% set pageTitle = "SUPPORT" %}
 {% set pageSubTitle = "Always-on customer service" %}

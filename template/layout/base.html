@@ -17,18 +17,18 @@
     <meta name="description" content="{{ description }}">
     <meta name="keywords" content="cona, coin">
     <meta name="author" content="CONA COIN INC">
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CONA - Cryptocurrency Offering New Alternative">
+    <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:url" content="http://conacoin.io">
-    <!-- <meta property="og:image" content=""> -->
+    <meta property="og:image" content="/static/img/cona_thum.jpg"> 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="CONA - Cryptocurrency Offering New Alternative">
+    <meta name="twitter:title" content="{{ title }}">
     <meta name="twitter:description" content="{{ description }}">
     <meta name="twitter:url" content="http://conacoin.io">
-    <!-- <meta name="twitter:image" content=""> -->
+    <meta name="twitter:image" content="/static/img/cona_thum.jpg"> 
     <link rel="canonical" href="http://conacoin.io">
 
     <meta name="naver-site-verification" content="235d3820141322e0e3602c1f3b35a74f54d2a346" />
@@ -53,9 +53,9 @@
     <script src="/static/js/libs/jquery-1.12.1.min.js"></script>
     <!-- <script src="/static/js/libs/jquery-ui-1.12.1.min.js"></script> -->
 
-    <script>
-        var $loading = $('#ldsMask');
-    </script>
+    <script>var $loading = $('#ldsMask');</script>
+
+    {%- block head %}{% endblock -%}
 </head>
 
 <body id="{{ pageName }}">
