@@ -5,11 +5,14 @@ module.exports = async function (req, res, next) {
     // 예외 관리자 path 추가
     if (req.path.indexOf('/conaservice') == -1 && !req.cookies.count && req.cookies['connect.sid']) {
         res.cookie('count', '', {
-            maxAge: 3600000,
+            maxAge: 1000 * 60 * 60,
             httpOnly: true
         });
         var now = new Date();
         var date = now.getFullYear() + '/' + (now.getMonth() + 1) + '/' + (now.getDate());
+        var nowHour = now.getHours();
+        var nowMinutes = now.getMinutes();
+        var nowSeconds = now.getSeconds();
         let name = 'visitors';
 
         // console.log(date);
@@ -17,7 +20,7 @@ module.exports = async function (req, res, next) {
         // 방문자 여부 확인 (today 기준)
         if (date != req.cookies.countDate) {
             res.cookie('countDate', date, {
-                maxAge: 86400000,
+                maxAge: 1000 * (60 - nowSeconds) * (60 - nowMinutes) * (24 - nowHour),
                 httpOnly: true
             });
             // 방문자 여부 확인 (total 기준)

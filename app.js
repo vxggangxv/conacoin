@@ -37,11 +37,11 @@ function dbConnection() {
                 // return db.sequelize.sync({
                 //     force: true
                 // });
-                return db.sequelize.sync();
+                // return db.sequelize.sync();
             }
             // if (env == 'test') {}
             if (env == 'production') {
-                return db.sequelize.sync();
+                // return db.sequelize.sync();
             }
         })
         .then(() => {
