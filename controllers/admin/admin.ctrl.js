@@ -87,7 +87,7 @@ exports.post_password = async (req, res) => {
             if (passwordHash(password_new) == user.password) {
                 res.render('admin/accounts/password.html', {
                     errMessage: '새 비밀번호가 현재 비밀번호와 일치합니다.'
-                }); 
+                });
             } else {
                 await models.User.update({
                     password: password_new
@@ -97,9 +97,9 @@ exports.post_password = async (req, res) => {
                         username: req.user.username
                     }
                 });
-        
+
                 res.send('<script>alert("변경 성공");\
-                    location.href="/conaservice";</script>');    
+                    location.href="/conaservice";</script>');
             }
         }
 
@@ -117,6 +117,33 @@ exports.post_password = async (req, res) => {
 
     } catch (e) {
         console.log(e);
+    }
+};
+
+exports.visitor_counter = async (req, res) => {
+    try {
+        let status = null;
+        let now = new Date();
+        let date = now.getFullYear() + '/' + (now.getMonth() + 1) + '/' + (now.getDate());
+
+        const [total, today] = await Promise.all([
+            models.VisitorTotal.findOne({
+                where: {}
+            }),
+            models.VisitorToday.findOne({
+                where: {
+                    date
+                }
+            })
+        ]);
+        status = true;
+        res.json({
+            status,
+            totalCount: total.totalCount,
+            todayCount: today.todayCount
+        });
+    } catch (error) {
+        console.log(error);
     }
 };
 

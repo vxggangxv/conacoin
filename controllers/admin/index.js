@@ -74,6 +74,8 @@ router.get('/accounts/logout', ctrl.logout);
 router.get('/accounts/password', csrfProtection, ctrl.get_password);
 router.post('/accounts/password', ctrl.post_password);
 
+router.get('/visitor_counter', ctrl.visitor_counter);
+
 router.get('/alerts', paginate.middleware(10, 50), ctrl.get_alerts);
 router.get('/alerts/write', csrfProtection, ctrl.get_alerts_write);
 router.post('/alerts/write', ctrl.post_alerts_write);

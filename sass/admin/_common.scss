@@ -55,11 +55,12 @@ $toolbar-ht: 75px;
     background-color: $admin-sb-bg;
     // color: #fff;
     color: $admin-sb-text;
+    $sidebar-pd-x: 25px;
 
     .sidebar-logo {
         // padding: 35px 15px 25px;
         // text-align: center;
-        padding: 0px 25px;
+        padding: 0px $sidebar-pd-x;
 
 
         .logo-cover {
@@ -105,7 +106,7 @@ $toolbar-ht: 75px;
         // font-weight: 300;
         .menu-section {
             margin-top: 20px;
-            padding: 0 25px;
+            padding: 0 $sidebar-pd-x;
             height: 40px;
             line-height: 40px;
             font-size: 12px;
@@ -185,12 +186,56 @@ $toolbar-ht: 75px;
         }
     }
 
+    $cs-ht: 90px;
+
+    .visitor-counter {
+        // display: inline-flex;
+        // justify-content: space-around;
+        position: absolute;
+        width: 100%;
+        bottom: $cs-ht;
+        padding: 12px $sidebar-pd-x;
+        // border-top: 1px solid $admin-sb-section;
+        border-top: 1px solid $admin-sb-bg-active;
+        box-sizing: border-box;
+        font-size: 13px;
+        text-align: center;
+
+        dl {
+            display: flex;
+            // justify-content: space-around;
+            // flex: 1;
+
+            &+dl {
+                // margin-left: 5px;
+                margin-top: 5px;
+            }
+
+            dt,
+            dd {
+                text-align: left;
+            }
+
+            dt {
+                width: 80px;
+            }
+
+            dt+dd {
+                margin-left: 10px;
+                // margin-left: 5px;
+                // margin-top: 5px;
+            }
+        }
+    }
+
     .cs-wrapper {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
         padding: 10px 0;
+        height: $cs-ht;
+        box-sizing: border-box;
         background-color: $admin-sb-bg-active;
         font-size: 12px;
         line-height: 1.5;

@@ -38,15 +38,28 @@
                 <span>이미지 등록</span>
             </a>
             <ul class="depth2">
-                <li class="{% if req_path == '/conaservice/siteimg/openbanners' %} active{% endif %}">
+                <li
+                    class="{% if req_path == '/conaservice/siteimg/openbanners' %} active{% endif %}">
                     <a href="/conaservice/siteimg/openbanners"><span>오픈 팝업 배너</span></a>
                 </li>
-                <li class="{% if req_path == '/conaservice/siteimg/partnerbanners' %} active{% endif %}">
+                <li
+                    class="{% if req_path == '/conaservice/siteimg/partnerbanners' %} active{% endif %}">
                     <a href="/conaservice/siteimg/partnerbanners"><span>파트너사 배너</span></a>
                 </li>
             </ul>
         </li>
     </ul>
+    <!-- <div class="visitor-counter hide" id="visitorCounter"> -->
+    <div class="visitor-counter" id="visitorCounter">
+        <dl>
+            <dt>총 방문자 수</dt>
+            <dd class="total-count"></dd>
+        </dl>
+        <dl>
+            <dt>오늘 방문자 수</dt>
+            <dd class="today-count"></dd>
+        </dl>
+    </div>
     <div class="cs-wrapper">
         <p class="title">고객지원</p>
         <p class="text">
@@ -61,5 +74,22 @@
 <script>
     $('#sidebarMenu > li').on('click', function () {
         $(this).addClass('active').siblings().remove('active');
+    });
+    $(function () {
+        $.ajax({
+            url: '/conaservice/visitor_counter',
+            type: 'get'
+        }).done(function (data) {
+            console.log(data);
+            if (data.status) {
+                var $visitorCounter = $('#visitorCounter');
+                $visitorCounter.removeClass('hide');
+                $visitorCounter.find('.total-count').text(data.totalCount);
+                $visitorCounter.find('.today-count').text(data.totalCount);
+            }
+
+        }).fail(function (e) {
+            console.log(e);
+        })
     });
 </script>

@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const visitorCounter = require('../middleware/visitorCouter');
+const visitorCounter = require('../middleware/visitorCounter');
 
-
-// router.use(visitorCounter);
+router.use(visitorCounter);
 
 router.use('/', require('./home'));
 router.use('/notice', require('./notice'));

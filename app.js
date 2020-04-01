@@ -37,11 +37,11 @@ function dbConnection() {
                 // return db.sequelize.sync({
                 //     force: true
                 // });
-                // return db.sequelize.sync();
+                return db.sequelize.sync();
             }
             // if (env == 'test') {}
             if (env == 'production') {
-                // return db.sequelize.sync();
+                return db.sequelize.sync();
             }
         })
         .then(() => {
@@ -100,7 +100,11 @@ let inquirysScheduler = async () => {
 };
 // inquirysScheduler();
 const schedule = require('node-schedule');
-const j = schedule.scheduleJob('0 0 0 1 * *', function () {
+// const j = schedule.scheduleJob('0 0 0 1 * *', function () {
+const j = schedule.scheduleJob({
+    date: 1,
+    hour: 0
+}, function () {
     inquirysScheduler();
 });
 // j.cancel()

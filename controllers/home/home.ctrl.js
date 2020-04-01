@@ -13,7 +13,6 @@ exports.index = async (req, res) => {
 };
 exports.get_home = async (req, res) => {
     try {
-        console.log('cookie' + req.cookies);
         const [inquirys, news, alerts, openbanners, partnerbanners] = await Promise.all([
             models.Inquirys.findAll({
                 limit: 20,
