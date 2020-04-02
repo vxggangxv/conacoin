@@ -16,7 +16,8 @@
                                 <option value="createdAt">날짜</option>
                                 <option value="reply_cnt">진행상황</option>
                             </select>
-                            <button type="button" class="dropbtn drop-toggle" data-toggle="dropmenu">
+                            <button type="button" class="dropbtn drop-toggle"
+                                data-toggle="dropmenu">
                                 {% if sort == 'createdAt' %}
                                 <span class="in">날짜</span>
                                 {% elif sort == 'reply_cnt' %}
@@ -90,10 +91,12 @@
                 <ul class="pager-nav">
                     {% if paginate.hasPreviousPages %}
                     <li>
-                        <a href="{{ pages[0].url }}" class="pager-link arrow first active">&laquo;</a>
+                        <a href="/conaservice/inquirys/?page=1&amp;limit={{ limit }}"
+                            class="pager-link arrow first active">&laquo;</a>
                     </li>
                     <li>
-                        <a href="{{ paginate.href(true) }}" class="pager-link arrow prev active">&lsaquo;</a>
+                        <a href="{{ paginate.href(true) }}"
+                            class="pager-link arrow prev active">&lsaquo;</a>
                     </li>
                     {% else %}
                     <li>
@@ -105,15 +108,18 @@
                     {% endif %}
                     {% for page in pages %}
                     <li class="">
-                        <a href="{{ page.url }}" class="pager-link{% if paginate.page == page.number %} active {% endif %}">{{ page.number }}</a>
+                        <a href="{{ page.url }}"
+                            class="pager-link{% if paginate.page == page.number %} active {% endif %}">{{ page.number }}</a>
                     </li>
                     {% endfor %}
                     {% if paginate.hasNextPages(pageCount) %}
                     <li>
-                        <a href="{{ paginate.href() }}" class="pager-link arrow next active">&rsaquo;</a>
+                        <a href="{{ paginate.href() }}"
+                            class="pager-link arrow next active">&rsaquo;</a>
                     </li>
                     <li>
-                        <a href="/conaservice/inquirys/?page={{ pageCount }}&amp;limit={{ limit }}" class="pager-link arrow last active">&raquo;</a>
+                        <a href="/conaservice/inquirys/?page={{ pageCount }}&amp;limit={{ limit }}"
+                            class="pager-link arrow last active">&raquo;</a>
                     </li>
                     {% else %}
                     <li>
