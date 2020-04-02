@@ -52,11 +52,15 @@
     <!-- <div class="visitor-counter hide" id="visitorCounter"> -->
     <div class="visitor-counter" id="visitorCounter">
         <dl>
-            <dt>총 방문자 수</dt>
+            <!-- <dt>총 방문자 수</dt> -->
+            <!-- <dt>Total</dt> -->
+            <dt>TOTAL</dt>
             <dd class="total-count"></dd>
         </dl>
         <dl>
-            <dt>오늘 방문자 수</dt>
+            <!-- <dt>오늘 방문자 수</dt> -->
+            <!-- <dt>Today</dt> -->
+            <dt>TODAY</dt>
             <dd class="today-count"></dd>
         </dl>
     </div>
@@ -85,7 +89,7 @@
                 var $visitorCounter = $('#visitorCounter');
                 $visitorCounter.removeClass('hide');
                 $visitorCounter.find('.total-count').text(data.totalCount);
-                $visitorCounter.find('.today-count').text(data.totalCount);
+                $visitorCounter.find('.today-count').text(data.todayCount);
             }
 
         }).fail(function (e) {
