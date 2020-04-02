@@ -441,10 +441,10 @@
 
                 &.list-btn,
                 &.inquiry-btn {
-                    margin: 0;
-                    position: absolute;
-                    bottom: 0;
-                    right: 10px;
+                    // margin: 0;
+                    // position: absolute;
+                    // bottom: 0;
+                    // right: 10px;
                 }
 
                 &.inquiry-btn {
@@ -467,7 +467,11 @@
 
                 .inquirys-actions {
                     margin-top: 20px;
-                    text-align: center;
+
+                    // text-align: center;
+                    .inquiry-btn {
+                        float: right;
+                    }
                 }
 
             }
