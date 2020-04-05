@@ -33,19 +33,17 @@ module.exports = async function (req, res, next) {
             let totalCount = 1;
 
             if (!total) {
-                db.VisitorTotal.create({
+                await db.VisitorTotal.create({
                     name,
                     totalCount
                 });
             } else {
                 totalCount = total.totalCount;
                 totalCount++;
-                db.VisitorTotal.update({
+                await db.VisitorTotal.update({
                     totalCount
                 }, {
-                    where: {
-                        name
-                    }
+                    where: {}
                 });
             }
 
@@ -58,7 +56,7 @@ module.exports = async function (req, res, next) {
             let todayCount = 1;
 
             if (!today) {
-                db.VisitorToday.create({
+                await db.VisitorToday.create({
                     name,
                     todayCount,
                     date
@@ -66,7 +64,7 @@ module.exports = async function (req, res, next) {
             } else {
                 todayCount = today.todayCount;
                 todayCount++;
-                db.VisitorToday.update({
+                await db.VisitorToday.update({
                     name,
                     todayCount
                 }, {
