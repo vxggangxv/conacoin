@@ -323,6 +323,20 @@
                             margin: 0 3px;
                         }
 
+                        .slick-dots li button {
+                            width: 100%;
+                            height: 100%;
+                            padding: 0;
+                        }
+
+                        // .slick-dots li button:before {
+                        //     background-color: #ccc;
+                        // }
+
+                        // .slick-dots li.slick-active button:before {
+                        //     background-color: $c-inquiry-brown;
+                        // }
+
                         .card-item {
                             text-align: center;
 
