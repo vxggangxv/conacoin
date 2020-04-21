@@ -762,6 +762,44 @@ a.btn>* {
     }
 }
 
+.imgform-wrapper {
+    .upload-btn {
+        width: 100%;
+        background-color: #f0f0f0;
+        border: 1px solid $tbl-bor-gray;
+        font-size: 13px;
+        font-weight: 300;
+        color: $black-64;
+
+        img {
+            margin-right: 2px;
+            width: 19px;
+        }
+    }
+
+    .img-list {
+        padding: 7px 0;
+
+        .item {
+            position: relative;
+            display: inline-block;
+            width: 67px;
+            border: 1px solid $tbl-bor-gray;
+            box-sizing: border-box;
+
+            .x {
+                position: absolute;
+                top: 0px;
+                right: 2px;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 1;
+                color: $font-gray;
+            }
+        }
+    }
+}
+
 // 에러 페이지
 #errorPage {
 
