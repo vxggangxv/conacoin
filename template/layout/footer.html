@@ -42,15 +42,28 @@
             url: '/siteinfo/1',
             type: 'get',
         }).done(function (data) {
-            if (data) {
-                var siteinfo = data.siteinfo;
-                if (data.siteinfo) {
-                    var $text =
-                        '<span>' + siteinfo.company + '</span><br>' +
-                        '<span>대표자: ' + siteinfo.rep + '</span><br>' +
-                        '<span>사업자등록번호: ' + siteinfo.business_number + '</span>';
-                    $('#footer .address .text').append($text);
-                }
+            if (data && data.siteInfo) {
+                var siteInfo = data.siteInfo;
+                var {
+                    company,
+                    rep,
+                    rep_number,
+                    email,
+                    business_number,
+                    business_link,
+                    mailorder,
+                    address
+                } = siteInfo;
+                var $text = '';
+                if (company) $text += `<span>${company}</span><br>`;
+                if (rep) $text += `<span>대표자: ${rep}</span><br>`;
+                if (rep_number) $text += `<span>대표번호: ${rep_number}</span><br>`;
+                if (email) $text += `<span>이메일: ${email}</span><br>`;
+                if (business_number) $text += `<span>사업자등록번호: ${business_number}</span><br>`;
+                if (business_link) $text += `<a href="${business_link}" target="_blnak">사업자정보확인</a><br>`;
+                if (mailorder) $text += `<span>통신판매업신고번호: ${mailorder}</span><br>`;
+                if (address) $text += `<span>${address}</span><br>`;
+                $('#footer .address .text').append($text);
             }
         }).fail(function (e) {
             console.log(e);

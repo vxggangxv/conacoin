@@ -766,10 +766,10 @@ a.btn>* {
     .upload-btn {
         width: 100%;
         background-color: #f0f0f0;
-        border: 1px solid $tbl-bor-gray;
+        border: 1px solid $bor-gray;
         font-size: 13px;
         font-weight: 300;
-        color: $black-64;
+        color: $font-gray3;
 
         img {
             margin-right: 2px;
@@ -784,7 +784,7 @@ a.btn>* {
             position: relative;
             display: inline-block;
             width: 67px;
-            border: 1px solid $tbl-bor-gray;
+            border: 1px solid $bor-gray;
             box-sizing: border-box;
 
             .x {
