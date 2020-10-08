@@ -14,9 +14,7 @@ exports.index = (req, res) => {
 };
 // 로그인, 회원가입
 exports.get_join = (req, res) => {
-    res.render('admin/accounts/join.html', {
-        csrfToken: req.csrfToken()
-    });
+    res.render('admin/accounts/join.html', {});
 };
 exports.post_join = async (req, res) => {
     try {
@@ -49,8 +47,7 @@ exports.post_join = async (req, res) => {
 };
 exports.get_login = (req, res) => {
     res.render('admin/accounts/login.html', {
-        flashMessage: req.flash().error,
-        csrfToken: req.csrfToken()
+        flashMessage: req.flash().error
     });
 };
 exports.post_login = async (req, res) => {
@@ -61,9 +58,7 @@ exports.logout = (req, res) => {
     res.redirect('/conaservice/accounts/login');
 };
 exports.get_password = (req, res) => {
-    res.render('admin/accounts/password.html', {
-        csrfToken: req.csrfToken()
-    });
+    res.render('admin/accounts/password.html', {});
 };
 exports.post_password = async (req, res) => {
     try {
@@ -339,7 +334,23 @@ exports.get_inquirys_delete = async (req, res) => {
                 id: req.params.id
             }
         });
-        res.redirect('/conaservice/inquirys');
+        res.redirect('back');
+    } catch (e) {
+        console.log(e);
+    }
+};
+exports.post_inquirys_deleteSelect = async (req, res) => {
+    try {
+        const inquirysCheckItems = Object.keys(req.body).reduce((arr, value) => {
+            const currentId = value.split('_')[1];
+            return currentId !== 'all' ? arr.concat(currentId) : arr;
+        }, []);
+        await models.Inquirys.destroy({
+            where: {
+                id: inquirysCheckItems
+            }
+        });
+        res.redirect('back');
     } catch (e) {
         console.log(e);
     }

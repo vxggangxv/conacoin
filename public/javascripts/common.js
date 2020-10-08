@@ -1,6 +1,7 @@
 $(function () {
     dropselectFn();
     fileformFn();
+    allCheck();
 });
 
 function dropselectFn() {
@@ -177,7 +178,7 @@ function datePick() {
 }
 
 // 모두 동의
-function allChk() {
+function allCheck() {
     $('.check-all').click(function () {
         var checkName = $(this).attr('data-check-name');
         $('.check-item[data-check-name="' + checkName + '"]').prop('checked', this.checked);

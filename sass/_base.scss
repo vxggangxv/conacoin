@@ -51,6 +51,15 @@
 
 // @include btn-size(12px 0px, 13px);
 // @include btn-size(15px 90px, 18px);
+*[tabIndex],
+input,
+textarea,
+select,
+a,
+button {
+outline: none;
+box-shadow: none;
+}
 
 input {
     font-family: $font-stack;

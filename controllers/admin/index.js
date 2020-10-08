@@ -55,9 +55,9 @@ passport.deserializeUser((user, done) => {
     done(null, result);
 });
 
-router.get('/accounts/join', csrfProtection, ctrl.get_join);
+router.get('/accounts/join', ctrl.get_join);
 router.post('/accounts/join', ctrl.post_join);
-router.get('/accounts/login', csrfProtection, ctrl.get_login);
+router.get('/accounts/login', ctrl.get_login);
 router.post(
     '/accounts/login',
     passport.authenticate('local', {
@@ -72,25 +72,26 @@ router.use(adminRequired);
 router.get('/', ctrl.index);
 router.get('/accounts/logout', ctrl.logout);
 router.get('/accounts/password', csrfProtection, ctrl.get_password);
-router.post('/accounts/password', ctrl.post_password);
+router.post('/accounts/password', csrfProtection, ctrl.post_password);
 
 router.get('/visitor_counter', ctrl.visitor_counter);
 
 router.get('/alerts', paginate.middleware(10, 50), ctrl.get_alerts);
 router.get('/alerts/write', csrfProtection, ctrl.get_alerts_write);
-router.post('/alerts/write', ctrl.post_alerts_write);
+router.post('/alerts/write', csrfProtection, ctrl.post_alerts_write);
 router.get('/alerts/detail/:id', ctrl.get_alerts_detail);
 router.get('/alerts/edit/:id', csrfProtection, ctrl.get_alerts_edit);
-router.post('/alerts/edit/:id', ctrl.post_alerts_edit);
+router.post('/alerts/edit/:id', csrfProtection, ctrl.post_alerts_edit);
 router.get('/alerts/delete/:id', ctrl.get_alerts_delete);
 
-router.get('/inquirys', paginate.middleware(10, 50), ctrl.get_inquirys);
+router.get('/inquirys', paginate.middleware(10, 100), ctrl.get_inquirys);
 // router.get('/inquirys/write', csrfProtection, ctrl.get_inquirys_write);
 // router.post('/inquirys/write', upload().array('file', 5), ctrl.post_inquirys_write);
 router.get('/inquirys/detail/:id', ctrl.get_inquirys_detail);
 // router.get('/inquirys/edit/:id', csrfProtection, ctrl.get_inquirys_edit);
 // router.post('/inquirys/edit/:id', ctrl.post_inquirys_edit);
 router.get('/inquirys/delete/:id', ctrl.get_inquirys_delete);
+router.post('/inquirys/delete-select', ctrl.post_inquirys_deleteSelect);
 
 router.post('/inquirys/reply/write/:id', ctrl.post_inquirys_reply_write);
 router.post('/inquirys/reply/edit/:id', ctrl.post_inquirys_reply_edit);
@@ -102,17 +103,17 @@ router.get('/inquirys/sort', paginate.middleware(10, 50), ctrl.get_inquirys_sort
 
 router.get('/news', paginate.middleware(10, 50), ctrl.get_news);
 router.get('/news/write', csrfProtection, ctrl.get_news_write);
-router.post('/news/write', ctrl.post_news_write);
+router.post('/news/write', csrfProtection, ctrl.post_news_write);
 router.get('/news/detail/:id', ctrl.get_news_detail);
 router.get('/news/edit/:id', csrfProtection, ctrl.get_news_edit);
-router.post('/news/edit/:id', ctrl.post_news_edit);
+router.post('/news/edit/:id', csrfProtection, ctrl.post_news_edit);
 router.get('/news/delete/:id', ctrl.get_news_delete);
 
 router.get('/siteinfo/write', csrfProtection, ctrl.get_siteinfo_write);
-router.post('/siteinfo/write', ctrl.post_siteinfo_write);
+router.post('/siteinfo/write', csrfProtection, ctrl.post_siteinfo_write);
 router.get('/siteinfo/detail/:id', ctrl.get_siteinfo_detail);
 router.get('/siteinfo/edit/:id', csrfProtection, ctrl.get_siteinfo_edit);
-router.post('/siteinfo/edit/:id', ctrl.post_siteinfo_edit);
+router.post('/siteinfo/edit/:id', csrfProtection, ctrl.post_siteinfo_edit);
 
 router.get('/siteimg/openbanners', ctrl.get_siteimg_openbanners);
 router.post('/siteimg/openbanners/add', upload('popup/openbanners/', 'basename').single('file'), ctrl.post_openbanners_add);

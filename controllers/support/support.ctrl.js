@@ -83,7 +83,8 @@ exports.get_inquirys_detail = async (req, res) => {
         });
         if (inquiry) {
             res.render('support/inquirys/detail.html', {
-                inquiry
+                inquiry,
+                csrfToken: req.csrfToken()
             });
         } else {
             res.redirect('/support/inquirys');

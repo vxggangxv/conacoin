@@ -9,6 +9,33 @@
             <div class="comm-title">
                 <h2 class="title">실시간 문의 리스트</h2>
                 <div class="title-actions comm-actions-top">
+                    <form action="/conaservice/inquirys/?limit={{ limit }}" class="sort-form comm-select">
+                        <span class="label">Amount:</span>
+                        <div class="dropselect label-text">
+                            <select name="limit">
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                            <button type="button" class="dropbtn drop-toggle"
+                                data-toggle="dropmenu">
+                                {% if limit %}
+                                <span class="in">{{limit}}</span>
+                                {% else %}
+                                <span class="in">10</span>
+                                {% endif %}
+                            </button>
+                            <ul class="dropmenu">
+                                <li class="item">10</li>
+                                <li class="item">15</li>
+                                <li class="item">20</li>
+                                <li class="item">50</li>
+                                <li class="item">100</li>
+                            </ul>
+                        </div>
+                    </form>
                     <form action="/conaservice/inquirys/sort/" class="sort-form comm-select">
                         <span class="label">Sort By:</span>
                         <div class="dropselect label-text">
@@ -35,58 +62,68 @@
                     {# <a href="/conaservice/inquirys/write/" class="comm-btn primary new-btn">새 글</a> #}
                 </div>
             </div>
-            <table class="tbl-type1 list-tbl">
-                <colgroup>
-                    <col>
-                    <col>
-                    <col>
-                    <col>
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>등록일</th>
-                        <th>작성자</th>
-                        <th>제목</th>
-                        <th>진행상황</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {# {% for i in range(0, 10) %}
-                            <tr>
-                                <td class="date">2019-12-08</td>
-                                <td class="name">h******</td>
-                                <td class="title">
-                                    <a href="/support/inquiry/detail/">가이드영상대로 진행했는데 잘 안되네요..ㅠㅠ</a>
-                                </td>
-                                <td>
-                                    <span class="state active">답변완료</span>
-                                </td>
-                            </tr>
-                        {% endfor %} #}
-                    {% for inquiry in inquirys %}
-                    <tr>
-                        <td class="date">{{ inquiry.dateFormat( inquiry.createdAt ) }}</td>
-                        <td class="name">{{ inquiry.name }}</td>
-                        <td class="title">
-                            <a href="/conaservice/inquirys/detail/{{ inquiry.id }}">
-                                {% if inquiry.attach_cnt %}
-                                <i class="mdi mdi-paperclip"></i>
+            <form action="/conaservice/inquirys/delete-select" method="post" id="inquirySubmit">
+                <table class="tbl-type1 list-tbl first-check">
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" name="inquiry_all" data-check-name="inquiryCheck" id="inquiryAll" class="check-all"></th>
+                            <th>등록일</th>
+                            <th>작성자</th>
+                            <th>제목</th>
+                            <th>진행상황</th>
+                            <th>삭제</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {# {% for i in range(0, 10) %}
+                                <tr>
+                                    <td><input type="checkbox" name="inquiry_{{i}}" id=""></td>
+                                    <td class="date">2019-12-08</td>
+                                    <td class="name">h******</td>
+                                    <td class="title">
+                                        <a href="/support/inquiry/detail/">가이드영상대로 진행했는데 잘 안되네요..ㅠㅠ</a>
+                                    </td>
+                                    <td>
+                                        <span class="state active">답변완료</span>
+                                    </td>
+                                </tr>
+                            {% endfor %} #}
+                        {% for inquiry in inquirys %}
+                        <tr>
+                            <td class="check"><input type="checkbox" name="inquiry_{{inquiry.id}}" data-check-name="inquiryCheck" id="inquiry_{{inquiry.id}}" class="check-item"></td>
+                            <td class="date">{{ inquiry.dateFormat( inquiry.createdAt ) }}</td>
+                            <td class="name">{{ inquiry.name }}</td>
+                            <td class="title">
+                                <a href="/conaservice/inquirys/detail/{{ inquiry.id }}">
+                                    {% if inquiry.attach_cnt %}
+                                    <i class="mdi mdi-paperclip"></i>
+                                    {% endif %}
+                                    {{ inquiry.title }}
+                                </a>
+                            </td>
+                            <td>
+                                {% if inquiry.reply_cnt %}
+                                <span class="status active">답변완료</span>
+                                {% else %}
+                                <span class="status">답변대기</span>
                                 {% endif %}
-                                {{ inquiry.title }}
-                            </a>
-                        </td>
-                        <td>
-                            {% if inquiry.reply_cnt %}
-                            <span class="status active">답변완료</span>
-                            {% else %}
-                            <span class="status">답변대기</span>
-                            {% endif %}
-
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                            </td>
+                            <td class="delete">
+                                <a href="/conaservice/inquirys/delete/{{ inquiry.id }}" class="btn btn-red">삭제</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
             <div class="pager">
                 <ul class="pager-nav">
                     {% if paginate.hasPreviousPages %}
@@ -130,8 +167,16 @@
                     </li>
                     {% endif %}
                 </ul>
+                <button type="button" class="btn btn-primary" onclick="inquirySubmit()">선택 삭제</button>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    function inquirySubmit() {
+        $('#inquirySubmit').submit();
+    }
+    
+</script>
 {% endblock %}

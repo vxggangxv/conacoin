@@ -1,6 +1,19 @@
 const models = require('../../database/models');
 
 module.exports = async () => {
+    // function dummyData(number) {
+    //     return [...Array(number).keys()].map(i => ({
+    //         x: `07-${i < 9 ? '0' + (i + 1) : i + 1}`,
+    //         y: parseInt(Math.random() * 300),
+    //     }));
+    // }
+    const data = [...Array(150).keys()].map(i => ({
+        name: '농어',
+        password: '1111',
+        email: 'nongeo@test.com',
+        title: `제목-${i}`,
+        content: `내용-${i}`
+    }));
     try {
         // 임시 문의 글
         await models.Inquirys.bulkCreate([{
@@ -11,207 +24,7 @@ module.exports = async () => {
                 content: '내용1',
                 reply_cnt: '1'
             },
-            {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목2',
-                content: '내용2'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목3',
-                content: '내용3'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목4',
-                content: '내용4'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목5',
-                content: '내용5'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목6',
-                content: '내용6'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목7',
-                content: '내용7'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목8',
-                content: '내용8'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목9',
-                content: '내용9'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목10',
-                content: '내용10'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목11',
-                content: '내용11'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목12',
-                content: '내용12'
-            },
-            {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목2',
-                content: '내용2'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목3',
-                content: '내용3'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목4',
-                content: '내용4'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목5',
-                content: '내용5'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목6',
-                content: '내용6'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목7',
-                content: '내용7'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목8',
-                content: '내용8'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목9',
-                content: '내용9'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목10',
-                content: '내용10'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목11',
-                content: '내용11'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목12',
-                content: '내용12'
-            },
-            {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목2',
-                content: '내용2'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목3',
-                content: '내용3'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목4',
-                content: '내용4'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목5',
-                content: '내용5'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목6',
-                content: '내용6'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목7',
-                content: '내용7'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목8',
-                content: '내용8'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목9',
-                content: '내용9'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목10',
-                content: '내용10'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목11',
-                content: '내용11'
-            }, {
-                name: '농어',
-                password: '1111',
-                email: 'nongeo@test.com',
-                title: '제목12',
-                content: '내용12'
-            }
+            ...data
         ]);
 
         // 임시 문의 글 답변
