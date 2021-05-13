@@ -25,23 +25,24 @@
                         <tr class="name">
                             <td>
                                 <p class="row">
-                                    <span class="label name">이름</span><input class="form-input name label-text" name="name" type="text" required="required"></p>
+                                    <span class="label name">이름</span><input class="form-input name label-text" name="name" type="text" required="required" value="{{inquiry.name}}"></p>
                                 <p class="row">
-                                    <span class="label email">이메일</span><input class="form-input email label-text" name="email" type="email" required="required"></p>
+                                    <!-- <span class="label email">이메일</span><input class="form-input email label-text" name="email" type="email" required="required" value="{{inquiry.email}}"></p> -->
+                                    <span class="label email">이메일</span><input class="form-input email label-text" name="email" type="text" required="required" value="{{inquiry.email}}"></p>
                                 <p class="row">
-                                    <span class="label password">비밀번호</span><input class="form-input password label-text" name="password" type="password" required="required"></p>
+                                    <span class="label password">비밀번호</span><input class="form-input password label-text" name="password" type="password" required="required" value="{{inquiry.password}}"></p>
                             </td>
                         </tr>
                         <tr class="title">
                             <td>
-                                <span class="label title">제목</span><input class="form-input title label-text" name="title" type="text" maxlength="{{ titleLength }}" required="required">
+                                <span class="label title">제목</span><input class="form-input title label-text" name="title" type="text" maxlength="{{ titleLength }}" required="required" value="{{inquiry.title}}">
                             </td>
                         </tr>
                         <tr class="content">
                             <td>
                                 <span class="label content">문의내용</span>
                                 <div class="texta-wrapper" data-role="texta-wrapper">
-                                    <textarea class="form-textarea content" name="content" id="register_content" maxlength="{{ contentLength }}" required="required"></textarea>
+                                    <textarea class="form-textarea content" name="content" id="register_content" maxlength="{{ contentLength }}" required="required">{{inquiry.content | safe}}</textarea>
                                     <span id="texta_counter" class="texta-counter"></span>
                                 </div>
                             </td>
